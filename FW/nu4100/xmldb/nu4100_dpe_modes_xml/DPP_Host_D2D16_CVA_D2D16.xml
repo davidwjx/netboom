@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NU4100>
+  <REGISTERS>
+    <BLOCK BLOCK_PROTOTYPE_ID="140" NAME="PPE" START_ADDR="0x08030000">
+      <BLOCK_DB>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="202" NAME="depth_post_misc_host" START_ADDR="0xA600">
+          <BLOCK_DB>
+            <REGISTER NAME="conf_lut_0" ADDR_OFFSET="0x14" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="val" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="32" VALUE="0x0" USER_ID="23040" />
+            </REGISTER>
+            <REGISTER NAME="conf_lut_1" ADDR_OFFSET="0x18" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="val" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="32" VALUE="0x0" USER_ID="23041" />
+            </REGISTER>
+            <REGISTER NAME="ctrl" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="depth_shift" RESET_VAL="0x0" START_BIT_OFFSET="4" WIDTH="4" VALUE="0" USER_ID="23032" />
+              <FIELD NAME="depth_pos" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="4" VALUE="0" USER_ID="23033" />
+              <FIELD NAME="conf_pos" RESET_VAL="0x0" START_BIT_OFFSET="12" WIDTH="4" VALUE="0" USER_ID="23034" />
+              <FIELD NAME="depth_mask" RESET_VAL="0x0" START_BIT_OFFSET="16" WIDTH="16" VALUE="0xFFFF" USER_ID="23035" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="202" NAME="depth_post_misc_cva" START_ADDR="0xA700">
+          <BLOCK_DB>
+            <REGISTER NAME="conf_lut_0" ADDR_OFFSET="0x14" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="val" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="32" VALUE="0x0" USER_ID="23059" />
+            </REGISTER>
+            <REGISTER NAME="conf_lut_1" ADDR_OFFSET="0x18" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="val" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="32" VALUE="0x0" USER_ID="23060" />
+            </REGISTER>
+            <REGISTER NAME="ctrl" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="depth_shift" RESET_VAL="0x0" START_BIT_OFFSET="4" WIDTH="4" VALUE="0" USER_ID="23051" />
+              <FIELD NAME="depth_pos" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="4" VALUE="0" USER_ID="23052" />
+              <FIELD NAME="conf_pos" RESET_VAL="0x0" START_BIT_OFFSET="12" WIDTH="4" VALUE="0" USER_ID="23053" />
+              <FIELD NAME="depth_mask" RESET_VAL="0x0" START_BIT_OFFSET="16" WIDTH="16" VALUE="0xFFFF" USER_ID="23054" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+      </BLOCK_DB>
+    </BLOCK>
+  </REGISTERS>
+</NU4100>

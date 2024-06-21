@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+	<function>
+      <name>Stream_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+	<function>
+      <name>Stream_1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_1</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+	<function>
+      <name>Stream_23</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_23</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_YUV</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_26</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>UVC1</connIdE>
+      </params>
+    </function>
+	<function>
+      <name>Stream_27</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_27</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+	<function>
+      <name>Stream_28</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_28</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+	<function>
+      <name>vision_proc_bokeh</name>
+      <pipe_size>1</pipe_size>
+      <type>VISION_PROC</type>
+      <inputs>
+        <input>IMAGE_26</input>
+        <input>IMAGE_0</input>
+        <input>IMAGE_1</input>
+        <input>IMAGE_28</input>
+        <input>IMAGE_27</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+      </params>
+    </function>
+    <data>
+      <name>vision_proc_bokeh_data</name>
+      <type>IMAGE_DATA</type>
+      <input>vision_proc_bokeh</input>
+      <source>vision_proc_bokeh</source>
+      <params>
+        <bitsPerPixel>16</bitsPerPixel>
+        <format>YUV422_8BIT</format>
+        <height>1080</height>
+        <width>1920</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>1920</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>1080</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>Sout_vision_bokeh</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>vision_proc_bokeh_data</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>UVC1</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

@@ -1,0 +1,6 @@
+linux_gcc-4.8_x86
+linux_gcc-4.8_x86_64
+android_ndk10d_android-17-armeabi-v7a
+#android_ndk10d_armeabi-v7a
+#tizen_gcc-4.7_armv7a
+linux_raspberry_arm

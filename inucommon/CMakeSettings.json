@@ -1,0 +1,38 @@
+﻿{
+  "configurations": [
+    {
+      "name": "x64-Debug",
+      "generator": "Visual Studio 16 2019 Win64",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "cmakeCommandArgs": "-DCMAKE_VERBOSE_MAKEFILE=TRUE -DCMAKE_BUILD_TYPE=Debug -DUSE_CONAN=TRUE -DCLEAN_CONAN=TRUE -DINUSTREAMS_ONLY=FALSE -DLOCAL_RESOURCES=FALSE -DBOOST_ROOT= -DOPENCV_ROOT= -DOPENCV_VER="
+    },
+    {
+      "name": "x64-Release",
+      "generator": "Visual Studio 16 2019 Win64",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "-DCMAKE_VERBOSE_MAKEFILE=TRUE -DCMAKE_BUILD_TYPE=Release -DUSE_CONAN=TRUE -DCLEAN_CONAN=TRUE -DCLEAN_CONAN=TRUE -DINUSTREAMS_ONLY=FALSE -DBOOST_ROOT= -DOPENCV_ROOT= -DOPENCV_VER=",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ]
+    },
+    {
+      "name": "WSL-GCC-Release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeExecutable": "cmake",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "wslPath": "${defaultWSLPath}",
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=../../cmake/linux_gcc-7.4_x86_64.cmake  -DCMAKE_VERBOSE_MAKEFILE=TRUE -DUSE_CONAN=TRUE -DCLEAN_CONAN=TRUE -DBOOST_ROOT= -DOPENCV_ROOT= -DOPENCV_VER= -DTHIRD_PARTY_ROOT="
+    }
+  ]
+}

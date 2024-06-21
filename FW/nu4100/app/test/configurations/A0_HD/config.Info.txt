@@ -1,0 +1,8 @@
+Current time: 07/10/2014 01:31
+Sensor : SOC1040
+Calibration dir : D:\local\ODP04_082\Calibration_tables
+
+Warnings: 
+Image width was cut by 4 in order to be aligned to size of 16
+===> Video Dimensions      : 1232x920
+===> Disparity Dimensions : 1232x920

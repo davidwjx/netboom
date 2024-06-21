@@ -1,0 +1,41 @@
+# Which test to execute: 
+#	0 - Quit, 
+#	1 - ReadTiff, 
+#	2 - WriteTiff, 
+#	3 - Read Input tiff, 
+#	4 - Benchmark , 
+#	5 - MetaDatafile, 
+#	8 - GetCommonConfigPath,
+#	9- IsProcessRunning,
+#	10 - GetExeFullPathFileName,
+#	11 - Logger
+#   12 - Save BMP
+#
+# Select Logger type (bit mask), 0 - auto,  1 - Console, 2 - Debug view , 4 - File
+TestType=13
+LoggerType=7
+TestType=11
+LoggerType=1
+TestType=11
+LoggerType=7
+TestType=12
+TestType=2
+TestType=1
+# In case of type 3 need to provide file name
+TestType=3
+FileName=Depth_00138317.tif
+TestType=3
+FileName=Video_00467924.raw
+# File that was generated in MATALB
+TestType=3
+FileName=ZBuf_00005763.tif
+TestType=5
+TestType=8
+TestType=9
+ProcName=InuService
+TestType=10
+ProcName=InuService
+TestType=0
+
+
+

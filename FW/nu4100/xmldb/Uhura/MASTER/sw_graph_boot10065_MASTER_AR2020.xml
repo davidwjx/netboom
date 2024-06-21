@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+   <function>
+      <name>Stream_VST_AF_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_2</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+   <function>
+      <name>Stream_VST_AF_1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_3</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

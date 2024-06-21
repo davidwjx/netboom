@@ -1,0 +1,99 @@
+%YAML:1.0
+
+tag: "sandbox-parameters"       # File tag
+version: 1.0                    # File version
+
+params:
+  offlineHwXmlParse:            # Display HW channels for the given XML (offline, does not invoke boot)
+    offlineEnable: 0            # 1 to enable offline mode (HW XML parsing only)
+    hwXmlPath: ""               # Path to the HW XML (empty string to the default bootID XML)
+  alternate:                    # Number of frames for the alternate mode
+    mode: 0                     # Resolution mode (0 - bin, 1 - full, 2 - user defined, 3 - vertical binning, 4 - UXVGA)
+    frames: 0                   # Number of frames per the mode
+  standaloneMode: 0             # 1 to set standalone mode
+  hwXmlDebugMode: 0             # 1 to HW XML debug mode
+  cmdListener: 0                # 1 to open a command listener for invoking runtime commands
+  duration: 1000                # Duration for the tests in seconds
+  iterations: 1                 # Number of test iterations
+  disablePowerOptimization: 0   # 1 to disable pwr optimization, 0 to keep it enabled
+  watchdogTimeout: 3            # Set application watchdog duration (in seconds), 0 to disable application watchdog
+  configFilesPath: ""           # Alternative path for the SW/HW XML graphs
+  bootID: -1                    # Force different bootId (-1 to use from flash)
+  calibPath: ""                 # Alternative path for the sensor calibration files
+  linuxFiles:
+    # List of linux files to write into linux filesystem
+    - filePath: ""              # Path to the file on the local machine
+      fileName: ""              # The file name to be saved on the linux (under /media/inuitive/)
+  uartPortName: ""              # Activates Time Sync via UART, with specific Port Number/Device Name
+  interfaceParams: 
+    interfaceSelect: 0          # Which interface to use for deviceInitParams.interface_0.select - 0-USB, 1-UART, 2-TCP 3-CDC, 4-stub.
+    portNumber: 5               # Port Number to be used by UART or CDC interface type. Not relevant to other interface types.
+    baudrate: 921600            # Baud Rate to be used by UART or CDC interface type. Not relevant to other interface types.
+
+  configurations:
+    # List of configurations/graphs (if the list is empty, default graph named "main" will be created)
+    - name: "main"              # Configuration name (empty string to skip)
+      hwXmlFile: ""             # HW graph XML file (empty string to use the default bootID xml)
+      swXmlFile: ""             # SW graph XML file (empty string to use the default bootID xml)
+      channels:
+        # List of channels
+        - channel: -1           # Channel number (-1 to skip)
+          interleave: 0         # Set interleaving off for a channel (bitmap specifies which streams to keep)
+          chunkMode: 0          # Set chunk mode on channel (each chunk with given number of lines)
+          scale:                # HW scaling dimentions on channel
+            width: 1080
+            height: 1080
+          crop:                 # Channel crop dimentions and start location
+            stride: 1080
+            bufferHeight: 1080
+            width: 1080
+            height: 1080
+            x: 0
+            y: 0
+          cscMode: 0            # Channel format coversion: 0 - YUV-->RGB(by PPU CSC)                1 - RGB-->YUV(just set bypass to CSC if enabled) 
+                                #                           2 - GRAY16-->RAW10(by CSC manipulation)  3 - RAW10-->GRAY16(bypass to CSC if enabled)
+          iauBypass: 0          # 0 - IAU bypass is disabled, 1 - IAU bypass is enabled
+          setInjectionRes:      # Define injection channel resolution
+            width: 0
+            height: 0
+          linkSensorsToWriter:
+            # List of sensors needed info for injection (link sensor calibration to writer), used for multigraphs
+            - 0
+            - 1
+      sensorsFrameRate: 0       # All sensor groups frame rate (in FPS)
+      sensorsResMode: 0         # All sensor groups resolution mode (0 - bin, 1 - full, 2 - user defined, 3 - vertical binning, 4 - UXVGA)
+      sensors:
+        # List of sensors/groups
+        - sensor: -1            # Sensor/group number (-1 to skip)
+          frameRate: 0          # Sensor (or group) frame rate in FPS
+          resMode: 0            # Sensor (or group) resolution mode (0 - bin, 1 - full, 2 - user defined, 3 - vertical binning, 4 - UXVGA)
+      HwFunctions:
+        # List of HW names (activate hardware by name)
+        - ""
+      dpeConfigFiles:
+        # List of DPE config files
+        - "DPE_Active_Common.xml"
+        - "DPP_Host_Disp844_CVA_D2D16.xml"
+      networks:
+        # List of networks
+        - networkId: -1         # Network ID (-1 to skip)
+          binName: ""           # Network bin to load to the network id
+          pipeDepth: 1          # Pipe depth (default = 1)
+          processsingFlags: 0   # Processing flags (default = 0)
+          channelSwap: 0        # Channel order (0-rgb order, 1-bgr order, default = 0)
+          CDNN_funcName: ""     # Set network ID to CDNN function name
+      streams:
+        # List of streams
+        - stream: "Stream_Depth_1"
+          statsEnable: 1        # Print statistics for a test (0 - disabled, 1 - enabled)
+          recordOutput: 0       # Record stream output (0 - disabled, 1 - enabled)
+          displayOutput: 1      # Display stream output (0 - disabled, 1 - enabled)
+
+      injectionTest: ""         # Injection test ("" - disabled, IR1 - Raw 640x400, IR2 - Raw 1280x800, FE1 - Raw 640x480, RGB1 - Raw 400x400, DPEPP - Disparity 1024x1024)
+
+  bindNodes:
+    # List of configration bindings (bind node1 with node2)
+    - configName1: ""           # Configuration (graph) #1 name
+      nodeName1: ""             # Node #1 (in graph #1) name
+      configName2: ""           # Configuration (graph) #2 name
+      nodeName2: ""             # Node #2 (in graph #2) name

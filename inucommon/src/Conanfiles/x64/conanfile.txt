@@ -1,0 +1,8 @@
+[requires]
+opencv_x64/4.5.1@3rdParty/dev
+boost_x64/1.75.0@3rdParty/dev
+tiff_windows/4.0.3@3rdParty/dev
+yaml-cpp/0.6.2@3rdParty/dev
+
+[generators]
+cmake

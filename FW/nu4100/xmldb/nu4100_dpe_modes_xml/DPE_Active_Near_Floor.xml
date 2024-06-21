@@ -1,0 +1,41 @@
+<?xml $Revision: 1834958 $ encoding="utf-8"?>
+<NU4100>
+  <REGISTERS>
+    <BLOCK BLOCK_PROTOTYPE_ID="170" NAME="DPE" START_ADDR="0x08010000">
+      <BLOCK_DB>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="181" NAME="dpe_p0" START_ADDR="0x900">
+          <BLOCK_DB>
+            <REGISTER NAME="ropt_punish_p1" ADDR_OFFSET="0x14" RESET_VAL="0x80002" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x2" START_BIT_OFFSET="0" WIDTH="12" VALUE="40" USER_ID="30318" />
+              <FIELD NAME="large_val" RESET_VAL="0x8" START_BIT_OFFSET="16" WIDTH="12" VALUE="40" USER_ID="30319" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p2" ADDR_OFFSET="0x18" RESET_VAL="0x100004" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x4" START_BIT_OFFSET="0" WIDTH="12" VALUE="80" USER_ID="30320" />
+              <FIELD NAME="large_val" RESET_VAL="0x10" START_BIT_OFFSET="16" WIDTH="12" VALUE="80" USER_ID="30321" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p3" ADDR_OFFSET="0x1C" RESET_VAL="0x40001" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x1" START_BIT_OFFSET="0" WIDTH="12" VALUE="60" USER_ID="30322" />
+              <FIELD NAME="large_val" RESET_VAL="0x4" START_BIT_OFFSET="16" WIDTH="12" VALUE="60" USER_ID="30323" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="181" NAME="dpe_p1" START_ADDR="0xA00">
+          <BLOCK_DB>
+            <REGISTER NAME="ropt_punish_p1" ADDR_OFFSET="0x14" RESET_VAL="0x80002" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x2" START_BIT_OFFSET="0" WIDTH="12" VALUE="40" USER_ID="30559" />
+              <FIELD NAME="large_val" RESET_VAL="0x8" START_BIT_OFFSET="16" WIDTH="12" VALUE="40" USER_ID="30560" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p2" ADDR_OFFSET="0x18" RESET_VAL="0x100004" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x4" START_BIT_OFFSET="0" WIDTH="12" VALUE="80" USER_ID="30561" />
+              <FIELD NAME="large_val" RESET_VAL="0x10" START_BIT_OFFSET="16" WIDTH="12" VALUE="80" USER_ID="30562" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p3" ADDR_OFFSET="0x1C" RESET_VAL="0x40001" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x1" START_BIT_OFFSET="0" WIDTH="12" VALUE="60" USER_ID="30563" />
+              <FIELD NAME="large_val" RESET_VAL="0x4" START_BIT_OFFSET="16" WIDTH="12" VALUE="60" USER_ID="30564" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+      </BLOCK_DB>
+    </BLOCK>
+  </REGISTERS>
+</NU4100>

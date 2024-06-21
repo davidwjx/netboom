@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=OnHostRunner
+Exec=/opt/Inuitive/InuDev/bin/OnHostRunner
+Icon=/opt/Inuitive/InuDev/config/icons/OnHostRunner.bmp
+Comment=  
+Type=Application
+Terminal=true
+Name[en_US]=OnHostRunner

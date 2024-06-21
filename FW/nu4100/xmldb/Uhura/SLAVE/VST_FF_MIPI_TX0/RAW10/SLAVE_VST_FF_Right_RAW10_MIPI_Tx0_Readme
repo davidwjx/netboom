@@ -1,0 +1,35 @@
+Introduction:
+-------------
+The output stream from VST FF Right sensor can be received on MIPI Tx0 interface. It is then possible to connect a receiver NU4000 base board and verify the output stream.
+
+XMLs:
+-----
+The required XML files are located at the location FW/NU4100/xmldb/SLAVE. The following XML files are required:
+1. nu4100_boot10065.xml
+2. nu4100_boot10065_SLAVE_VST_FF_RIGHT_RAW10_MIPI_TX0_b.xml
+3. sw_graph_boot10065.xml
+4. sw_graph_boot10065_SLAVE_VST_FF_RIGHT_RAW10_MIPI_TX0_b.xml
+
+Copy the files to the location where the NU4100 SDK has been installed and rename them as default boot10065 xml files.
+for ex: Linux - 
+$ sudo cp <PATH_TO_>/nu4100_boot10065.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/nu4100_boot10065.xml
+$ sudo cp <PATH_TO_>/nu4100_boot10065_SLAVE_VST_FF_RIGHT_RAW10_MIPI_TX0_b.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/nu4100_boot10065_b.xml
+$ sudo cp <PATH_TO_>/sw_graph_boot10065.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/sw_graph_boot10065.xml
+$ sudo cp <PATH_TO_>/sw_graph_boot10065_SLAVE_VST_FF_RIGHT_RAW10_MIPI_TX0_b.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/sw_graph_boot10065_b.xml
+
+Description:
+-----------
+The following path has been chosen for the output of bottom tracking stereo stream through MIPI Tx2 interface.
+sensor_3 -> CSI_Rx_5 -> slu_5 -> Reader_9 --|
+The reader_9 is taken as input to a second channel which provides the bottom tracking stereo stream output through MIPI Tx0 interface.
+Writer_0 -> PPU8 (Repacker_0) -> VSC_CSI_2_ - > CSI_Video_Interleaver_0 -> VSC_CSI_Tx_0 -> MIPI_Channel_0
+
+Procedure:
+-----------
+Use the following command to activate the bottom right tracking sensor through MIPI channel 0:
+sudo ./inu_sandbox -a 0 -T Stream_VST_FF_RIGHT,s -d 200000 -k 10065 -N "boot10065_b" "nu4100_boot10065_b.xml" "sw_graph_boot10065_b.xml" -J 21 1280 960 -B "main" "IMAGE_9" "boot10065_b" "WRITER_0"  -H "INU_MIPI_CHANNEL_0"
+
+Notes:
+------
+1. When NU4100 stores the image data in CIIF format internally whilst processing, the RAW10 image data is shifted to left by 6. Hence it is required to adjust the pixel alignment in the corresponding SLUs and it was required to use a repacker of PPU to align the image data before MIPI Tx0 output. For more details please check "section 5.3.3.7 Data Format" and  "section 6.3.2 AXI Write Buffer" in "NU4000 C0 IAE and PPE Arcgitecture Specification" document.
+2. There is a known issue on the Rx Side (Tested using NU4000C0 base board) that the SLU has the "height" interrupt bit set in IAE_SLU_IRQ(0x8000838) register. This means that the input frame width is less than (horizontal crop offset + output frame horizontal size). It has been verified in the VSC_CSI2 registers that the resoultion has been set correctly. It also been verified by checking the output of PP8 using an inetrmediate axi_read block.

@@ -1,0 +1,11 @@
+Package: inudev
+Version: 2.07.0009.53-1
+Section: misc
+Priority: optional
+Architecture: amd64
+Source: inudev
+Installed-Size: 68000
+Depends: 
+Maintainer: Inuitive <support@inuitive-tech.com>
+Description: SDK of Inuitive application
+ Use InuDev to stream Video, Depth or WebCam images.

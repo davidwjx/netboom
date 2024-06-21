@@ -1,0 +1,37 @@
+Creating burnable UBI image
+---------------------------
+
+1. For each volume in the storage, create a folder with desireable content. E.g. we create a "test" folder.
+2. Run following command: 
+	mkfs.ubifs -r test/ -m 4096 -e 253952 -c 4096 -o test_ubifs.img
+3. Run this command for each volume that should be reated. For empty volume, create empty folder.
+4. Create .ini file that includes properties of all the volumes of the storage.
+   File format looks like this:
+   
+   [test-volume]
+   mode=ubi
+   image=test_ubifs.img
+   vol_id=0
+   vol_size=256MiB
+   vol_type=dynamic
+   vol_name=test
+   
+   [misc-volume]
+   mode=ubi
+   image=ubifs_empty.img
+   vol_id=2
+   vol_size=256MiB
+   vol_type=dynamic
+   vol_name=misc 
+
+   [ubitools-volume]
+   mode=ubi
+   image=ubiutils_ubifs.img
+   vol_id=1
+   vol_size=256MiB
+   vol_type=dynamic
+   vol_name=ubitools
+   
+5. Run following command: 
+	ubinize -o ubi_for_flash.img -p 256KiB -m 4096 -s 4096 ubifs.ini
+6. Burn ubi_for_flash.img starting from offset 0x00 into NAND flash

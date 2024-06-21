@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NU4100>
+  <REGISTERS>
+    <BLOCK BLOCK_PROTOTYPE_ID="170" NAME="DPE" START_ADDR="0x08010000">
+      <BLOCK_DB>
+        <REGISTER NAME="blb_cfg" ADDR_OFFSET="0xE0" RESET_VAL="0x500C0" WIDTH="32">
+          <FIELD NAME="rsrvd_fifo_cfg" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="2" VALUE="0" USER_ID="30142" />
+          <FIELD NAME="start_line_ciif_0" RESET_VAL="0xc" START_BIT_OFFSET="4" WIDTH="11" VALUE="20" USER_ID="30143" />
+          <FIELD NAME="im_start_line_ciif_0" RESET_VAL="0x5" START_BIT_OFFSET="16" WIDTH="11" VALUE="5" USER_ID="30144" />
+        </REGISTER>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="169" NAME="agg_left_p0" START_ADDR="0x100">
+          <BLOCK_DB>
+            <REGISTER NAME="pxl_diff" ADDR_OFFSET="0x20" RESET_VAL="0x20001506" WIDTH="32">
+              <FIELD NAME="a_shift" RESET_VAL="0x6" START_BIT_OFFSET="0" WIDTH="3" VALUE="0" USER_ID="30177" />
+              <FIELD NAME="b_shift1" RESET_VAL="0x5" START_BIT_OFFSET="8" WIDTH="3" VALUE="3" USER_ID="30178" />
+              <FIELD NAME="b_shift2" RESET_VAL="0x1" START_BIT_OFFSET="12" WIDTH="3" VALUE="0" USER_ID="30179" />
+              <FIELD NAME="diff_shift" RESET_VAL="0x0" START_BIT_OFFSET="24" WIDTH="3" VALUE="2" USER_ID="30180" />
+              <FIELD NAME="b_sum_diff" RESET_VAL="0x1" START_BIT_OFFSET="29" WIDTH="1" VALUE="0" USER_ID="30181" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="infomap_inv_en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="0" USER_ID="30185" />
+              <FIELD NAME="dyn_min_thr" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="8" VALUE="30" USER_ID="30186" />
+              <FIELD NAME="edge_infomap_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="1" VALUE="1" USER_ID="30187" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="169" NAME="agg_left_p1" START_ADDR="0x200">
+          <BLOCK_DB>
+            <REGISTER NAME="pxl_diff" ADDR_OFFSET="0x20" RESET_VAL="0x20001506" WIDTH="32">
+              <FIELD NAME="a_shift" RESET_VAL="0x6" START_BIT_OFFSET="0" WIDTH="3" VALUE="0" USER_ID="30195" />
+              <FIELD NAME="b_shift1" RESET_VAL="0x5" START_BIT_OFFSET="8" WIDTH="3" VALUE="3" USER_ID="30196" />
+              <FIELD NAME="b_shift2" RESET_VAL="0x1" START_BIT_OFFSET="12" WIDTH="3" VALUE="0" USER_ID="30197" />
+              <FIELD NAME="diff_shift" RESET_VAL="0x0" START_BIT_OFFSET="24" WIDTH="3" VALUE="2" USER_ID="30198" />
+              <FIELD NAME="b_sum_diff" RESET_VAL="0x1" START_BIT_OFFSET="29" WIDTH="1" VALUE="0" USER_ID="30199" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="infomap_inv_en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="0" USER_ID="30203" />
+              <FIELD NAME="dyn_min_thr" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="8" VALUE="30" USER_ID="30204" />
+              <FIELD NAME="edge_infomap_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="1" VALUE="1" USER_ID="30205" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="169" NAME="agg_right_p0" START_ADDR="0x300">
+          <BLOCK_DB>
+            <REGISTER NAME="pxl_diff" ADDR_OFFSET="0x20" RESET_VAL="0x20001506" WIDTH="32">
+              <FIELD NAME="a_shift" RESET_VAL="0x6" START_BIT_OFFSET="0" WIDTH="3" VALUE="0" USER_ID="30213" />
+              <FIELD NAME="b_shift1" RESET_VAL="0x5" START_BIT_OFFSET="8" WIDTH="3" VALUE="3" USER_ID="30214" />
+              <FIELD NAME="b_shift2" RESET_VAL="0x1" START_BIT_OFFSET="12" WIDTH="3" VALUE="0" USER_ID="30215" />
+              <FIELD NAME="diff_shift" RESET_VAL="0x0" START_BIT_OFFSET="24" WIDTH="3" VALUE="2" USER_ID="30216" />
+              <FIELD NAME="b_sum_diff" RESET_VAL="0x1" START_BIT_OFFSET="29" WIDTH="1" VALUE="0" USER_ID="30217" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="infomap_inv_en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="0" USER_ID="30221" />
+              <FIELD NAME="dyn_min_thr" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="8" VALUE="30" USER_ID="30222" />
+              <FIELD NAME="edge_infomap_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="1" VALUE="1" USER_ID="30223" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="169" NAME="agg_right_p1" START_ADDR="0x400">
+          <BLOCK_DB>
+            <REGISTER NAME="pxl_diff" ADDR_OFFSET="0x20" RESET_VAL="0x20001506" WIDTH="32">
+              <FIELD NAME="a_shift" RESET_VAL="0x6" START_BIT_OFFSET="0" WIDTH="3" VALUE="0" USER_ID="30231" />
+              <FIELD NAME="b_shift1" RESET_VAL="0x5" START_BIT_OFFSET="8" WIDTH="3" VALUE="3" USER_ID="30232" />
+              <FIELD NAME="b_shift2" RESET_VAL="0x1" START_BIT_OFFSET="12" WIDTH="3" VALUE="0" USER_ID="30233" />
+              <FIELD NAME="diff_shift" RESET_VAL="0x0" START_BIT_OFFSET="24" WIDTH="3" VALUE="2" USER_ID="30234" />
+              <FIELD NAME="b_sum_diff" RESET_VAL="0x1" START_BIT_OFFSET="29" WIDTH="1" VALUE="0" USER_ID="30235" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="infomap_inv_en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="0" USER_ID="30239" />
+              <FIELD NAME="dyn_min_thr" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="8" VALUE="30" USER_ID="30240" />
+              <FIELD NAME="edge_infomap_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="1" VALUE="1" USER_ID="30241" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="181" NAME="dpe_p0" START_ADDR="0x900">
+          <BLOCK_DB>
+            <REGISTER NAME="ropt_ctrl" ADDR_OFFSET="0x10" RESET_VAL="0x600202" WIDTH="32">
+              <FIELD NAME="opt_en" RESET_VAL="0x3" START_BIT_OFFSET="21" WIDTH="2" VALUE="3" USER_ID="30316" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p1" ADDR_OFFSET="0x14" RESET_VAL="0x80002" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x2" START_BIT_OFFSET="0" WIDTH="12" VALUE="30" USER_ID="30318" />
+              <FIELD NAME="large_val" RESET_VAL="0x8" START_BIT_OFFSET="16" WIDTH="12" VALUE="30" USER_ID="30319" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p2" ADDR_OFFSET="0x18" RESET_VAL="0x100004" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x4" START_BIT_OFFSET="0" WIDTH="12" VALUE="60" USER_ID="30320" />
+              <FIELD NAME="large_val" RESET_VAL="0x10" START_BIT_OFFSET="16" WIDTH="12" VALUE="60" USER_ID="30321" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p3" ADDR_OFFSET="0x1C" RESET_VAL="0x40001" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x1" START_BIT_OFFSET="0" WIDTH="12" VALUE="45" USER_ID="30322" />
+              <FIELD NAME="large_val" RESET_VAL="0x4" START_BIT_OFFSET="16" WIDTH="12" VALUE="45" USER_ID="30323" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x8" WIDTH="32">
+              <FIELD NAME="unite_en" RESET_VAL="0x1" START_BIT_OFFSET="3" WIDTH="1" VALUE="1" USER_ID="30336" />
+              <FIELD NAME="smallfilter_en" RESET_VAL="0x0" START_BIT_OFFSET="4" WIDTH="1" VALUE="0" USER_ID="30337" />
+              <FIELD NAME="lin_conf_out_len" RESET_VAL="0x0" START_BIT_OFFSET="12" WIDTH="3" VALUE="4" USER_ID="30338" />
+            </REGISTER>
+            <REGISTER NAME="reg_unite_cfg" ADDR_OFFSET="0x94" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="unite_thr" RESET_VAL="0x0" START_BIT_OFFSET="16" WIDTH="8" VALUE="4" USER_ID="30434" />
+            </REGISTER>
+            <REGISTER NAME="blob0_cfg1" ADDR_OFFSET="0xA4" RESET_VAL="0xC00" WIDTH="32">
+              <FIELD NAME="max_list_size" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="5" VALUE="20" USER_ID="30435" />
+              <FIELD NAME="lin_dist" RESET_VAL="0xc" START_BIT_OFFSET="8" WIDTH="6" VALUE="19" USER_ID="30436" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="181" NAME="dpe_p1" START_ADDR="0xA00">
+          <BLOCK_DB>
+            <REGISTER NAME="ropt_ctrl" ADDR_OFFSET="0x10" RESET_VAL="0x600202" WIDTH="32">
+              <FIELD NAME="opt_en" RESET_VAL="0x3" START_BIT_OFFSET="21" WIDTH="2" VALUE="3" USER_ID="30557" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p1" ADDR_OFFSET="0x14" RESET_VAL="0x80002" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x2" START_BIT_OFFSET="0" WIDTH="12" VALUE="30" USER_ID="30559" />
+              <FIELD NAME="large_val" RESET_VAL="0x8" START_BIT_OFFSET="16" WIDTH="12" VALUE="30" USER_ID="30560" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p2" ADDR_OFFSET="0x18" RESET_VAL="0x100004" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x4" START_BIT_OFFSET="0" WIDTH="12" VALUE="60" USER_ID="30561" />
+              <FIELD NAME="large_val" RESET_VAL="0x10" START_BIT_OFFSET="16" WIDTH="12" VALUE="60" USER_ID="30562" />
+            </REGISTER>
+            <REGISTER NAME="ropt_punish_p3" ADDR_OFFSET="0x1C" RESET_VAL="0x40001" WIDTH="32">
+              <FIELD NAME="small_val" RESET_VAL="0x1" START_BIT_OFFSET="0" WIDTH="12" VALUE="45" USER_ID="30563" />
+              <FIELD NAME="large_val" RESET_VAL="0x4" START_BIT_OFFSET="16" WIDTH="12" VALUE="45" USER_ID="30564" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x8" WIDTH="32">
+              <FIELD NAME="unite_en" RESET_VAL="0x1" START_BIT_OFFSET="3" WIDTH="1" VALUE="1" USER_ID="30577" />
+              <FIELD NAME="smallfilter_en" RESET_VAL="0x0" START_BIT_OFFSET="4" WIDTH="1" VALUE="0" USER_ID="30578" />
+              <FIELD NAME="lin_conf_out_len" RESET_VAL="0x0" START_BIT_OFFSET="12" WIDTH="3" VALUE="4" USER_ID="30579" />
+            </REGISTER>
+            <REGISTER NAME="reg_unite_cfg" ADDR_OFFSET="0x94" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="unite_thr" RESET_VAL="0x0" START_BIT_OFFSET="16" WIDTH="8" VALUE="4" USER_ID="30675" />
+            </REGISTER>
+            <REGISTER NAME="blob0_cfg1" ADDR_OFFSET="0xA4" RESET_VAL="0xC00" WIDTH="32">
+              <FIELD NAME="max_list_size" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="5" VALUE="20" USER_ID="30676" />
+              <FIELD NAME="lin_dist" RESET_VAL="0xc" START_BIT_OFFSET="8" WIDTH="6" VALUE="19" USER_ID="30677" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+      </BLOCK_DB>
+    </BLOCK>
+    <BLOCK BLOCK_PROTOTYPE_ID="140" NAME="PPE" START_ADDR="0x08030000">
+      <BLOCK_DB>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="200" NAME="depth_post_p0" START_ADDR="0xA100">
+          <BLOCK_DB>
+            <REGISTER NAME="plane_fit_grad_cfg" ADDR_OFFSET="0x14" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="disp_thr" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="9" VALUE="496" USER_ID="22906" />
+              <FIELD NAME="min_pixels" RESET_VAL="0x0" START_BIT_OFFSET="16" WIDTH="4" VALUE="5" USER_ID="22907" />
+            </REGISTER>
+            <REGISTER NAME="plane_fit_smooth_cfg" ADDR_OFFSET="0x18" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="disp_thr" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="9" VALUE="496" USER_ID="22908" />
+              <FIELD NAME="min_pixels" RESET_VAL="0x0" START_BIT_OFFSET="16" WIDTH="7" VALUE="20" USER_ID="22909" />
+            </REGISTER>
+            <REGISTER NAME="plane_fit_cfg" ADDR_OFFSET="0x10" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="1" USER_ID="22910" />
+              <FIELD NAME="pixel_smooth_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="2" VALUE="2" USER_ID="22911" />
+            </REGISTER>
+            <REGISTER NAME="inv_cfg" ADDR_OFFSET="0x20" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="lin_con_out_len" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="3" VALUE="4" USER_ID="22914" />
+              <FIELD NAME="conf_thr" RESET_VAL="0x0" START_BIT_OFFSET="4" WIDTH="4" VALUE="1" USER_ID="22915" />
+              <FIELD NAME="conf_msk" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="4" VALUE="0xf" USER_ID="22916" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+      </BLOCK_DB>
+    </BLOCK>
+  </REGISTERS>
+</NU4100>

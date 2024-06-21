@@ -1,0 +1,111 @@
+<?xml $Revision: 1834958 $ encoding="utf-8"?>
+<NU4100>
+  <REGISTERS>
+    <BLOCK BLOCK_PROTOTYPE_ID="170" NAME="DPE" START_ADDR="0x08010000">
+      <BLOCK_DB>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="169" NAME="agg_left_p0" START_ADDR="0x100">
+          <BLOCK_DB>
+            <REGISTER NAME="pxl_diff" ADDR_OFFSET="0x20" RESET_VAL="0x20001506" WIDTH="32">
+              <FIELD NAME="a_shift" RESET_VAL="0x6" START_BIT_OFFSET="0" WIDTH="3" VALUE="1" USER_ID="30177" />
+              <FIELD NAME="b_shift1" RESET_VAL="0x5" START_BIT_OFFSET="8" WIDTH="3" VALUE="0" USER_ID="30178" />
+              <FIELD NAME="b_shift2" RESET_VAL="0x1" START_BIT_OFFSET="12" WIDTH="3" VALUE="0" USER_ID="30179" />
+              <FIELD NAME="diff_shift" RESET_VAL="0x0" START_BIT_OFFSET="24" WIDTH="3" VALUE="0" USER_ID="30180" />
+              <FIELD NAME="b_sum_diff" RESET_VAL="0x1" START_BIT_OFFSET="29" WIDTH="1" VALUE="0" USER_ID="30181" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="infomap_inv_en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="1" USER_ID="30185" />
+              <FIELD NAME="dyn_min_thr" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="8" VALUE="30" USER_ID="30186" />
+              <FIELD NAME="edge_infomap_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="1" VALUE="1" USER_ID="30187" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="169" NAME="agg_left_p1" START_ADDR="0x200">
+          <BLOCK_DB>
+            <REGISTER NAME="pxl_diff" ADDR_OFFSET="0x20" RESET_VAL="0x20001506" WIDTH="32">
+              <FIELD NAME="a_shift" RESET_VAL="0x6" START_BIT_OFFSET="0" WIDTH="3" VALUE="1" USER_ID="30195" />
+              <FIELD NAME="b_shift1" RESET_VAL="0x5" START_BIT_OFFSET="8" WIDTH="3" VALUE="0" USER_ID="30196" />
+              <FIELD NAME="b_shift2" RESET_VAL="0x1" START_BIT_OFFSET="12" WIDTH="3" VALUE="0" USER_ID="30197" />
+              <FIELD NAME="diff_shift" RESET_VAL="0x0" START_BIT_OFFSET="24" WIDTH="3" VALUE="0" USER_ID="30198" />
+              <FIELD NAME="b_sum_diff" RESET_VAL="0x1" START_BIT_OFFSET="29" WIDTH="1" VALUE="0" USER_ID="30199" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="infomap_inv_en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="1" USER_ID="30203" />
+              <FIELD NAME="dyn_min_thr" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="8" VALUE="30" USER_ID="30204" />
+              <FIELD NAME="edge_infomap_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="1" VALUE="1" USER_ID="30205" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="169" NAME="agg_right_p0" START_ADDR="0x300">
+          <BLOCK_DB>
+            <REGISTER NAME="pxl_diff" ADDR_OFFSET="0x20" RESET_VAL="0x20001506" WIDTH="32">
+              <FIELD NAME="a_shift" RESET_VAL="0x6" START_BIT_OFFSET="0" WIDTH="3" VALUE="1" USER_ID="30213" />
+              <FIELD NAME="b_shift1" RESET_VAL="0x5" START_BIT_OFFSET="8" WIDTH="3" VALUE="0" USER_ID="30214" />
+              <FIELD NAME="b_shift2" RESET_VAL="0x1" START_BIT_OFFSET="12" WIDTH="3" VALUE="0" USER_ID="30215" />
+              <FIELD NAME="diff_shift" RESET_VAL="0x0" START_BIT_OFFSET="24" WIDTH="3" VALUE="0" USER_ID="30216" />
+              <FIELD NAME="b_sum_diff" RESET_VAL="0x1" START_BIT_OFFSET="29" WIDTH="1" VALUE="0" USER_ID="30217" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="infomap_inv_en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="1" USER_ID="30221" />
+              <FIELD NAME="dyn_min_thr" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="8" VALUE="30" USER_ID="30222" />
+              <FIELD NAME="edge_infomap_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="1" VALUE="1" USER_ID="30223" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="169" NAME="agg_right_p1" START_ADDR="0x400">
+          <BLOCK_DB>
+            <REGISTER NAME="pxl_diff" ADDR_OFFSET="0x20" RESET_VAL="0x20001506" WIDTH="32">
+              <FIELD NAME="a_shift" RESET_VAL="0x6" START_BIT_OFFSET="0" WIDTH="3" VALUE="1" USER_ID="30231" />
+              <FIELD NAME="b_shift1" RESET_VAL="0x5" START_BIT_OFFSET="8" WIDTH="3" VALUE="0" USER_ID="30232" />
+              <FIELD NAME="b_shift2" RESET_VAL="0x1" START_BIT_OFFSET="12" WIDTH="3" VALUE="0" USER_ID="30233" />
+              <FIELD NAME="diff_shift" RESET_VAL="0x0" START_BIT_OFFSET="24" WIDTH="3" VALUE="0" USER_ID="30234" />
+              <FIELD NAME="b_sum_diff" RESET_VAL="0x1" START_BIT_OFFSET="29" WIDTH="1" VALUE="0" USER_ID="30235" />
+            </REGISTER>
+            <REGISTER NAME="cfg" ADDR_OFFSET="0x00" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="infomap_inv_en" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="1" VALUE="1" USER_ID="30239" />
+              <FIELD NAME="dyn_min_thr" RESET_VAL="0x0" START_BIT_OFFSET="8" WIDTH="8" VALUE="30" USER_ID="30240" />
+              <FIELD NAME="edge_infomap_mode" RESET_VAL="0x0" START_BIT_OFFSET="1" WIDTH="1" VALUE="1" USER_ID="30241" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="212" NAME="uim_left_p0" START_ADDR="0x1000">
+          <BLOCK_DB>
+            <REGISTER NAME="uim_t2" ADDR_OFFSET="0x70" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="val" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="17" VALUE="15000" USER_ID="30806" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="212" NAME="uim_left_p1" START_ADDR="0x1200">
+          <BLOCK_DB>
+            <REGISTER NAME="uim_t2" ADDR_OFFSET="0x70" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="val" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="17" VALUE="15000" USER_ID="30880" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="212" NAME="uim_right_p0" START_ADDR="0x1400">
+          <BLOCK_DB>
+            <REGISTER NAME="uim_t2" ADDR_OFFSET="0x70" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="val" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="17" VALUE="15000" USER_ID="30954" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+        <SUBBLOCK BLOCK_PROTOTYPE_ID="212" NAME="uim_right_p1" START_ADDR="0x1600">
+          <BLOCK_DB>
+            <REGISTER NAME="uim_t2" ADDR_OFFSET="0x70" RESET_VAL="0x0" WIDTH="32">
+              <FIELD NAME="val" RESET_VAL="0x0" START_BIT_OFFSET="0" WIDTH="17" VALUE="15000" USER_ID="31028" />
+            </REGISTER>
+          </BLOCK_DB>
+        </SUBBLOCK>
+      </BLOCK_DB>
+    </BLOCK>
+  </REGISTERS>
+  <FUNCTIONS>
+    <D2D>
+      <FIELD NAME="depth_scale_factor_host" VALUE="100" />
+      <FIELD NAME="depth_scale_factor_cva" VALUE="100" />
+    </D2D>
+    <MinDisp>
+      <FIELD NAME="en" VALUE="0" />
+      <FIELD NAME="minDisp" VALUE="39" />
+    </MinDisp>
+  </FUNCTIONS>
+</NU4100>

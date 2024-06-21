@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+    <function>
+      <name>Stream_IR_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_RGB_1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_4</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Depth_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_5</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Depth_1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_3</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+     <name>IMU_0</name>
+      <type>IMU</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <accel_odr>100</accel_odr>
+        <accel_scale>2</accel_scale>
+        <accel_bw_accel>0</accel_bw_accel>
+        <accel_bw_gyro>0</accel_bw_gyro>
+        <!-- Time shift In usec-->
+        <!-- 100Hz-6510 200Hz-11460 400Hz-13770 800Mhz-15020 1600Mhz-15640-->
+        <accel_timeshift>6510</accel_timeshift>
+        <gyro_odr>100</gyro_odr>
+        <gyro_scale>2000</gyro_scale>
+       <!-- keep bw the same as accel to support legacy -->
+        <gyro_bw_accel>0</gyro_bw_accel>
+        <gyro_bw_gyro>0</gyro_bw_gyro>
+        <!-- Time shift In usec-->
+        <!-- 100Hz-6510 200Hz-11460 400Hz-13770 800Mhz-15020 1600Mhz-15640-->
+        <gyro_timeshift>6510</gyro_timeshift>
+      </params>
+    </function>
+    <data>
+      <name>IMU_DATA_0</name>
+      <type>IMU_DATA</type>
+      <input>IMU_0</input>
+      <source>IMU_0</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Stream_Imu_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMU_DATA_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>	  
+        <numBuffers>100</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF1</connIdE>
+      </params>
+    </function>
+    <function>
+     <name>TEMPERATURE_0</name>
+      <type>TEMPERATURE</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <fps>5</fps>
+      </params>
+    </function>
+    <data>
+      <name>TEMPERATURE_DATA_0</name>
+      <type>TEMPERATURE_DATA</type>
+      <input>TEMPERATURE_0</input>
+      <source>TEMPERATURE_0</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Stream_Temperature_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>TEMPERATURE_DATA_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF1</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Histogram_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>HISTOGRAMN_DATA_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Histogram_1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>HISTOGRAMN_DATA_1</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>SENSOR_CONTROL_0</name>
+      <type>SENSOR_CONTROL</type>
+      <inputs>
+        <input>HISTOGRAMN_DATA_0</input>
+        <input>HISTOGRAMN_DATA_1</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>1</thread_priority>   
+        <aggressiveStep>1000</aggressiveStep>
+        <nSatMax>0x00010001</nSatMax>
+        <glSat>0x02BC02BC</glSat>
+        <mdMax>400</mdMax>
+        <mdMin>200</mdMin>
+        <exposureStepResolution>100</exposureStepResolution>
+        <deltaSatMax>2</deltaSatMax>
+        <noActivationPeriod>0</noActivationPeriod>
+        <exposureMax>5000</exposureMax>
+        <exposureMin>300</exposureMin>
+        <debug>0</debug>
+        <!-- options: 0 old, 1 new -->
+        <algVersion>0</algVersion>
+        <!-- TSNR alg params-->
+        <snrTarget>10</snrTarget>
+        <!-- slopeWeight is divided by 100 in code -->
+        <slopeWeight>90</slopeWeight>
+     </params>
+    </function>
+    <function>
+      <name>cnn_sensor_0</name>
+      <pipe_size>2</pipe_size>
+      <type>CNN</type>
+      <inputs>
+        <input>IMAGE_4</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+        <input_que_depth>1</input_que_depth>
+        <cnn_net_id>0</cnn_net_id>
+        <cnnEngine>0</cnnEngine>
+      </params>
+    </function>
+    <data>
+      <name>cnn_data_0</name>
+      <type>CNN_DATA</type>
+      <input>cnn_sensor_0</input>
+      <source>cnn_sensor_0</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Sout_cnn_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>cnn_data_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>  	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>cnn_inject_stream_in_func</name>
+      <type>STREAM_IN</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>3</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <data>
+      <name>cnn_inject_data_in</name>
+      <type>IMAGE_DATA</type>
+      <input>cnn_inject_stream_in_func</input>
+      <source>cnn_inject_stream_in_func</source>
+      <params>
+        <bitsPerPixel>24</bitsPerPixel>
+        <format>RGB888</format>
+        <height>1200</height>
+        <width>2048</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>2048</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>1200</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>cnn_inject_func</name>
+      <type>CNN</type>
+      <inputs>
+        <input>cnn_inject_data_in</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+        <cnn_net_id>0</cnn_net_id>
+        <cnnEngine>0</cnnEngine>
+      </params>
+    </function>
+    <data>
+      <name>cnn_inject_data</name>
+      <type>CNN_DATA</type>
+      <input>cnn_inject_func</input>
+      <source>cnn_inject_func</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Sout_inject_func</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>cnn_inject_data</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>PP_D2PLY</name>
+      <type>PP</type>
+      <inputs>
+        <input>IMAGE_3</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+      </params>
+      <actionMap>0x300</actionMap>
+    </function>
+    <data>
+      <name>IMAGE_2_PLY</name>
+      <type>POINT_CLOUD_DATA</type>
+      <input>PP_D2PLY</input>
+      <source>PP_D2PLY</source>
+      <params></params>
+    </data>	
+    <function>
+      <name>Stream_PLY</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_2_PLY</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+	<function>
+      <name>Stream_RGB_1_ISP_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_23</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>dpe_pp_0</name>
+      <type>DPE_PP</type>
+      <inputs>
+        <input>IMAGE_5</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+     </params>
+    </function>
+    <data>
+      <name>IMAGE_out_dpe_pp</name>
+      <type>IMAGE_DATA</type>
+      <input>dpe_pp_0</input>
+      <source>INU_SOC_CHANNEL_5</source>
+      <params>
+        <bitsPerPixel>16</bitsPerPixel>
+        <format>DISPARITY</format>
+        <height>1024</height>
+        <width>1024</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>1024</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>1024</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+	  </params>
+    </data>
+    <function>
+      <name>Stream_Out_dpe_pp</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_out_dpe_pp</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>10</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

@@ -1,0 +1,90 @@
+syntax = "proto3";
+package SENSOR_SYNC;
+import "metadata.proto";
+/* These are the trigger sources
+#define EXTERN_SYNC_START_INDEX 16
+const UINT8 SLAVE_TRIGGER_SYNC_SOURCE = EXTERN_SYNC_START_INDEX + 11 ; 
+const UINT8 TE_C2_SYNC_SRC = EXTERN_SYNC_START_INDEX + 14; 
+const UINT8 TE_C1_SYNC_SRC = EXTERN_SYNC_START_INDEX + 15; 
+*/
+message Trigger_Source
+{
+  uint32 triggerSource=1;
+}
+
+message Counter_Source
+{
+  uint32 counter_source=1;
+}
+enum Pulse_Polarity
+{
+  Active_High =  0;
+  Active_Low  =  1;
+}
+
+message TOF_Pulse_Source
+{
+  Pulse_Polarity  pulsePolarity=1;
+  uint32          pulseWidth=2;
+  bool            pulseEnable=3; 
+}
+enum FSG_Counter
+{
+  FSG_COUNTER_0 = 0;    /*Gaze trigger on the master, Tracking on the slave*/
+  FSG_COUNTER_1 = 1;    /*Tracking trigger on the master, VST on the slave*/
+  FSG_COUNTER_2 = 2;    /*VST on the master, TOF on the slave*/
+}
+
+enum FSG_Pulse_Channel
+{
+  FSG_PULSE_0 = 0;    /*Gaze trigger on the master, Tracking on the slave*/
+  FSG_PULSE_1 = 1;    /*Tracking trigger on the master, VST on the slave*/
+  FSG_PULSE_2 = 2;    /*VST on the master, TOF on the slave*/
+  FSG_PULSE_3 = 3;    /*Unused */
+  FSG_PULSE_4 = 4;    /*Unsued*/
+  FSG_PULSE_5 = 5;    /*Unsued*/
+}
+message FSG_Counter_Value
+{
+  uint32 counter_value = 1;
+}
+enum FSG_Count_mode
+{
+  FSG_CNTMODE_MANUAL  = 0;
+  FSG_CNTMODE_SWMODE = 1;
+  FSG_CNTMODE_HWMODE = 2;
+  FSG_CNTMODE_HWSYNC = 3;
+}
+message FSG_Counter_Mode_M
+{
+  FSG_Count_mode countMode= 1;
+}
+message FSG_Counter_Configuration
+{
+  FSG_Counter             counter=1;
+  FSG_Counter_Value       value=2;
+  Trigger_Source          triggerSource=3;              /*Trigger source value*/
+  FSG_Counter_Mode_M          countMode=4;
+}
+
+message FSG_Channel_Configuration
+{
+  FSG_Pulse_Channel       pulseChannel=1;               /*Which pulse channel we are going to update*/
+  Pulse_Polarity          pulsePolarity=2;              /*Polarity of the pulse */
+  uint32                  pulseWidth=3;                 /*Width of the pulse (1 Count = 4ns), Maximum this value can be is 255 */
+  bool                    pulseEnable=4;                /*If the pulse should be enabled or not */
+  Counter_Source          counterSource=5;              /*Counter source value*/     
+  uint32                  pulseOffset=6;               /*Pulse offset */
+  uint32                  pulseRepeatPeriod=7;         /*Pulses can be be repeated with a period of this value, 0 = No repeats */
+}
+message Pulse_Config              /*Configuration structures can be the same for VST and Tracking */
+{
+  FSG_Counter_Configuration       counterConfiguration=1;             /*Which group of sensors we're going to change */
+  FSG_Channel_Configuration       channelConfiguration=2;       
+}
+
+message topLevel
+{
+  repeated Pulse_Config  configs=1;         /*Array of sensor trigger pulse configurations */
+
+}

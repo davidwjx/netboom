@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uhura SLAVE configuration -->
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+    <function>
+      <name>Stream_VST_FF_STEREO</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_9</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Track_Stereo</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_0</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Cva_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>CVA_DATA_19</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_VST_AF_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_2</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_VST_AF_1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_3</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

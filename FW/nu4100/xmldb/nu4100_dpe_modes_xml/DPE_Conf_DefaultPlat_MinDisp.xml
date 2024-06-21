@@ -1,0 +1,9 @@
+<?xml $Revision: 1566619 $ encoding="utf-8"?>
+<DPE>
+	<FUNCTIONS>
+		<MinDisp>
+			<FIELD NAME="en"       				VALUE="0"   />
+			<FIELD NAME="minDisp" 				VALUE="0"   />
+		</MinDisp>
+	</FUNCTIONS>
+</DPE>

@@ -1,0 +1,415 @@
+
+#include "inu_common.h"
+#include "nufld.h"
+#include "xml_path.h"
+#include "assert.h"
+#include "log.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define SLU_PARALLEL_0_FIELD (NU4100_IAE_SLU0_CONTROL_INTERFACE_TYPE_E)
+#define SLU_PARALLEL_1_FIELD (NU4100_IAE_SLU1_CONTROL_INTERFACE_TYPE_E)
+#define SLU_PARALLEL_BLK_NUM_FIELDS (SLU_PARALLEL_1_FIELD - SLU_PARALLEL_0_FIELD)
+#define SLU_PARALLEL_BLK_SIZE (SLU_PARALLEL_BLK_NUM_FIELDS)
+#define SLU_PARALLEL_NUM_BLKS (2)
+
+#define SLU_2_FIELD (NU4100_IAE_SLU2_CONTROL_INTERFACE_TYPE_E)
+#define SLU_3_FIELD (NU4100_IAE_SLU3_CONTROL_INTERFACE_TYPE_E)
+#define SLU_BLK_NUM_FIELDS (SLU_3_FIELD - SLU_2_FIELD)
+#define SLU_BLK_SIZE (SLU_BLK_NUM_FIELDS)
+#define SLU_NUM_BLKS (4)
+
+#define SLU_4_FIELD (NU4100_IAE_SLU4_CONTROL_INTERFACE_TYPE_E)
+#define SLU_5_FIELD (NU4100_IAE_SLU5_CONTROL_INTERFACE_TYPE_E)
+#define SLU_45_BLK_NUM_FIELDS (SLU_5_FIELD - SLU_4_FIELD)
+#define SLU_45_BLK_SIZE (SLU_45_BLK_NUM_FIELDS)
+#define SLU_45_NUM_BLKS (2)
+
+
+#define IAU_0_FIELD (NU4100_IAE_IAU0_CONTROL_BAYER_PATTERN_E)
+#define IAU_1_FIELD (NU4100_IAE_IAU1_CONTROL_BAYER_PATTERN_E)
+#define IAU_NUM_FIELDS (IAU_1_FIELD-IAU_0_FIELD)
+#define IAU_BLK_SIZE (IAU_NUM_FIELDS)
+#define IAU_NUM_BLKS (2)
+
+#define IAU_COLOR_0_FIELD (NU4100_IAE_IAU2_DSR_CONTROL_ORDER_E)
+#define IAU_COLOR_1_FIELD (NU4100_IAE_IAU3_DSR_CONTROL_ORDER_E)
+#define IAU_COLOR_NUM_FIELDS (IAU_COLOR_1_FIELD-IAU_COLOR_0_FIELD)
+#define IAU_COLOR_BLK_SIZE (IAU_COLOR_NUM_FIELDS)
+#define IAU_COLOR_NUM_BLKS (2)
+
+#define PPU_NOSCL_0_FIELD (NU4100_PPE_PPU0_MISC_PPU_CTRL_SRC_SEL_E)
+#define PPU_NOSCL_1_FIELD (NU4100_PPE_PPU1_MISC_PPU_CTRL_SRC_SEL_E)
+#define PPU_NOSCL_NUM_FIELDS (PPU_NOSCL_1_FIELD-PPU_NOSCL_0_FIELD)
+#define PPU_NOSCL_BLK_SIZE (PPU_NOSCL_NUM_FIELDS)
+#define PPU_NOSCL_NUM_BLKS (4)
+
+#define PPU_SCL_0_FIELD (NU4100_PPE_PPU4_MISC_PPU_CTRL_SRC_SEL_E)
+#define PPU_SCL_1_FIELD (NU4100_PPE_PPU5_MISC_PPU_CTRL_SRC_SEL_E)
+#define PPU_SCL_NUM_FIELDS (PPU_SCL_1_FIELD-PPU_SCL_0_FIELD)
+#define PPU_SCL_BLK_SIZE (PPU_SCL_NUM_FIELDS)
+#define PPU_SCL_NUM_BLKS (2)
+
+//#define PPU_HYBSCL_0_FIELD (NU4100_PPE_PPU6_MISC0_CROP_START_X_E)
+#define PPU_HYBSCL_1_FIELD (NU4100_PPE_PPU7_MISC0_CROP_START_X_E)
+#define PPU_HYBSCL_1__LAST_FIELD (NU4100_PPE_PPU7_STITCH_PAD_CFG_PAD_VAL_E)
+#define PPU_HYBSCL_NUM_FIELDS (PPU_HYBSCL_1__LAST_FIELD-PPU_HYBSCL_1_FIELD +1)
+#define PPU_HYBSCL_BLK_SIZE (PPU_HYBSCL_NUM_FIELDS)
+#define PPU_HYBSCL_NUM_BLKS (2)
+
+#define PPU_HYB_0_FIELD (NU4100_PPE_PPU8_MISC0_PPU_CTRL_SRC_SEL_E)
+#define PPU_HYB_1_FIELD (NU4100_PPE_PPU9_MISC0_PPU_CTRL_SRC_SEL_E)
+#define PPU_HYB_NUM_FIELDS (PPU_HYB_1_FIELD-PPU_HYB_0_FIELD)
+#define PPU_HYB_BLK_SIZE (PPU_HYB_NUM_FIELDS)
+#define PPU_HYB_NUM_BLKS (3)
+
+#define PPE_REPACK_0_FIELD (NU4100_PPE_PPU0_REPACK0_SPLIT_CTRL0_STREAM_VECTOR_E)
+#define PPE_REPACK_1_FIELD (NU4100_PPE_PPU0_REPACK1_SPLIT_CTRL0_STREAM_VECTOR_E)
+#define PPU_REPACK_NUM_FIELDS (PPE_REPACK_1_FIELD-PPE_REPACK_0_FIELD)
+#define PPU_REPACK_BLK_SIZE (PPU_REPACK_NUM_FIELDS)
+#define PPU_REPACK_NUM_BLKS (4)
+
+#define AXIRD_0_FIELD (NU4100_PPE_AXI_READ0_CTRL_DATA_SEL_E)
+#define AXIRD_1_FIELD (NU4100_PPE_AXI_READ1_CTRL_DATA_SEL_E)
+#define AXIRD_NUM_FIELDS (AXIRD_1_FIELD-AXIRD_0_FIELD)
+#define AXIRD_BLK_SIZE (AXIRD_NUM_FIELDS)
+#define AXIRD_NUM_BLKS (12)
+
+#define AXIWR_0_FIELD (NU4100_PPE_AXI_WRITE0_CTRL_EN_E)
+#define AXIWR_1_FIELD (NU4100_PPE_AXI_WRITE1_CTRL_EN_E)
+#define AXIWR_NUM_FIELDS (AXIWR_1_FIELD-AXIWR_0_FIELD)
+#define AXIWR_BLK_SIZE (AXIWR_NUM_FIELDS)
+#define AXIWR_NUM_BLKS (6)
+
+#define GEN_0_FIELD (NU4100_IAE_FGEN0_CONTROL_MODE_E)
+#define GEN_1_FIELD (NU4100_IAE_FGEN1_CONTROL_MODE_E)
+#define GEN_NUM_FIELDS (GEN_1_FIELD-GEN_0_FIELD)
+#define GEN_BLK_SIZE (GEN_NUM_FIELDS)
+#define GEN_NUM_BLKS (4)
+
+#define SENSOR_0_FIELD (SENSORS_SENS_0_OP_MODE_E)
+#define SENSOR_1_FIELD (SENSORS_SENS_1_OP_MODE_E)
+#define SENSOR_NUM_FIELDS (SENSOR_1_FIELD-SENSOR_0_FIELD)
+#define SENSOR_BLK_SIZE (SENSOR_NUM_FIELDS)
+#define SENSOR_NUM_BLKS (12)
+
+#define MEDIATOR_0_FIELD (MEDIATORS_MED_0_SRC_SEL0_E)
+#define MEDIATOR_1_FIELD (MEDIATORS_MED_1_SRC_SEL0_E)
+#define MEDIATOR_NUM_FIELDS (MEDIATOR_1_FIELD-MEDIATOR_0_FIELD)
+#define MEDIATOR_BLK_SIZE (MEDIATOR_NUM_FIELDS)
+#define MEDIATOR_NUM_BLKS (6)
+
+#define MIPI_RX_0_FIELD    (BUS_MIPI_CSI_RX0_LANES_E)
+#define MIPI_RX_1_FIELD    (BUS_MIPI_CSI_RX1_LANES_E)
+#define MIPI_RX_2_FIELD    (BUS_MIPI_CSI_RX2_LANES_E)
+#define MIPI_RX_3_FIELD    (BUS_MIPI_CSI_RX3_LANES_E)
+#define MIPI_RX_4_FIELD    (BUS_MIPI_CSI_RX4_LANES_E)
+#define MIPI_RX_5_FIELD    (BUS_MIPI_CSI_RX5_LANES_E)
+#define MIPI_RX_NUM_FIELDS (MIPI_RX_1_FIELD-MIPI_RX_0_FIELD)
+#define MIPI_RX_BLK_SIZE   (MIPI_RX_NUM_FIELDS)
+#define MIPI_RX_NUM_BLKS   (6)
+
+#define MIPI_TX_0_FIELD    (BUS_MIPI_DPHY_TX0_LANES_E)
+#define MIPI_TX_1_FIELD    (BUS_MIPI_DPHY_TX1_LANES_E)
+#define MIPI_TX_NUM_FIELDS (MIPI_TX_1_FIELD-MIPI_TX_0_FIELD)
+#define MIPI_TX_BLK_SIZE   (MIPI_TX_NUM_FIELDS)
+#define MIPI_TX_NUM_BLKS   (4)
+
+
+#define MIPI_MUX_0_FIELD      (NU4100_IAE_MIPI_MUX_SLU0_LANES23_SEL_E)
+#define MIPI_MUX_1_FIELD      (NU4100_IAE_MIPI_MUX_SLU1_LANES23_SEL_E)
+#define MIPI_MUX_2_FIELD      (NU4100_IAE_MIPI_MUX_SLU2_LANES23_SEL_E)
+#define MIPI_MUX_3_FIELD      (NU4100_IAE_MIPI_MUX_SLU3_LANES01_SEL_E)
+#define MIPI_MUX_4_FIELD      (NU4100_IAE_MIPI_MUX_SLU4_LANES01_SEL_E)
+#define MIPI_MUX_5_FIELD      (NU4100_IAE_MIPI_MUX_SLU5_LANES01_SEL_E)
+#define MIPI_MUX_NUM_FIELDS   (MIPI_MUX_1_FIELD-MIPI_MUX_0_FIELD)
+#define MIPI_MUX_BLK_SIZE     (MIPI_MUX_NUM_FIELDS)
+#define MIPI_MUX_NUM_BLKS     (6)
+
+#define CVA_0_FIELD (NU4100_CVA_REGISTERS_READY_DONE_E)
+#define CVA_LAST_FIELD (NU4100_CVA_TOP_ALMOST_FULL_THRESHOLD_6_ALMOST_FULL_THRESHOLD_6_E)
+#define CVA_NUM_FIELDS (CVA_LAST_FIELD-CVA_0_FIELD+1)
+#define CVA_BLK_SIZE (CVA_NUM_FIELDS)
+#define CVA_NUM_BLKS (1)
+
+#define CVARD_0_FIELD (NU4100_CVA_AXI_IF0_CTRL_DATA_WIDTH_E)
+#define CVARD_1_FIELD (NU4100_CVA_AXI_IF1_CTRL_DATA_WIDTH_E)
+#define CVARD_NUM_FIELDS (CVARD_1_FIELD-CVARD_0_FIELD)
+#define CVARD_BLK_SIZE (CVARD_NUM_FIELDS)
+#define CVARD_NUM_BLKS (7)
+
+#define PAR_RX_0_FIELD    (BUS_PARALLEL_SLU_0_SRC_SEL_E)
+#define PAR_RX_1_FIELD    (BUS_PARALLEL_SLU_1_SRC_SEL_E)
+#define PAR_RX_NUM_FIELDS (PAR_RX_1_FIELD-PAR_RX_0_FIELD)
+#define PAR_RX_BLK_SIZE   (PAR_RX_NUM_FIELDS)
+#define PAR_RX_NUM_BLKS   (2)
+
+#define VSC_CSI_TX_0_FIELD    (NU4100_PPE_VSC_CSI2_VSC_FRAME_SIZE_VERTICAL_LENGTH_E)
+#define VSC_CSI_TX_1_FIELD    (NU4100_PPE_VSC_CSI3_VSC_FRAME_SIZE_VERTICAL_LENGTH_E)
+#define VSC_CSI_TX_NUM_FIELDS (VSC_CSI_TX_1_FIELD-VSC_CSI_TX_0_FIELD)
+#define VSC_CSI_TX_BLK_SIZE   (VSC_CSI_TX_NUM_FIELDS)
+#define VSC_CSI_TX_NUM_BLKS   (4)
+
+#define ISP_NUM_BLKS   (2)
+
+#define DPHY_TX_BLK_SIZE (0) //place holder
+
+#define META_RD_0_FIELD (META_READERS_RD_0_ENABLE_E)
+#define META_RD_1_FIELD (META_READERS_RD_1_ENABLE_E)
+#define META_RD_NUM_FIELDS (META_RD_1_FIELD-META_RD_0_FIELD)
+#define META_RD_BLK_SIZE (META_RD_NUM_FIELDS)
+#define META_RD_NUM_BLKS (12)
+
+#define META_WT_0_FIELD (META_WRITERS_WT_0_INPUT_RES_WIDTH_E)
+#define META_WT_1_FIELD (META_WRITERS_WT_1_INPUT_RES_WIDTH_E)
+#define META_WT_NUM_FIELDS (META_WT_1_FIELD-META_WT_0_FIELD)
+#define META_WT_BLK_SIZE (META_WT_NUM_FIELDS)
+#define META_WT_NUM_BLKS (6)
+
+#define META_HIST_0_FIELD (META_HISTOGRAMS_HIST_0_ENABLE_E)
+#define META_HIST_1_FIELD (META_HISTOGRAMS_HIST_1_ENABLE_E)
+#define META_HIST_NUM_FIELDS (META_HIST_1_FIELD-META_HIST_0_FIELD)
+#define META_HIST_BLK_SIZE (META_HIST_NUM_FIELDS)
+#define META_HIST_NUM_BLKS (2)
+
+#define META_MIPI_TX_0_FIELD (META_MIPI_TX_MIPI_TX_0_ENABLE_E)
+#define META_MIPI_TX_1_FIELD (META_MIPI_TX_MIPI_TX_1_ENABLE_E)
+#define META_MIPI_TX_NUM_FIELDS (META_MIPI_TX_1_FIELD-META_MIPI_TX_0_FIELD)
+#define META_MIPI_TX_BLK_SIZE (META_MIPI_TX_NUM_FIELDS)
+#define META_MIPI_TX_NUM_BLKS (4)
+
+#define META_CVARD_0_FIELD (META_CVA_READERS_CVA_RD_0_ENABLE_E)
+#define META_CVARD_1_FIELD (META_CVA_READERS_CVA_RD_1_ENABLE_E)
+#define META_CVARD_NUM_FIELDS (META_CVA_READERS_CVA_RD_1_ENABLE_E-META_CVA_READERS_CVA_RD_0_ENABLE_E)
+#define META_CVARD_BLK_SIZE (META_CVARD_NUM_FIELDS)
+#define META_CVARD_NUM_BLKS (7)
+
+#define META_ISP_RD_0_FIELD (META_ISP_READERS_ISP_RD_0_ENABLE_E)
+#define META_ISP_RD_1_FIELD (META_ISP_READERS_ISP_RD_1_ENABLE_E)
+#define META_ISP_RD_NUM_FIELDS (META_ISP_RD_1_FIELD-META_ISP_RD_0_FIELD)
+#define META_ISP_RD_BLK_SIZE (META_ISP_RD_NUM_FIELDS)
+#define META_ISP_RD_NUM_BLKS (6)
+
+#define META_PATH_0_FIELD (META_PATHS_PATH_0_GEN_E)
+#define META_PATH_1_FIELD (META_PATHS_PATH_1_GEN_E)
+#define META_PATH_NUM_FIELDS (META_PATH_1_FIELD-META_PATH_0_FIELD)
+#define META_PATH_BLK_SIZE (META_PATH_NUM_FIELDS)
+#define META_PATH_NUM_BLKS (20)
+
+
+#define DPP_NUM_FIELDS (NU4100_PPE_DEPTH_POST_MISC_CVA_DEPTH_INV_CONF_MSK_E - NU4100_PPE_DEPTH_POST_DEPTH_FC_X_VAL_E + 1)
+#define DPP_BLK_SIZE (DPP_NUM_FIELDS)
+
+#define DPE_NUM_FIELDS (NU4100_DPE_UIM_RIGHT_P1_UIM_BLOB_CFG_MAX_SIZE_E - NU4100_DPE_HYBRID_CFG0_EN_E + 1)
+#define DPE_BLK_SIZE (DPE_NUM_FIELDS)
+
+
+#define DPE_NUM_BLKS (1)
+#define DPP_NUM_BLKS (1)
+#define CVAWR_NUM_BLKS (1)
+#define PAR_TX_NUM_BLKS (1)
+#define DPHY_TX_NUM_BLKS (4)
+
+#define MAX_NUM_BLKS (20)
+
+static unsigned int numBlkTbl[NUFLD_NUM_BLKS_E];
+static unsigned int startBlkTbl[NUFLD_NUM_BLKS_E];
+static unsigned int skipBlkTbl[NUFLD_NUM_BLKS_E][MAX_NUM_BLKS];
+
+static void NUFLD_initNumBlks()
+{
+   memset(&numBlkTbl, 0 ,sizeof(numBlkTbl));
+   numBlkTbl[NUFLD_SLU_PARALLEL_E] = SLU_PARALLEL_NUM_BLKS;
+   numBlkTbl[NUFLD_SLU_E]          = SLU_NUM_BLKS;
+   numBlkTbl[NUFLD_IAU_E]          = IAU_NUM_BLKS;
+   numBlkTbl[NUFLD_IAU_COLOR_E]    = IAU_COLOR_NUM_BLKS;
+   numBlkTbl[NUFLD_SENSOR_GROUP_E] = SENSOR_NUM_BLKS;
+   numBlkTbl[NUFLD_SENSOR_E]       = SENSOR_NUM_BLKS;
+   numBlkTbl[NUFLD_MEDIATOR_E]     = MEDIATOR_NUM_BLKS;
+   numBlkTbl[NUFLD_GEN_E]          = GEN_NUM_BLKS;
+   numBlkTbl[NUFLD_PPU_SCL_E]      = PPU_SCL_NUM_BLKS;
+   numBlkTbl[NUFLD_PPU_NOSCL_E]    = PPU_NOSCL_NUM_BLKS;
+   numBlkTbl[NUFLD_PPU_HYBSCL_E]   = PPU_HYBSCL_NUM_BLKS;
+   numBlkTbl[NUFLD_PPU_HYB_E]      = PPU_HYB_NUM_BLKS;
+   numBlkTbl[NUFLD_PPU_REPACK_E]   = PPU_REPACK_NUM_BLKS;
+   numBlkTbl[NUFLD_AXIRD_E]        = AXIRD_NUM_BLKS;
+   numBlkTbl[NUFLD_AXIWR_E]        = AXIWR_NUM_BLKS;
+   numBlkTbl[NUFLD_DPE_E]          = DPE_NUM_BLKS;
+   numBlkTbl[NUFLD_DPP_E]          = DPP_NUM_BLKS;
+   numBlkTbl[NUFLD_MIPI_RX_E]      = MIPI_RX_NUM_BLKS;
+   numBlkTbl[NUFLD_MIPI_TX_E]      = MIPI_TX_NUM_BLKS;
+   numBlkTbl[NUFLD_PAR_RX_E]       = PAR_RX_NUM_BLKS;
+   numBlkTbl[NUFLD_MIPI_MUX_E]     = MIPI_MUX_NUM_BLKS;
+   numBlkTbl[NUFLD_CVARD_E]        = CVARD_NUM_BLKS;
+   numBlkTbl[NUFLD_CVA_E]          = CVA_NUM_BLKS;
+   numBlkTbl[NUFLD_DPHY_TX_E]      = DPHY_TX_NUM_BLKS;
+   numBlkTbl[NUFLD_VSC_CSI_TX_E]   = VSC_CSI_TX_NUM_BLKS;
+//   numBlkTbl[NUFLD_PAR_TX_E] = PAR_TX_NUM_BLKS;
+   numBlkTbl[NUFLD_ISP_E]          = ISP_NUM_BLKS;
+   numBlkTbl[NUFLD_META_READERS_E] = META_RD_NUM_BLKS;
+   numBlkTbl[NUFLD_META_HIST_E]    = META_HIST_NUM_BLKS;
+   numBlkTbl[NUFLD_META_MIPI_TX_E] = META_MIPI_TX_NUM_BLKS;
+   numBlkTbl[NUFLD_META_PATHS_E]   = META_PATH_NUM_BLKS;
+   numBlkTbl[NUFLD_META_CVA_RD_E]  = META_CVARD_NUM_BLKS;
+   numBlkTbl[NUFLD_META_ISP_RD_E]  = META_ISP_RD_NUM_BLKS;
+
+}
+
+
+static void NUFLD_initStartBlks()
+{
+   memset(&startBlkTbl, 0 ,sizeof(startBlkTbl));
+   startBlkTbl[NUFLD_SLU_PARALLEL_E] = NU4100_IAE_SLU0_CROP_OFFSET_HORZ_E;
+   startBlkTbl[NUFLD_SLU_E]          = NU4100_IAE_SLU2_CROP_OFFSET_HORZ_E;
+   startBlkTbl[NUFLD_IAU_E]          = NU4100_IAE_IAU0_CSC_RY0_A_E;
+   startBlkTbl[NUFLD_IAU_COLOR_E]    = NU4100_IAE_IAU2_CSC_RY0_A_E;
+   startBlkTbl[NUFLD_SENSOR_GROUP_E] = SENSORS_SENS_0_ROLE_E;
+   startBlkTbl[NUFLD_SENSOR_E]       = SENSORS_SENS_0_ROLE_E;
+   startBlkTbl[NUFLD_MEDIATOR_E]     = MEDIATOR_0_FIELD;
+   startBlkTbl[NUFLD_GEN_E]          = NU4100_IAE_FGEN0_CONTROL_MODE_E;
+   startBlkTbl[NUFLD_PPU_SCL_E]      = NU4100_PPE_PPU4_MISC_CROP_START_X_E;
+   startBlkTbl[NUFLD_PPU_NOSCL_E]    = NU4100_PPE_PPU0_MISC_CROP_START_X_E;
+   startBlkTbl[NUFLD_PPU_HYBSCL_E]   = PPU_HYBSCL_1_FIELD;
+   startBlkTbl[NUFLD_PPU_HYB_E]      = NU4100_PPE_PPU8_MISC0_CROP_START_X_E;
+   startBlkTbl[NUFLD_PPU_REPACK_E]   = PPE_REPACK_0_FIELD;
+   startBlkTbl[NUFLD_AXIRD_E]        = AXIRD_0_FIELD;
+   startBlkTbl[NUFLD_AXIWR_E]        = AXIWR_0_FIELD;
+   startBlkTbl[NUFLD_DPE_E]          = NU4100_DPE_HYBRID_CFG0_EN_E;
+   startBlkTbl[NUFLD_DPP_E]          = NU4100_PPE_DEPTH_POST_DEPTH_FC_X_VAL_E;
+   startBlkTbl[NUFLD_MIPI_RX_E]      = MIPI_RX_0_FIELD;
+   startBlkTbl[NUFLD_MIPI_TX_E]      = MIPI_TX_0_FIELD;
+   startBlkTbl[NUFLD_PAR_RX_E]       = PAR_RX_0_FIELD;
+   startBlkTbl[NUFLD_MIPI_MUX_E]     = MIPI_MUX_0_FIELD;
+   startBlkTbl[NUFLD_CVARD_E]        = CVARD_0_FIELD;
+   startBlkTbl[NUFLD_CVA_E]          = CVA_0_FIELD;
+   startBlkTbl[NUFLD_DPHY_TX_E]      = BUS_MIPI_DPHY_TX0_LANES_E;
+   startBlkTbl[NUFLD_VSC_CSI_TX_E]   = VSC_CSI_TX_0_FIELD;
+   startBlkTbl[NUFLD_ISP_E]          = NU4100_IPE_IPE_PREPROC_CTRL0_ISP0_CH0_EXP0_SEL_E;
+//   startBlkTbl[NUFLD_PAR_TX_E] = PAR_TX_0_FIELD;
+   startBlkTbl[NUFLD_META_READERS_E] = META_RD_0_FIELD;
+   startBlkTbl[NUFLD_META_HIST_E]    = META_HIST_0_FIELD;
+   startBlkTbl[NUFLD_META_MIPI_TX_E] = META_MIPI_TX_0_FIELD;
+   startBlkTbl[NUFLD_META_PATHS_E]   = META_PATH_0_FIELD;
+   startBlkTbl[NUFLD_META_CVA_RD_E]  = META_CVARD_0_FIELD;
+   startBlkTbl[NUFLD_META_ISP_RD_E]  = META_ISP_RD_0_FIELD;
+
+}
+
+
+static void NUFLD_initSkipBlks()
+{
+   memset(skipBlkTbl, 0, sizeof(unsigned int) * MAX_NUM_BLKS * NUFLD_NUM_BLKS_E);
+
+   //axi read6/7/10/11 do not exist in C0. we need to jump in xml_path ENUM accordingly
+   skipBlkTbl[NUFLD_AXIRD_E][8] = 2;
+   skipBlkTbl[NUFLD_AXIRD_E][9] = 2;
+
+   //ppu6 do not exist in C0. we need to jump in xml_path ENUM accordingly
+   skipBlkTbl[NUFLD_PPU_HYBSCL_E][1] = 1;
+
+   return;
+}
+
+static void verifyBlkNum(NUFLD_blkE blk,unsigned int blkNum)
+{
+   //this is not implemented right and needs to be fixed. We have blocks with in consistent numbers (readers for example)
+   if (blkNum > (NUFLD_getNumBlks(blk) - 1))
+   {
+      LOGG_PRINT(LOG_ERROR_E, NULL, "blkNum %d is Illegal for block %d\n", blkNum, blk);
+      assert(0);
+   }
+   
+   return;
+}
+
+UINT32 NUFLD_getNumBlks(NUFLD_blkE blk)
+{
+   return numBlkTbl[blk];
+}
+
+
+UINT32 NUFLD_getBlkSize(NUFLD_blkE blk, unsigned int blk_num)
+{
+   unsigned int blkSize = 0;
+   switch(blk)
+   {
+      case(NUFLD_MEDIATOR_E):    {blkSize = MEDIATOR_BLK_SIZE;    break;}
+      case(NUFLD_SLU_PARALLEL_E):{blkSize = SLU_PARALLEL_BLK_SIZE;break;}
+      case(NUFLD_SLU_E):
+      {
+         if(blk_num == 3)
+         {
+            blkSize = (SLU_BLK_SIZE + SLU_BLK_SIZE + SLU_45_BLK_SIZE)/3;  //Workaround for different SLU sizes (SLU5)
+         }
+         else
+         {
+            blkSize = SLU_BLK_SIZE;
+         }
+         break;
+      }
+      case(NUFLD_IAU_E):         {blkSize = IAU_BLK_SIZE;         break;}
+      case(NUFLD_IAU_COLOR_E):   {blkSize = IAU_COLOR_BLK_SIZE;   break;}
+      case(NUFLD_PPU_NOSCL_E):   {blkSize = PPU_NOSCL_BLK_SIZE;   break;}
+      case(NUFLD_PPU_SCL_E):     {blkSize = PPU_SCL_BLK_SIZE;     break;}
+      case(NUFLD_PPU_HYBSCL_E):  {blkSize = PPU_HYBSCL_BLK_SIZE;  break;}
+      case(NUFLD_PPU_HYB_E):     {blkSize = PPU_HYB_BLK_SIZE;     break;}
+      case(NUFLD_PPU_REPACK_E):  {blkSize = PPU_REPACK_BLK_SIZE;  break;}
+      case(NUFLD_AXIRD_E):       {blkSize = AXIRD_BLK_SIZE;       break;}
+      case(NUFLD_CVARD_E):       {blkSize = CVARD_BLK_SIZE;       break;}
+      case(NUFLD_AXIWR_E):       {blkSize = AXIWR_BLK_SIZE;       break;}
+      case(NUFLD_GEN_E):         {blkSize = GEN_BLK_SIZE;         break;}
+      case(NUFLD_DPP_E):         {blkSize = DPP_BLK_SIZE;         break;}
+      case(NUFLD_DPE_E):         {blkSize = DPE_BLK_SIZE;         break;}
+      case(NUFLD_CVA_E):         {blkSize = CVA_BLK_SIZE;         break;}
+      case(NUFLD_SENSOR_E):      {blkSize = SENSOR_BLK_SIZE;      break;}
+      case(NUFLD_MIPI_RX_E):     {blkSize = MIPI_RX_BLK_SIZE;     break;}
+      case(NUFLD_MIPI_TX_E):     {blkSize = MIPI_TX_BLK_SIZE;     break;}
+      case(NUFLD_PAR_RX_E):      {blkSize = PAR_RX_BLK_SIZE;      break;}
+      case(NUFLD_DPHY_TX_E):     {blkSize = DPHY_TX_BLK_SIZE;     break;}
+      case(NUFLD_VSC_CSI_TX_E):  {blkSize = VSC_CSI_TX_BLK_SIZE;  break;}
+      case(NUFLD_MIPI_MUX_E):    {blkSize = MIPI_MUX_BLK_SIZE;    break;}
+      case(NUFLD_META_READERS_E):{blkSize = META_RD_BLK_SIZE;     break;}
+      case(NUFLD_META_WRITERS_E):{blkSize = META_WT_BLK_SIZE;     break;}
+      case(NUFLD_META_CVA_RD_E): {blkSize = META_CVARD_NUM_BLKS;  break;}
+      case(NUFLD_META_HIST_E):   {blkSize = META_HIST_BLK_SIZE;   break;}
+      case(NUFLD_META_MIPI_TX_E): {blkSize = META_MIPI_TX_BLK_SIZE; break; }
+      case(NUFLD_META_ISP_RD_E): {blkSize = META_ISP_RD_BLK_SIZE;break;}
+      case(NUFLD_META_PATHS_E):  {blkSize = META_PATH_BLK_SIZE;   break;}
+      default:break;
+   }
+
+   return blkSize;
+}
+
+
+XMLDB_pathE NUFLD_startBlockPath(NUFLD_blkE blk, unsigned int blkNum)
+{
+   unsigned int blkSize;
+   verifyBlkNum(blk, blkNum);
+   blkSize = NUFLD_getBlkSize(blk, blkNum);
+   return (XMLDB_pathE)((blkSize * (blkNum - skipBlkTbl[blk][blkNum])) + startBlkTbl[blk]);
+}
+
+
+XMLDB_pathE NUFLD_calcPath(NUFLD_blkE blk, unsigned int blkNum, XMLDB_pathE blk0field)
+{
+   //Assumption: field is the first blkd
+   unsigned int blkSize = 0;
+   verifyBlkNum(blk, blkNum);
+   blkSize = NUFLD_getBlkSize(blk, blkNum);
+   return (XMLDB_pathE)((blkSize * (blkNum - skipBlkTbl[blk][blkNum])) + (INT32)blk0field);
+}
+
+void NUFLD_init()
+{
+   NUFLD_initNumBlks();
+   NUFLD_initStartBlks();
+   NUFLD_initSkipBlks();
+   LOGG_PRINT(LOG_INFO_E, NULL, "Init done\n");
+}
+
+#ifdef __cplusplus
+}
+#endif

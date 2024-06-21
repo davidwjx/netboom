@@ -1,0 +1,169 @@
+LIBRARY
+EXPORTS
+   inu_device__new                              @1
+   inu_device__delete                           @2
+   inu_device__usb_boot                         @3
+   inu_device__boot_deinit                      @4
+   inu_device__getCalibrationHeader             @5
+   inu_device__getCalibrationData               @6
+   inu_device__setTime                          @7
+   inu_device__showStats                        @8
+   inu_device__getDeviceInfo                    @9
+   inu_device__setWatchdog                      @11
+   inu_device__writeRegister                    @12
+   inu_device__readRegister                     @13
+   inu_device__setProjectorMode                 @14
+   inu_device__getProjectorMode                 @15
+   inu_device__boot_change_params               @16
+   inu_device__boot_hotplug_callback_external   @17
+   inu_device__usb_monitor                      @18
+   inu_device__usb_monitor_deinit               @19
+   inu_device__readBuff                         @20
+   inu_device__writeBuff                        @21
+   inu_device__getTime                          @22
+   inu_device__setPowerMode                     @23
+   inu_device__fwUpdate                         @24
+   inu_device__pwmConfig                        @25
+   inu_device__alternateProjector               @26
+   inu_device__writeFileToGp                    @27
+   inu_device__findNode                         @28
+   inu_device__reloadLutFiles                   @29
+   inu_device__selectTempSensor                 @240
+   inu_device__EraseDynCalibration              @241
+   inu_device__writeCalib                       @242
+   inu_device__accessEepromData                 @250
+   inu_device__powerDown                        @251
+   inu_device__getPowerDownStatus               @252
+   inu_device__updatePowerDownStatus            @253
+   inu_device__enableTuningServer               @254
+   inu_device__readFileFromGp                   @255
+   inu_device__getRtcLock                       @256
+
+   inu_graph__new                               @30
+   inu_graph__delete                            @31
+   inu_graph__walkGraphNodes                    @32
+   inu_graph__finalize                          @33
+   inu_graph__findNode                          @34
+   inu_graph__getOrigSensGroup                  @35
+   inu_graph__offlineGetConfig                  @36
+   inu_graph__printNodes                        @37
+   inu_graph__renew                             @38
+   inu_graph__close                             @39
+
+   NUCFG_getNumChannels                         @40
+   NUCFG_getNumGroups                           @41
+   NUCFG_setGroupMode                           @42
+   NUCFG_getNumInputs                           @43
+   NUCFG_showChannelGroup                       @44
+   NUCFG_getChannelInfo                         @45
+   NUCFG_showOutChannel                         @46
+   NUCFG_getInputTable                          @47
+   NUCFG_getChannelTable                        @48
+   NUCFG_setChannelScale                        @49
+   NUCFG_setChannelDimentions                   @50
+   NUCFG_setDpeFunc                             @51
+   NUCFG_setGroupFps                            @52
+   NUCFG_setInjectResolution                    @53
+   NUCFG_setChannelCrop                         @54
+   NUCFG_setChannelIauBypass                    @55
+   NUCFG_setChannelChunk                        @56
+   NUCFG_setChannelInterleave                   @57
+   NUCFG_setChannelFormat                       @58
+   NUCFG_linkChannelWritersToSensors            @59
+   inu_soc_channel__getId                       @60
+   inu_soc_channel__updateCropWindow            @61
+   inu_soc_channel__updateUserParams            @62
+   inu_soc_channel__resetFrameCnt               @63
+   inu_isp_channel__sendIspCommand              @64
+
+   inu_node__getNextOutputNode                  @70
+   inu_node__getNextInputNode                   @71
+   inu_node__bindNodes                          @72
+
+   inu_imu_data__convertData                    @80
+   inu_imu__getTemperature                      @81
+
+   inu_init                                     @90
+   inu_deinit                                   @91
+   inu_useLongerTimeout                         @92
+   inu_function__getState                       @100
+   inu_function__start                          @101
+   inu_function__stop                           @102
+   inu_function__getOperateModes                @103
+
+   inu_streamer__read                           @110
+   inu_streamer__free                           @111
+   inu_streamer__write                          @112
+   inu_streamer__setBufWriteCB                  @113
+   inu_streamer__getPoolCfg                     @114
+   inu_streamer__getStreamType                  @115
+
+   inu_data__getMemPtr                          @120
+   inu_data__getMemSize                         @121
+   inu_data__getHdr                             @122
+   inu_data__chunkSizeGet                       @123
+   inu_data__chunkTotalNumGet                   @124
+   inu_data__getMode                            @125
+
+   inu_fdk__send_data_async                     @130
+
+   inu_logger__new                              @140
+   inu_logger__delete                           @141
+   inu_logger__start                            @142
+   inu_logger__stop                             @143
+   inu_logger__read                             @144
+   inu_logger__free                             @145
+
+   inu_histogram__cfgRoi                        @150
+
+   inu_sensor__setRuntimeCfg                    @160
+   inu_sensor__getRuntimeCfg                    @161
+   inu_sensors_group__setRuntimeCfg             @162
+   inu_sensors_group__getRuntimeCfg             @163
+   inu_sensor__getId                            @164
+   inu_sensors_group__getId                     @165
+   inu_sensor__getFocusParams                   @166
+   inu_sensor__setFocusParams                   @167
+   inu_sensor__setCropParams                    @168
+
+   inu_load_network__loadNetwork                @170
+   inu_load_network__new                        @171
+   inu_load_network__delete                     @172
+   inu_load_network__releaseAll                 @173
+   inu_cdnn__setNetworkId                       @174
+
+   inu_ref__getUserName                         @180
+   inu_ref__instanceOf                          @181
+   inu_ref__getRefType                          @182
+   inu_ref__getRefId                            @183
+
+   inu_dpe_pp__send_data_async                  @190
+   inu_pp__updateParams                         @191
+   inu_slam__updateParams                       @192
+
+
+   inu_slam__send_data_async                    @200
+   CALIBG_ymlGetSectionFcValue                  @210
+   CALIBG_ymlGetSectionCcValue                  @211
+   CALIBG_ymlGetSectionsBLValue                 @212
+   CALIBG_ymlGetSectionsDB                      @213
+
+   inu_load_background__loadBackground          @230
+   inu_load_background__new                     @231
+   inu_load_background__delete                  @232
+   inu_load_background__release                 @233
+   
+   inu_data__getMetadata						@280
+   inu_device__sensorUpdate						@281
+   inu_device__sensorSyncCfg                    @282
+   inu_data__getMetadataSize					@283
+   inu_imu_data__convertDataMultiple			@284
+   inu_metadata__getMetadataSizeWithoutLinePadding @285
+   inu_metadata__serialize						@286
+   inu_imu_data__convertDataMultipleWithTimestampConversion @287
+   inu_metadata__deserialize					@288
+   inu_imu_data__convertDataMultipleWithPairedBatchingAndTimestampConversion @289
+   HELSINKI_getURBSize @290
+   inu_metadata__serializeWithoutDelimiter     @291
+   inu_device__calibUpdate     @292
+

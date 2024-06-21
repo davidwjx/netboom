@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>    
+     <function>
+        <name>Stream_STEREO_FE</name>
+        <type>STREAM_OUT</type>
+        <inputs>
+          <input>IMAGE_2</input>
+        </inputs>
+        <params>
+          <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+          <thread_priority>3</thread_priority>
+          <numBuffers>5</numBuffers>
+          <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+          <connIdE>USB_IF0</connIdE>
+        </params>
+    </function>
+     <function>
+        <name>Stream_STEREO_FE2</name>
+        <type>STREAM_OUT</type>
+        <inputs>
+          <input>IMAGE_3</input>
+        </inputs>
+        <params>
+          <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+          <thread_priority>3</thread_priority>
+          <numBuffers>5</numBuffers>
+          <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+          <connIdE>USB_IF0</connIdE>
+        </params>
+    </function>
+    <function>
+      <name>FDK_STEREO_DEMO_FE</name>
+      <type>FDK</type>
+      <inputs>
+        <input>IMAGE_2</input>
+        <input>IMAGE_3</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+        <node_id>1</node_id>
+		<numBuffers>3</numBuffers>
+        <sizeBuffer>2048</sizeBuffer>
+      </params>
+    </function>
+    <data>
+      <name>cnn_net1_data</name>
+      <type>CNN_DATA</type>
+      <input>FDK_STEREO_DEMO_FE</input>
+      <source>FDK_STEREO_DEMO_FE</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Sout_stereo_fdk</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>cnn_net1_data</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>  	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>FDK_inject_left_stream_in_func</name>
+      <type>STREAM_IN</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>3</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <data>
+      <name>LEFT_IMAGE_DATA</name>
+      <type>IMAGE_DATA</type>
+      <input>FDK_inject_left_stream_in_func</input>
+      <source>FDK_inject_left_stream_in_func</source>
+      <params>
+        <bitsPerPixel>8</bitsPerPixel>
+        <format>RAW8</format>
+        <height>800</height>
+        <width>800</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>800</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>800</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>FDK_inject_right_stream_in_func</name>
+      <type>STREAM_IN</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>3</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <data>
+      <name>RIGHT_IMAGE_DATA</name>
+      <type>IMAGE_DATA</type>
+      <input>FDK_inject_right_stream_in_func</input>
+      <source>FDK_inject_right_stream_in_func</source>
+      <params>
+        <bitsPerPixel>8</bitsPerPixel>
+        <format>RAW8</format>
+        <height>800</height>
+        <width>800</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>800</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>800</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>FDK_STEREO_DEMO_INJECT</name>
+      <type>FDK</type>
+      <inputs>
+        <input>LEFT_IMAGE_DATA</input>
+        <input>RIGHT_IMAGE_DATA</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+        <node_id>1</node_id>
+		<numBuffers>3</numBuffers>
+        <sizeBuffer>2048</sizeBuffer>
+      </params>
+    </function>
+    <data>
+      <name>STEREO_BLOB_DATA</name>
+      <type>CNN_DATA</type>
+      <input>FDK_STEREO_DEMO_INJECT</input>
+      <source>FDK_STEREO_DEMO_INJECT</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Sout_stereo_fdk_inject</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>STEREO_BLOB_DATA</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>  	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

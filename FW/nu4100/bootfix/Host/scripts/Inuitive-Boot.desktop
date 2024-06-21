@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Inuitive-Boot
+Exec=bash -c "echo 'Waiting for usb' && while ! lsusb | grep -q "2959:3000" ; do sleep 1 ; done &&  cd $INUITIVE_PATH/bin && pwd && ./inu_boot_lib boot && read -n 1 c"
+Comment=  
+Type=Application
+Terminal=true
+Name[en_US]=Inuitive-Boot

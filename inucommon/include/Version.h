@@ -1,0 +1,33 @@
+#define INUCOMMON_VERSION_1  7
+#define INUCOMMON_VERSION_2  07
+#define INUCOMMON_VERSION_3  0700
+#define INUCOMMON_VERSION_4  2684
+
+#define INUCOMMON_VERSION_1_STR  "7"
+#define INUCOMMON_VERSION_2_STR  "07"
+#define INUCOMMON_VERSION_3_STR  "0700"
+#define INUCOMMON_VERSION_4_STR  "2684"
+
+#define INUCOMMON_VERSION_STR "7.07.0700.2684"
+
+#define INUCOMMON_PRODUCT_1  INUCOMMON_VERSION_1
+#define INUCOMMON_PRODUCT_2  INUCOMMON_VERSION_2
+#define INUCOMMON_PRODUCT_3  INUCOMMON_VERSION_3
+#define INUCOMMON_PRODUCT_4  INUCOMMON_VERSION_4
+
+#define INUCOMMON_PRODUCT_STR INUCOMMON_VERSION_STR
+
+#include <string>
+#include <sstream>
+#include <iomanip>
+
+inline int MyAtoi(char* str)  
+{
+    std::istringstream tmp(str);
+    int ret;
+    tmp >> ret;
+    return ret;
+}
+
+static const unsigned int INUCOMMON_VERSION_NUMBER(10000000 * MyAtoi((char*)INUCOMMON_VERSION_1_STR) + 100000 * MyAtoi((char*)INUCOMMON_VERSION_2_STR) + 1000 * MyAtoi((char*)INUCOMMON_VERSION_3_STR) + MyAtoi((char*)INUCOMMON_VERSION_4_STR));
+

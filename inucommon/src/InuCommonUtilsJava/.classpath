@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="CommonUtilsJava/src/main/java/" kind="src" path=""/>	
+	<classpathentry kind="src" path="CommonUtilsJava/src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="packages/Android-21/android.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

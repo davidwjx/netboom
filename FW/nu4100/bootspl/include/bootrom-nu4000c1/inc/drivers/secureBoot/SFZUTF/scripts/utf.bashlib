@@ -1,0 +1,256 @@
+#
+# File: utf.bashlib
+#
+# Unit testing framework for Bash Scripts
+#
+# Produces output that is compatible with rest of SFZUTF,
+# but the tests are specified as bash scripts instead of C programs.
+#
+# Most suitable for testing programs that are already intended for
+# command line usage.
+#
+# Copyright (c) 2009-2018 INSIDE Secure B.V. All Rights Reserved.
+#
+# This confidential and proprietary software may be used only as authorized
+# by a licensing agreement from INSIDE Secure.
+#
+# The entire notice above must be reproduced on all authorized copies that
+# may only be made to the extent permitted by a licensing agreement from
+# INSIDE Secure.
+#
+# For more information or support, please go to our online support system at
+# https://customersupport.insidesecure.com.
+# In case you do not have an account for this system, please send an e-mail
+# to ESSEmbeddedHW-Support@insidesecure.com.
+#
+
+UTF_VERBOSE=
+UTF_TESTCASE=
+UTF_SUCCESS=0
+UTF_FAILURE=0
+UTF_ERROR=0
+UTF_UNSUPPORTED=0
+exec 3>/dev/null
+exec 4>&1
+exec 6>&2
+
+utf_vecho()
+{
+    if [ "X$UTF_VERBOSE" != "X" ]; then
+        echo "${BASH_SOURCE[1]}:$BASH_LINENO:${FUNCNAME[1]}: $1" >&6
+    fi
+}
+
+utf_xml_start()
+{
+    cat >&3 <<EOF
+<?xml version="1.0"?>
+<testsuites xmlns="http://check.sourceforge.net/ns">
+  <datetime>`date +"%Y-%m-%d %H:%M:%S"`</datetime>
+  <suite>
+    <title>$UTF_SUITE</title>
+EOF
+}
+
+utf_xml_test_result()
+{
+    cat >&3 <<EOF
+    <test result="$1">
+       <fn>$2</fn>
+       <id>$3</id>
+       <iteration>0</iteration>
+       <description>$UTF_TESTCASE</description>
+       <message>$4</message>
+    </test>
+EOF
+}
+
+utf_do_unsupported()
+{
+    echo "UNSUPPORTED" >&4
+    UTF_UNSUPPORTED=$((UTF_UNSUPPORTED+1))
+}
+
+utf_do_success()
+{
+    echo "SUCCESS" >&4
+    UTF_SUCCESS=$((UTF_SUCCESS+1))
+}
+
+utf_do_failure()
+{
+    echo "FAIL!" >&4
+    UTF_FAILURE=$((UTF_FAILURE+1))
+}
+
+utf_do_error()
+{
+    echo "ERROR!" >&4
+    UTF_ERROR=$((UTF_ERROR+1))
+}
+
+# $1=function name
+utf_test_start_name()
+{
+    UTF_TEST=$1
+    printf "    %-50.50s" "$UTF_TEST" >&4
+}
+
+# Call as first thing each test
+utf_test_start()
+{
+    utf_test_start_name ${FUNCNAME[1]}
+}
+
+# Report test as success, must be last thing reported in test function
+utf_success()
+{
+    utf_xml_test_result success ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$1"
+    utf_do_success
+}
+
+# Report test as failure, must be last thing reported in test function
+utf_failure()
+{
+    utf_xml_test_result failure ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$1"
+    utf_do_failure
+}
+
+# Report test as error, must be last thing reported in test function
+utf_error()
+{
+    utf_xml_test_result error ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$1"
+    utf_do_error
+}
+
+# Report test as success/failure/error,
+# must be last thing reported in test function
+# Notice: this function does not affect $? for convenience
+utf_conditional()
+{
+    UTF_RES=$?
+    case $UTF_RES in
+        0) utf_xml_test_result success \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_success;;
+        1) utf_xml_test_result failure \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_failure;;
+        *) utf_xml_test_result error \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_error;;
+    esac
+    (exit $UTF_RES)
+}
+
+# Report test as success/unsupported/error,
+# must be last thing reported in test function
+# Notice: this function does not affect $? for convenience
+utf_support_conditional()
+{
+    UTF_RES=$?
+    case $UTF_RES in
+        0) utf_xml_test_result success \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_success;;
+        1) utf_xml_test_result unsupported \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_unsupported;;
+        *) utf_xml_test_result error \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_error;;
+    esac
+    (exit $UTF_RES)
+}
+
+# Report test as failure/success/error,   [failure and success reverted]
+# must be last thing reported in test function
+# Notice: this function does not affect $? for convenience
+utf_neg_conditional()
+{
+    UTF_RES=$?
+    case $UTF_RES in
+        1) utf_xml_test_result success \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_success;;
+        0) utf_xml_test_result failure \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_failure;;
+        *) utf_xml_test_result error \
+            ${BASH_SOURCE[1]}:$BASH_LINENO $UTF_TEST "$UTF_RES: $1"
+            utf_do_error;;
+    esac
+    (exit $UTF_RES)
+}
+
+utf_xml_finish()
+{
+    echo "</suite></testsuites>" >&3
+}
+
+# Call as last thing within script, ends execution.
+utf_finish()
+{
+    utf_xml_finish
+    UTF_COUNT=$((UTF_SUCCESS+UTF_FAILURE+UTF_ERROR))
+    echo "Successful tests: $UTF_SUCCESS/$UTF_COUNT" \
+        "("$(((100*$UTF_SUCCESS)/$UTF_COUNT))"%)" >&4
+
+    if [ "$UTF_FAILURE" != "0" ];then
+        echo "  Failed tests: $UTF_FAILURE/$UTF_COUNT" >&4
+    fi
+    if [ "$UTF_ERROR" != "0" ];then
+        echo "  Errored tests: $UTF_ERROR/$UTF_COUNT" >&4
+    fi
+    if [ "$UTF_UNSUPPORTED" != "0" ];then
+        echo "  Unsupported tests: $UTF_UNSUPPORTED" >&4
+    fi
+
+    exit $((UTF_FAILURE+UTF_ERROR))
+}
+
+# Call to start new test case. Always call at least once.
+utf_testcase()
+{
+    UTF_TESTCASE=$1
+    echo "  $UTF_TESTCASE" >&4
+}
+
+# Call once in beginning. Suite name and command line options must be passed.
+utf_suite_start()
+{
+    UTF_SUITE=$1
+    shift
+    while getopts "x:o:e:O:E:v" OPTION
+    do
+        case "$OPTION" in
+            o) utf_vecho "Outputting stdout to $OPTARG."
+               exec 1>&-
+               exec 1>"$OPTARG";;
+            e) utf_vecho "Outputting stderr to $OPTARG."
+               exec 2>&-
+               exec 2>"$OPTARG";;
+            O) utf_vecho "Appending stdout to $OPTARG."
+               exec 1>&-
+               exec 1>>"$OPTARG";;
+            E) utf_vecho "Appending stderr to $OPTARG."
+               exec 2>&-
+               exec 2>>"$OPTARG";;
+            x) utf_vecho "Outputting logs to $OPTARG."
+               exec 3>"$OPTARG";;
+            v) UTF_VERBOSE=1;;
+            ?) echo "Unknown option." >&6
+               echo "-o file   Output test stdout to file" >&6
+               echo "-e file   Output test stderr to file" >&6
+               echo "-O file   Append test stdout to file" >&6
+               echo "-E file   Append test stderr to file" >&6
+               echo "-x file   set xml logging target" >&6
+               echo "-v        verbose mode on" >&6
+               exit 1;;
+        esac
+    done
+    utf_xml_start
+    echo "Running test suite: $UTF_SUITE" >&4
+}
+
+# end of file utf.bashlib

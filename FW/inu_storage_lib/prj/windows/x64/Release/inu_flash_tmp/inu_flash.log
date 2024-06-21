@@ -1,0 +1,19 @@
+﻿  getopt.c
+  inu_host_utils.c
+D:\works\helsinki\FW\common\src\getopt.c(30,1): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  D:\works\helsinki\FW\common\src\getopt.c(30,1):
+  '_CRT_SECURE_NO_WARNINGS' previously declared on the command line
+  
+  inu_flash.c
+D:\works\helsinki\FW\inu_storage_lib\test\inu_flash.c(2,1): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  D:\works\helsinki\FW\inu_storage_lib\test\inu_flash.c(2,1):
+  '_CRT_SECURE_NO_WARNINGS' previously declared on the command line
+  
+D:\works\helsinki\FW\inu_storage_lib\test\inu_flash.c(354,79): warning C4101: 'section': unreferenced local variable
+D:\works\helsinki\FW\inu_storage_lib\test\inu_flash.c(354,68): warning C4101: 'partition': unreferenced local variable
+D:\works\helsinki\FW\inu_storage_lib\test\inu_flash.c(363,15): warning C4101: 'transfered': unreferenced local variable
+D:\works\helsinki\FW\inu_storage_lib\test\inu_flash.c(361,16): warning C4101: 'inuNandData': unreferenced local variable
+D:\works\helsinki\FW\inu_storage_lib\test\inu_flash.c(367,15): warning C4101: 'buff': unreferenced local variable
+D:\works\helsinki\FW\inu_storage_lib\test\inu_flash.c(360,16): warning C4101: 'inuFlashData': unreferenced local variable
+  Generating Code...
+  inu_flash.vcxproj -> D:\works\helsinki\FW\inu_storage_lib\prj\windows\x64\Release\inu_flash.exe

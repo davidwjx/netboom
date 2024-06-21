@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)\..\..\..\..\..\..\inu_usb_lib\driver\libusb\src\msvc\$(Platform)\$(Configuration);$(ProjectDir)/../../../../../../inu_usb_lib/prj/windows/$(Platform)/$(Configuration);$(Platform)/$(Configuration);$(PATH)</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>-R H -F 20 -B "C:\Program Files\Inuitive\InuDev\bin" -f "media\nu3000\NNN15060031\Rev001\Full\HW" -D 10 -T V -G 1</LocalDebuggerCommandArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)\..\..\..\..\..\..\inu_usb_lib\driver\libusb\src\msvc\$(Platform)\$(Configuration);$(ProjectDir)/../../../../../../inu_usb_lib/prj/windows/$(Platform)/$(Configuration);$(Platform)/$(Configuration);$(PATH)</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>-R H -F 20 -B "C:\Program Files\Inuitive\InuDev\bin" -f "C:\Program Files\Inuitive\InuDev\config\InuSensors\NNN15060031\Rev001\Full\HW" -D 100 -T V -G 2</LocalDebuggerCommandArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ShowAllFiles>false</ShowAllFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)\..\..\..\..\..\..\inu_usb_lib\driver\libusb\src\msvc\$(Platform)\$(Configuration);$(ProjectDir)/../../../../../../inu_usb_lib/prj/windows/$(Platform)/$(Configuration);$(Platform)/$(Configuration);$(PATH)</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)\..\..\..\..\..\..\inu_usb_lib\driver\libusb\src\msvc\$(Platform)\$(Configuration);$(ProjectDir)/../../../../../../inu_usb_lib/prj/windows/$(Platform)/$(Configuration);$(Platform)/$(Configuration);$(PATH)</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>

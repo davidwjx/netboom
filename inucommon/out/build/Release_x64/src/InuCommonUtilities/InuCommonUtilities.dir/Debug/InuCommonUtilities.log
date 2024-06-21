@@ -1,0 +1,31 @@
+﻿  LINK : 没有找到 D:\works\sdk\bin\x64\Debug\InuCommonUtilitiesd.dll 或上一个增量链接没有生成它；正在执行完全链接
+libyaml-cppmdd.lib(emitter.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(emitter.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(exceptions.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(exceptions.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(memory.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(memory.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(node_data.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(node_data.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(parse.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(parse.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(emit.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(emit.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(emitterstate.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(emitterstate.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(ostream_wrapper.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(ostream_wrapper.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(emitterutils.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(emitterutils.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(parser.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(parser.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(nodebuilder.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(nodebuilder.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(emitfromevents.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(emitfromevents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(nodeevents.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(nodeevents.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(regex_yaml.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(regex_yaml.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(binary.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(binary.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(null.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(null.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(directives.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(directives.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(scanner.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(scanner.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(singledocparser.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(singledocparser.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(stream.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(stream.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(simplekey.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(simplekey.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(scantoken.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(scantoken.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(tag.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(tag.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(scanscalar.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(scanscalar.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(scantag.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(scantag.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+libyaml-cppmdd.lib(exp.obj) : warning LNK4099: 未找到 PDB“”(使用“libyaml-cppmdd.lib(exp.obj)”或在“”中寻找)；正在链接对象，如同没有调试信息一样
+    正在创建库 D:/works/inucommon/lib/x64/Debug/InuCommonUtilitiesd.lib 和对象 D:/works/inucommon/lib/x64/Debug/InuCommonUtilitiesd.exp
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  InuCommonUtilities.vcxproj -> D:\works\sdk\bin\x64\Debug\InuCommonUtilitiesd.dll
+  platform dir = Windows

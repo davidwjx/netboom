@@ -1,0 +1,54 @@
+﻿{
+  "configurations": [
+    {
+      "name": "x64-Debug",
+      "generator": "Visual Studio 16 2019 Win64",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "CMAKE_VERBOSE_MAKEFILE",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ],
+      "cmakeCommandArgs": "-DUSE_CONAN=FALSE -DCMAKE_BUILD_TYPE=Debug -DCLEAN_CONAN=TRUE"
+    },
+    {
+      "name": "Android-NDK23",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeToolchain": "${projectDir}\\..\\cmake\\android-ndk23b-api29.cmake",
+      "inheritEnvironments": [ "clang_cl_arm64_x64" ]
+    },
+    {
+      "name": "WSL-GCC-Release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeExecutable": "cmake",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "wslPath": "${defaultWSLPath}",
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=../cmake/linux_gcc-7.4_x86_64.cmake  -DCMAKE_VERBOSE_MAKEFILE=TRUE"
+    },
+    {
+      "name": "x64-Release",
+      "generator": "Visual Studio 16 2019 Win64",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "-DCMAKE_VERBOSE_MAKEFILE=TRUE  -DCMAKE_BUILD_TYPE=Release -DUSE_CONAN=FALSE -DCLEAN_CONAN=TRUE",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ]
+    }
+  ]
+}

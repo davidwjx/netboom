@@ -1,0 +1,24 @@
+<project>
+
+    <path id="classpath">
+		<pathelement location="../../../bin/${PLATFORM}/CommonUtilsJava.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete file="../../../bin/${PLATFORM}/CommonUtilsJava.jar"/>
+	<delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="CommonUtilsJava/src" destdir="build/classes" classpathref="classpath" verbose="true"/>
+    </target>
+
+    <target name="jar">
+        <jar destfile="../../../bin/${PLATFORM}/CommonUtilsJava.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="oata.HelloWorld"/>
+            </manifest>
+        </jar>
+    </target>
+</project>

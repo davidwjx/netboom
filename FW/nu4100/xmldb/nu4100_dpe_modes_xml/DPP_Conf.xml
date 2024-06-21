@@ -1,0 +1,9 @@
+<?xml $Revision: 1566619 $ encoding="utf-8"?>
+<DPP>
+	<FUNCTIONS>
+		<D2D>
+			<FIELD NAME="depth_scale_factor_host" VALUE="100"/>
+			<FIELD NAME="depth_scale_factor_cva" VALUE="10"/>
+		</D2D>
+	</FUNCTIONS>
+</DPP>

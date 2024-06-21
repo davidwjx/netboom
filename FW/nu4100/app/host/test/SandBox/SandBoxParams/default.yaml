@@ -1,0 +1,26 @@
+%YAML:1.0
+
+tag: "sandbox-parameters"       # File tag
+version: 1.0                    # File version
+
+params:
+  duration: 1000                # Duration for the tests in seconds
+  iterations: 1                 # Number of test iterations
+  disablePowerOptimization: 0   # 1 to disable pwr optimization, 0 to keep it enabled
+  bootID: -1                    # Force different bootId (-1 to use from flash)
+
+  configurations:
+    # List of configurations/graphs (if the list is empty, default graph named "main" will be created)
+    - name: "main"              # Configuration name (empty string to skip)
+      sensorsFrameRate: 0       # All sensor groups frame rate (in FPS)
+      sensorsResMode: 0         # All sensor groups resolution mode (0 - bin, 1 - full, 2 - user defined, 3 - vertical binning, 4 - UXVGA)
+      dpeConfigFiles:
+        # List of DPE config files
+        - "DPE_Active_Common.xml"
+        - "DPP_Host_Disp844_CVA_D2D16.xml"
+      streams:
+        # List of streams
+        - stream: "Stream_Depth_1"
+          statsEnable: 1        # Print statistics for a test (0 - disabled, 1 - enabled)
+          recordOutput: 0       # Record stream output (0 - disabled, 1 - enabled)
+          displayOutput: 1      # Display stream output (0 - disabled, 1 - enabled)

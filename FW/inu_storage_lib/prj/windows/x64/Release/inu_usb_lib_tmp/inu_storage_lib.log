@@ -1,0 +1,19 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(516,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+  inu_host_utils.c
+  inu_storage.c
+  Generating Code...
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(314,16): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(324,26): warning C4244: '=': conversion from 'unsigned long' to 'unsigned char', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(344,26): warning C4244: '=': conversion from 'unsigned long' to 'unsigned char', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(358,30): warning C4244: '=': conversion from 'unsigned long' to 'unsigned char', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(370,25): warning C4244: '=': conversion from 'unsigned long' to 'unsigned char', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(411,19): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(439,37): warning C4018: '>': signed/unsigned mismatch
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(589,37): warning C4244: '=': conversion from '__int64' to 'unsigned int', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(614,37): warning C4244: '=': conversion from '__int64' to 'unsigned int', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(701,48): warning C4101: 'c0Board': unreferenced local variable
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(1612,44): warning C4018: '<': signed/unsigned mismatch
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(1834,14): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\works\helsinki\FW\inu_storage_lib\src\inu_storage.c(977): warning C4715: 'inu_storage_get_nand_partition_offset': not all control paths return a value
+     Creating library x64\Release\inu_storage_lib.lib and object x64\Release\inu_storage_lib.exp
+  inu_storage_lib.vcxproj -> D:\works\helsinki\FW\inu_storage_lib\prj\windows\x64\Release\inu_storage_lib.dll

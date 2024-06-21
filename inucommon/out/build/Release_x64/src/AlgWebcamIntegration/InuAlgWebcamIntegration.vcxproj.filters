@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\works\inucommon\src\AlgWebcamIntegration\WebCamInterClass.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\AlgWebcamIntegration\AlgWebcamIntegrationDLL.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\AlgWebcamIntegration\WebCamIntegrationImp.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\works\inucommon\src\AlgWebcamIntegration\AuxFunctions.h">
+      <Filter>HeaderFiles </Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\AlgWebcamIntegration\basic_functions.h">
+      <Filter>HeaderFiles </Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\AlgWebcamIntegration\WebCamInterClass.h">
+      <Filter>HeaderFiles </Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\WebcamIntegrationBase.h">
+      <Filter>HeaderFiles </Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\AlgWebcamIntegrationDLL.h">
+      <Filter>HeaderFiles </Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\AlgWebcamIntegration\resource.h">
+      <Filter>VersionFiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\works\inucommon\src\AlgWebcamIntegration\AlgWebcamIntegration.rc">
+      <Filter>VersionFiles</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="HeaderFiles ">
+      <UniqueIdentifier>{21314984-F54B-3FA1-A896-6EC66D2AD9E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceFiles">
+      <UniqueIdentifier>{8FE1442B-B07A-36C1-9B55-216C20046431}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VersionFiles">
+      <UniqueIdentifier>{3A9E5503-7934-35CB-9029-DD33F3CDAAD1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

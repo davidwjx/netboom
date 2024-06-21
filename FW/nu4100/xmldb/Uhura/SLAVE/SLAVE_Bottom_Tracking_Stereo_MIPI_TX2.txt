@@ -1,0 +1,40 @@
+Introduction:
+-------------
+The output stream from bottom right tracking sensor can be received on MIPI Tx2 interface.
+
+XMLs:
+-----
+The required XML files are located at the location FW/NU4100/xmldb/SLAVE. The following XML files are required:
+1. nu4100_boot10065.xml
+2. nu4100_boot10065_SLAVE_BOTTOM_TRACK_STEREO_RAW8_MIPI_TX2_b.xml
+3. sw_graph_boot10065_SLAVE_UNIFIED_STEREO.xml
+4. sw_graph_boot10065_SLAVE_BOTTOM_TRACK_STEREO_RAW8_MIPI_TX2_b.xml
+
+Copy the files to the location where the NU4100 SDK has been installed and rename them as default boot10065 xml files.
+for ex: Linux - 
+$ sudo cp <PATH_TO_>/nu4100_boot10065.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/nu4100_boot10065.xml
+$ sudo cp <PATH_TO_>/nu4100_boot10065_SLAVE_BOTTOM_TRACK_STEREO_RAW8_MIPI_TX2_b.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/nu4100_boot10065_b.xml
+$ sudo cp <PATH_TO_>/sw_graph_boot10065_SLAVE_UNIFIED_STEREO.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/sw_graph_boot10065.xml
+$ sudo cp <PATH_TO_>/sw_graph_boot10065_SLAVE_BOTTOM_TRACK_STEREO_RAW8_MIPI_TX2_b.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/sw_graph_boot10065_b.xml
+
+Description:
+-----------
+The following path has been chosen for the output of bottom tracking stereo stream through MIPI Tx2 interface.
+sensor_0 -> CSI_Rx_2 -> slu_2 -> Reader_1 --|
+sensor_0 -> CSI_Rx_3 -> slu_3 -> Reader_0 --|--> Reader_0 (Interleaved)
+The reader_0 is taken as input to a second channel which provides the bottom tracking stereo stream output through MIPI Tx2 interface.
+Writer_3 -> VSC_CSI_5_ - > CSI_Video_Interleaver_1 -> VSC_CSI_Tx_2 -> MIPI_Channel_2
+
+Procedure:
+-----------
+Use the following command to activate the bottom right tracking sensor through MIPI channel 0:
+On Generic Linux (Ubuntu PC)
+$ sudo ./inu_sandbox -a 0 -T Stream_Track_Stereo,s -d 200000 -k 10065 -N "boot10065_b" "nu4100_boot10065_b.xml" "sw_graph_boot10065_b.xml" -J 23 800 800 -B "main" "IMAGE_0" "boot10065_b" "WRITER_3"  -H "INU_MIPI_CHANNEL_2"
+
+On Uhura S1:
+$ sudo ./inu_sandbox -a 0 -T Stream_Track_Stereo,q -d 200000 -k 10065 -N "boot10065_b" "nu4100_boot10065_b.xml" "sw_graph_boot10065_b.xml" -J 23 800 800 -B "main" "IMAGE_0" "boot10065_b" "WRITER_3"  -H "INU_MIPI_CHANNEL_2"
+
+Notes:
+------
+Found an issue with CSI Tx controller that RAW8 data was stretched when sent through MIPI TX Channel, this could be that CSI Tx controller. The workaround is to treat the data as RGB565 when
+sending through MIPI Tx channel. The receiver can still process it as RAW8 data.

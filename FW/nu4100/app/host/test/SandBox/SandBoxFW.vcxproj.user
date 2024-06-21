@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerCommandArguments>-p -T Stream_Track_Stereo,s,q -d 10 -k 10065 -N "boot10065_b" "nu4100_boot10065_b.xml" "sw_graph_boot10065_b.xml" -T Stream_Cva_0,s,q,y,m  -B "main" "IMAGE_2" "boot10065_b" "WRITER_1" -B "main" "IMAGE_3" "boot10065_b" "WRITER_1" -J 19 800 800 -H "INU_CVA_CHANNEL_19"</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)\..\..\..\..\..\inu_usb_lib\driver\libusb\src\msvc\$(Platform)\$(Configuration);../../inu_host_lib/prj/windows/$(Platform)/$(Configuration);$(ProjectDir)/../../../../../inu_usb_lib/prj/windows/$(Platform)/$(Configuration);$(INUITIVE_PATH)\bin;$(OpenCV_DIR)\build\$(Platform)\v142\bin;C:\IMDT\Inuitive\opencv\build\x64\vc15\bin</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|x64'">
+    <LocalDebuggerCommandArguments>-k 10065 -d 10000 -T Stream_Track_Stereo,s,q,z,m -a 0</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)\..\..\..\..\..\inu_usb_lib\driver\libusb\src\msvc\$(Platform)\$(Configuration);../../inu_host_lib/prj/windows/$(Platform)/$(Configuration);$(ProjectDir)/../../../../../inu_usb_lib/prj/windows/$(Platform)/$(Configuration);$(INUITIVE_PATH)\bin;$(OpenCV_DIR)\build\$(Platform)\v142\bin</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerCommandArguments>-T Stream_RGB_1_ISP_0,s,q </LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|Win32'">
+    <LocalDebuggerCommandArguments>-p -z "C:\program Files\Inuitive\InuDev\config\InuSensors\ALE19220019"  -a 0  -T Stream_RGB_0,s,q -d 20 </LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerEnvironment>PATH=$(ProjectDir)\..\..\..\..\..\inu_usb_lib\driver\libusb\src\msvc\$(Platform)\$(Configuration);../../inu_host_lib/prj/windows/$(Platform)/$(Configuration);$(ProjectDir)/../../../../../inu_usb_lib/prj/windows/$(Platform)/$(Configuration);$(INUITIVE_PATH)\bin;$(OpenCV_DIR)\build\$(Platform)\v142\bin</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>-k 500 -d 5 -T DimaS</LocalDebuggerCommandArguments>
+  </PropertyGroup>
+</Project>

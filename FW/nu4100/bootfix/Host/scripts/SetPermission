@@ -1,0 +1,4 @@
+#!/bin/bash
+echo Inu100pwd | sudo -S -E chown root:root $1
+echo Inu100pwd | sudo -S -E chmod u+s $1
+

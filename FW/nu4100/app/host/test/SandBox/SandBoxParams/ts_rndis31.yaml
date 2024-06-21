@@ -1,0 +1,48 @@
+%YAML:1.0
+
+tag: "sandbox-parameters"       # File tag
+version: 1.0                    # File version
+
+params:
+  duration: 10000               # Duration for the tests in seconds
+  iterations: 1                 # Number of test iterations
+  disablePowerOptimization: 1   # 1 to disable pwr optimization, 0 to keep it enabled
+  bootID: 10701                    # Force different bootId (-1 to use from flash)
+  calibPath: "C:\\Program Files\\Inuitive\\InuDev\\config\\InuSensors\\103C8A7FELD1111111111"                 # Alternative path for the sensor calibration files
+  watchdogTimeout: 0
+  tuningServer: 3               # Tuning server mode (2 - OV5675, 3 - OV8856)
+
+  
+  interfaceParams: 
+    interfaceSelect: 2
+    portNumber: 5384
+    
+  configurations:
+    # List of configurations/graphs (if the list is empty, default graph named "main" will be created)
+    - name: "main"              # Configuration name (empty string to skip)
+      hwXmlFile: "nu4100_boot10701.xml" #          # HW graph XML file (empty string to use the default bootID xml)
+      swXmlFile: "sw_graph_boot10701.xml" #        # SW graph XML file (empty string to use the default bootID xml)
+
+      sensors:
+        # List of sensors/groups
+        - sensor: 2            # Sensor/group number (-1 to skip)
+          frameRate: 10          # Sensor (or group) frame rate in FPS
+          resMode: 0            # Sensor (or group) resolution mode (0 - bin, 1 - full, 2 - user defined, 3 - vertical binning, 4 - UXVGA)
+        - sensor: 3            # Sensor/group number (-1 to skip)
+          frameRate: 10          # Sensor (or group) frame rate in FPS
+          resMode: 1            # Sensor (or group) resolution mode (0 - bin, 1 - full, 2 - user defined, 3 - vertical binning, 4 - UXVGA)
+      streams:
+        # List of streams       
+          # From sw_graph_boot10090.xml
+        - stream: "Stream_26"
+          statsEnable: 0        # Print statistics for a test (0 - disabled, 1 - enabled)
+          recordOutput: 0       # Record stream output (0 - disabled, 1 - enabled)
+          displayOutput: 1      # Display stream output (0 - disabled, 1 - enabled)
+        # - stream: "Stream_26"
+          # statsEnable: 0        # Print statistics for a test (0 - disabled, 1 - enabled)
+          # recordOutput: 0       # Record stream output (0 - disabled, 1 - enabled)
+          # displayOutput: 1      # Display stream output (0 - disabled, 1 - enabled)
+        # - stream: "ISP_input"
+          # statsEnable: 0        # Print statistics for a test (0 - disabled, 1 - enabled)
+          # recordOutput: 0       # Record stream output (0 - disabled, 1 - enabled)
+          # displayOutput: 1      # Display stream output (0 - disabled, 1 - enabled)

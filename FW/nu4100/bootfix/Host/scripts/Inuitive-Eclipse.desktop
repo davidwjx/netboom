@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Inuitive-Eclipse
+Exec=/bin/bash -c 'env UBUNTU_MENUPROXY=0 /usr/lib/eclipse/eclipse'
+Type=Application

@@ -1,0 +1,24 @@
+LIBRARY
+EXPORTS
+   CDC_MNGRG_init                               @1
+   CDC_MNGRG_deinit                             @2
+   CDC_MNGRG_open                               @3
+   CDC_MNGRG_close                              @4
+
+   CDC_MNGRG_ping                               @10
+   CDC_MNGRG_logEnable                          @11
+   
+   CDC_MNGRG_enableBokeh                        @20
+   CDC_MNGRG_disableBokeh                       @21
+   CDC_MNGRG_setBokehParams                     @22
+   CDC_MNGRG_getBokehParams                     @23
+   
+   inu_fw_update__copyFwImage                   @30
+   inu_fw_update__flashFwImage                  @31
+   inu_fw_update__getBootFlags                  @32
+   inu_fw_update__getFwVersion                  @33
+
+   CDC_MNGRG_initVeMngr                         @250
+   CDC_MNGRG_startStream                        @251
+   CDC_MNGRG_stopStream                         @252
+   CDC_MNGRG_test                               @253

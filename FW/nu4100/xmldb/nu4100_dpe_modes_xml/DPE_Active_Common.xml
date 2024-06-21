@@ -1,0 +1,329 @@
+<?xml $Revision: 1566619 $ encoding="utf-8"?>
+<NU4100>
+<DPE>
+	<REGISTERS>
+	
+	</REGISTERS>
+	<FUNCTIONS>
+		<AGGREGATION_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!-- Relative weight of SAD vs census in cost function -->
+		  <FIELD NAME="SAD_census_ratio" VALUE="0.9" />
+		  <!-- 0: Aggregation without edges 1: Aggregation with Canny edges 2: Aggregation with information map edges-->
+		  <FIELD NAME="agg_edge_mode" VALUE="2" />
+		  <!-- Aggregation window width. Must be odd -->
+		  <FIELD NAME="agg_win_horizontal" VALUE="15" />
+		  <!-- Aggregation window height. Must be odd -->
+		  <FIELD NAME="agg_win_vertical" VALUE="11" />
+		  <!-- High SAD cost clip threshold -->
+		  <FIELD NAME="cost_clip_high" VALUE="1000" />
+		  <!-- Low SAD cost clip threshold -->
+		  <FIELD NAME="cost_clip_low" VALUE="0" />
+		  <!-- -->
+		  <FIELD NAME="census_factor" VALUE="60" />
+		  <!-- Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</AGGREGATION_SETUP>
+		<OPTIMIZATION_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--Enables optimization-->
+		  <FIELD NAME="opt_en" VALUE="1" />
+		  <!--Enables different (0.5) penalties at edge.For active should be 0 and for passive should be  1-->
+		  <FIELD NAME="opt_edge_mask_en" VALUE="0" />
+		  <!--P1 is the penalty for moving one disparity unit relatively to its neighbor pixel.
+				if (opt_edge_mask_en = 0) (Sets p1_small = p1) else (Sets p1_small = p1/2)-->
+		  <FIELD NAME="p1" VALUE="8" />
+		  <!--P2 is the penalty for jumping more than one disparity unit relatively to its neighbor pixel.
+				if (opt_edge_mask_en = 0) (Sets p2_small = p2) else (Sets p2_small = p2/2)-->
+		  <FIELD NAME="p2" VALUE="16" />
+		  <!--P3 is the penalty for any disparity jump larger than 1.
+				if (opt_edge_mask_en = 0) (Sets p3_small = p3) else (Sets p3_small = p3/2)-->
+		  <FIELD NAME="p3" VALUE="12" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</OPTIMIZATION_SETUP>
+		<UNITE_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--Threshold of disparity difference between left and right disparity maps to accept the disparity. Otherwise set to non-valid-->
+		  <FIELD NAME="unite_threshold" VALUE="2" />
+		  <!--0: right is reference image 1: left is reference image-->
+		  <FIELD NAME="unite_side_left" VALUE="0" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</UNITE_SETUP>
+		<SMALL_FILTER_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!-- Enables aggregation with directional filters -->
+		  <FIELD NAME="small_filter_en" VALUE="0" />
+		  <!--Threshold of disparity difference between left and right disparity maps to accept the disparity. Otherwise set to non-valid.-->
+		  <FIELD NAME="unite_threshold" VALUE="2" />
+		  <!--The disparity delta threshold to count as directional edge-->
+		  <FIELD NAME="disp_threshold" VALUE="2" />
+		  <!--The minimum number of directional edges to count as real edge-->
+		  <FIELD NAME="min_edges_count" VALUE="0" />
+		  <!--The maximum number of directional edges to count as real edge-->
+		  <FIELD NAME="max_edges_count" VALUE="3" />
+		  <!--The windows size of the max filter-->
+		  <FIELD NAME="max_win_size" VALUE="4" />
+		  <!--Dilation window size-->
+		  <FIELD NAME="dil_win_size" VALUE="4" />
+		  <!--Threshold between regular and small disparity-->
+		  <FIELD NAME="cleaning_disp_threshold" VALUE="2" />
+		  <!--Size of the cleaning window-->
+		  <FIELD NAME="clean_flt_size" VALUE="4" />
+		  <!--Should we clean small disparity-->
+		  <FIELD NAME="clean_flt_en" VALUE="1" />
+		  <!-- Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</SMALL_FILTER_SETUP>
+		<BLOB_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!-- Enables blob cleaning -->
+		  <FIELD NAME="blob_en" VALUE="1" />
+		  <!-- Max cleaned blob size in pixels -->
+		  <FIELD NAME="blob_max_size" VALUE="500" />
+		  <!-- The maximal disparity difference between neighbor pixel to relate the two pixels to the same blob -->
+		  <FIELD NAME="blob_disp_diff" VALUE="2" />
+		  <!-- Set maximum blob height (can’t be bigger than buffer height) -->
+		  <FIELD NAME="blob_buffer_height" VALUE="20" />
+		  <!-- Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</BLOB_SETUP>
+		<EDGE_DETECT_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--Sigma of gauss filter before Canny-->
+		  <FIELD NAME="gauss_filt_sigma" VALUE="2" />
+		  <!--Apply filter before census-->
+		  <FIELD NAME="filt_before_census_en" VALUE="1" />
+		  <!--High threshold for an edge after gaussian and gradient-->
+		  <FIELD NAME="canny_thr_high" VALUE="20" />
+		  <!--Low threshold for an edge after gaussian and gradient-->
+		  <FIELD NAME="canny_thr_low" VALUE="15" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</EDGE_DETECT_SETUP>
+		<INFO_MAP_SETUP> 
+		<!--Info_Map for P0-->
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--Use information map to invalidate low information areas-->
+		  <FIELD NAME="infomap_inv_en" VALUE="1" />
+		  <!--Main threshold. Higher value means less pixels invalidated-->
+		  <FIELD NAME="im_t" VALUE="7" />
+		  <!--Size of central box mask-->
+		  <FIELD NAME="box_size" VALUE="5" />
+		  <!--Length of mask before rotation-->
+		  <FIELD NAME="length" VALUE="9" />
+		  <!--Width of mask before rotation-->
+		  <FIELD NAME="width" VALUE="3" />
+		  <!--0: windows with variance between min_variance to (min_variance * var_min_ratio + var_min_offset) are selected
+			  1: windows with variance between max_variance to (max_variance * var_max_ratio + var_max_offset) are selected-->
+		  <FIELD NAME="low_high_var_sel" VALUE="0" />
+		  <!--offset for accepted windows variances, active if low_high_var_sel=0-->
+		  <FIELD NAME="var_min_offset" VALUE="0.16" />
+		  <!--ratio for accepted windows variances, active if low_high_var_sel=0-->
+		  <FIELD NAME="var_min_ratio" VALUE="2.25" />
+		  <!--offset for accepted windows variances, active if low_high_var_sel=1-->
+		  <FIELD NAME="var_max_offset" VALUE="0" />
+		  <!--ratio for accepted windows variances, active if low_high_var_sel=1-->
+		  <FIELD NAME="var_max_ratio" VALUE="0" />
+		  <!--epsilon in denominator to avoid division by 0 at low signal-->
+		  <FIELD NAME="eps_v" VALUE="0.0833" />
+		  <!--epsilon offset in numerator, deals with readout noise at low signal. use values 0-10.-->
+		  <FIELD NAME="eps_o" VALUE="8" />
+		  <!--set to 0 (not used). multiplier for mean in numerator-->
+		  <FIELD NAME="eps_a" VALUE="0" />
+		  <!--If 1, preform 3x3 closing on binary info map (score < im_t)-->
+		  <FIELD NAME="close_en" VALUE="0" />
+		  <!--Blobs closing on the information map-->
+		  <FIELD NAME="blob_enable" VALUE="0" />
+		  <!--Number of blobs-->
+		  <FIELD NAME="max_list_size" VALUE="8" />
+		  <!--Number of rows in information map blobs. must be at most im_start_line_ciif_0 + 1-->
+		  <FIELD NAME="lin_dist" VALUE="4" />
+		  <!--Max number of pixels in blob-->
+		  <FIELD NAME="max_size" VALUE="15" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="0" />
+		</INFO_MAP_SETUP>
+		<INFO_MAP_SETUP> 
+		<!--Info_Map for P1-->
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--Use information map to invalidate low information areas-->
+		  <FIELD NAME="infomap_inv_en" VALUE="1" />
+		  <!--Main threshold. Higher value means less pixels invalidated-->
+		  <FIELD NAME="im_t" VALUE="7" />
+		  <!--Size of central box mask-->
+		  <FIELD NAME="box_size" VALUE="5" />
+		  <!--Length of mask before rotation-->
+		  <FIELD NAME="length" VALUE="9" />
+		  <!--Width of mask before rotation-->
+		  <FIELD NAME="width" VALUE="3" />
+		  <!--0: windows with variance between min_variance to (min_variance * var_min_ratio + var_min_offset) are selected
+			  1: windows with variance between max_variance to (max_variance * var_max_ratio + var_max_offset) are selected-->
+		  <FIELD NAME="low_high_var_sel" VALUE="0" />
+		  <!--offset for accepted windows variances, active if low_high_var_sel=0-->
+		  <FIELD NAME="var_min_offset" VALUE="0.16" />
+		  <!--ratio for accepted windows variances, active if low_high_var_sel=0-->
+		  <FIELD NAME="var_min_ratio" VALUE="2.25" />
+		  <!--offset for accepted windows variances, active if low_high_var_sel=1-->
+		  <FIELD NAME="var_max_offset" VALUE="0" />
+		  <!--ratio for accepted windows variances, active if low_high_var_sel=1-->
+		  <FIELD NAME="var_max_ratio" VALUE="0" />
+		  <!--epsilon in denominator to avoid division by 0 at low signal-->
+		  <FIELD NAME="eps_v" VALUE="0.0833" />
+		  <!--epsilon offset in numerator, deals with readout noise at low signal. use values 0-10.-->
+		  <FIELD NAME="eps_o" VALUE="8" />
+		  <!--set to 0 (not used). multiplier for mean in numerator-->
+		  <FIELD NAME="eps_a" VALUE="0" />
+		  <!--If 1, preform 3x3 closing on binary info map (score < im_t)-->
+		  <FIELD NAME="close_en" VALUE="0" />
+		  <!--Blobs closing on the information map-->
+		  <FIELD NAME="blob_enable" VALUE="0" />
+		  <!--Number of blobs-->
+		  <FIELD NAME="max_list_size" VALUE="8" />
+		  <!--Number of rows in information map blobs. must be at most im_start_line_ciif_0 + 1-->
+		  <FIELD NAME="lin_dist" VALUE="4" />
+		  <!--Max number of pixels in blob-->
+		  <FIELD NAME="max_size" VALUE="15" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="1" />
+		</INFO_MAP_SETUP>
+		<SUBPIXEL_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--Enables pixel correction among 3 candidates-->
+		  <FIELD NAME="pxl_cor" VALUE="1" />
+		  <!--0: Census mask disabled
+			  1: Census mask filters invalids only
+			  2: Census mask enabled
+			  3: Census mask enabled; mask is 0 for pixels with invalid disparity-->
+		  <FIELD NAME="census_msk_disp_mode" VALUE="3" />
+		  <!--If census mask is enabled, drop census bits comparing disparity to central pixel of each census-->
+		  <FIELD NAME="census_cfg_msk_disp_thr" VALUE="1" />
+		  <!--Horizontal census sum mask-->
+		  <FIELD NAME="hmsk" VALUE="511" />
+		  <!--Vertical census sum mask-->
+		  <FIELD NAME="vmsk" VALUE="511" />
+		  <!--0: Aggregation mask disabled
+			  1: Aggregation mask filters invalid only
+			  2: Aggregation mask enabled
+			  3: Aggregation mask enabled; filters invalid-->
+		  <FIELD NAME="aggr_msk_disp_mode" VALUE="3" />
+		  <!--Disparity threshold to drop census from summation,
+			 if aggregation mask is enabled-->
+		  <FIELD NAME="aggr_cfg_msk_disp_thr" VALUE="1" />
+		  <!--Enables 3x3 filters on filtered aggregation censuses-->
+		  <FIELD NAME="census_flt_en" VALUE="0" />
+		  <!--Aggregation weight zone1-->
+		  <FIELD NAME="weight1" VALUE="2" />
+		  <!--Aggregation weight zone2-->
+		  <FIELD NAME="weight2" VALUE="4" />
+		  <!--Aggregation weight zone3-->
+		  <FIELD NAME="weight3" VALUE="8" />
+		  <!--Aggregation weight zone4-->
+		  <FIELD NAME="weight4" VALUE="8" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</SUBPIXEL_SETUP>
+		<PLANE_FIT_SETUP>
+		  <FIELD NAME="enable" VALUE="1" />
+		  <!--Enables plane-fit-->
+		  <FIELD NAME="plane_fit_en" VALUE="1" />
+		  <!--0: no initial smoothing.
+			  1: initial smoothing on central pixel using 3x3 window-->
+		  <FIELD NAME="pixel_smooth_mode" VALUE="0" />
+		  <!--Max pixel disparity difference to participate in gradient calculation.
+			  1 disparity = 64 units.-->
+		  <FIELD NAME="grad_disp_thr" VALUE="64" />
+		  <!--Required min no. pixels to participate in plane fit-->
+		  <FIELD NAME="grad_min_pixels" VALUE="5" />
+		  <!--Max pixel disparity difference to participate in smoothing.
+			  1 disparity = 64 units.-->
+		  <FIELD NAME="smooth_disp_thr" VALUE="64" />
+		  <!--Required min no. pixels to participate in smoothing-->
+		  <FIELD NAME="smooth_min_pixels" VALUE="20" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</PLANE_FIT_SETUP>
+		<CONFIDENCE_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--CostScore = CK/(1st cost + CA)-CB, saturated to  63-->
+		  <FIELD NAME="ck" VALUE="0" />
+		  <FIELD NAME="ca" VALUE="1" />
+		  <FIELD NAME="cb" VALUE="0" />
+		  <!--SecondMinimaTest = RK*(2nd cost+RA)/(1st cost +RA)-RB, saturated to 63-->
+		  <FIELD NAME="rk" VALUE="40" />
+		  <FIELD NAME="ra" VALUE="0" />
+		  <FIELD NAME="rb" VALUE="40" />
+		  <!--Weight of cost score-->
+		  <FIELD NAME="wc0" VALUE="0" />
+		  <!--Weight of second minimum score-->
+		  <FIELD NAME="wr0" VALUE="150000" />
+		  <!--Denominator of cost score-->
+		  <FIELD NAME="wn" VALUE="600000" />
+		  <!--Subpixel cost term-->
+		  <FIELD NAME="w_c02" VALUE="8" />
+		  <!--Subpixel center cost term. Set w_c1 <-2*w_c02-->
+		  <FIELD NAME="w_c1" VALUE="-17" />
+		  <!--Weight of CostScore and SecondMinimaTest in confidence score-->
+		  <FIELD NAME="w_unite" VALUE="2000" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="1" />
+		</CONFIDENCE_SETUP>
+		<CONFIDENCE_BINS_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--bin_k<=conf_score<bin_k+1 gets confidence k, 0<=k<=15
+			  Note: bins are signed numbers-->
+		  <FIELD NAME="bin_1" VALUE="100" />
+		  <FIELD NAME="bin_2" VALUE="116" />
+		  <FIELD NAME="bin_3" VALUE="133" />
+		  <FIELD NAME="bin_4" VALUE="150" />
+		  <FIELD NAME="bin_5" VALUE="166" />
+		  <FIELD NAME="bin_6" VALUE="200" />
+		  <FIELD NAME="bin_7" VALUE="233" />
+		  <FIELD NAME="bin_8" VALUE="283" />
+		  <FIELD NAME="bin_9" VALUE="333" />
+		  <FIELD NAME="bin_10" VALUE="383" />
+		  <FIELD NAME="bin_11" VALUE="433" />
+		  <FIELD NAME="bin_12" VALUE="483" />
+		  <FIELD NAME="bin_13" VALUE="533" />
+		  <FIELD NAME="bin_14" VALUE="583" />
+		  <FIELD NAME="bin_15" VALUE="633" />
+		  <!--In C0 only, enable disparity invalidation if
+			  confidence <= spx_conf_thr. Does not operate in B0.-->
+		  <FIELD NAME="spx_conf_thr_en" VALUE="0" />
+		  <!--In C0 only, if spx_conf_thr_en is 1, and confidence <= spx_conf_thr,
+			  sets confidence to 0 and disparity to invalid (255). Important for blob.
+			  Does not operate in B0.-->
+		  <FIELD NAME="spx_conf_thr" VALUE="0" />
+		  <!--Update p0 and/or p1 registers 0:p0 1:p1 2:both-->
+		  <FIELD NAME="p0_p1_mode" VALUE="2" />
+		</CONFIDENCE_BINS_SETUP>
+		<MULTI_RES_FULL_IMAGE_SETUP>
+		  <FIELD NAME="enable" VALUE="0" />
+		  <!--The down sample factor of p0-->
+		  <FIELD NAME="p0_down_sample_factor" VALUE="1" />
+		  <!--The down sample factor of p1-->
+		  <FIELD NAME="p1_down_sample_factor" VALUE="2" />
+		  <!--0: select P0 to output
+			  1: select P1 to output
+			  2: extended range (P0: high resolution, far. P1: low resolution, far+close
+			  3: select p0, unless p0 is non-valid, and then from p1.
+			  4: select lane with highest confidence.-->
+		  <FIELD NAME="hybrid_full_mode" VALUE="3" />
+		  <!--Changes the minimum disparity to a number greater than 0-->
+		  <FIELD NAME="min_disp" VALUE="0" />
+		  <!--in extended range mode, for pixel valid in P0 and invalid in P1,
+			  output disparity P0 if confidence(P0)>ext_rng_thr_far_nv, else invalid-->
+		  <FIELD NAME="ext_rng_thr_far_nv" VALUE="15" />
+		  <!--in extended range mode, for pixel far in P0 and close in P1,
+			  output disparity P0 if confidence(P0)>ext_rng_thr_far_close, else disparity P1-->
+		  <FIELD NAME="ext_rng_thr_far_close" VALUE="15" />
+		</MULTI_RES_FULL_IMAGE_SETUP>
+		<MIN_DISPARITY_SETUP>
+      <FIELD NAME="enable" VALUE="0" />
+      <!--Changes the minimum disparity to a number greater than 0-->
+      <FIELD NAME="min_disp" VALUE="40" />
+    </MIN_DISPARITY_SETUP>
+    </FUNCTIONS>
+</DPE>
+</NU4100>

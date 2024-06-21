@@ -1,0 +1,9 @@
+D:\works\inucommon\src\InuCommonAlgo\dllmain.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\dllmain.obj
+D:\works\inucommon\src\InuCommonAlgo\AlgoBase\AlgoAvx.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\AlgoAvx.obj
+D:\works\inucommon\src\InuCommonAlgo\AlgoBase\AlgoBase.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\AlgoBase.obj
+D:\works\inucommon\src\InuCommonAlgo\AlgoBase\AlgoD2D.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\AlgoD2D.obj
+D:\works\inucommon\src\InuCommonAlgo\AlgoBase\AlgoDepth2XYZ.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\AlgoDepth2XYZ.obj
+D:\works\inucommon\src\InuCommonAlgo\AlgoBase\YUV2RGB.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\YUV2RGB.obj
+D:\works\inucommon\src\InuCommonAlgo\AlgoBase\YUV422ToRGB.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\YUV422ToRGB.obj
+D:\works\inucommon\src\InuCommonAlgo\AlgStaticTemporalFilter\StaticTemporalFilter.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\StaticTemporalFilter.obj
+D:\works\inucommon\src\InuCommonAlgo\AlgStaticTemporalFilter\StaticTemporalFilterBase.cpp;D:\works\inucommon\out\build\Release_x64\src\InuCommonAlgo\InuCommonAlgo.dir\Release\StaticTemporalFilterBase.obj

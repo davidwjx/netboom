@@ -1,0 +1,10 @@
+Current time: 06/11/2018 10:02
+Version : 4.03.0005.02
+Sensor : OV7251
+Model : M3.2SR
+Calibration dir : C:\local\FXN18340001\Hot_35\Calibration_tables
+*** Full ***
+
+Warnings: 
+===> Video Dimensions      : 608x456
+===> Disparity Dimensions : 608x456

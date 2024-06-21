@@ -1,0 +1,34 @@
+include(CMakeFindDependencyMacro)
+
+find_dependency(includes        1.0)
+find_dependency(ev_cnn_includes 1.0)
+find_dependency(evdev           1.0)
+find_dependency(evcnndev        1.0)
+find_dependency(evlayers        1.0)
+#find_dependency(evcnnutil       1.0)
+find_dependency(evthreads       1.0)
+find_dependency(evmss           2.0)
+find_dependency(evpdm           1.0)
+find_dependency(evinulayers     1.0)
+if(DEFINED USE_OPENCV)
+find_dependency(cnnimageopencv 1.0)
+else()
+find_dependency(cnnimagebmetal 1.0)
+endif()
+
+if(DEFINED EVSS_CFG_HAS_OCL)
+    find_dependency(ocl_kernels     1.0)
+endif()
+
+find_dependency(evcnnovx            1.0)
+
+if(DEFINED ARC)
+    find_dependency(evcnnhwutil     1.0)
+endif()
+
+if (DEFINED VDSP_ONLY)
+    find_dependency(ev_mli          2.0)
+endif()
+
+# Import externalmultilibTargets
+include("${CMAKE_CURRENT_LIST_DIR}/inu_multi_lib@BUILD__PREFIX@Targets.cmake")

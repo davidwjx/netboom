@@ -1,0 +1,34 @@
+
+{
+    "cmake.configureSettings": {
+
+        "USE_CONAN" : "TRUE",
+
+        "CLEAN_CONAN" : "TRUE",
+
+        // If true then use local resources such as: g++, boost, opencv, etc.
+        "LOCAL_RESOURCES": "FALSE",
+
+        // If true then only the InuCommonUtilities will be compiled
+        "INUSTREAMS_ONLY": "FALSE",
+
+        "BOOST_ROOT" : "",
+
+        "OPENCV_ROOT" : "",
+
+        "OPENCV_VER" : "",
+
+        "CMAKE_VERBOSE_MAKEFILE" : "FALSE",
+		
+	    //"CMAKE_BUILD_TYPE" : "Release",
+
+        "CMAKE_TOOLCHAIN_FILE" : "cmake/linux_gcc-7.4_x86_64.cmake"
+        //"CMAKE_TOOLCHAIN_FILE" : "cmake/linux_gcc-5.4_x86_64.cmake"
+        //"CMAKE_TOOLCHAIN_FILE" : "cmake/linux_gcc-7.3_armv8.cmake" 
+        //"CMAKE_TOOLCHAIN_FILE" : "cmake/linux_gcc-5.4_armv8.cmake"
+        //"CMAKE_TOOLCHAIN_FILE" : "cmake/android-ndk23b-api27.cmake"
+        //"CMAKE_TOOLCHAIN_FILE" : "cmake/android-ndk23b-api27.cmake"        
+    },
+    
+    "cmake.buildDirectory": "${workspaceFolder}/out"
+}

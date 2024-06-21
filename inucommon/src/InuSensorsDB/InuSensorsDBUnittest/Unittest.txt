@@ -1,0 +1,19 @@
+# Which test to execute: 2 - Read from tiff, 3 - load from directory, 4 - Test InuModelDB, 6 - Load from SystemParameter.yml
+#
+#
+#
+# Load Opticatl data from SystemParameters.ini 
+#TestType=6
+# Load Opticatl data from ImageParameters.ini 
+#TestType=2
+F#ileName=Disparity_587715989344256.tif
+# Load calibration from calibration dir - NU4000B0
+TestType=3
+DirectoryName=C:\workspace\data\m4.5s
+Model=M4.5S
+FWRevision=NU4000C1
+# Test model 
+TestType=4
+ModelName=M3.2TC
+
+

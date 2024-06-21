@@ -1,0 +1,239 @@
+inudev: statically-linked-binary opt/bitrock/inudev-7.07.0700.07-1/helperBinary
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuService .
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libCommonAlgo.so .
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libDepthImprovements.so /
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libInuStreams.so /
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libInuStreamsJNI.so /
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libNU3000CVESim.so /
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_calib3d.so.3.0 /home/cmadmin/dev/opencv-3.0.0/release/lib
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_features2d.so.3.0 /home/cmadmin/dev/opencv-3.0.0/release/lib
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_flann.so.3.0 /home/cmadmin/dev/opencv-3.0.0/release/lib
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_imgproc.so.3.0 /home/cmadmin/dev/opencv-3.0.0/release/lib
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/lib/libInuStreams.so /
+inudev: missing-depends-line
+inudev: maintainer-name-missing support@inuitive-tech.com
+inudev: essential-no-not-needed
+inudev: dir-or-file-in-opt opt/bitrock/
+inudev: dir-or-file-in-opt opt/bitrock/inudev-7.07.0700.07-1/
+inudev: dir-or-file-in-opt opt/bitrock/inudev-7.07.0700.07-1/helperBinary
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/7za
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuService
+inudev: non-standard-executable-perm opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuService 0555 != 0755
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuStreamsJava.jar
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuStreamsJavaExt.jar
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuView.jar
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/SetPermissionRT
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/bootspl-nu3000a0-boot50.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/bootspl-nu3000a0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/bootspl-nu3000b0-boot50.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/bootspl-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/bootspl-spi-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot0.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot10.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot20.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot21.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot30.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot31.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot40.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot50.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000-boot60.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/nu3000.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/zImage
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/bootspl-nu3000a0-boot110.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/bootspl-nu3000a0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/bootspl-nu3000b0-boot110.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/bootspl-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/bootspl-spi-nu3000b0-boot110.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/bootspl-spi-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/nu3000-boot100.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/nu3000-boot100.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/nu3000-boot110.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/nu3000-boot110.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/nu3000-boot111.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/nu3000-boot120.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/nu3000-boot130.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/nu3000.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/zImage
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/bootspl-nu3000a0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/bootspl-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/bootspl-spi-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/nu3000-boot200.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/nu3000-boot200.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/nu3000.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/zImage
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot300/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot300/bootspl-nu3000a0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot300/bootspl-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot300/bootspl-spi-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot300/nu3000-boot300.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot300/nu3000-boot300.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot300/zImage
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/bootspl-nu3000a0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/bootspl-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/bootspl-spi-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/nu3000-boot400.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/nu3000-boot400.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/nu3000.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/zImage
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot600/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot600/bootspl-nu3000a0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot600/bootspl-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot600/bootspl-spi-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot600/nu3000-boot600.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot600/nu3000.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot600/zImage
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot700/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot700/bootspl-nu3000a0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot700/bootspl-nu3000b0.bin
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot700/nu3000-boot700.dtb
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot700/nu3000.zip
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot700/zImage
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/inudev_post_install_deb.sh
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/inudev_pre_uninstall_deb.sh
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/inuservice
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/inuservice.conf
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libCommonAlgo.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libCommonUtilities.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libDepthImprovements.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libInuSensorsDB.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libInuStreams.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libInuStreamsJNI.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libNU3000CVESim.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libWebcamIntegration.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libinu_host_lib.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libinu_storage_lib.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libinu_usb_lib.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_calib3d.so.3.0
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_core.so.3.0
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_features2d.so.3.0
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_flann.so.3.0
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_imgproc.so.3.0
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libtbb.so.2
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libusb-1.0.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libusb-1.0.so.0
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/CEVAFWDepthParams.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/InuModelDB.csv
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/InuSensors/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/InuServiceParams.xml
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/InuStreamsParams.xml
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/Inuitive_License.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/Inuitive_README
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/M3.2H_Config.ireg
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/OV2685_webcam.ireg
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/OV7251_webcam.ireg
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/di_Cfg-M3.dat
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/di_Cfg-M31L.dat
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/di_Cfg-M31M.dat
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/di_Cfg.dat
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/di_Cfg_M32.dat
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/di_Cfg_MPT.dat
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/di_Cfg_OCC .dat
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/di_Cfg_occip.dat
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/icons/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/icons/InuView.desktop
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/icons/InuView_icon.png
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/icons/Inuitive-Service.desktop
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/icons/LOGO.bmp
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/icons/java.desktop
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/sensor_ctrl_config_file.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/sensor_ctrl_config_file_G.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/sensor_ctrl_config_file_GR.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/sensor_ctrl_config_file_NM.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/sensor_ctrl_config_file_NMF.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/sensor_ctrl_config_file_T.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/sensor_ctrl_config_file_TM.txt
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/Presets/BackToDefault.ireg
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/Presets/Fingers.ireg
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/Presets/FingersLite.ireg
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/Presets/Intermediate.ireg
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/config/Presets/OptimizationOff.ireg
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/.cproject
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/.project
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/Depth2File.cpp
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/Depth2File.sln
+inudev: windows-devel-file-in-package opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/Depth2File.sln
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/Depth2File.vcxproj
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/Depth2File.vcxproj.filters
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/Makefile
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/Depth2File/Makefile_Android
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/docs/InuDev.chm
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/AuxStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/AuxStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/BaseFrame.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/BaseFrameExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/BaseStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/BaseStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/ControllerStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/DepthStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/DepthStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/FaceEnrollmentStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/FaceExpressionsStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/FaceExpressionsStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/FaceRecognitionStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/FrameStatistics.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/GazeCalibrationStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/GazeStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/GazeStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/GeneralFrame.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/GeneralFrameExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/GeneralPurposeStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/GeneralPurposeStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/HandsStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/HandsStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/HeadStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/HeadStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/ImageFrame.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/ImageFrameExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/InuDefs.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/InuError.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/InuErrorExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/InuSensor.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/InuSensorExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/InuStreams.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/SensorStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/SpeechRecognitionStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/StreamsExport.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/Version.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/VideoStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/VideoStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/WebCamStream.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/include/WebCamStreamExt.h
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/lib/
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/lib/libCommonUtilities.so
+inudev: dir-or-file-in-opt opt/inudev-7.07.0700.07/Inuitive/InuDev/lib/libInuStreams.so
+inudev: jar-not-in-usr-share opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuStreamsJava.jar
+inudev: jar-not-in-usr-share opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuStreamsJavaExt.jar
+inudev: jar-not-in-usr-share opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/InuView.jar
+inudev: incompatible-java-bytecode-format Java7 version (Class format: 51)
+inudev: executable-not-elf-or-script opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot0/zImage
+inudev: executable-not-elf-or-script opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot700/zImage
+inudev: executable-not-elf-or-script opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot100/zImage
+inudev: executable-not-elf-or-script opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot300/zImage
+inudev: executable-not-elf-or-script opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot200/zImage
+inudev: executable-not-elf-or-script opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot600/zImage
+inudev: executable-not-elf-or-script opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/boot400/zImage
+inudev: command-with-path-in-maintainer-script postinst:2 /bin/sh
+inudev: maintainer-script-ignores-errors postinst
+inudev: command-with-path-in-maintainer-script prerm:2 /bin/sh
+inudev: maintainer-script-ignores-errors prerm
+inudev: command-with-path-in-maintainer-script postrm:3 /bin/sh
+inudev: maintainer-script-ignores-errors postrm
+inudev: shlib-with-executable-stack opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_calib3d.so.3.0
+inudev: shlib-with-executable-stack opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_core.so.3.0
+inudev: shlib-with-executable-stack opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_imgproc.so.3.0
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_calib3d.so.3.0 /home/cmadmin/dev/opencv-3.0.0_x86/opencv-3.0.0/release/lib
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_features2d.so.3.0 /home/cmadmin/dev/opencv-3.0.0_x86/opencv-3.0.0/release/lib
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_flann.so.3.0 /home/cmadmin/dev/opencv-3.0.0_x86/opencv-3.0.0/release/lib
+inudev: binary-or-shlib-defines-rpath opt/inudev-7.07.0700.07/Inuitive/InuDev/bin/libopencv_imgproc.so.3.0 /home/cmadmin/dev/opencv-3.0.0_x86/opencv-3.0.0/release/lib

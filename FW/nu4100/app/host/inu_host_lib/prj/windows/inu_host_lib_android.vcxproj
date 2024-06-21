@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\api\host\inu.h" />
+    <ClInclude Include="..\..\..\..\api\host\inu_sdk.h" />
+    <ClInclude Include="..\..\..\..\api\common\inu_cmd.h" />
+    <ClInclude Include="..\..\..\..\api\common\err_defs.h" />
+    <ClInclude Include="..\..\..\..\api\common\inu_defs.h" />
+    <ClInclude Include="..\..\..\..\api\common\inu_types.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\alg\alg.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\conn_lyr.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\uart_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\cdc_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\usb_ctrl_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\src\infrastructure\cls_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\src\network\queue_lyr.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\inc\internal_cmd.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\inc\inu_common.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\inc\stdops.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\inc\sys_defs.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\marshal\inc\marshal.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\marshal\src\m_tbl.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\os\inc\mem_pool.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\os\inc\os_lyr.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\service\inc\service.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\service\inc\svc_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\config.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\inu_str.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\log.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\que.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\utils.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\stream\stream.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\client\client.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\depth\depth.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\inject\inject.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\logger\logger.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\pos_sensors\pos_sensors.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\svc_mngr\svc_mngr.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\system\system.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\video\video.h" />
+    <ClInclude Include="..\..\..\..\common\application\service\webcam\webcam.h" />
+    <ClInclude Include="..\..\..\..\common\application\version\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\common\application\service\alg\alg.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\os\src\inu_queue.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\os\src\linked_list.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\os\src\os_lyr_android.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\marshal\src\m_ioctl.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\marshal\src\m_tbl.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\config.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\inu_str.c" />
+    <ClCompile Include="..\..\..\..\common\api\src\inu.c" />
+    <ClCompile Include="..\..\..\..\common\api\src\inu_sdk.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\infrastructure\serial.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\interface\uart_com.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\interface\cdc_com.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\interface\usb_ctrl_com_host.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\network\conn_lyr.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\network\queue_lyr.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\marshal\src\marshal.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\os\src\mem_pool.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\service\src\service.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\service\src\svc_com.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\log.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\que.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\utils.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\inu_profiler.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\stream\stream.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\client\client.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\depth\depth.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\inject\inject.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\logger\logger.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\pos_sensors\pos_sensors.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\svc_mngr\svc_mngr.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\system\system.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\video\video.c" />
+    <ClCompile Include="..\..\..\..\common\application\service\webcam\webcam.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="inu_host_lib.def" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C8C991FB-AA01-4E5B-9FA6-32FFFF3E2F4A}</ProjectGuid>
+    <Keyword>Android</Keyword>
+    <RootNamespace>inu_host_lib</RootNamespace>
+    <ProjectName>inu_host_lib</ProjectName>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <ApplicationType>Android</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Gcc_4_9</PlatformToolset>
+    <AndroidAPILevel>android-17</AndroidAPILevel>
+    <UseOfStl>gnustl_shared</UseOfStl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Gcc_4_9</PlatformToolset>
+    <AndroidAPILevel>android-17</AndroidAPILevel>
+    <UseOfStl>gnustl_shared</UseOfStl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Gcc_4_9</PlatformToolset>
+    <AndroidAPILevel>android-17</AndroidAPILevel>
+    <UseOfStl>gnustl_shared</UseOfStl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Gcc_4_9</PlatformToolset>
+    <AndroidAPILevel>android-17</AndroidAPILevel>
+    <UseOfStl>gnustl_shared</UseOfStl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Gcc_4_9</PlatformToolset>
+    <AndroidAPILevel>android-21</AndroidAPILevel>
+    <UseOfStl>gnustl_shared</UseOfStl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Gcc_4_9</PlatformToolset>
+    <AndroidAPILevel>android-21</AndroidAPILevel>
+    <UseOfStl>gnustl_shared</UseOfStl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Gcc_4_9</PlatformToolset>
+    <AndroidAPILevel>android-17</AndroidAPILevel>
+    <UseOfStl>gnustl_shared</UseOfStl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Gcc_4_9</PlatformToolset>
+    <AndroidAPILevel>android-17</AndroidAPILevel>
+    <UseOfStl>gnustl_shared</UseOfStl>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <OutDir>$(ProjectDir)\Android\$(Configuration)/$(TargetArchAbi)</OutDir>
+    <IntDir>Android\$(Platform)\$(Configuration)\inu_host_lib_tmp</IntDir>
+    <TargetName>lib$(ProjectName)</TargetName>
+    <UseMultiToolTask>true</UseMultiToolTask>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <OutDir>$(ProjectDir)\Android\$(Configuration)/$(TargetArchAbi)</OutDir>
+    <IntDir>Android\$(Platform)\$(Configuration)\inu_host_lib_tmp</IntDir>
+    <TargetName>lib$(ProjectName)</TargetName>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainVersion)\include;</IncludePath>
+    <UseMultiToolTask>true</UseMultiToolTask>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <OutDir>$(ProjectDir)\Android\$(Configuration)/$(TargetArchAbi)</OutDir>
+    <IntDir>Android\$(Platform)\$(Configuration)\inu_host_lib_tmp</IntDir>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(IncludePath)</IncludePath>
+    <UseMultiToolTask>true</UseMultiToolTask>
+    <TargetName>lib$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <OutDir>$(ProjectDir)\Android\$(Configuration)/$(TargetArchAbi)</OutDir>
+    <IntDir>Android\$(Platform)\$(Configuration)\inu_host_lib_tmp</IntDir>
+    <TargetName>lib$(ProjectName)</TargetName>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(IncludePath)</IncludePath>
+    <UseMultiToolTask>true</UseMultiToolTask>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\inu_usb_lib\include;..\..\..\..\api;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\common\application\version;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\export;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OmitFramePointers>false</OmitFramePointers>
+      <ExceptionHandling>Enabled</ExceptionHandling>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <DataLevelLinking>false</DataLevelLinking>
+      <AdditionalOptions>-c -fmessage-length=0  -march=armv7-a -mfloat-abi=softfp -mfpu=neon %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>FullDebug</DebugInformationFormat>
+      <PreprocessorDefinitions>ANDROID_HOST;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)../../../inu_usb_lib/prj/windows/Android/$(Configuration)/$(TargetArchAbi);../../../../../build/bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>inu_usb_lib;dl;m;%(LibraryDependencies)</LibraryDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\..\host\common\include;..\..\..\..\common\application\service\alg;..\..\..\inu_usb_lib\include;..\..\..\..\api;..\..\..\..\api\common;..\..\..\..\api\host;..\..\..\..\common\application\version;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\export;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <DebugInformationFormat>FullDebug</DebugInformationFormat>
+      <PreprocessorDefinitions>ANDROID_HOST;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>-c -fmessage-length=0  -march=armv7-a -mfloat-abi=softfp -mfpu=neon %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)../../../inu_usb_lib/prj/windows/Android/$(Configuration)/$(TargetArchAbi);../../../../../build/bin;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainVersion)\$(PlatformShortName);$(StlLibraryPath)</AdditionalLibraryDirectories>
+      <LibraryDependencies>inu_usb_lib;dl;m;$(StlLibraryName);%(LibraryDependencies)</LibraryDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <Link>
+      <LibraryDependencies>inu_usb_lib;dl;m;$(StlLibraryName);%(LibraryDependencies)</LibraryDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)../../../inu_usb_lib/prj/windows/Android/$(Configuration)/$(TargetArchAbi);../../../../../build/bin;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainVersion);$(StlLibraryPath)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\inu_usb_lib\include;..\..\..\..\api;..\..\..\..\api\common;..\..\..\..\api\host;..\..\..\..\common\application\version;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\export;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>ANDROID_HOST;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>-c -fmessage-length=0 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <Link>
+      <LibraryDependencies>inu_usb_lib;dl;m;$(StlLibraryName);%(LibraryDependencies)</LibraryDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)../../../inu_usb_lib/prj/windows/Android/$(Configuration)/$(TargetArchAbi);../../../../../build/bin;%(AdditionalLibraryDirectories);$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainVersion);$(StlLibraryPath)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <DebugInformationFormat>FullDebug</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\inu_usb_lib\include;..\..\..\..\api;..\..\..\..\api\common;..\..\..\..\api\host;..\..\..\..\common\application\version;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\export;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>ANDROID_HOST;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>-c -fmessage-length=0 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

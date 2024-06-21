@@ -1,0 +1,7 @@
+﻿  SandBoxLib.cpp
+D:\works\helsinki\FW\nu4100\app\api\common\graph\inu_vision_proc_api.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+  (compiling source file 'SandBoxLib.cpp')
+  
+D:\works\helsinki\FW\nu4100\app\host\test\SandBox\SandBoxFWLib\SandBoxLib.cpp(1506,52): warning C4018: '<': signed/unsigned mismatch
+D:\works\helsinki\FW\nu4100\app\host\test\SandBox\SandBoxFWLib\SandBoxLib.cpp(3540,68): warning C4267: 'argument': conversion from 'size_t' to 'UINT32', possible loss of data
+  SandBoxFWLib.vcxproj -> D:\works\helsinki\FW\nu4100\app\host\bin\x64\Release\SandBoxFWLib.lib

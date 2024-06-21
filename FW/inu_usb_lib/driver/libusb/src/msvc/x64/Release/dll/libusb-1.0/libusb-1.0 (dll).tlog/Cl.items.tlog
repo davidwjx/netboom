@@ -1,0 +1,10 @@
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\core.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\core.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\descriptor.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\descriptor.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\hotplug.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\hotplug.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\io.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\io.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\os\poll_windows.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\poll_windows.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\strerror.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\strerror.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\sync.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\sync.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\os\threads_windows.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\threads_windows.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\os\windows_nt_common.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\windows_nt_common.obj
+D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\libusb\os\windows_winusb.c;D:\works\helsinki\FW\inu_usb_lib\driver\libusb\src\msvc\x64\Release\dll\libusb-1.0\windows_winusb.obj

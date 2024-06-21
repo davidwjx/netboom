@@ -1,0 +1,10 @@
+Current time: 06/11/2018 10:00
+Version : 4.03.0005.02
+Sensor : OV7251
+Model : M3.2SR
+Calibration dir : C:\local\FXN18340001\Hot_55\Calibration_tables
+*** VerticalBinning ***
+
+Warnings: 
+===> Video Dimensions      : 592x224
+===> Disparity Dimensions : 592x224

@@ -1,0 +1,18 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+    "configurations": [
+      {
+        "type": "default",
+        "project": "CMakeLists.txt",
+        "projectTarget": "@PROJECT_NAME_UNITTEST@ (@EXE_FILENAME_UNITTEST@)",
+        "name": "@PROJECT_NAME_UNITTEST@ (@EXE_FILENAME_UNITTEST@)",
+        "args": [
+          "..\\..\\..\\Unittest.txt"
+        ],
+        "env": {
+          "PATH": "@BIN_PATHS_UNITTEST@"
+        }
+      }
+    ]
+}

@@ -1,0 +1,10 @@
+exposureTH_1	0	135
+exposureTH_2	1	430
+maxDispClose	2	419
+maxDispMedium	3	187
+maxDispFar		4	140
+minDispClose	5	180
+minDispMedium	6	44
+minDispFar		7	0
+minStayInZone	8	1
+activateDisparityCtrl	9	2

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Inuitive-Service
+Exec=bash -c "echo 'Press any key to start' && read -n 1 c  && cd /opt/Inuitive/InuDev/bin && pwd && ./InuService | tee /tmp/log.txt"
+Icon=/opt/Inuitive/InuDev/config/icons/LOGO.bmp
+Comment=  
+Type=Application
+Terminal=true
+Name[en_US]=Inuitive-Service

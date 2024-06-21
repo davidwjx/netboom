@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+    <function>
+      <name>Stream_Bayer</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_8</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_YUV5mp</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_3</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>UVC1</connIdE>
+      </params>
+    </function>
+      <function>
+      <name>Stream_YUV8mp</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_4</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>UVC1</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_face</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_5</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_YUV</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>vision_proc_bokeh</name>
+      <pipe_size>1</pipe_size>
+      <type>VISION_PROC</type>
+      <inputs>
+        <input>IMAGE_0</input>
+        <input>IMAGE_3</input>
+        <input>IMAGE_4</input>
+        <input>IMAGE_5</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+      </params>
+    </function>
+    <data>
+      <name>vision_proc_bokeh_data</name>
+      <type>IMAGE_DATA</type>
+      <input>vision_proc_bokeh</input>
+      <source>vision_proc_bokeh</source>
+      <params>
+        <bitsPerPixel>16</bitsPerPixel>
+        <format>YUV422_8BIT</format>
+        <height>1080</height>
+        <width>1920</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>1920</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>1080</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>Sout_vision_bokeh</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>vision_proc_bokeh_data</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / MIPI-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>vision_proc_bg</name>
+      <pipe_size>1</pipe_size>
+      <type>VISION_PROC</type>
+      <inputs>
+        <input>IMAGE_0</input>
+        <input>IMAGE_5</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+      </params>
+    </function>
+    <data>
+      <name>vision_proc_bg_data</name>
+      <type>IMAGE_DATA</type>
+      <input>vision_proc_bg</input>
+      <source>vision_proc_bg</source>
+      <params>
+        <bitsPerPixel>16</bitsPerPixel>
+        <format>YUV422_8BIT</format>
+        <height>1080</height>
+        <width>1920</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>1920</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>1080</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>Sout_vision_bg</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>vision_proc_bg_data</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / MIPI-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Histogram_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>HISTOGRAMN_DATA_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>      
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>SENSOR_CONTROL_0</name>
+      <type>SENSOR_CONTROL</type>
+      <inputs>
+        <input>HISTOGRAMN_DATA_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>1</thread_priority>   
+        <aggressiveStep>1000</aggressiveStep>
+        <nSatMax>0x00010002</nSatMax>
+        <glSat>0x03D403D4</glSat>
+        <mdMax>600</mdMax>
+        <mdMin>500</mdMin>
+        <exposureStepResolution>1000</exposureStepResolution>
+        <deltaSatMax>2</deltaSatMax>
+        <noActivationPeriod>0</noActivationPeriod>
+        <exposureMax>40000</exposureMax>
+        <exposureMin>300</exposureMin>
+        <debug>0</debug>
+        <!-- options: 0 old, 1 new -->
+        <algVersion>0</algVersion>
+        <!-- TSNR alg params-->
+        <snrTarget>10</snrTarget>
+        <!-- slopeWeight is divided by 100 in code -->
+        <slopeWeight>90</slopeWeight>
+      </params>
+    </function>
+    <function>
+      <name>vision_proc_ll_isp</name>
+      <pipe_size>1</pipe_size>
+      <type>VISION_PROC</type>
+      <inputs>
+        <input>IMAGE_8</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+      </params>
+    </function>
+    <data>
+      <name>vision_data_ll_isp</name>
+      <type>IMAGE_DATA</type>
+      <input>vision_proc_ll_isp</input>
+      <source>vision_proc_ll_isp</source>
+      <params>
+        <bitsPerPixel>16</bitsPerPixel>
+        <format>YUV422_8BIT</format>
+        <height>904</height>
+        <width>1600</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>1600</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>904</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>Sout_vision_ll_isp</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>vision_data_ll_isp</input>
+        </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: STUB / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>STUB</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

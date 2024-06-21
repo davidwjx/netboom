@@ -1,0 +1,7 @@
+﻿  inu_host_utils.c
+  inu_usb_wait.c
+D:\works\helsinki\FW\inu_usb_lib\test\inu_usb_wait.c(2,1): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+D:\works\helsinki\FW\inu_usb_lib\test\inu_usb_wait.c : message : see previous definition of '_CRT_SECURE_NO_WARNINGS'
+D:\works\helsinki\FW\inu_usb_lib\test\inu_usb_wait.c(62,44): warning C4113: 'int (__cdecl *)(InuUsbStatusE)' differs in parameter lists from 'InuHotplugCallback'
+  Generating Code...
+  inu_usb_wait.vcxproj -> D:\works\helsinki\FW\inu_usb_lib\prj\windows\x64\Release\inu_usb_wait.exe

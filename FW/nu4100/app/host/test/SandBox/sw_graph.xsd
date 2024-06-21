@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+      xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      attributeFormDefault="unqualified"
+      elementFormDefault="qualified"
+  >
+
+    <!-- =============================================================================== -->
+    <!-- ==                            general types                                  == -->
+    <!-- =============================================================================== -->
+
+
+  <xs:simpleType name="function_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STREAM_OUT" />
+      <xs:enumeration value="STREAM_IN" />
+      <xs:enumeration value="CNN" />
+      <xs:enumeration value="FAST_ORB" />
+      <xs:enumeration value="FDK" />
+      <xs:enumeration value="IMU" />
+	  <xs:enumeration value="SENSOR_CONTROL" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IMAGE_DATA" />
+      <xs:enumeration value="CNN_DATA" />
+      <xs:enumeration value="FAST_ORB_DATA" />
+      <xs:enumeration value="RAW_DATA" />
+      <xs:enumeration value="IMU_DATA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- used for function_name, data_name, input, source -->
+  <xs:simpleType name="name">
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[a-zA-Z_][a-zA-Z0-9_]*" />
+        <xs:minLength value="1"/>
+        <xs:maxLength value="50"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="conn_ide">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="USB_IF0" />
+      <xs:enumeration value="USB_IF1" />
+      <xs:enumeration value="UART" />
+      <xs:enumeration value="MIPI" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- used for width, height, x, y, buffer_height, stride -->
+  <xs:simpleType name="num_of_pixels">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="2000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+    <xs:simpleType name="bitsPerPixel_values">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="4" />
+      <xs:maxInclusive value="24" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  
+  <xs:simpleType name="image_format">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RGB888" />
+      <xs:enumeration value="GREY_16" />
+      <xs:enumeration value="BAYER_16" />
+      <xs:enumeration value="RGB666" />
+      <xs:enumeration value="RGB565" />
+      <xs:enumeration value="RGB555" />
+      <xs:enumeration value="RGB444" />
+      <xs:enumeration value="YUV420_8BIT" />
+      <xs:enumeration value="YUV420_8BIT_LEGACY" />
+      <xs:enumeration value="YUV420_10BIT" />
+      <xs:enumeration value="YUV422_8BIT" />
+      <xs:enumeration value="YUV422_10BIT" />
+      <xs:enumeration value="RAW6" />
+      <xs:enumeration value="RAW7" />
+      <xs:enumeration value="RAW8" />
+      <xs:enumeration value="RAW10" />
+      <xs:enumeration value="RAW12" />
+      <xs:enumeration value="RAW14" />
+      <xs:enumeration value="GEN_8" />
+      <xs:enumeration value="GEN_12" />
+      <xs:enumeration value="GEN_16" />
+      <xs:enumeration value="GEN_24" />
+      <xs:enumeration value="GEN_32" />
+      <xs:enumeration value="GEN_64" />
+      <xs:enumeration value="GEN_96" />
+      <xs:enumeration value="DEPTH" />
+      <xs:enumeration value="DISPARITY" />
+      <xs:enumeration value="DISPARITY_DEBUG" />      
+    </xs:restriction>
+  </xs:simpleType>
+
+  
+  
+
+  <!-- ================================================================================ -->
+    <!-- ==                       properties                                         == -->
+    <!-- ============================================================================== -->
+
+
+  <!-- =============================================================================== -->
+    <!-- ==                             info list                               == -->
+    <!-- =============================================================================== -->
+  <xs:element name="InuSWGraph">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Version" type="xs:integer"/>
+        <xs:element name="LIST">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="function">
+                <xs:complexType>
+                  <xs:sequence minOccurs="1">
+                    <xs:element name="name" type="name" />
+                    <xs:element name="type" type="function_type"  />
+                    <xs:element name="inputs" >
+                      <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="input" type="name" minOccurs="1" maxOccurs="3"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+					<xs:element name="hw_inject" type="name" minOccurs="0" maxOccurs="2"/>
+                    <xs:element name="params" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                            <xs:element name ="node_id" type="xs:integer" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="connIdE" type="conn_ide" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="cnn_net_id" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="cnnEngine" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="aggressiveStep        " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="nSatMax               " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="glSat                 " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="mdMax                 " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="mdMin                 " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="exposureStepResolution" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="deltaSatMax           " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="noActivationPeriod    " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="exposureMax           " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="exposureMin           " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="debug                 " type="xs:integer" minOccurs="0" maxOccurs="1"/>
+                        </xs:sequence>
+                       </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  </xs:complexType>
+                  </xs:element>
+                <xs:element name="data" >
+                    <xs:complexType>
+                      <xs:sequence minOccurs="0">
+                        <xs:element name="name" type="name" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="type" type="data_type" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="input" type="name" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="source" type="name" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="hw_inject" type="name" minOccurs="0" maxOccurs="2"/>
+                        <xs:element name="params">
+                          <xs:complexType>
+                            <xs:all minOccurs="0">
+                              <xs:element name="bitsPerPixel" type="bitsPerPixel_values" minOccurs="0" maxOccurs="1" />
+                              <xs:element name="format" type="image_format" minOccurs="0" maxOccurs="1" />
+                              <xs:element name="height" type="num_of_pixels" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name="width" type="num_of_pixels" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name="x" type="num_of_pixels" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name="y" type="num_of_pixels" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name="bufferHeight" type="num_of_pixels" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name="stride" type="num_of_pixels" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name="realBitsMask" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name="numInterleaveImages" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name="interleaveType" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+                              <xs:element name ="size" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+                           </xs:all>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                 </xs:element>
+              </xs:choice>
+            </xs:sequence>
+         </xs:complexType>
+        </xs:element>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:element>
+  
+    
+</xs:schema>

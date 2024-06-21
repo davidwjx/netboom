@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\common\application\standalone_manager\src\inu_fw_update.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cdc\cdc_mngr.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cdc\cdc_serial.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\os\src\os_lyr_win.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\inu_str.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\log.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="inu_cdc_lib.def" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8160DBFD-D66E-4F41-BF96-AE23CA37D6D6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>inu_host_lib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>inu_cdc_lib</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(Platform)\$(Configuration)\Exe\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_4100</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(Platform)\$(Configuration)\Exe\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_4100</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\..\..\..\inu_usb_lib\include;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\..\common;..\..\..\..\..\..\common\version;..\..\..\..\common\application\manager\inc;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\audio;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\time\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\infrastructure\lz4;..\..\..\..\common\export;..\..\..\..\common\infrastructure\lm\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\xmldb\sxmlc\src;..\..\..\..\common\application\nucfg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>inu_cdc_lib.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;CDC_HOST_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\..\..\common\include;..\..\..\..\..\common;..\..\..\..\common\application\nucfg;..\..\..\..\common\application\manager\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\inc;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\host\libarchive\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>inu_cdc_lib.def</ModuleDefinitionFile>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>archive_static.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>..\..\..\..\host\libarchive\lib</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_lib|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>libusbk\includes;..\..\..\..\api;..\..\..\..\api\inu_defs;..\..\..\..\application\src\common\service\head;..\..\..\..\application\src\common\service\depth;..\..\..\..\..\common;..\..\..\..\application\src\common\service\video;..\..\..\..\application\src\common\service\logger;..\..\..\..\application\src\common\service\camera;..\..\..\..\application\src\common\service\auxilary;..\..\..\..\application\src\common\service\svc_mngr;..\..\..\..\application\src\common\alg\infra\inc;..\..\..\..\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\infrastructure\err\inc;..\..\..\..\infrastructure\utils\inc;..\..\..\..\infrastructure\service\inc;..\..\..\..\infrastructure\bsp\cde\inc;..\..\..\..\infrastructure\pal\inc;..\..\..\..\infrastructure\os\inc;..\..\..\..\infrastructure\cls\src\network;..\..\..\..\infrastructure\cls\src\interface;..\..\..\..\infrastructure\cls\src\infrastructure;..\..\..\..\infrastructure\cls\inc;..\..\..\..\infrastructure\inc;..\..\..\..\infrastructure\marshal\inc;..\..\..\..\infrastructure\bsp\peripheral\idma;..\..\..\..\export;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>inu_cdc_lib.def</ModuleDefinitionFile>
+      <AdditionalDependencies>libusbK.lib;setupapi.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>libusbk\bin\lib\amd64</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\..\..\..\inu_usb_lib\include;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\..\common;..\..\..\..\..\..\common\version;..\..\..\..\common\application\manager\inc;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\audio;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\time\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\infrastructure\lz4;..\..\..\..\common\export;..\..\..\..\common\infrastructure\lm\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\xmldb\sxmlc\src;..\..\..\..\common\application\nucfg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>inu_cdc_lib.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;CDC_HOST_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\..\..\common\include;..\..\..\..\..\common;..\..\..\..\common\application\nucfg;..\..\..\..\common\application\manager\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\inc;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\host\libarchive\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDll</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>inu_cdc_lib.def</ModuleDefinitionFile>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>archive_static.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>..\..\..\..\host\libarchive\lib</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,6 @@
+INU.metadata.State.man_command max_count:1
+INU.metadata.Manual_Sensor_Command.register_data max_size:2
+INU.metadata.Manual_Sensor_Command.register_data fixed_length:true
+INU.metadata.TopLevel.state max_count:4
+INU.metadata.TopLevel.sensors max_count:2
+INU.metadata.ISP_ColourCorrectionCoefficient.coeff max_count:9

@@ -1,0 +1,88 @@
+# ============================================================================= 
+# Copyright 2020  Synopsys, Inc.
+# This file and the associated documentation are proprietary to Synopsys, 
+# Inc., and may only be used in accordance with the terms and conditions of 
+# a written license agreement with Synopsys, Inc.
+# Notwithstanding contrary terms in the DFPUC, Licensee may provide the
+# binaries of the EV Runtime and Utilities Option to its end-customer that
+# purchase Licensee ICs that incorporate the Synopsys EV processor core,
+# subject to confidentiality terms no less restrictive than those contained in
+# the DFPUC.  All other use, reproduction, or distribution of this file
+# is strictly prohibited.
+# =============================================================================
+
+# Setup argument for run
+
+NUMTESTS1 ?= @NUMTESTS1@
+NUMTESTS2 ?= @NUMTESTS2@
+NUMTESTS3 ?= @NUMTESTS3@
+NUMTESTS4 ?= @NUMTESTS4@
+NUMTESTS5 ?= @NUMTESTS5@
+NUMTESTS6 ?= @NUMTESTS6@
+NUMTESTS7 ?= @NUMTESTS7@
+NUMTESTS8 ?= @NUMTESTS8@
+NUMTESTS9 ?= @NUMTESTS9@
+NUMTESTS10 ?= @NUMTESTS10@
+NUMTESTS11 ?= @NUMTESTS11@
+NUMTESTS12 ?= @NUMTESTS12@
+NUMTESTS13 ?= @NUMTESTS13@
+NUMTESTS14 ?= @NUMTESTS14@
+NUMTESTS15 ?= @NUMTESTS15@
+
+GRAPH1_NAME  = @GRAPH1_NAME@
+GRAPH2_NAME  = @GRAPH2_NAME@
+GRAPH3_NAME  = @GRAPH3_NAME@
+GRAPH4_NAME  = @GRAPH4_NAME@
+GRAPH5_NAME  = @GRAPH5_NAME@
+GRAPH6_NAME  = @GRAPH6_NAME@
+GRAPH7_NAME  = @GRAPH7_NAME@
+GRAPH8_NAME  = @GRAPH8_NAME@
+GRAPH9_NAME  = @GRAPH9_NAME@
+GRAPH10_NAME = @GRAPH10_NAME@
+GRAPH11_NAME = @GRAPH11_NAME@
+GRAPH12_NAME = @GRAPH12_NAME@
+GRAPH13_NAME = @GRAPH13_NAME@
+GRAPH14_NAME = @GRAPH14_NAME@
+GRAPH15_NAME = @GRAPH15_NAME@
+
+ARGS ?=  -image_test @NUM_DATA_SETS1@ $(NUMTESTS1) \
+            -binaddr $(BIN1ADDR) -binpath $(CNN_BIN_GRAPH1) $(XARGS) @ITEST1@ \
+     -g2 -image_test @NUM_DATA_SETS2@ $(NUMTESTS2) \
+            -binaddr $(BIN2ADDR) -binpath $(CNN_BIN_GRAPH2)  $(XARGS) @ITEST2@
+     -g3 -image_test @NUM_DATA_SETS3@ $(NUMTESTS3) \
+            -binaddr $(BIN3ADDR) -binpath $(CNN_BIN_GRAPH3)  $(XARGS) @ITEST3@
+     -g4 -image_test @NUM_DATA_SETS4@ $(NUMTESTS4) \
+            -binaddr $(BIN4ADDR) -binpath $(CNN_BIN_GRAPH4)  $(XARGS) @ITEST4@
+     -g5 -image_test @NUM_DATA_SETS5@ $(NUMTESTS5) \
+            -binaddr $(BIN5ADDR) -binpath $(CNN_BIN_GRAPH5)  $(XARGS) @ITEST5@
+     -g6 -image_test @NUM_DATA_SETS6@ $(NUMTESTS6) \
+            -binaddr $(BIN6ADDR) -binpath $(CNN_BIN_GRAPH6)  $(XARGS) @ITEST6@
+     -g7 -image_test @NUM_DATA_SETS7@ $(NUMTESTS7) \
+            -binaddr $(BIN7ADDR) -binpath $(CNN_BIN_GRAPH7)  $(XARGS) @ITEST7@
+     -g8 -image_test @NUM_DATA_SETS8@ $(NUMTESTS8) \
+            -binaddr $(BIN8ADDR) -binpath $(CNN_BIN_GRAPH8)  $(XARGS) @ITEST8@
+     -g9 -image_test @NUM_DATA_SETS9@ $(NUMTESTS9) \
+            -binaddr $(BIN9ADDR) -binpath $(CNN_BIN_GRAPH9)  $(XARGS) @ITEST9@
+     -g10 -image_test @NUM_DATA_SETS10@ $(NUMTESTS10) \
+            -binaddr $(BIN10ADDR) -binpath $(CNN_BIN_GRAPH10)  $(XARGS) @ITEST10@
+     -g11 -image_test @NUM_DATA_SETS11@ $(NUMTESTS11) \
+            -binaddr $(BIN11ADDR) -binpath $(CNN_BIN_GRAPH11)  $(XARGS) @ITEST11@
+     -g12 -image_test @NUM_DATA_SETS12@ $(NUMTESTS12) \
+            -binaddr $(BIN12ADDR) -binpath $(CNN_BIN_GRAPH12)  $(XARGS) @ITEST12@
+     -g13 -image_test @NUM_DATA_SETS13@ $(NUMTESTS13) \
+            -binaddr $(BIN13ADDR) -binpath $(CNN_BIN_GRAPH13)  $(XARGS) @ITEST13@
+     -g14 -image_test @NUM_DATA_SETS14@ $(NUMTESTS14) \
+            -binaddr $(BIN14ADDR) -binpath $(CNN_BIN_GRAPH14)  $(XARGS) @ITEST14@
+     -g15 -image_test @NUM_DATA_SETS15@ $(NUMTESTS15) \
+            -binaddr $(BIN15ADDR) -binpath $(CNN_BIN_GRAPH15)  $(XARGS) @ITEST15@
+
+CNN_OBJ_MULTI_PATH = $(CNN_OBJ_PATH)/$(GRAPH1_NAME) $(CNN_OBJ_PATH)/$(GRAPH2_NAME) $(CNN_OBJ_PATH)/$(GRAPH3_NAME) \
+					 $(CNN_OBJ_PATH)/$(GRAPH4_NAME) $(CNN_OBJ_PATH)/$(GRAPH5_NAME) $(CNN_OBJ_PATH)/$(GRAPH6_NAME) \
+					 $(CNN_OBJ_PATH)/$(GRAPH7_NAME) $(CNN_OBJ_PATH)/$(GRAPH8_NAME) $(CNN_OBJ_PATH)/$(GRAPH9_NAME) \
+					 $(CNN_OBJ_PATH)/$(GRAPH10_NAME) $(CNN_OBJ_PATH)/$(GRAPH11_NAME) $(CNN_OBJ_PATH)/$(GRAPH12_NAME) \
+					 $(CNN_OBJ_PATH)/$(GRAPH13_NAME) $(CNN_OBJ_PATH)/$(GRAPH14_NAME) $(CNN_OBJ_PATH)/$(GRAPH15_NAME) 
+
+
+
+
+

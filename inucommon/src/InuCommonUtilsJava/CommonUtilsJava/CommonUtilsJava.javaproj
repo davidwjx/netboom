@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Tvl.Java.1.0.0-alpha001\build\Tvl.Java.props" Condition="Exists('..\packages\Tvl.Java.1.0.0-alpha001\build\Tvl.Java.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">X64</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>34fb148c-41d5-4488-ba6c-cae3c730d45e</ProjectGuid>
+    <OutputType>jar</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonUtilsJava</RootNamespace>
+    <AssemblyName>CommonUtilsJava</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <Name>CommonUtilsJava</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+    <SourceRelease>Default</SourceRelease>
+    <TargetRelease>Default</TargetRelease>
+    <TargetVM>Hotspot</TargetVM>
+    <SourceEncoding />
+    <DebugSymbols>All</DebugSymbols>
+    <SpecificDebugSymbols />
+    <ShowWarnings>True</ShowWarnings>
+    <ShowAllWarnings>True</ShowAllWarnings>
+    <TreatWarningsAsErrors>None</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <OutputPath>..\..\..\bin\$(Platform)\$(Configuration)\</OutputPath>
+    <BuildArgs />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|X64' ">
+    <SourceRelease>Default</SourceRelease>
+    <TargetRelease>Default</TargetRelease>
+    <TargetVM>Hotspot</TargetVM>
+    <SourceEncoding />
+    <DebugSymbols>All</DebugSymbols>
+    <SpecificDebugSymbols />
+    <ShowWarnings>True</ShowWarnings>
+    <ShowAllWarnings>True</ShowAllWarnings>
+    <TreatWarningsAsErrors>None</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <OutputPath>..\..\..\bin\$(Platform)\$(Configuration)\</OutputPath>
+    <BuildArgs />
+    <AssemblyName>InuStreams</AssemblyName>
+    <OutputType>jar</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+    <SourceRelease>Default</SourceRelease>
+    <TargetRelease>Default</TargetRelease>
+    <TargetVM>Hotspot</TargetVM>
+    <SourceEncoding />
+    <DebugSymbols>Default</DebugSymbols>
+    <SpecificDebugSymbols />
+    <ShowWarnings>True</ShowWarnings>
+    <ShowAllWarnings>True</ShowAllWarnings>
+    <TreatWarningsAsErrors>None</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <OutputPath>..\..\..\bin\$(Platform)\$(Configuration)\</OutputPath>
+    <BuildArgs />
+    <AssemblyName>InuStreams</AssemblyName>
+    <OutputType>jar</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|X64' ">
+    <SourceRelease>Default</SourceRelease>
+    <TargetRelease>Default</TargetRelease>
+    <TargetVM>Hotspot</TargetVM>
+    <SourceEncoding />
+    <DebugSymbols>Default</DebugSymbols>
+    <SpecificDebugSymbols />
+    <ShowWarnings>True</ShowWarnings>
+    <ShowAllWarnings>True</ShowAllWarnings>
+    <TreatWarningsAsErrors>None</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <OutputPath>..\..\..\bin\$(Platform)\$(Configuration)\</OutputPath>
+    <BuildArgs />
+    <AssemblyName>InuStreams</AssemblyName>
+    <OutputType>jar</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <SourceFolder Include="src\main\java\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\main\java\InuCommon\EHTSource.java">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\main\java\InuCommon\ESensorResolution.java">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\main\java\InuCommon\ETiffFormat.java">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\main\java\InuCommon\InuModel.java">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\main\java\InuCommon\InuModelDB.java">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test.java">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Tvl.Java.1.0.0-alpha001\build\Tvl.Java.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tvl.Java.1.0.0-alpha001\build\Tvl.Java.props'))" />
+    <Error Condition="!Exists('..\packages\Tvl.Java.1.0.0-alpha001\build\Tvl.Java.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tvl.Java.1.0.0-alpha001\build\Tvl.Java.targets'))" />
+  </Target>
+  <Import Project="..\packages\Tvl.Java.1.0.0-alpha001\build\Tvl.Java.targets" Condition="Exists('..\packages\Tvl.Java.1.0.0-alpha001\build\Tvl.Java.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

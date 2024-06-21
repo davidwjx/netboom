@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+    <function>
+      <name>Stream_IR_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_FE_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_2</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_RGB_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_3</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Depth_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_9</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+	<function>
+      <name>Stream_Depth_1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_6</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Cva_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>CVA_DATA_19</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_In_0</name>
+      <type>STREAM_IN</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <data>
+      <name>IMAGE_in_0</name>
+      <type>IMAGE_DATA</type>
+      <input>Stream_In_0</input>
+      <hw_inject>WRITER_1</hw_inject>
+      <source>Stream_In_0</source>
+      <params>
+        <bitsPerPixel>16</bitsPerPixel>
+        <format>RAW10</format>
+        <height>800</height>
+        <width>1280</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>2560</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>800</bufferHeight>
+        <numInterleaveImages>2</numInterleaveImages>
+        <interleaveType>1</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>Stream_In_3</name>
+      <type>STREAM_IN</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <data>
+      <name>IMAGE_in_3</name>
+      <type>IMAGE_DATA</type>
+      <input>Stream_In_3</input>
+      <hw_inject>WRITER_0</hw_inject>
+      <source>Stream_In_3</source>
+      <params>
+        <bitsPerPixel>24</bitsPerPixel>
+        <format>RGB888</format>
+        <height>400</height>
+        <width>400</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>400</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>400</bufferHeight>
+        <numInterleaveImages>1</numInterleaveImages>
+        <interleaveType>2</interleaveType>
+      </params>
+    </data>
+    <function>
+      <name>Stream_In_1</name>
+      <type>STREAM_IN</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <data>
+      <name>IMAGE_in_1</name>
+      <type>IMAGE_DATA</type>
+      <input>Stream_In_1</input>
+      <hw_inject>WRITER_2</hw_inject>
+      <source>Stream_In_1</source>
+      <params>
+        <bitsPerPixel>16</bitsPerPixel>
+        <format>RAW10</format>
+        <height>480</height>
+        <width>640</width>
+        <x>0</x>
+        <y>0</y>
+        <stride>1280</stride>
+        <realBitsMask>0</realBitsMask>
+        <bufferHeight>480</bufferHeight>
+        <numInterleaveImages>2</numInterleaveImages>
+        <interleaveType>1</interleaveType>
+      </params>
+    </data>	
+    <function>
+      <name>slam_0</name>
+      <type>SLAM</type>
+      <inputs>
+        <input>CVA_DATA_19</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+       </params>
+    </function>
+    <data>
+      <name>slam_data_0</name>
+      <type>SLAM_DATA</type>
+      <input>slam_0</input>
+      <source>slam_0</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Sout_slam_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>slam_data_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>	
+    <function>
+      <name>cnn_inject_func</name>
+      <type>CNN</type>
+      <inputs>
+        <input>IMAGE_in_3</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>
+        <cnn_net_id>0</cnn_net_id>
+        <cnnEngine>0</cnnEngine>
+      </params>
+    </function>
+    <data>
+      <name>cnn_inject_data</name>
+      <type>CNN_DATA</type>
+      <input>cnn_inject_func</input>
+      <source>cnn_inject_func</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Sout_inject_func</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>cnn_inject_data</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

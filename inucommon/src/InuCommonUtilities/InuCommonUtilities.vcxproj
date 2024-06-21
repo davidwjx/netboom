@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{701E61B3-5FCB-34CE-B1B3-0AF68F9BD483}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>InuCommonUtilities</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">InuCommonUtilitiesd</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">InuCommonUtilities</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(INU_COMMON_ROOT)\src\InuCommonUtilities;$(INU_COMMON_ROOT)\include;$(THIRD_PARTY_ROOT)\include;$(THIRD_PARTY_ROOT)\include\tiff-4.0.3\libtiff;$(BOOST_PATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;UNICODE;_UNICODE;BOOST_BIND_GLOBAL_PLACEHOLDERS;InuCommonUtilities;PRIVATE;COMMONUTILITIES_EXPORTS;InuCommonUtilities_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;UNICODE;_UNICODE;BOOST_BIND_GLOBAL_PLACEHOLDERS;InuCommonUtilities;PRIVATE;COMMONUTILITIES_EXPORTS;CMAKE_INTDIR=\"Debug\";InuCommonUtilities_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BOOST_PATH);.;..\..\include;$(THIRD_PARTY_ROOT)\tiff-4.0.3\libtiff;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(BOOST_PATH);.;..\..\include;$(THIRD_PARTY_ROOT)\tiff-4.0.3\libtiff;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "platform dir = Windows"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>libyaml-cppmdd.lib;LibTiff.lib;version.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(THIRD_PARTY_ROOT)/lib/$(Platform)/$(Configuration);$(BOOST_PATH)/$(Platform)/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(INU_COMMON_ROOT)\src\InuCommonUtilities;$(INU_COMMON_ROOT)\include;$(THIRD_PARTY_ROOT)\include;$(THIRD_PARTY_ROOT)\include\tiff-4.0.3\libtiff;$(BOOST_PATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;UNICODE;_UNICODE;BOOST_BIND_GLOBAL_PLACEHOLDERS;InuCommonUtilities;PRIVATE;COMMONUTILITIES_EXPORTS;InuCommonUtilities_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;UNICODE;_UNICODE;BOOST_BIND_GLOBAL_PLACEHOLDERS;InuCommonUtilities;PRIVATE;COMMONUTILITIES_EXPORTS;CMAKE_INTDIR=\"Debug\";InuCommonUtilities_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BOOST_PATH);$(THIRD_PARTY_ROOT)\tiff-4.0.3\libtiff;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(BOOST_PATH);.;..\..\include;$(THIRD_PARTY_ROOT)\tiff-4.0.3\libtiff;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>libyaml-cppmd.lib;LibTiff.lib;version.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(THIRD_PARTY_ROOT)/lib/$(Platform)/$(Configuration);$(BOOST_PATH)/$(Platform)/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\BoostFix\condition_algorithm_8a_fix.hpp" />
+    <ClInclude Include="..\..\BoostFix\condition_fix.hpp" />
+    <ClInclude Include="..\..\BoostFix\interprocess_condition_fix.hpp" />
+    <ClInclude Include="..\..\BoostFix\message_queue_fix.hpp" />
+    <ClInclude Include="..\..\BoostFix\os_file_functions_fix.hpp" />
+    <ClInclude Include="..\..\BoostFix\wait_fix.hpp" />
+    <ClInclude Include="..\..\BoostFix\win32_api.hpp" />
+    <ClInclude Include="..\..\BoostFix\windows_intermodule_singleton_fix.hpp" />
+    <ClInclude Include="..\..\CalibrationTablesUtilities.h" />
+    <ClInclude Include="..\..\TemperatureMetaData.h" />
+    <ClInclude Include="..\..\CalibrationData2Yaml.h" />
+    <ClInclude Include="..\..\CalibrationDataImp.h" />
+    <ClCompile Include="Calibration\CalibrationTablesUtilities.cpp" />
+    <ClCompile Include="Calibration\TemperatureMetaData.cpp" />
+    <ClCompile Include="Calibration\CalibrationData2Yaml.cpp" />
+    <ClCompile Include="Calibration\CalibrationDataImp.cpp" />
+    <ClInclude Include="..\..\CiifFile.h" />
+    <ClInclude Include="..\..\CsvFile.h" />
+    <ClInclude Include="..\..\ImageFile.h" />
+    <ClInclude Include="..\..\IniFile.h" />
+    <ClInclude Include="..\..\IregFile.h" />
+    <ClInclude Include="..\..\JpegFile.h" />
+    <ClInclude Include="..\..\PngFile.h" />
+    <ClInclude Include="..\..\TiffFile.h" />
+    <ClInclude Include="..\..\FeaturesTrackingCiif.h" />
+    <ClCompile Include="FileFormats\CiifFile.cpp" />
+    <ClCompile Include="FileFormats\CsvFile.cpp" />
+    <ClCompile Include="FileFormats\IniFile.cpp" />
+    <ClCompile Include="FileFormats\IregFile.cpp" />
+    <ClCompile Include="FileFormats\JpegFile.cpp" />
+    <ClCompile Include="FileFormats\jpgd.cpp" />
+    <ClInclude Include="FileFormats\jpgd.h" />
+    <ClCompile Include="FileFormats\jpge.cpp" />
+    <ClInclude Include="FileFormats\jpge.h" />
+    <ClCompile Include="FileFormats\lodepng.cpp" />
+    <ClInclude Include="FileFormats\lodepng.h" />
+    <ClCompile Include="FileFormats\PngFile.cpp" />
+    <ClCompile Include="FileFormats\TiffFile.cpp" />
+    <ClCompile Include="FileFormats\FeaturesTrackingCiif.cpp" />
+    <ClInclude Include="..\..\CalibrationData.h" />
+    <ClInclude Include="..\..\CommonUtilitiesDefs.h" />
+    <ClInclude Include="..\..\FeaturesTrackingDataCommon.h" />
+    <ClInclude Include="..\..\HexHelper.h" />
+    <ClInclude Include="..\..\LocalSocketConnection.h" />
+    <ClInclude Include="..\..\Locks.h" />
+    <ClInclude Include="..\..\RecordingMetaData.h" />
+    <ClInclude Include="..\..\TCPConnection.h" />
+    <ClInclude Include="..\..\Version.h" />
+    <ClCompile Include="LocalSocketConnection.cpp" />
+    <ClCompile Include="RecordingMetaData.cpp" />
+    <ClCompile Include="TCPConnection.cpp" />
+    <ClCompile Include="HexHelper.cpp" />
+    <ClInclude Include="resource.h" />
+    <ClCompile Include="dllmain.cpp" />
+    <ResourceCompile Include="CommonUtilities.rc" />
+    <ClInclude Include="..\..\BaseLogger.h" />
+    <ClInclude Include="..\..\Logger.h" />
+    <ClInclude Include="..\..\TextFileLogger.h" />
+    <ClCompile Include="Logger\ConsoleLogger.cpp" />
+    <ClInclude Include="Logger\ConsoleLogger.h" />
+    <ClCompile Include="Logger\DebugViewLogger.cpp" />
+    <ClInclude Include="Logger\DebugViewLogger.h" />
+    <ClCompile Include="Logger\Logger.cpp" />
+    <ClCompile Include="Logger\TextFileLogger.cpp" />
+    <ClInclude Include="..\..\OSUtilities.h" />
+    <ClInclude Include="..\..\OSUtilitiesGCC.h" />
+    <ClInclude Include="..\..\OSUtilitiesVS.h" />
+    <ClCompile Include="OS\OSUtilitiesCommon.cpp" />
+    <ClCompile Include="OS\OSUtilitiesGCC.cpp" />
+    <ClCompile Include="OS\OSUtilitiesVS.cpp" />
+    <ClInclude Include="..\..\FileSystemStorage.h" />
+    <ClInclude Include="..\..\PersistentData.h" />
+    <ClInclude Include="..\..\Storage.h" />
+    <ClInclude Include="..\..\XmlStorage.h" />
+    <ClCompile Include="Persistent\FileSystemStorage.cpp" />
+    <ClCompile Include="Persistent\Storage.cpp" />
+    <ClCompile Include="Persistent\XmlParser.cpp" />
+    <ClCompile Include="Persistent\XmlStorage.cpp" />
+    <ClInclude Include="..\..\ProcessWrapper.h" />
+    <ClCompile Include="Process\ProcessWrapper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

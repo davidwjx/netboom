@@ -1,0 +1,4160 @@
+#ifndef NU4100_GPV_REG_H
+#define NU4100_GPV_REG_H
+
+
+/* types */
+#include "inu_types.h"
+
+#if !defined(PREFIX_VAL)
+#define PREFIX_VAL *
+#endif
+ 
+#if !defined(SetGroupBits32) 
+#define SetGroupBits32(reg,position,len,value)\
+{       \
+        UINT32 tmp=reg;\
+        tmp&=~(((UINT32)0xFFFFFFFF>>(32-(len)))<<(position));\
+        tmp|=((value&((UINT32)0xFFFFFFFF>>(32-(len))))<<(position));\
+        reg=tmp;\
+}
+#endif
+
+#if !defined(GetGroupBits32)
+#define GetGroupBits32(reg,position,len) (((reg) & (((UINT32)0xFFFFFFFF>>(32-(len)))<<(position)))>>(position))
+#endif
+
+
+/*****************************************/
+/*   GPV (Prototype: GPV)                */
+/*****************************************/
+//0x0A000000
+#define GPV_BASE GPV_DRVP_deviceDesc.deviceBaseAddress
+
+/* REGISTER: REMAP ACCESS: RW */
+
+#if defined(_V1) && !defined(REMAP_OFFSET)
+#define REMAP_OFFSET 0x00000000
+#endif
+
+#if !defined(GPV_REMAP_OFFSET)
+#define GPV_REMAP_OFFSET 0x00000000
+#endif
+
+#if defined(_V1) && !defined(REMAP_REG)
+#define REMAP_REG ((volatile UINT32 *) (GPV_BASE + GPV_REMAP_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(REMAP_VAL)
+#define REMAP_VAL  PREFIX_VAL(REMAP_REG)
+#endif
+
+#define GPV_REMAP_REG ((volatile UINT32 *) (GPV_BASE + GPV_REMAP_OFFSET))
+#define GPV_REMAP_VAL  PREFIX_VAL(GPV_REMAP_REG)
+
+/* FIELDS: */
+
+/* remap ACCESS: RW */
+
+#ifndef GPV_REMAP_REMAP_POS
+#define GPV_REMAP_REMAP_POS      0
+#endif
+
+#ifndef GPV_REMAP_REMAP_LEN
+#define GPV_REMAP_REMAP_LEN      8
+#endif
+
+#if defined(_V1) && !defined(REMAP_REMAP_R)
+#define REMAP_REMAP_R        GetGroupBits32( (GPV_REMAP_VAL),GPV_REMAP_REMAP_POS, GPV_REMAP_REMAP_LEN)
+#endif
+
+#if defined(_V1) && !defined(REMAP_REMAP_W)
+#define REMAP_REMAP_W(value) SetGroupBits32( (GPV_REMAP_VAL),GPV_REMAP_REMAP_POS, GPV_REMAP_REMAP_LEN,value)
+#endif
+
+#define GPV_REMAP_REMAP_R        GetGroupBits32( (GPV_REMAP_VAL),GPV_REMAP_REMAP_POS, GPV_REMAP_REMAP_LEN)
+
+#define GPV_REMAP_REMAP_W(value) SetGroupBits32( (GPV_REMAP_VAL),GPV_REMAP_REMAP_POS, GPV_REMAP_REMAP_LEN,value)
+
+
+/* REGISTER: PERIPH_ID_4 ACCESS: RW */
+
+#if defined(_V1) && !defined(PERIPH_ID_4_OFFSET)
+#define PERIPH_ID_4_OFFSET 0x00001FD0
+#endif
+
+#if !defined(GPV_PERIPH_ID_4_OFFSET)
+#define GPV_PERIPH_ID_4_OFFSET 0x00001FD0
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_4_REG)
+#define PERIPH_ID_4_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_4_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_4_VAL)
+#define PERIPH_ID_4_VAL  PREFIX_VAL(PERIPH_ID_4_REG)
+#endif
+
+#define GPV_PERIPH_ID_4_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_4_OFFSET))
+#define GPV_PERIPH_ID_4_VAL  PREFIX_VAL(GPV_PERIPH_ID_4_REG)
+
+/* FIELDS: */
+
+/* periph_id_4 ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_4_PERIPH_ID_4_POS
+#define GPV_PERIPH_ID_4_PERIPH_ID_4_POS      0
+#endif
+
+#ifndef GPV_PERIPH_ID_4_PERIPH_ID_4_LEN
+#define GPV_PERIPH_ID_4_PERIPH_ID_4_LEN      8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_4_PERIPH_ID_4_R)
+#define PERIPH_ID_4_PERIPH_ID_4_R        GetGroupBits32( (GPV_PERIPH_ID_4_VAL),GPV_PERIPH_ID_4_PERIPH_ID_4_POS, GPV_PERIPH_ID_4_PERIPH_ID_4_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_4_PERIPH_ID_4_W)
+#define PERIPH_ID_4_PERIPH_ID_4_W(value) SetGroupBits32( (GPV_PERIPH_ID_4_VAL),GPV_PERIPH_ID_4_PERIPH_ID_4_POS, GPV_PERIPH_ID_4_PERIPH_ID_4_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_4_PERIPH_ID_4_R        GetGroupBits32( (GPV_PERIPH_ID_4_VAL),GPV_PERIPH_ID_4_PERIPH_ID_4_POS, GPV_PERIPH_ID_4_PERIPH_ID_4_LEN)
+
+#define GPV_PERIPH_ID_4_PERIPH_ID_4_W(value) SetGroupBits32( (GPV_PERIPH_ID_4_VAL),GPV_PERIPH_ID_4_PERIPH_ID_4_POS, GPV_PERIPH_ID_4_PERIPH_ID_4_LEN,value)
+
+
+/* REGISTER: PERIPH_ID_5 ACCESS: RW */
+
+#if defined(_V1) && !defined(PERIPH_ID_5_OFFSET)
+#define PERIPH_ID_5_OFFSET 0x00001FD4
+#endif
+
+#if !defined(GPV_PERIPH_ID_5_OFFSET)
+#define GPV_PERIPH_ID_5_OFFSET 0x00001FD4
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_5_REG)
+#define PERIPH_ID_5_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_5_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_5_VAL)
+#define PERIPH_ID_5_VAL  PREFIX_VAL(PERIPH_ID_5_REG)
+#endif
+
+#define GPV_PERIPH_ID_5_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_5_OFFSET))
+#define GPV_PERIPH_ID_5_VAL  PREFIX_VAL(GPV_PERIPH_ID_5_REG)
+
+/* FIELDS: */
+
+/* periph_id_5 ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_5_PERIPH_ID_5_POS
+#define GPV_PERIPH_ID_5_PERIPH_ID_5_POS      0
+#endif
+
+#ifndef GPV_PERIPH_ID_5_PERIPH_ID_5_LEN
+#define GPV_PERIPH_ID_5_PERIPH_ID_5_LEN      8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_5_PERIPH_ID_5_R)
+#define PERIPH_ID_5_PERIPH_ID_5_R        GetGroupBits32( (GPV_PERIPH_ID_5_VAL),GPV_PERIPH_ID_5_PERIPH_ID_5_POS, GPV_PERIPH_ID_5_PERIPH_ID_5_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_5_PERIPH_ID_5_W)
+#define PERIPH_ID_5_PERIPH_ID_5_W(value) SetGroupBits32( (GPV_PERIPH_ID_5_VAL),GPV_PERIPH_ID_5_PERIPH_ID_5_POS, GPV_PERIPH_ID_5_PERIPH_ID_5_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_5_PERIPH_ID_5_R        GetGroupBits32( (GPV_PERIPH_ID_5_VAL),GPV_PERIPH_ID_5_PERIPH_ID_5_POS, GPV_PERIPH_ID_5_PERIPH_ID_5_LEN)
+
+#define GPV_PERIPH_ID_5_PERIPH_ID_5_W(value) SetGroupBits32( (GPV_PERIPH_ID_5_VAL),GPV_PERIPH_ID_5_PERIPH_ID_5_POS, GPV_PERIPH_ID_5_PERIPH_ID_5_LEN,value)
+
+
+/* REGISTER: PERIPH_ID_6 ACCESS: RW */
+
+#if defined(_V1) && !defined(PERIPH_ID_6_OFFSET)
+#define PERIPH_ID_6_OFFSET 0x00001FD8
+#endif
+
+#if !defined(GPV_PERIPH_ID_6_OFFSET)
+#define GPV_PERIPH_ID_6_OFFSET 0x00001FD8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_6_REG)
+#define PERIPH_ID_6_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_6_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_6_VAL)
+#define PERIPH_ID_6_VAL  PREFIX_VAL(PERIPH_ID_6_REG)
+#endif
+
+#define GPV_PERIPH_ID_6_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_6_OFFSET))
+#define GPV_PERIPH_ID_6_VAL  PREFIX_VAL(GPV_PERIPH_ID_6_REG)
+
+/* FIELDS: */
+
+/* periph_id_6 ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_6_PERIPH_ID_6_POS
+#define GPV_PERIPH_ID_6_PERIPH_ID_6_POS      0
+#endif
+
+#ifndef GPV_PERIPH_ID_6_PERIPH_ID_6_LEN
+#define GPV_PERIPH_ID_6_PERIPH_ID_6_LEN      8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_6_PERIPH_ID_6_R)
+#define PERIPH_ID_6_PERIPH_ID_6_R        GetGroupBits32( (GPV_PERIPH_ID_6_VAL),GPV_PERIPH_ID_6_PERIPH_ID_6_POS, GPV_PERIPH_ID_6_PERIPH_ID_6_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_6_PERIPH_ID_6_W)
+#define PERIPH_ID_6_PERIPH_ID_6_W(value) SetGroupBits32( (GPV_PERIPH_ID_6_VAL),GPV_PERIPH_ID_6_PERIPH_ID_6_POS, GPV_PERIPH_ID_6_PERIPH_ID_6_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_6_PERIPH_ID_6_R        GetGroupBits32( (GPV_PERIPH_ID_6_VAL),GPV_PERIPH_ID_6_PERIPH_ID_6_POS, GPV_PERIPH_ID_6_PERIPH_ID_6_LEN)
+
+#define GPV_PERIPH_ID_6_PERIPH_ID_6_W(value) SetGroupBits32( (GPV_PERIPH_ID_6_VAL),GPV_PERIPH_ID_6_PERIPH_ID_6_POS, GPV_PERIPH_ID_6_PERIPH_ID_6_LEN,value)
+
+
+/* REGISTER: PERIPH_ID_7 ACCESS: RW */
+
+#if defined(_V1) && !defined(PERIPH_ID_7_OFFSET)
+#define PERIPH_ID_7_OFFSET 0x00001FDC
+#endif
+
+#if !defined(GPV_PERIPH_ID_7_OFFSET)
+#define GPV_PERIPH_ID_7_OFFSET 0x00001FDC
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_7_REG)
+#define PERIPH_ID_7_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_7_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_7_VAL)
+#define PERIPH_ID_7_VAL  PREFIX_VAL(PERIPH_ID_7_REG)
+#endif
+
+#define GPV_PERIPH_ID_7_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_7_OFFSET))
+#define GPV_PERIPH_ID_7_VAL  PREFIX_VAL(GPV_PERIPH_ID_7_REG)
+
+/* FIELDS: */
+
+/* periph_id_7 ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_7_PERIPH_ID_7_POS
+#define GPV_PERIPH_ID_7_PERIPH_ID_7_POS      0
+#endif
+
+#ifndef GPV_PERIPH_ID_7_PERIPH_ID_7_LEN
+#define GPV_PERIPH_ID_7_PERIPH_ID_7_LEN      8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_7_PERIPH_ID_7_R)
+#define PERIPH_ID_7_PERIPH_ID_7_R        GetGroupBits32( (GPV_PERIPH_ID_7_VAL),GPV_PERIPH_ID_7_PERIPH_ID_7_POS, GPV_PERIPH_ID_7_PERIPH_ID_7_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_7_PERIPH_ID_7_W)
+#define PERIPH_ID_7_PERIPH_ID_7_W(value) SetGroupBits32( (GPV_PERIPH_ID_7_VAL),GPV_PERIPH_ID_7_PERIPH_ID_7_POS, GPV_PERIPH_ID_7_PERIPH_ID_7_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_7_PERIPH_ID_7_R        GetGroupBits32( (GPV_PERIPH_ID_7_VAL),GPV_PERIPH_ID_7_PERIPH_ID_7_POS, GPV_PERIPH_ID_7_PERIPH_ID_7_LEN)
+
+#define GPV_PERIPH_ID_7_PERIPH_ID_7_W(value) SetGroupBits32( (GPV_PERIPH_ID_7_VAL),GPV_PERIPH_ID_7_PERIPH_ID_7_POS, GPV_PERIPH_ID_7_PERIPH_ID_7_LEN,value)
+
+
+/* REGISTER: PERIPH_ID_0 ACCESS: RW */
+
+#if defined(_V1) && !defined(PERIPH_ID_0_OFFSET)
+#define PERIPH_ID_0_OFFSET 0x00001FE0
+#endif
+
+#if !defined(GPV_PERIPH_ID_0_OFFSET)
+#define GPV_PERIPH_ID_0_OFFSET 0x00001FE0
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_0_REG)
+#define PERIPH_ID_0_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_0_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_0_VAL)
+#define PERIPH_ID_0_VAL  PREFIX_VAL(PERIPH_ID_0_REG)
+#endif
+
+#define GPV_PERIPH_ID_0_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_0_OFFSET))
+#define GPV_PERIPH_ID_0_VAL  PREFIX_VAL(GPV_PERIPH_ID_0_REG)
+
+/* FIELDS: */
+
+/* periph_id_0 ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_0_PERIPH_ID_0_POS
+#define GPV_PERIPH_ID_0_PERIPH_ID_0_POS      0
+#endif
+
+#ifndef GPV_PERIPH_ID_0_PERIPH_ID_0_LEN
+#define GPV_PERIPH_ID_0_PERIPH_ID_0_LEN      8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_0_PERIPH_ID_0_R)
+#define PERIPH_ID_0_PERIPH_ID_0_R        GetGroupBits32( (GPV_PERIPH_ID_0_VAL),GPV_PERIPH_ID_0_PERIPH_ID_0_POS, GPV_PERIPH_ID_0_PERIPH_ID_0_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_0_PERIPH_ID_0_W)
+#define PERIPH_ID_0_PERIPH_ID_0_W(value) SetGroupBits32( (GPV_PERIPH_ID_0_VAL),GPV_PERIPH_ID_0_PERIPH_ID_0_POS, GPV_PERIPH_ID_0_PERIPH_ID_0_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_0_PERIPH_ID_0_R        GetGroupBits32( (GPV_PERIPH_ID_0_VAL),GPV_PERIPH_ID_0_PERIPH_ID_0_POS, GPV_PERIPH_ID_0_PERIPH_ID_0_LEN)
+
+#define GPV_PERIPH_ID_0_PERIPH_ID_0_W(value) SetGroupBits32( (GPV_PERIPH_ID_0_VAL),GPV_PERIPH_ID_0_PERIPH_ID_0_POS, GPV_PERIPH_ID_0_PERIPH_ID_0_LEN,value)
+
+
+/* REGISTER: PERIPH_ID_1 ACCESS: RW */
+
+#if defined(_V1) && !defined(PERIPH_ID_1_OFFSET)
+#define PERIPH_ID_1_OFFSET 0x00001FE4
+#endif
+
+#if !defined(GPV_PERIPH_ID_1_OFFSET)
+#define GPV_PERIPH_ID_1_OFFSET 0x00001FE4
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_1_REG)
+#define PERIPH_ID_1_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_1_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_1_VAL)
+#define PERIPH_ID_1_VAL  PREFIX_VAL(PERIPH_ID_1_REG)
+#endif
+
+#define GPV_PERIPH_ID_1_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_1_OFFSET))
+#define GPV_PERIPH_ID_1_VAL  PREFIX_VAL(GPV_PERIPH_ID_1_REG)
+
+/* FIELDS: */
+
+/* periph_id_1 ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_1_PERIPH_ID_1_POS
+#define GPV_PERIPH_ID_1_PERIPH_ID_1_POS      0
+#endif
+
+#ifndef GPV_PERIPH_ID_1_PERIPH_ID_1_LEN
+#define GPV_PERIPH_ID_1_PERIPH_ID_1_LEN      8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_1_PERIPH_ID_1_R)
+#define PERIPH_ID_1_PERIPH_ID_1_R        GetGroupBits32( (GPV_PERIPH_ID_1_VAL),GPV_PERIPH_ID_1_PERIPH_ID_1_POS, GPV_PERIPH_ID_1_PERIPH_ID_1_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_1_PERIPH_ID_1_W)
+#define PERIPH_ID_1_PERIPH_ID_1_W(value) SetGroupBits32( (GPV_PERIPH_ID_1_VAL),GPV_PERIPH_ID_1_PERIPH_ID_1_POS, GPV_PERIPH_ID_1_PERIPH_ID_1_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_1_PERIPH_ID_1_R        GetGroupBits32( (GPV_PERIPH_ID_1_VAL),GPV_PERIPH_ID_1_PERIPH_ID_1_POS, GPV_PERIPH_ID_1_PERIPH_ID_1_LEN)
+
+#define GPV_PERIPH_ID_1_PERIPH_ID_1_W(value) SetGroupBits32( (GPV_PERIPH_ID_1_VAL),GPV_PERIPH_ID_1_PERIPH_ID_1_POS, GPV_PERIPH_ID_1_PERIPH_ID_1_LEN,value)
+
+
+/* REGISTER: PERIPH_ID_2 ACCESS: RW */
+
+#if defined(_V1) && !defined(PERIPH_ID_2_OFFSET)
+#define PERIPH_ID_2_OFFSET 0x00001FE8
+#endif
+
+#if !defined(GPV_PERIPH_ID_2_OFFSET)
+#define GPV_PERIPH_ID_2_OFFSET 0x00001FE8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_2_REG)
+#define PERIPH_ID_2_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_2_VAL)
+#define PERIPH_ID_2_VAL  PREFIX_VAL(PERIPH_ID_2_REG)
+#endif
+
+#define GPV_PERIPH_ID_2_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_2_OFFSET))
+#define GPV_PERIPH_ID_2_VAL  PREFIX_VAL(GPV_PERIPH_ID_2_REG)
+
+/* FIELDS: */
+
+/* periph_id_2 ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_2_PERIPH_ID_2_POS
+#define GPV_PERIPH_ID_2_PERIPH_ID_2_POS      0
+#endif
+
+#ifndef GPV_PERIPH_ID_2_PERIPH_ID_2_LEN
+#define GPV_PERIPH_ID_2_PERIPH_ID_2_LEN      8
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_2_PERIPH_ID_2_R)
+#define PERIPH_ID_2_PERIPH_ID_2_R        GetGroupBits32( (GPV_PERIPH_ID_2_VAL),GPV_PERIPH_ID_2_PERIPH_ID_2_POS, GPV_PERIPH_ID_2_PERIPH_ID_2_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_2_PERIPH_ID_2_W)
+#define PERIPH_ID_2_PERIPH_ID_2_W(value) SetGroupBits32( (GPV_PERIPH_ID_2_VAL),GPV_PERIPH_ID_2_PERIPH_ID_2_POS, GPV_PERIPH_ID_2_PERIPH_ID_2_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_2_PERIPH_ID_2_R        GetGroupBits32( (GPV_PERIPH_ID_2_VAL),GPV_PERIPH_ID_2_PERIPH_ID_2_POS, GPV_PERIPH_ID_2_PERIPH_ID_2_LEN)
+
+#define GPV_PERIPH_ID_2_PERIPH_ID_2_W(value) SetGroupBits32( (GPV_PERIPH_ID_2_VAL),GPV_PERIPH_ID_2_PERIPH_ID_2_POS, GPV_PERIPH_ID_2_PERIPH_ID_2_LEN,value)
+
+
+/* REGISTER: PERIPH_ID_3 ACCESS: RW */
+
+#if defined(_V1) && !defined(PERIPH_ID_3_OFFSET)
+#define PERIPH_ID_3_OFFSET 0x00001FEC
+#endif
+
+#if !defined(GPV_PERIPH_ID_3_OFFSET)
+#define GPV_PERIPH_ID_3_OFFSET 0x00001FEC
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_3_REG)
+#define PERIPH_ID_3_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_3_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_3_VAL)
+#define PERIPH_ID_3_VAL  PREFIX_VAL(PERIPH_ID_3_REG)
+#endif
+
+#define GPV_PERIPH_ID_3_REG ((volatile UINT32 *) (GPV_BASE + GPV_PERIPH_ID_3_OFFSET))
+#define GPV_PERIPH_ID_3_VAL  PREFIX_VAL(GPV_PERIPH_ID_3_REG)
+
+/* FIELDS: */
+
+/* cust_mod_num ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_3_CUST_MOD_NUM_POS
+#define GPV_PERIPH_ID_3_CUST_MOD_NUM_POS      0
+#endif
+
+#ifndef GPV_PERIPH_ID_3_CUST_MOD_NUM_LEN
+#define GPV_PERIPH_ID_3_CUST_MOD_NUM_LEN      4
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_3_CUST_MOD_NUM_R)
+#define PERIPH_ID_3_CUST_MOD_NUM_R        GetGroupBits32( (GPV_PERIPH_ID_3_VAL),GPV_PERIPH_ID_3_CUST_MOD_NUM_POS, GPV_PERIPH_ID_3_CUST_MOD_NUM_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_3_CUST_MOD_NUM_W)
+#define PERIPH_ID_3_CUST_MOD_NUM_W(value) SetGroupBits32( (GPV_PERIPH_ID_3_VAL),GPV_PERIPH_ID_3_CUST_MOD_NUM_POS, GPV_PERIPH_ID_3_CUST_MOD_NUM_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_3_CUST_MOD_NUM_R        GetGroupBits32( (GPV_PERIPH_ID_3_VAL),GPV_PERIPH_ID_3_CUST_MOD_NUM_POS, GPV_PERIPH_ID_3_CUST_MOD_NUM_LEN)
+
+#define GPV_PERIPH_ID_3_CUST_MOD_NUM_W(value) SetGroupBits32( (GPV_PERIPH_ID_3_VAL),GPV_PERIPH_ID_3_CUST_MOD_NUM_POS, GPV_PERIPH_ID_3_CUST_MOD_NUM_LEN,value)
+
+
+/* rev_and ACCESS: RW */
+
+#ifndef GPV_PERIPH_ID_3_REV_AND_POS
+#define GPV_PERIPH_ID_3_REV_AND_POS      4
+#endif
+
+#ifndef GPV_PERIPH_ID_3_REV_AND_LEN
+#define GPV_PERIPH_ID_3_REV_AND_LEN      4
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_3_REV_AND_R)
+#define PERIPH_ID_3_REV_AND_R        GetGroupBits32( (GPV_PERIPH_ID_3_VAL),GPV_PERIPH_ID_3_REV_AND_POS, GPV_PERIPH_ID_3_REV_AND_LEN)
+#endif
+
+#if defined(_V1) && !defined(PERIPH_ID_3_REV_AND_W)
+#define PERIPH_ID_3_REV_AND_W(value) SetGroupBits32( (GPV_PERIPH_ID_3_VAL),GPV_PERIPH_ID_3_REV_AND_POS, GPV_PERIPH_ID_3_REV_AND_LEN,value)
+#endif
+
+#define GPV_PERIPH_ID_3_REV_AND_R        GetGroupBits32( (GPV_PERIPH_ID_3_VAL),GPV_PERIPH_ID_3_REV_AND_POS, GPV_PERIPH_ID_3_REV_AND_LEN)
+
+#define GPV_PERIPH_ID_3_REV_AND_W(value) SetGroupBits32( (GPV_PERIPH_ID_3_VAL),GPV_PERIPH_ID_3_REV_AND_POS, GPV_PERIPH_ID_3_REV_AND_LEN,value)
+
+
+/* REGISTER: COMP_ID_0 ACCESS: RW */
+
+#if defined(_V1) && !defined(COMP_ID_0_OFFSET)
+#define COMP_ID_0_OFFSET 0x00001FF0
+#endif
+
+#if !defined(GPV_COMP_ID_0_OFFSET)
+#define GPV_COMP_ID_0_OFFSET 0x00001FF0
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_0_REG)
+#define COMP_ID_0_REG ((volatile UINT32 *) (GPV_BASE + GPV_COMP_ID_0_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_0_VAL)
+#define COMP_ID_0_VAL  PREFIX_VAL(COMP_ID_0_REG)
+#endif
+
+#define GPV_COMP_ID_0_REG ((volatile UINT32 *) (GPV_BASE + GPV_COMP_ID_0_OFFSET))
+#define GPV_COMP_ID_0_VAL  PREFIX_VAL(GPV_COMP_ID_0_REG)
+
+/* FIELDS: */
+
+/* comp_id_0 ACCESS: RW */
+
+#ifndef GPV_COMP_ID_0_COMP_ID_0_POS
+#define GPV_COMP_ID_0_COMP_ID_0_POS      0
+#endif
+
+#ifndef GPV_COMP_ID_0_COMP_ID_0_LEN
+#define GPV_COMP_ID_0_COMP_ID_0_LEN      8
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_0_COMP_ID_0_R)
+#define COMP_ID_0_COMP_ID_0_R        GetGroupBits32( (GPV_COMP_ID_0_VAL),GPV_COMP_ID_0_COMP_ID_0_POS, GPV_COMP_ID_0_COMP_ID_0_LEN)
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_0_COMP_ID_0_W)
+#define COMP_ID_0_COMP_ID_0_W(value) SetGroupBits32( (GPV_COMP_ID_0_VAL),GPV_COMP_ID_0_COMP_ID_0_POS, GPV_COMP_ID_0_COMP_ID_0_LEN,value)
+#endif
+
+#define GPV_COMP_ID_0_COMP_ID_0_R        GetGroupBits32( (GPV_COMP_ID_0_VAL),GPV_COMP_ID_0_COMP_ID_0_POS, GPV_COMP_ID_0_COMP_ID_0_LEN)
+
+#define GPV_COMP_ID_0_COMP_ID_0_W(value) SetGroupBits32( (GPV_COMP_ID_0_VAL),GPV_COMP_ID_0_COMP_ID_0_POS, GPV_COMP_ID_0_COMP_ID_0_LEN,value)
+
+
+/* REGISTER: COMP_ID_1 ACCESS: RW */
+
+#if defined(_V1) && !defined(COMP_ID_1_OFFSET)
+#define COMP_ID_1_OFFSET 0x00001FF4
+#endif
+
+#if !defined(GPV_COMP_ID_1_OFFSET)
+#define GPV_COMP_ID_1_OFFSET 0x00001FF4
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_1_REG)
+#define COMP_ID_1_REG ((volatile UINT32 *) (GPV_BASE + GPV_COMP_ID_1_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_1_VAL)
+#define COMP_ID_1_VAL  PREFIX_VAL(COMP_ID_1_REG)
+#endif
+
+#define GPV_COMP_ID_1_REG ((volatile UINT32 *) (GPV_BASE + GPV_COMP_ID_1_OFFSET))
+#define GPV_COMP_ID_1_VAL  PREFIX_VAL(GPV_COMP_ID_1_REG)
+
+/* FIELDS: */
+
+/* comp_id_1 ACCESS: RW */
+
+#ifndef GPV_COMP_ID_1_COMP_ID_1_POS
+#define GPV_COMP_ID_1_COMP_ID_1_POS      0
+#endif
+
+#ifndef GPV_COMP_ID_1_COMP_ID_1_LEN
+#define GPV_COMP_ID_1_COMP_ID_1_LEN      8
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_1_COMP_ID_1_R)
+#define COMP_ID_1_COMP_ID_1_R        GetGroupBits32( (GPV_COMP_ID_1_VAL),GPV_COMP_ID_1_COMP_ID_1_POS, GPV_COMP_ID_1_COMP_ID_1_LEN)
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_1_COMP_ID_1_W)
+#define COMP_ID_1_COMP_ID_1_W(value) SetGroupBits32( (GPV_COMP_ID_1_VAL),GPV_COMP_ID_1_COMP_ID_1_POS, GPV_COMP_ID_1_COMP_ID_1_LEN,value)
+#endif
+
+#define GPV_COMP_ID_1_COMP_ID_1_R        GetGroupBits32( (GPV_COMP_ID_1_VAL),GPV_COMP_ID_1_COMP_ID_1_POS, GPV_COMP_ID_1_COMP_ID_1_LEN)
+
+#define GPV_COMP_ID_1_COMP_ID_1_W(value) SetGroupBits32( (GPV_COMP_ID_1_VAL),GPV_COMP_ID_1_COMP_ID_1_POS, GPV_COMP_ID_1_COMP_ID_1_LEN,value)
+
+
+/* REGISTER: COMP_ID_2 ACCESS: RW */
+
+#if defined(_V1) && !defined(COMP_ID_2_OFFSET)
+#define COMP_ID_2_OFFSET 0x00001FF8
+#endif
+
+#if !defined(GPV_COMP_ID_2_OFFSET)
+#define GPV_COMP_ID_2_OFFSET 0x00001FF8
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_2_REG)
+#define COMP_ID_2_REG ((volatile UINT32 *) (GPV_BASE + GPV_COMP_ID_2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_2_VAL)
+#define COMP_ID_2_VAL  PREFIX_VAL(COMP_ID_2_REG)
+#endif
+
+#define GPV_COMP_ID_2_REG ((volatile UINT32 *) (GPV_BASE + GPV_COMP_ID_2_OFFSET))
+#define GPV_COMP_ID_2_VAL  PREFIX_VAL(GPV_COMP_ID_2_REG)
+
+/* FIELDS: */
+
+/* comp_id_2 ACCESS: RW */
+
+#ifndef GPV_COMP_ID_2_COMP_ID_2_POS
+#define GPV_COMP_ID_2_COMP_ID_2_POS      0
+#endif
+
+#ifndef GPV_COMP_ID_2_COMP_ID_2_LEN
+#define GPV_COMP_ID_2_COMP_ID_2_LEN      8
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_2_COMP_ID_2_R)
+#define COMP_ID_2_COMP_ID_2_R        GetGroupBits32( (GPV_COMP_ID_2_VAL),GPV_COMP_ID_2_COMP_ID_2_POS, GPV_COMP_ID_2_COMP_ID_2_LEN)
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_2_COMP_ID_2_W)
+#define COMP_ID_2_COMP_ID_2_W(value) SetGroupBits32( (GPV_COMP_ID_2_VAL),GPV_COMP_ID_2_COMP_ID_2_POS, GPV_COMP_ID_2_COMP_ID_2_LEN,value)
+#endif
+
+#define GPV_COMP_ID_2_COMP_ID_2_R        GetGroupBits32( (GPV_COMP_ID_2_VAL),GPV_COMP_ID_2_COMP_ID_2_POS, GPV_COMP_ID_2_COMP_ID_2_LEN)
+
+#define GPV_COMP_ID_2_COMP_ID_2_W(value) SetGroupBits32( (GPV_COMP_ID_2_VAL),GPV_COMP_ID_2_COMP_ID_2_POS, GPV_COMP_ID_2_COMP_ID_2_LEN,value)
+
+
+/* REGISTER: COMP_ID_3 ACCESS: RW */
+
+#if defined(_V1) && !defined(COMP_ID_3_OFFSET)
+#define COMP_ID_3_OFFSET 0x00001FFC
+#endif
+
+#if !defined(GPV_COMP_ID_3_OFFSET)
+#define GPV_COMP_ID_3_OFFSET 0x00001FFC
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_3_REG)
+#define COMP_ID_3_REG ((volatile UINT32 *) (GPV_BASE + GPV_COMP_ID_3_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_3_VAL)
+#define COMP_ID_3_VAL  PREFIX_VAL(COMP_ID_3_REG)
+#endif
+
+#define GPV_COMP_ID_3_REG ((volatile UINT32 *) (GPV_BASE + GPV_COMP_ID_3_OFFSET))
+#define GPV_COMP_ID_3_VAL  PREFIX_VAL(GPV_COMP_ID_3_REG)
+
+/* FIELDS: */
+
+/* comp_id_3 ACCESS: RW */
+
+#ifndef GPV_COMP_ID_3_COMP_ID_3_POS
+#define GPV_COMP_ID_3_COMP_ID_3_POS      0
+#endif
+
+#ifndef GPV_COMP_ID_3_COMP_ID_3_LEN
+#define GPV_COMP_ID_3_COMP_ID_3_LEN      8
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_3_COMP_ID_3_R)
+#define COMP_ID_3_COMP_ID_3_R        GetGroupBits32( (GPV_COMP_ID_3_VAL),GPV_COMP_ID_3_COMP_ID_3_POS, GPV_COMP_ID_3_COMP_ID_3_LEN)
+#endif
+
+#if defined(_V1) && !defined(COMP_ID_3_COMP_ID_3_W)
+#define COMP_ID_3_COMP_ID_3_W(value) SetGroupBits32( (GPV_COMP_ID_3_VAL),GPV_COMP_ID_3_COMP_ID_3_POS, GPV_COMP_ID_3_COMP_ID_3_LEN,value)
+#endif
+
+#define GPV_COMP_ID_3_COMP_ID_3_R        GetGroupBits32( (GPV_COMP_ID_3_VAL),GPV_COMP_ID_3_COMP_ID_3_POS, GPV_COMP_ID_3_COMP_ID_3_LEN)
+
+#define GPV_COMP_ID_3_COMP_ID_3_W(value) SetGroupBits32( (GPV_COMP_ID_3_VAL),GPV_COMP_ID_3_COMP_ID_3_POS, GPV_COMP_ID_3_COMP_ID_3_LEN,value)
+
+
+/* REGISTER: ROM_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_ISS_BM_OFFSET)
+#define ROM_IB_FN_MOD_ISS_BM_OFFSET 0x00002008
+#endif
+
+#if !defined(GPV_ROM_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_ROM_IB_FN_MOD_ISS_BM_OFFSET 0x00002008
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_ISS_BM_REG)
+#define ROM_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_ROM_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_ISS_BM_VAL)
+#define ROM_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(ROM_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_ROM_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_ROM_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_ROM_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_ROM_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_ROM_IB_FN_MOD_ISS_BM_VAL),GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_ROM_IB_FN_MOD_ISS_BM_VAL),GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_ROM_IB_FN_MOD_ISS_BM_VAL),GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_ROM_IB_FN_MOD_ISS_BM_VAL),GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_ROM_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: ROM_IB_FN_MOD2 ACCESS: RW */
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD2_OFFSET)
+#define ROM_IB_FN_MOD2_OFFSET 0x00002024
+#endif
+
+#if !defined(GPV_ROM_IB_FN_MOD2_OFFSET)
+#define GPV_ROM_IB_FN_MOD2_OFFSET 0x00002024
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD2_REG)
+#define ROM_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_ROM_IB_FN_MOD2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD2_VAL)
+#define ROM_IB_FN_MOD2_VAL  PREFIX_VAL(ROM_IB_FN_MOD2_REG)
+#endif
+
+#define GPV_ROM_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_ROM_IB_FN_MOD2_OFFSET))
+#define GPV_ROM_IB_FN_MOD2_VAL  PREFIX_VAL(GPV_ROM_IB_FN_MOD2_REG)
+
+/* FIELDS: */
+
+/* bypass_merge ACCESS: RW */
+
+#ifndef GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_POS
+#define GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_POS      0
+#endif
+
+#ifndef GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_LEN
+#define GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_LEN      1
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD2_BYPASS_MERGE_R)
+#define ROM_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_ROM_IB_FN_MOD2_VAL),GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_LEN)
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD2_BYPASS_MERGE_W)
+#define ROM_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_ROM_IB_FN_MOD2_VAL),GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+#endif
+
+#define GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_ROM_IB_FN_MOD2_VAL),GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_LEN)
+
+#define GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_ROM_IB_FN_MOD2_VAL),GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_ROM_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+
+
+/* REGISTER: ROM_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_OFFSET)
+#define ROM_IB_FN_MOD_OFFSET 0x00002108
+#endif
+
+#if !defined(GPV_ROM_IB_FN_MOD_OFFSET)
+#define GPV_ROM_IB_FN_MOD_OFFSET 0x00002108
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_REG)
+#define ROM_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_ROM_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_VAL)
+#define ROM_IB_FN_MOD_VAL  PREFIX_VAL(ROM_IB_FN_MOD_REG)
+#endif
+
+#define GPV_ROM_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_ROM_IB_FN_MOD_OFFSET))
+#define GPV_ROM_IB_FN_MOD_VAL  PREFIX_VAL(GPV_ROM_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_ROM_IB_FN_MOD_FN_MOD_POS
+#define GPV_ROM_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_ROM_IB_FN_MOD_FN_MOD_LEN
+#define GPV_ROM_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_FN_MOD_R)
+#define ROM_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_ROM_IB_FN_MOD_VAL),GPV_ROM_IB_FN_MOD_FN_MOD_POS, GPV_ROM_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(ROM_IB_FN_MOD_FN_MOD_W)
+#define ROM_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_ROM_IB_FN_MOD_VAL),GPV_ROM_IB_FN_MOD_FN_MOD_POS, GPV_ROM_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_ROM_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_ROM_IB_FN_MOD_VAL),GPV_ROM_IB_FN_MOD_FN_MOD_POS, GPV_ROM_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_ROM_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_ROM_IB_FN_MOD_VAL),GPV_ROM_IB_FN_MOD_FN_MOD_POS, GPV_ROM_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: CRAM_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(CRAM_FN_MOD_ISS_BM_OFFSET)
+#define CRAM_FN_MOD_ISS_BM_OFFSET 0x00003008
+#endif
+
+#if !defined(GPV_CRAM_FN_MOD_ISS_BM_OFFSET)
+#define GPV_CRAM_FN_MOD_ISS_BM_OFFSET 0x00003008
+#endif
+
+#if defined(_V1) && !defined(CRAM_FN_MOD_ISS_BM_REG)
+#define CRAM_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_CRAM_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(CRAM_FN_MOD_ISS_BM_VAL)
+#define CRAM_FN_MOD_ISS_BM_VAL  PREFIX_VAL(CRAM_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_CRAM_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_CRAM_FN_MOD_ISS_BM_OFFSET))
+#define GPV_CRAM_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_CRAM_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_CRAM_FN_MOD_ISS_BM_VAL),GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_CRAM_FN_MOD_ISS_BM_VAL),GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_CRAM_FN_MOD_ISS_BM_VAL),GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_CRAM_FN_MOD_ISS_BM_VAL),GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_CRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: LRAM_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(LRAM_FN_MOD_ISS_BM_OFFSET)
+#define LRAM_FN_MOD_ISS_BM_OFFSET 0x00004008
+#endif
+
+#if !defined(GPV_LRAM_FN_MOD_ISS_BM_OFFSET)
+#define GPV_LRAM_FN_MOD_ISS_BM_OFFSET 0x00004008
+#endif
+
+#if defined(_V1) && !defined(LRAM_FN_MOD_ISS_BM_REG)
+#define LRAM_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_LRAM_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(LRAM_FN_MOD_ISS_BM_VAL)
+#define LRAM_FN_MOD_ISS_BM_VAL  PREFIX_VAL(LRAM_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_LRAM_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_LRAM_FN_MOD_ISS_BM_OFFSET))
+#define GPV_LRAM_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_LRAM_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_LRAM_FN_MOD_ISS_BM_VAL),GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_LRAM_FN_MOD_ISS_BM_VAL),GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_LRAM_FN_MOD_ISS_BM_VAL),GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_LRAM_FN_MOD_ISS_BM_VAL),GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_LRAM_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: DSP_S_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(DSP_S_FN_MOD_ISS_BM_OFFSET)
+#define DSP_S_FN_MOD_ISS_BM_OFFSET 0x00005008
+#endif
+
+#if !defined(GPV_DSP_S_FN_MOD_ISS_BM_OFFSET)
+#define GPV_DSP_S_FN_MOD_ISS_BM_OFFSET 0x00005008
+#endif
+
+#if defined(_V1) && !defined(DSP_S_FN_MOD_ISS_BM_REG)
+#define DSP_S_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_S_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DSP_S_FN_MOD_ISS_BM_VAL)
+#define DSP_S_FN_MOD_ISS_BM_VAL  PREFIX_VAL(DSP_S_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_DSP_S_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_S_FN_MOD_ISS_BM_OFFSET))
+#define GPV_DSP_S_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_DSP_S_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DSP_S_FN_MOD_ISS_BM_VAL),GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DSP_S_FN_MOD_ISS_BM_VAL),GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DSP_S_FN_MOD_ISS_BM_VAL),GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DSP_S_FN_MOD_ISS_BM_VAL),GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DSP_S_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: USB_S_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_ISS_BM_OFFSET)
+#define USB_S_IB_FN_MOD_ISS_BM_OFFSET 0x00006008
+#endif
+
+#if !defined(GPV_USB_S_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_USB_S_IB_FN_MOD_ISS_BM_OFFSET 0x00006008
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_ISS_BM_REG)
+#define USB_S_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_S_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_ISS_BM_VAL)
+#define USB_S_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(USB_S_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_USB_S_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_S_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_USB_S_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_USB_S_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_USB_S_IB_FN_MOD_ISS_BM_VAL),GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_USB_S_IB_FN_MOD_ISS_BM_VAL),GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_USB_S_IB_FN_MOD_ISS_BM_VAL),GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_USB_S_IB_FN_MOD_ISS_BM_VAL),GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_USB_S_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: USB_S_IB_FN_MOD2 ACCESS: RW */
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD2_OFFSET)
+#define USB_S_IB_FN_MOD2_OFFSET 0x00006024
+#endif
+
+#if !defined(GPV_USB_S_IB_FN_MOD2_OFFSET)
+#define GPV_USB_S_IB_FN_MOD2_OFFSET 0x00006024
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD2_REG)
+#define USB_S_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_S_IB_FN_MOD2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD2_VAL)
+#define USB_S_IB_FN_MOD2_VAL  PREFIX_VAL(USB_S_IB_FN_MOD2_REG)
+#endif
+
+#define GPV_USB_S_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_S_IB_FN_MOD2_OFFSET))
+#define GPV_USB_S_IB_FN_MOD2_VAL  PREFIX_VAL(GPV_USB_S_IB_FN_MOD2_REG)
+
+/* FIELDS: */
+
+/* bypass_merge ACCESS: RW */
+
+#ifndef GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_POS
+#define GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_POS      0
+#endif
+
+#ifndef GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_LEN
+#define GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_LEN      1
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD2_BYPASS_MERGE_R)
+#define USB_S_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_USB_S_IB_FN_MOD2_VAL),GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_LEN)
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD2_BYPASS_MERGE_W)
+#define USB_S_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_USB_S_IB_FN_MOD2_VAL),GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+#endif
+
+#define GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_USB_S_IB_FN_MOD2_VAL),GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_LEN)
+
+#define GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_USB_S_IB_FN_MOD2_VAL),GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_USB_S_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+
+
+/* REGISTER: USB_S_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(USB_S_IB_WR_TIDEMARK_OFFSET)
+#define USB_S_IB_WR_TIDEMARK_OFFSET 0x00006040
+#endif
+
+#if !defined(GPV_USB_S_IB_WR_TIDEMARK_OFFSET)
+#define GPV_USB_S_IB_WR_TIDEMARK_OFFSET 0x00006040
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_WR_TIDEMARK_REG)
+#define USB_S_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_S_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_WR_TIDEMARK_VAL)
+#define USB_S_IB_WR_TIDEMARK_VAL  PREFIX_VAL(USB_S_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_USB_S_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_S_IB_WR_TIDEMARK_OFFSET))
+#define GPV_USB_S_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_USB_S_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_USB_S_IB_WR_TIDEMARK_VAL),GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_USB_S_IB_WR_TIDEMARK_VAL),GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_USB_S_IB_WR_TIDEMARK_VAL),GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_USB_S_IB_WR_TIDEMARK_VAL),GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_USB_S_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: USB_S_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_OFFSET)
+#define USB_S_IB_FN_MOD_OFFSET 0x00006108
+#endif
+
+#if !defined(GPV_USB_S_IB_FN_MOD_OFFSET)
+#define GPV_USB_S_IB_FN_MOD_OFFSET 0x00006108
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_REG)
+#define USB_S_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_S_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_VAL)
+#define USB_S_IB_FN_MOD_VAL  PREFIX_VAL(USB_S_IB_FN_MOD_REG)
+#endif
+
+#define GPV_USB_S_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_S_IB_FN_MOD_OFFSET))
+#define GPV_USB_S_IB_FN_MOD_VAL  PREFIX_VAL(GPV_USB_S_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_USB_S_IB_FN_MOD_FN_MOD_POS
+#define GPV_USB_S_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_USB_S_IB_FN_MOD_FN_MOD_LEN
+#define GPV_USB_S_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_FN_MOD_R)
+#define USB_S_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_USB_S_IB_FN_MOD_VAL),GPV_USB_S_IB_FN_MOD_FN_MOD_POS, GPV_USB_S_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(USB_S_IB_FN_MOD_FN_MOD_W)
+#define USB_S_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_USB_S_IB_FN_MOD_VAL),GPV_USB_S_IB_FN_MOD_FN_MOD_POS, GPV_USB_S_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_USB_S_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_USB_S_IB_FN_MOD_VAL),GPV_USB_S_IB_FN_MOD_FN_MOD_POS, GPV_USB_S_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_USB_S_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_USB_S_IB_FN_MOD_VAL),GPV_USB_S_IB_FN_MOD_FN_MOD_POS, GPV_USB_S_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: DDR_0_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_ISS_BM_OFFSET)
+#define DDR_0_IB_FN_MOD_ISS_BM_OFFSET 0x00007008
+#endif
+
+#if !defined(GPV_DDR_0_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_DDR_0_IB_FN_MOD_ISS_BM_OFFSET 0x00007008
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_ISS_BM_REG)
+#define DDR_0_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_0_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_ISS_BM_VAL)
+#define DDR_0_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(DDR_0_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_DDR_0_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_0_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_DDR_0_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_DDR_0_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_0_IB_FN_MOD_ISS_BM_VAL),GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_0_IB_FN_MOD_ISS_BM_VAL),GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_0_IB_FN_MOD_ISS_BM_VAL),GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_0_IB_FN_MOD_ISS_BM_VAL),GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: DDR_0_IB_FN_MOD2 ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD2_OFFSET)
+#define DDR_0_IB_FN_MOD2_OFFSET 0x00007024
+#endif
+
+#if !defined(GPV_DDR_0_IB_FN_MOD2_OFFSET)
+#define GPV_DDR_0_IB_FN_MOD2_OFFSET 0x00007024
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD2_REG)
+#define DDR_0_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_0_IB_FN_MOD2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD2_VAL)
+#define DDR_0_IB_FN_MOD2_VAL  PREFIX_VAL(DDR_0_IB_FN_MOD2_REG)
+#endif
+
+#define GPV_DDR_0_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_0_IB_FN_MOD2_OFFSET))
+#define GPV_DDR_0_IB_FN_MOD2_VAL  PREFIX_VAL(GPV_DDR_0_IB_FN_MOD2_REG)
+
+/* FIELDS: */
+
+/* bypass_merge ACCESS: RW */
+
+#ifndef GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_POS
+#define GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_POS      0
+#endif
+
+#ifndef GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_LEN
+#define GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_LEN      1
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD2_BYPASS_MERGE_R)
+#define DDR_0_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_DDR_0_IB_FN_MOD2_VAL),GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD2_BYPASS_MERGE_W)
+#define DDR_0_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_DDR_0_IB_FN_MOD2_VAL),GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+#endif
+
+#define GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_DDR_0_IB_FN_MOD2_VAL),GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_LEN)
+
+#define GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_DDR_0_IB_FN_MOD2_VAL),GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_DDR_0_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+
+
+/* REGISTER: DDR_0_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_0_IB_WR_TIDEMARK_OFFSET)
+#define DDR_0_IB_WR_TIDEMARK_OFFSET 0x00007040
+#endif
+
+#if !defined(GPV_DDR_0_IB_WR_TIDEMARK_OFFSET)
+#define GPV_DDR_0_IB_WR_TIDEMARK_OFFSET 0x00007040
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_WR_TIDEMARK_REG)
+#define DDR_0_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_0_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_WR_TIDEMARK_VAL)
+#define DDR_0_IB_WR_TIDEMARK_VAL  PREFIX_VAL(DDR_0_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_DDR_0_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_0_IB_WR_TIDEMARK_OFFSET))
+#define GPV_DDR_0_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_DDR_0_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_DDR_0_IB_WR_TIDEMARK_VAL),GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_DDR_0_IB_WR_TIDEMARK_VAL),GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_DDR_0_IB_WR_TIDEMARK_VAL),GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_DDR_0_IB_WR_TIDEMARK_VAL),GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_DDR_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: DDR_0_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_OFFSET)
+#define DDR_0_IB_FN_MOD_OFFSET 0x00007108
+#endif
+
+#if !defined(GPV_DDR_0_IB_FN_MOD_OFFSET)
+#define GPV_DDR_0_IB_FN_MOD_OFFSET 0x00007108
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_REG)
+#define DDR_0_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_0_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_VAL)
+#define DDR_0_IB_FN_MOD_VAL  PREFIX_VAL(DDR_0_IB_FN_MOD_REG)
+#endif
+
+#define GPV_DDR_0_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_0_IB_FN_MOD_OFFSET))
+#define GPV_DDR_0_IB_FN_MOD_VAL  PREFIX_VAL(GPV_DDR_0_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_DDR_0_IB_FN_MOD_FN_MOD_POS
+#define GPV_DDR_0_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_DDR_0_IB_FN_MOD_FN_MOD_LEN
+#define GPV_DDR_0_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_FN_MOD_R)
+#define DDR_0_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DDR_0_IB_FN_MOD_VAL),GPV_DDR_0_IB_FN_MOD_FN_MOD_POS, GPV_DDR_0_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_0_IB_FN_MOD_FN_MOD_W)
+#define DDR_0_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DDR_0_IB_FN_MOD_VAL),GPV_DDR_0_IB_FN_MOD_FN_MOD_POS, GPV_DDR_0_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_DDR_0_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DDR_0_IB_FN_MOD_VAL),GPV_DDR_0_IB_FN_MOD_FN_MOD_POS, GPV_DDR_0_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_DDR_0_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DDR_0_IB_FN_MOD_VAL),GPV_DDR_0_IB_FN_MOD_FN_MOD_POS, GPV_DDR_0_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: DDR_1_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_1_FN_MOD_ISS_BM_OFFSET)
+#define DDR_1_FN_MOD_ISS_BM_OFFSET 0x00008008
+#endif
+
+#if !defined(GPV_DDR_1_FN_MOD_ISS_BM_OFFSET)
+#define GPV_DDR_1_FN_MOD_ISS_BM_OFFSET 0x00008008
+#endif
+
+#if defined(_V1) && !defined(DDR_1_FN_MOD_ISS_BM_REG)
+#define DDR_1_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_1_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_1_FN_MOD_ISS_BM_VAL)
+#define DDR_1_FN_MOD_ISS_BM_VAL  PREFIX_VAL(DDR_1_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_DDR_1_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_1_FN_MOD_ISS_BM_OFFSET))
+#define GPV_DDR_1_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_DDR_1_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_1_FN_MOD_ISS_BM_VAL),GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_1_FN_MOD_ISS_BM_VAL),GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_1_FN_MOD_ISS_BM_VAL),GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_1_FN_MOD_ISS_BM_VAL),GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: DDR_2_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_2_FN_MOD_ISS_BM_OFFSET)
+#define DDR_2_FN_MOD_ISS_BM_OFFSET 0x00009008
+#endif
+
+#if !defined(GPV_DDR_2_FN_MOD_ISS_BM_OFFSET)
+#define GPV_DDR_2_FN_MOD_ISS_BM_OFFSET 0x00009008
+#endif
+
+#if defined(_V1) && !defined(DDR_2_FN_MOD_ISS_BM_REG)
+#define DDR_2_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_2_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_2_FN_MOD_ISS_BM_VAL)
+#define DDR_2_FN_MOD_ISS_BM_VAL  PREFIX_VAL(DDR_2_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_DDR_2_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_2_FN_MOD_ISS_BM_OFFSET))
+#define GPV_DDR_2_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_DDR_2_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_2_FN_MOD_ISS_BM_VAL),GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_2_FN_MOD_ISS_BM_VAL),GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_2_FN_MOD_ISS_BM_VAL),GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_2_FN_MOD_ISS_BM_VAL),GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: DDR_3_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_3_FN_MOD_ISS_BM_OFFSET)
+#define DDR_3_FN_MOD_ISS_BM_OFFSET 0x0000A008
+#endif
+
+#if !defined(GPV_DDR_3_FN_MOD_ISS_BM_OFFSET)
+#define GPV_DDR_3_FN_MOD_ISS_BM_OFFSET 0x0000A008
+#endif
+
+#if defined(_V1) && !defined(DDR_3_FN_MOD_ISS_BM_REG)
+#define DDR_3_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_3_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_3_FN_MOD_ISS_BM_VAL)
+#define DDR_3_FN_MOD_ISS_BM_VAL  PREFIX_VAL(DDR_3_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_DDR_3_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_3_FN_MOD_ISS_BM_OFFSET))
+#define GPV_DDR_3_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_DDR_3_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_3_FN_MOD_ISS_BM_VAL),GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_3_FN_MOD_ISS_BM_VAL),GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_3_FN_MOD_ISS_BM_VAL),GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_3_FN_MOD_ISS_BM_VAL),GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: DDR_4_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_4_FN_MOD_ISS_BM_OFFSET)
+#define DDR_4_FN_MOD_ISS_BM_OFFSET 0x0000B008
+#endif
+
+#if !defined(GPV_DDR_4_FN_MOD_ISS_BM_OFFSET)
+#define GPV_DDR_4_FN_MOD_ISS_BM_OFFSET 0x0000B008
+#endif
+
+#if defined(_V1) && !defined(DDR_4_FN_MOD_ISS_BM_REG)
+#define DDR_4_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_4_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_4_FN_MOD_ISS_BM_VAL)
+#define DDR_4_FN_MOD_ISS_BM_VAL  PREFIX_VAL(DDR_4_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_DDR_4_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_4_FN_MOD_ISS_BM_OFFSET))
+#define GPV_DDR_4_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_DDR_4_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_4_FN_MOD_ISS_BM_VAL),GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_4_FN_MOD_ISS_BM_VAL),GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_4_FN_MOD_ISS_BM_VAL),GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_4_FN_MOD_ISS_BM_VAL),GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_4_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: DDR_5_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(DDR_5_FN_MOD_ISS_BM_OFFSET)
+#define DDR_5_FN_MOD_ISS_BM_OFFSET 0x0000C008
+#endif
+
+#if !defined(GPV_DDR_5_FN_MOD_ISS_BM_OFFSET)
+#define GPV_DDR_5_FN_MOD_ISS_BM_OFFSET 0x0000C008
+#endif
+
+#if defined(_V1) && !defined(DDR_5_FN_MOD_ISS_BM_REG)
+#define DDR_5_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_5_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DDR_5_FN_MOD_ISS_BM_VAL)
+#define DDR_5_FN_MOD_ISS_BM_VAL  PREFIX_VAL(DDR_5_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_DDR_5_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_DDR_5_FN_MOD_ISS_BM_OFFSET))
+#define GPV_DDR_5_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_DDR_5_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_5_FN_MOD_ISS_BM_VAL),GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_5_FN_MOD_ISS_BM_VAL),GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_DDR_5_FN_MOD_ISS_BM_VAL),GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_DDR_5_FN_MOD_ISS_BM_VAL),GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_DDR_5_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: IAE_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_ISS_BM_OFFSET)
+#define IAE_IB_FN_MOD_ISS_BM_OFFSET 0x0000D008
+#endif
+
+#if !defined(GPV_IAE_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_IAE_IB_FN_MOD_ISS_BM_OFFSET 0x0000D008
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_ISS_BM_REG)
+#define IAE_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IAE_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_ISS_BM_VAL)
+#define IAE_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(IAE_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_IAE_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IAE_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_IAE_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_IAE_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IAE_IB_FN_MOD_ISS_BM_VAL),GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IAE_IB_FN_MOD_ISS_BM_VAL),GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IAE_IB_FN_MOD_ISS_BM_VAL),GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IAE_IB_FN_MOD_ISS_BM_VAL),GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IAE_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: IAE_IB_FN_MOD2 ACCESS: RW */
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD2_OFFSET)
+#define IAE_IB_FN_MOD2_OFFSET 0x0000D024
+#endif
+
+#if !defined(GPV_IAE_IB_FN_MOD2_OFFSET)
+#define GPV_IAE_IB_FN_MOD2_OFFSET 0x0000D024
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD2_REG)
+#define IAE_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_IAE_IB_FN_MOD2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD2_VAL)
+#define IAE_IB_FN_MOD2_VAL  PREFIX_VAL(IAE_IB_FN_MOD2_REG)
+#endif
+
+#define GPV_IAE_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_IAE_IB_FN_MOD2_OFFSET))
+#define GPV_IAE_IB_FN_MOD2_VAL  PREFIX_VAL(GPV_IAE_IB_FN_MOD2_REG)
+
+/* FIELDS: */
+
+/* bypass_merge ACCESS: RW */
+
+#ifndef GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_POS
+#define GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_POS      0
+#endif
+
+#ifndef GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_LEN
+#define GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_LEN      1
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD2_BYPASS_MERGE_R)
+#define IAE_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_IAE_IB_FN_MOD2_VAL),GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_LEN)
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD2_BYPASS_MERGE_W)
+#define IAE_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_IAE_IB_FN_MOD2_VAL),GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+#endif
+
+#define GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_IAE_IB_FN_MOD2_VAL),GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_LEN)
+
+#define GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_IAE_IB_FN_MOD2_VAL),GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_IAE_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+
+
+/* REGISTER: IAE_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(IAE_IB_WR_TIDEMARK_OFFSET)
+#define IAE_IB_WR_TIDEMARK_OFFSET 0x0000D040
+#endif
+
+#if !defined(GPV_IAE_IB_WR_TIDEMARK_OFFSET)
+#define GPV_IAE_IB_WR_TIDEMARK_OFFSET 0x0000D040
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_WR_TIDEMARK_REG)
+#define IAE_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IAE_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_WR_TIDEMARK_VAL)
+#define IAE_IB_WR_TIDEMARK_VAL  PREFIX_VAL(IAE_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_IAE_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IAE_IB_WR_TIDEMARK_OFFSET))
+#define GPV_IAE_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_IAE_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define IAE_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IAE_IB_WR_TIDEMARK_VAL),GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define IAE_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IAE_IB_WR_TIDEMARK_VAL),GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IAE_IB_WR_TIDEMARK_VAL),GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IAE_IB_WR_TIDEMARK_VAL),GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IAE_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: IAE_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_OFFSET)
+#define IAE_IB_FN_MOD_OFFSET 0x0000D108
+#endif
+
+#if !defined(GPV_IAE_IB_FN_MOD_OFFSET)
+#define GPV_IAE_IB_FN_MOD_OFFSET 0x0000D108
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_REG)
+#define IAE_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IAE_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_VAL)
+#define IAE_IB_FN_MOD_VAL  PREFIX_VAL(IAE_IB_FN_MOD_REG)
+#endif
+
+#define GPV_IAE_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IAE_IB_FN_MOD_OFFSET))
+#define GPV_IAE_IB_FN_MOD_VAL  PREFIX_VAL(GPV_IAE_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_IAE_IB_FN_MOD_FN_MOD_POS
+#define GPV_IAE_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_IAE_IB_FN_MOD_FN_MOD_LEN
+#define GPV_IAE_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_FN_MOD_R)
+#define IAE_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IAE_IB_FN_MOD_VAL),GPV_IAE_IB_FN_MOD_FN_MOD_POS, GPV_IAE_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(IAE_IB_FN_MOD_FN_MOD_W)
+#define IAE_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IAE_IB_FN_MOD_VAL),GPV_IAE_IB_FN_MOD_FN_MOD_POS, GPV_IAE_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_IAE_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IAE_IB_FN_MOD_VAL),GPV_IAE_IB_FN_MOD_FN_MOD_POS, GPV_IAE_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_IAE_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IAE_IB_FN_MOD_VAL),GPV_IAE_IB_FN_MOD_FN_MOD_POS, GPV_IAE_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: PPE_0_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_ISS_BM_OFFSET)
+#define PPE_0_IB_FN_MOD_ISS_BM_OFFSET 0x0000E008
+#endif
+
+#if !defined(GPV_PPE_0_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_PPE_0_IB_FN_MOD_ISS_BM_OFFSET 0x0000E008
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_ISS_BM_REG)
+#define PPE_0_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_0_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_ISS_BM_VAL)
+#define PPE_0_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(PPE_0_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_PPE_0_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_0_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_PPE_0_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_PPE_0_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_PPE_0_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_PPE_0_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_PPE_0_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_PPE_0_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: PPE_0_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_0_IB_WR_TIDEMARK_OFFSET)
+#define PPE_0_IB_WR_TIDEMARK_OFFSET 0x0000E040
+#endif
+
+#if !defined(GPV_PPE_0_IB_WR_TIDEMARK_OFFSET)
+#define GPV_PPE_0_IB_WR_TIDEMARK_OFFSET 0x0000E040
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_WR_TIDEMARK_REG)
+#define PPE_0_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_0_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_WR_TIDEMARK_VAL)
+#define PPE_0_IB_WR_TIDEMARK_VAL  PREFIX_VAL(PPE_0_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_PPE_0_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_0_IB_WR_TIDEMARK_OFFSET))
+#define GPV_PPE_0_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_PPE_0_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_PPE_0_IB_WR_TIDEMARK_VAL),GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_PPE_0_IB_WR_TIDEMARK_VAL),GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_PPE_0_IB_WR_TIDEMARK_VAL),GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_PPE_0_IB_WR_TIDEMARK_VAL),GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_0_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: PPE_0_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_OFFSET)
+#define PPE_0_IB_FN_MOD_OFFSET 0x0000E108
+#endif
+
+#if !defined(GPV_PPE_0_IB_FN_MOD_OFFSET)
+#define GPV_PPE_0_IB_FN_MOD_OFFSET 0x0000E108
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_REG)
+#define PPE_0_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_0_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_VAL)
+#define PPE_0_IB_FN_MOD_VAL  PREFIX_VAL(PPE_0_IB_FN_MOD_REG)
+#endif
+
+#define GPV_PPE_0_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_0_IB_FN_MOD_OFFSET))
+#define GPV_PPE_0_IB_FN_MOD_VAL  PREFIX_VAL(GPV_PPE_0_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_PPE_0_IB_FN_MOD_FN_MOD_POS
+#define GPV_PPE_0_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_PPE_0_IB_FN_MOD_FN_MOD_LEN
+#define GPV_PPE_0_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_FN_MOD_R)
+#define PPE_0_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_PPE_0_IB_FN_MOD_VAL),GPV_PPE_0_IB_FN_MOD_FN_MOD_POS, GPV_PPE_0_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_0_IB_FN_MOD_FN_MOD_W)
+#define PPE_0_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_PPE_0_IB_FN_MOD_VAL),GPV_PPE_0_IB_FN_MOD_FN_MOD_POS, GPV_PPE_0_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_PPE_0_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_PPE_0_IB_FN_MOD_VAL),GPV_PPE_0_IB_FN_MOD_FN_MOD_POS, GPV_PPE_0_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_PPE_0_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_PPE_0_IB_FN_MOD_VAL),GPV_PPE_0_IB_FN_MOD_FN_MOD_POS, GPV_PPE_0_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: PPE_1_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_ISS_BM_OFFSET)
+#define PPE_1_IB_FN_MOD_ISS_BM_OFFSET 0x0000F008
+#endif
+
+#if !defined(GPV_PPE_1_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_PPE_1_IB_FN_MOD_ISS_BM_OFFSET 0x0000F008
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_ISS_BM_REG)
+#define PPE_1_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_1_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_ISS_BM_VAL)
+#define PPE_1_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(PPE_1_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_PPE_1_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_1_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_PPE_1_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_PPE_1_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_PPE_1_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_PPE_1_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_PPE_1_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_PPE_1_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: PPE_1_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_1_IB_WR_TIDEMARK_OFFSET)
+#define PPE_1_IB_WR_TIDEMARK_OFFSET 0x0000F040
+#endif
+
+#if !defined(GPV_PPE_1_IB_WR_TIDEMARK_OFFSET)
+#define GPV_PPE_1_IB_WR_TIDEMARK_OFFSET 0x0000F040
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_WR_TIDEMARK_REG)
+#define PPE_1_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_1_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_WR_TIDEMARK_VAL)
+#define PPE_1_IB_WR_TIDEMARK_VAL  PREFIX_VAL(PPE_1_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_PPE_1_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_1_IB_WR_TIDEMARK_OFFSET))
+#define GPV_PPE_1_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_PPE_1_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_PPE_1_IB_WR_TIDEMARK_VAL),GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_PPE_1_IB_WR_TIDEMARK_VAL),GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_PPE_1_IB_WR_TIDEMARK_VAL),GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_PPE_1_IB_WR_TIDEMARK_VAL),GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_1_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: PPE_1_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_OFFSET)
+#define PPE_1_IB_FN_MOD_OFFSET 0x0000F108
+#endif
+
+#if !defined(GPV_PPE_1_IB_FN_MOD_OFFSET)
+#define GPV_PPE_1_IB_FN_MOD_OFFSET 0x0000F108
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_REG)
+#define PPE_1_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_1_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_VAL)
+#define PPE_1_IB_FN_MOD_VAL  PREFIX_VAL(PPE_1_IB_FN_MOD_REG)
+#endif
+
+#define GPV_PPE_1_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_1_IB_FN_MOD_OFFSET))
+#define GPV_PPE_1_IB_FN_MOD_VAL  PREFIX_VAL(GPV_PPE_1_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_PPE_1_IB_FN_MOD_FN_MOD_POS
+#define GPV_PPE_1_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_PPE_1_IB_FN_MOD_FN_MOD_LEN
+#define GPV_PPE_1_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_FN_MOD_R)
+#define PPE_1_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_PPE_1_IB_FN_MOD_VAL),GPV_PPE_1_IB_FN_MOD_FN_MOD_POS, GPV_PPE_1_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_1_IB_FN_MOD_FN_MOD_W)
+#define PPE_1_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_PPE_1_IB_FN_MOD_VAL),GPV_PPE_1_IB_FN_MOD_FN_MOD_POS, GPV_PPE_1_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_PPE_1_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_PPE_1_IB_FN_MOD_VAL),GPV_PPE_1_IB_FN_MOD_FN_MOD_POS, GPV_PPE_1_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_PPE_1_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_PPE_1_IB_FN_MOD_VAL),GPV_PPE_1_IB_FN_MOD_FN_MOD_POS, GPV_PPE_1_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: PPE_2_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_ISS_BM_OFFSET)
+#define PPE_2_IB_FN_MOD_ISS_BM_OFFSET 0x00010008
+#endif
+
+#if !defined(GPV_PPE_2_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_PPE_2_IB_FN_MOD_ISS_BM_OFFSET 0x00010008
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_ISS_BM_REG)
+#define PPE_2_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_2_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_ISS_BM_VAL)
+#define PPE_2_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(PPE_2_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_PPE_2_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_2_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_PPE_2_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_PPE_2_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_PPE_2_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_PPE_2_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_PPE_2_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_PPE_2_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_2_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: PPE_2_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_2_IB_WR_TIDEMARK_OFFSET)
+#define PPE_2_IB_WR_TIDEMARK_OFFSET 0x00010040
+#endif
+
+#if !defined(GPV_PPE_2_IB_WR_TIDEMARK_OFFSET)
+#define GPV_PPE_2_IB_WR_TIDEMARK_OFFSET 0x00010040
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_WR_TIDEMARK_REG)
+#define PPE_2_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_2_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_WR_TIDEMARK_VAL)
+#define PPE_2_IB_WR_TIDEMARK_VAL  PREFIX_VAL(PPE_2_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_PPE_2_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_2_IB_WR_TIDEMARK_OFFSET))
+#define GPV_PPE_2_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_PPE_2_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_PPE_2_IB_WR_TIDEMARK_VAL),GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_PPE_2_IB_WR_TIDEMARK_VAL),GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_PPE_2_IB_WR_TIDEMARK_VAL),GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_PPE_2_IB_WR_TIDEMARK_VAL),GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_2_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: PPE_2_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_OFFSET)
+#define PPE_2_IB_FN_MOD_OFFSET 0x00010108
+#endif
+
+#if !defined(GPV_PPE_2_IB_FN_MOD_OFFSET)
+#define GPV_PPE_2_IB_FN_MOD_OFFSET 0x00010108
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_REG)
+#define PPE_2_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_2_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_VAL)
+#define PPE_2_IB_FN_MOD_VAL  PREFIX_VAL(PPE_2_IB_FN_MOD_REG)
+#endif
+
+#define GPV_PPE_2_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_2_IB_FN_MOD_OFFSET))
+#define GPV_PPE_2_IB_FN_MOD_VAL  PREFIX_VAL(GPV_PPE_2_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_PPE_2_IB_FN_MOD_FN_MOD_POS
+#define GPV_PPE_2_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_PPE_2_IB_FN_MOD_FN_MOD_LEN
+#define GPV_PPE_2_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_FN_MOD_R)
+#define PPE_2_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_PPE_2_IB_FN_MOD_VAL),GPV_PPE_2_IB_FN_MOD_FN_MOD_POS, GPV_PPE_2_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_2_IB_FN_MOD_FN_MOD_W)
+#define PPE_2_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_PPE_2_IB_FN_MOD_VAL),GPV_PPE_2_IB_FN_MOD_FN_MOD_POS, GPV_PPE_2_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_PPE_2_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_PPE_2_IB_FN_MOD_VAL),GPV_PPE_2_IB_FN_MOD_FN_MOD_POS, GPV_PPE_2_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_PPE_2_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_PPE_2_IB_FN_MOD_VAL),GPV_PPE_2_IB_FN_MOD_FN_MOD_POS, GPV_PPE_2_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: SLAVE_APB_1_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD_ISS_BM_OFFSET)
+#define SLAVE_APB_1_IB_FN_MOD_ISS_BM_OFFSET 0x00011008
+#endif
+
+#if !defined(GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_OFFSET 0x00011008
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD_ISS_BM_REG)
+#define SLAVE_APB_1_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD_ISS_BM_VAL)
+#define SLAVE_APB_1_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(SLAVE_APB_1_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_VAL),GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_VAL),GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_VAL),GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_VAL),GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_SLAVE_APB_1_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: SLAVE_APB_1_IB_FN_MOD2 ACCESS: RW */
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD2_OFFSET)
+#define SLAVE_APB_1_IB_FN_MOD2_OFFSET 0x00011024
+#endif
+
+#if !defined(GPV_SLAVE_APB_1_IB_FN_MOD2_OFFSET)
+#define GPV_SLAVE_APB_1_IB_FN_MOD2_OFFSET 0x00011024
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD2_REG)
+#define SLAVE_APB_1_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_SLAVE_APB_1_IB_FN_MOD2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD2_VAL)
+#define SLAVE_APB_1_IB_FN_MOD2_VAL  PREFIX_VAL(SLAVE_APB_1_IB_FN_MOD2_REG)
+#endif
+
+#define GPV_SLAVE_APB_1_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_SLAVE_APB_1_IB_FN_MOD2_OFFSET))
+#define GPV_SLAVE_APB_1_IB_FN_MOD2_VAL  PREFIX_VAL(GPV_SLAVE_APB_1_IB_FN_MOD2_REG)
+
+/* FIELDS: */
+
+/* bypass_merge ACCESS: RW */
+
+#ifndef GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_POS
+#define GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_POS      0
+#endif
+
+#ifndef GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_LEN
+#define GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_LEN      1
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_R)
+#define SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_SLAVE_APB_1_IB_FN_MOD2_VAL),GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_LEN)
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_W)
+#define SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_SLAVE_APB_1_IB_FN_MOD2_VAL),GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+#endif
+
+#define GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_SLAVE_APB_1_IB_FN_MOD2_VAL),GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_LEN)
+
+#define GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_SLAVE_APB_1_IB_FN_MOD2_VAL),GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_SLAVE_APB_1_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+
+
+/* REGISTER: SLAVE_APB_0_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD_ISS_BM_OFFSET)
+#define SLAVE_APB_0_IB_FN_MOD_ISS_BM_OFFSET 0x00012008
+#endif
+
+#if !defined(GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_OFFSET 0x00012008
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD_ISS_BM_REG)
+#define SLAVE_APB_0_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD_ISS_BM_VAL)
+#define SLAVE_APB_0_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(SLAVE_APB_0_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_VAL),GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_VAL),GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_VAL),GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_VAL),GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_SLAVE_APB_0_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: SLAVE_APB_0_IB_FN_MOD2 ACCESS: RW */
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD2_OFFSET)
+#define SLAVE_APB_0_IB_FN_MOD2_OFFSET 0x00012024
+#endif
+
+#if !defined(GPV_SLAVE_APB_0_IB_FN_MOD2_OFFSET)
+#define GPV_SLAVE_APB_0_IB_FN_MOD2_OFFSET 0x00012024
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD2_REG)
+#define SLAVE_APB_0_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_SLAVE_APB_0_IB_FN_MOD2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD2_VAL)
+#define SLAVE_APB_0_IB_FN_MOD2_VAL  PREFIX_VAL(SLAVE_APB_0_IB_FN_MOD2_REG)
+#endif
+
+#define GPV_SLAVE_APB_0_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_SLAVE_APB_0_IB_FN_MOD2_OFFSET))
+#define GPV_SLAVE_APB_0_IB_FN_MOD2_VAL  PREFIX_VAL(GPV_SLAVE_APB_0_IB_FN_MOD2_REG)
+
+/* FIELDS: */
+
+/* bypass_merge ACCESS: RW */
+
+#ifndef GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_POS
+#define GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_POS      0
+#endif
+
+#ifndef GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_LEN
+#define GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_LEN      1
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_R)
+#define SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_SLAVE_APB_0_IB_FN_MOD2_VAL),GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_LEN)
+#endif
+
+#if defined(_V1) && !defined(SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_W)
+#define SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_SLAVE_APB_0_IB_FN_MOD2_VAL),GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+#endif
+
+#define GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_SLAVE_APB_0_IB_FN_MOD2_VAL),GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_LEN)
+
+#define GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_SLAVE_APB_0_IB_FN_MOD2_VAL),GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_SLAVE_APB_0_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+
+
+/* REGISTER: PPE_3_IB_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_ISS_BM_OFFSET)
+#define PPE_3_IB_FN_MOD_ISS_BM_OFFSET 0x00013008
+#endif
+
+#if !defined(GPV_PPE_3_IB_FN_MOD_ISS_BM_OFFSET)
+#define GPV_PPE_3_IB_FN_MOD_ISS_BM_OFFSET 0x00013008
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_ISS_BM_REG)
+#define PPE_3_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_3_IB_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_ISS_BM_VAL)
+#define PPE_3_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(PPE_3_IB_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_PPE_3_IB_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_3_IB_FN_MOD_ISS_BM_OFFSET))
+#define GPV_PPE_3_IB_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_PPE_3_IB_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_PPE_3_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_PPE_3_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_PPE_3_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_PPE_3_IB_FN_MOD_ISS_BM_VAL),GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_PPE_3_IB_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: PPE_3_IB_FN_MOD2 ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD2_OFFSET)
+#define PPE_3_IB_FN_MOD2_OFFSET 0x00013024
+#endif
+
+#if !defined(GPV_PPE_3_IB_FN_MOD2_OFFSET)
+#define GPV_PPE_3_IB_FN_MOD2_OFFSET 0x00013024
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD2_REG)
+#define PPE_3_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_3_IB_FN_MOD2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD2_VAL)
+#define PPE_3_IB_FN_MOD2_VAL  PREFIX_VAL(PPE_3_IB_FN_MOD2_REG)
+#endif
+
+#define GPV_PPE_3_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_3_IB_FN_MOD2_OFFSET))
+#define GPV_PPE_3_IB_FN_MOD2_VAL  PREFIX_VAL(GPV_PPE_3_IB_FN_MOD2_REG)
+
+/* FIELDS: */
+
+/* bypass_merge ACCESS: RW */
+
+#ifndef GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_POS
+#define GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_POS      0
+#endif
+
+#ifndef GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_LEN
+#define GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_LEN      1
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD2_BYPASS_MERGE_R)
+#define PPE_3_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_PPE_3_IB_FN_MOD2_VAL),GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD2_BYPASS_MERGE_W)
+#define PPE_3_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_PPE_3_IB_FN_MOD2_VAL),GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+#endif
+
+#define GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_PPE_3_IB_FN_MOD2_VAL),GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_LEN)
+
+#define GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_PPE_3_IB_FN_MOD2_VAL),GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_PPE_3_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+
+
+/* REGISTER: PPE_3_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_3_IB_WR_TIDEMARK_OFFSET)
+#define PPE_3_IB_WR_TIDEMARK_OFFSET 0x00013040
+#endif
+
+#if !defined(GPV_PPE_3_IB_WR_TIDEMARK_OFFSET)
+#define GPV_PPE_3_IB_WR_TIDEMARK_OFFSET 0x00013040
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_WR_TIDEMARK_REG)
+#define PPE_3_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_3_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_WR_TIDEMARK_VAL)
+#define PPE_3_IB_WR_TIDEMARK_VAL  PREFIX_VAL(PPE_3_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_PPE_3_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_3_IB_WR_TIDEMARK_OFFSET))
+#define GPV_PPE_3_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_PPE_3_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_PPE_3_IB_WR_TIDEMARK_VAL),GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_PPE_3_IB_WR_TIDEMARK_VAL),GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_PPE_3_IB_WR_TIDEMARK_VAL),GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_PPE_3_IB_WR_TIDEMARK_VAL),GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_PPE_3_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: PPE_3_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_OFFSET)
+#define PPE_3_IB_FN_MOD_OFFSET 0x00013108
+#endif
+
+#if !defined(GPV_PPE_3_IB_FN_MOD_OFFSET)
+#define GPV_PPE_3_IB_FN_MOD_OFFSET 0x00013108
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_REG)
+#define PPE_3_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_3_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_VAL)
+#define PPE_3_IB_FN_MOD_VAL  PREFIX_VAL(PPE_3_IB_FN_MOD_REG)
+#endif
+
+#define GPV_PPE_3_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_PPE_3_IB_FN_MOD_OFFSET))
+#define GPV_PPE_3_IB_FN_MOD_VAL  PREFIX_VAL(GPV_PPE_3_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_PPE_3_IB_FN_MOD_FN_MOD_POS
+#define GPV_PPE_3_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_PPE_3_IB_FN_MOD_FN_MOD_LEN
+#define GPV_PPE_3_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_FN_MOD_R)
+#define PPE_3_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_PPE_3_IB_FN_MOD_VAL),GPV_PPE_3_IB_FN_MOD_FN_MOD_POS, GPV_PPE_3_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(PPE_3_IB_FN_MOD_FN_MOD_W)
+#define PPE_3_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_PPE_3_IB_FN_MOD_VAL),GPV_PPE_3_IB_FN_MOD_FN_MOD_POS, GPV_PPE_3_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_PPE_3_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_PPE_3_IB_FN_MOD_VAL),GPV_PPE_3_IB_FN_MOD_FN_MOD_POS, GPV_PPE_3_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_PPE_3_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_PPE_3_IB_FN_MOD_VAL),GPV_PPE_3_IB_FN_MOD_FN_MOD_POS, GPV_PPE_3_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: DSP_I_READ_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DSP_I_READ_QOS_OFFSET)
+#define DSP_I_READ_QOS_OFFSET 0x00042100
+#endif
+
+#if !defined(GPV_DSP_I_READ_QOS_OFFSET)
+#define GPV_DSP_I_READ_QOS_OFFSET 0x00042100
+#endif
+
+#if defined(_V1) && !defined(DSP_I_READ_QOS_REG)
+#define DSP_I_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_I_READ_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DSP_I_READ_QOS_VAL)
+#define DSP_I_READ_QOS_VAL  PREFIX_VAL(DSP_I_READ_QOS_REG)
+#endif
+
+#define GPV_DSP_I_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_I_READ_QOS_OFFSET))
+#define GPV_DSP_I_READ_QOS_VAL  PREFIX_VAL(GPV_DSP_I_READ_QOS_REG)
+
+/* FIELDS: */
+
+/* ar_qos ACCESS: RW */
+
+#ifndef GPV_DSP_I_READ_QOS_AR_QOS_POS
+#define GPV_DSP_I_READ_QOS_AR_QOS_POS      0
+#endif
+
+#ifndef GPV_DSP_I_READ_QOS_AR_QOS_LEN
+#define GPV_DSP_I_READ_QOS_AR_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DSP_I_READ_QOS_AR_QOS_R)
+#define DSP_I_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DSP_I_READ_QOS_VAL),GPV_DSP_I_READ_QOS_AR_QOS_POS, GPV_DSP_I_READ_QOS_AR_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DSP_I_READ_QOS_AR_QOS_W)
+#define DSP_I_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DSP_I_READ_QOS_VAL),GPV_DSP_I_READ_QOS_AR_QOS_POS, GPV_DSP_I_READ_QOS_AR_QOS_LEN,value)
+#endif
+
+#define GPV_DSP_I_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DSP_I_READ_QOS_VAL),GPV_DSP_I_READ_QOS_AR_QOS_POS, GPV_DSP_I_READ_QOS_AR_QOS_LEN)
+
+#define GPV_DSP_I_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DSP_I_READ_QOS_VAL),GPV_DSP_I_READ_QOS_AR_QOS_POS, GPV_DSP_I_READ_QOS_AR_QOS_LEN,value)
+
+
+/* REGISTER: DSP_I_WRITE_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DSP_I_WRITE_QOS_OFFSET)
+#define DSP_I_WRITE_QOS_OFFSET 0x00042104
+#endif
+
+#if !defined(GPV_DSP_I_WRITE_QOS_OFFSET)
+#define GPV_DSP_I_WRITE_QOS_OFFSET 0x00042104
+#endif
+
+#if defined(_V1) && !defined(DSP_I_WRITE_QOS_REG)
+#define DSP_I_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_I_WRITE_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DSP_I_WRITE_QOS_VAL)
+#define DSP_I_WRITE_QOS_VAL  PREFIX_VAL(DSP_I_WRITE_QOS_REG)
+#endif
+
+#define GPV_DSP_I_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_I_WRITE_QOS_OFFSET))
+#define GPV_DSP_I_WRITE_QOS_VAL  PREFIX_VAL(GPV_DSP_I_WRITE_QOS_REG)
+
+/* FIELDS: */
+
+/* aw_qos ACCESS: RW */
+
+#ifndef GPV_DSP_I_WRITE_QOS_AW_QOS_POS
+#define GPV_DSP_I_WRITE_QOS_AW_QOS_POS      0
+#endif
+
+#ifndef GPV_DSP_I_WRITE_QOS_AW_QOS_LEN
+#define GPV_DSP_I_WRITE_QOS_AW_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DSP_I_WRITE_QOS_AW_QOS_R)
+#define DSP_I_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DSP_I_WRITE_QOS_VAL),GPV_DSP_I_WRITE_QOS_AW_QOS_POS, GPV_DSP_I_WRITE_QOS_AW_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DSP_I_WRITE_QOS_AW_QOS_W)
+#define DSP_I_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DSP_I_WRITE_QOS_VAL),GPV_DSP_I_WRITE_QOS_AW_QOS_POS, GPV_DSP_I_WRITE_QOS_AW_QOS_LEN,value)
+#endif
+
+#define GPV_DSP_I_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DSP_I_WRITE_QOS_VAL),GPV_DSP_I_WRITE_QOS_AW_QOS_POS, GPV_DSP_I_WRITE_QOS_AW_QOS_LEN)
+
+#define GPV_DSP_I_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DSP_I_WRITE_QOS_VAL),GPV_DSP_I_WRITE_QOS_AW_QOS_POS, GPV_DSP_I_WRITE_QOS_AW_QOS_LEN,value)
+
+
+/* REGISTER: DSP_I_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(DSP_I_FN_MOD_OFFSET)
+#define DSP_I_FN_MOD_OFFSET 0x00042108
+#endif
+
+#if !defined(GPV_DSP_I_FN_MOD_OFFSET)
+#define GPV_DSP_I_FN_MOD_OFFSET 0x00042108
+#endif
+
+#if defined(_V1) && !defined(DSP_I_FN_MOD_REG)
+#define DSP_I_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_I_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DSP_I_FN_MOD_VAL)
+#define DSP_I_FN_MOD_VAL  PREFIX_VAL(DSP_I_FN_MOD_REG)
+#endif
+
+#define GPV_DSP_I_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_I_FN_MOD_OFFSET))
+#define GPV_DSP_I_FN_MOD_VAL  PREFIX_VAL(GPV_DSP_I_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_DSP_I_FN_MOD_FN_MOD_POS
+#define GPV_DSP_I_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_DSP_I_FN_MOD_FN_MOD_LEN
+#define GPV_DSP_I_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DSP_I_FN_MOD_FN_MOD_R)
+#define DSP_I_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DSP_I_FN_MOD_VAL),GPV_DSP_I_FN_MOD_FN_MOD_POS, GPV_DSP_I_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(DSP_I_FN_MOD_FN_MOD_W)
+#define DSP_I_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DSP_I_FN_MOD_VAL),GPV_DSP_I_FN_MOD_FN_MOD_POS, GPV_DSP_I_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_DSP_I_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DSP_I_FN_MOD_VAL),GPV_DSP_I_FN_MOD_FN_MOD_POS, GPV_DSP_I_FN_MOD_FN_MOD_LEN)
+
+#define GPV_DSP_I_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DSP_I_FN_MOD_VAL),GPV_DSP_I_FN_MOD_FN_MOD_POS, GPV_DSP_I_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: DSP_D_READ_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DSP_D_READ_QOS_OFFSET)
+#define DSP_D_READ_QOS_OFFSET 0x00043100
+#endif
+
+#if !defined(GPV_DSP_D_READ_QOS_OFFSET)
+#define GPV_DSP_D_READ_QOS_OFFSET 0x00043100
+#endif
+
+#if defined(_V1) && !defined(DSP_D_READ_QOS_REG)
+#define DSP_D_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_D_READ_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DSP_D_READ_QOS_VAL)
+#define DSP_D_READ_QOS_VAL  PREFIX_VAL(DSP_D_READ_QOS_REG)
+#endif
+
+#define GPV_DSP_D_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_D_READ_QOS_OFFSET))
+#define GPV_DSP_D_READ_QOS_VAL  PREFIX_VAL(GPV_DSP_D_READ_QOS_REG)
+
+/* FIELDS: */
+
+/* ar_qos ACCESS: RW */
+
+#ifndef GPV_DSP_D_READ_QOS_AR_QOS_POS
+#define GPV_DSP_D_READ_QOS_AR_QOS_POS      0
+#endif
+
+#ifndef GPV_DSP_D_READ_QOS_AR_QOS_LEN
+#define GPV_DSP_D_READ_QOS_AR_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DSP_D_READ_QOS_AR_QOS_R)
+#define DSP_D_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DSP_D_READ_QOS_VAL),GPV_DSP_D_READ_QOS_AR_QOS_POS, GPV_DSP_D_READ_QOS_AR_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DSP_D_READ_QOS_AR_QOS_W)
+#define DSP_D_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DSP_D_READ_QOS_VAL),GPV_DSP_D_READ_QOS_AR_QOS_POS, GPV_DSP_D_READ_QOS_AR_QOS_LEN,value)
+#endif
+
+#define GPV_DSP_D_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DSP_D_READ_QOS_VAL),GPV_DSP_D_READ_QOS_AR_QOS_POS, GPV_DSP_D_READ_QOS_AR_QOS_LEN)
+
+#define GPV_DSP_D_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DSP_D_READ_QOS_VAL),GPV_DSP_D_READ_QOS_AR_QOS_POS, GPV_DSP_D_READ_QOS_AR_QOS_LEN,value)
+
+
+/* REGISTER: DSP_D_WRITE_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DSP_D_WRITE_QOS_OFFSET)
+#define DSP_D_WRITE_QOS_OFFSET 0x00043104
+#endif
+
+#if !defined(GPV_DSP_D_WRITE_QOS_OFFSET)
+#define GPV_DSP_D_WRITE_QOS_OFFSET 0x00043104
+#endif
+
+#if defined(_V1) && !defined(DSP_D_WRITE_QOS_REG)
+#define DSP_D_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_D_WRITE_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DSP_D_WRITE_QOS_VAL)
+#define DSP_D_WRITE_QOS_VAL  PREFIX_VAL(DSP_D_WRITE_QOS_REG)
+#endif
+
+#define GPV_DSP_D_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_D_WRITE_QOS_OFFSET))
+#define GPV_DSP_D_WRITE_QOS_VAL  PREFIX_VAL(GPV_DSP_D_WRITE_QOS_REG)
+
+/* FIELDS: */
+
+/* aw_qos ACCESS: RW */
+
+#ifndef GPV_DSP_D_WRITE_QOS_AW_QOS_POS
+#define GPV_DSP_D_WRITE_QOS_AW_QOS_POS      0
+#endif
+
+#ifndef GPV_DSP_D_WRITE_QOS_AW_QOS_LEN
+#define GPV_DSP_D_WRITE_QOS_AW_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DSP_D_WRITE_QOS_AW_QOS_R)
+#define DSP_D_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DSP_D_WRITE_QOS_VAL),GPV_DSP_D_WRITE_QOS_AW_QOS_POS, GPV_DSP_D_WRITE_QOS_AW_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DSP_D_WRITE_QOS_AW_QOS_W)
+#define DSP_D_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DSP_D_WRITE_QOS_VAL),GPV_DSP_D_WRITE_QOS_AW_QOS_POS, GPV_DSP_D_WRITE_QOS_AW_QOS_LEN,value)
+#endif
+
+#define GPV_DSP_D_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DSP_D_WRITE_QOS_VAL),GPV_DSP_D_WRITE_QOS_AW_QOS_POS, GPV_DSP_D_WRITE_QOS_AW_QOS_LEN)
+
+#define GPV_DSP_D_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DSP_D_WRITE_QOS_VAL),GPV_DSP_D_WRITE_QOS_AW_QOS_POS, GPV_DSP_D_WRITE_QOS_AW_QOS_LEN,value)
+
+
+/* REGISTER: DSP_D_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(DSP_D_FN_MOD_OFFSET)
+#define DSP_D_FN_MOD_OFFSET 0x00043108
+#endif
+
+#if !defined(GPV_DSP_D_FN_MOD_OFFSET)
+#define GPV_DSP_D_FN_MOD_OFFSET 0x00043108
+#endif
+
+#if defined(_V1) && !defined(DSP_D_FN_MOD_REG)
+#define DSP_D_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_D_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DSP_D_FN_MOD_VAL)
+#define DSP_D_FN_MOD_VAL  PREFIX_VAL(DSP_D_FN_MOD_REG)
+#endif
+
+#define GPV_DSP_D_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DSP_D_FN_MOD_OFFSET))
+#define GPV_DSP_D_FN_MOD_VAL  PREFIX_VAL(GPV_DSP_D_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_DSP_D_FN_MOD_FN_MOD_POS
+#define GPV_DSP_D_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_DSP_D_FN_MOD_FN_MOD_LEN
+#define GPV_DSP_D_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DSP_D_FN_MOD_FN_MOD_R)
+#define DSP_D_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DSP_D_FN_MOD_VAL),GPV_DSP_D_FN_MOD_FN_MOD_POS, GPV_DSP_D_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(DSP_D_FN_MOD_FN_MOD_W)
+#define DSP_D_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DSP_D_FN_MOD_VAL),GPV_DSP_D_FN_MOD_FN_MOD_POS, GPV_DSP_D_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_DSP_D_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DSP_D_FN_MOD_VAL),GPV_DSP_D_FN_MOD_FN_MOD_POS, GPV_DSP_D_FN_MOD_FN_MOD_LEN)
+
+#define GPV_DSP_D_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DSP_D_FN_MOD_VAL),GPV_DSP_D_FN_MOD_FN_MOD_POS, GPV_DSP_D_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: GPP_IB_FN_MOD2 ACCESS: RW */
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD2_OFFSET)
+#define GPP_IB_FN_MOD2_OFFSET 0x00044024
+#endif
+
+#if !defined(GPV_GPP_IB_FN_MOD2_OFFSET)
+#define GPV_GPP_IB_FN_MOD2_OFFSET 0x00044024
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD2_REG)
+#define GPP_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_FN_MOD2_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD2_VAL)
+#define GPP_IB_FN_MOD2_VAL  PREFIX_VAL(GPP_IB_FN_MOD2_REG)
+#endif
+
+#define GPV_GPP_IB_FN_MOD2_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_FN_MOD2_OFFSET))
+#define GPV_GPP_IB_FN_MOD2_VAL  PREFIX_VAL(GPV_GPP_IB_FN_MOD2_REG)
+
+/* FIELDS: */
+
+/* bypass_merge ACCESS: RW */
+
+#ifndef GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_POS
+#define GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_POS      0
+#endif
+
+#ifndef GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_LEN
+#define GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_LEN      1
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD2_BYPASS_MERGE_R)
+#define GPP_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_GPP_IB_FN_MOD2_VAL),GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_LEN)
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD2_BYPASS_MERGE_W)
+#define GPP_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_GPP_IB_FN_MOD2_VAL),GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+#endif
+
+#define GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_R        GetGroupBits32( (GPV_GPP_IB_FN_MOD2_VAL),GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_LEN)
+
+#define GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_W(value) SetGroupBits32( (GPV_GPP_IB_FN_MOD2_VAL),GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_POS, GPV_GPP_IB_FN_MOD2_BYPASS_MERGE_LEN,value)
+
+
+/* REGISTER: GPP_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(GPP_IB_WR_TIDEMARK_OFFSET)
+#define GPP_IB_WR_TIDEMARK_OFFSET 0x00044040
+#endif
+
+#if !defined(GPV_GPP_IB_WR_TIDEMARK_OFFSET)
+#define GPV_GPP_IB_WR_TIDEMARK_OFFSET 0x00044040
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_WR_TIDEMARK_REG)
+#define GPP_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_WR_TIDEMARK_VAL)
+#define GPP_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPP_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_GPP_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_WR_TIDEMARK_OFFSET))
+#define GPV_GPP_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_GPP_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define GPP_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_GPP_IB_WR_TIDEMARK_VAL),GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define GPP_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_GPP_IB_WR_TIDEMARK_VAL),GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_GPP_IB_WR_TIDEMARK_VAL),GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_GPP_IB_WR_TIDEMARK_VAL),GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_GPP_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: GPP_IB_READ_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(GPP_IB_READ_QOS_OFFSET)
+#define GPP_IB_READ_QOS_OFFSET 0x00044100
+#endif
+
+#if !defined(GPV_GPP_IB_READ_QOS_OFFSET)
+#define GPV_GPP_IB_READ_QOS_OFFSET 0x00044100
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_READ_QOS_REG)
+#define GPP_IB_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_READ_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_READ_QOS_VAL)
+#define GPP_IB_READ_QOS_VAL  PREFIX_VAL(GPP_IB_READ_QOS_REG)
+#endif
+
+#define GPV_GPP_IB_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_READ_QOS_OFFSET))
+#define GPV_GPP_IB_READ_QOS_VAL  PREFIX_VAL(GPV_GPP_IB_READ_QOS_REG)
+
+/* FIELDS: */
+
+/* ar_qos ACCESS: RW */
+
+#ifndef GPV_GPP_IB_READ_QOS_AR_QOS_POS
+#define GPV_GPP_IB_READ_QOS_AR_QOS_POS      0
+#endif
+
+#ifndef GPV_GPP_IB_READ_QOS_AR_QOS_LEN
+#define GPV_GPP_IB_READ_QOS_AR_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_READ_QOS_AR_QOS_R)
+#define GPP_IB_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_GPP_IB_READ_QOS_VAL),GPV_GPP_IB_READ_QOS_AR_QOS_POS, GPV_GPP_IB_READ_QOS_AR_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_READ_QOS_AR_QOS_W)
+#define GPP_IB_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_GPP_IB_READ_QOS_VAL),GPV_GPP_IB_READ_QOS_AR_QOS_POS, GPV_GPP_IB_READ_QOS_AR_QOS_LEN,value)
+#endif
+
+#define GPV_GPP_IB_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_GPP_IB_READ_QOS_VAL),GPV_GPP_IB_READ_QOS_AR_QOS_POS, GPV_GPP_IB_READ_QOS_AR_QOS_LEN)
+
+#define GPV_GPP_IB_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_GPP_IB_READ_QOS_VAL),GPV_GPP_IB_READ_QOS_AR_QOS_POS, GPV_GPP_IB_READ_QOS_AR_QOS_LEN,value)
+
+
+/* REGISTER: GPP_IB_WRITE_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(GPP_IB_WRITE_QOS_OFFSET)
+#define GPP_IB_WRITE_QOS_OFFSET 0x00044104
+#endif
+
+#if !defined(GPV_GPP_IB_WRITE_QOS_OFFSET)
+#define GPV_GPP_IB_WRITE_QOS_OFFSET 0x00044104
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_WRITE_QOS_REG)
+#define GPP_IB_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_WRITE_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_WRITE_QOS_VAL)
+#define GPP_IB_WRITE_QOS_VAL  PREFIX_VAL(GPP_IB_WRITE_QOS_REG)
+#endif
+
+#define GPV_GPP_IB_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_WRITE_QOS_OFFSET))
+#define GPV_GPP_IB_WRITE_QOS_VAL  PREFIX_VAL(GPV_GPP_IB_WRITE_QOS_REG)
+
+/* FIELDS: */
+
+/* aw_qos ACCESS: RW */
+
+#ifndef GPV_GPP_IB_WRITE_QOS_AW_QOS_POS
+#define GPV_GPP_IB_WRITE_QOS_AW_QOS_POS      0
+#endif
+
+#ifndef GPV_GPP_IB_WRITE_QOS_AW_QOS_LEN
+#define GPV_GPP_IB_WRITE_QOS_AW_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_WRITE_QOS_AW_QOS_R)
+#define GPP_IB_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_GPP_IB_WRITE_QOS_VAL),GPV_GPP_IB_WRITE_QOS_AW_QOS_POS, GPV_GPP_IB_WRITE_QOS_AW_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_WRITE_QOS_AW_QOS_W)
+#define GPP_IB_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_GPP_IB_WRITE_QOS_VAL),GPV_GPP_IB_WRITE_QOS_AW_QOS_POS, GPV_GPP_IB_WRITE_QOS_AW_QOS_LEN,value)
+#endif
+
+#define GPV_GPP_IB_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_GPP_IB_WRITE_QOS_VAL),GPV_GPP_IB_WRITE_QOS_AW_QOS_POS, GPV_GPP_IB_WRITE_QOS_AW_QOS_LEN)
+
+#define GPV_GPP_IB_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_GPP_IB_WRITE_QOS_VAL),GPV_GPP_IB_WRITE_QOS_AW_QOS_POS, GPV_GPP_IB_WRITE_QOS_AW_QOS_LEN,value)
+
+
+/* REGISTER: GPP_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD_OFFSET)
+#define GPP_IB_FN_MOD_OFFSET 0x00044108
+#endif
+
+#if !defined(GPV_GPP_IB_FN_MOD_OFFSET)
+#define GPV_GPP_IB_FN_MOD_OFFSET 0x00044108
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD_REG)
+#define GPP_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD_VAL)
+#define GPP_IB_FN_MOD_VAL  PREFIX_VAL(GPP_IB_FN_MOD_REG)
+#endif
+
+#define GPV_GPP_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_GPP_IB_FN_MOD_OFFSET))
+#define GPV_GPP_IB_FN_MOD_VAL  PREFIX_VAL(GPV_GPP_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_GPP_IB_FN_MOD_FN_MOD_POS
+#define GPV_GPP_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_GPP_IB_FN_MOD_FN_MOD_LEN
+#define GPV_GPP_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD_FN_MOD_R)
+#define GPP_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_GPP_IB_FN_MOD_VAL),GPV_GPP_IB_FN_MOD_FN_MOD_POS, GPV_GPP_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(GPP_IB_FN_MOD_FN_MOD_W)
+#define GPP_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_GPP_IB_FN_MOD_VAL),GPV_GPP_IB_FN_MOD_FN_MOD_POS, GPV_GPP_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_GPP_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_GPP_IB_FN_MOD_VAL),GPV_GPP_IB_FN_MOD_FN_MOD_POS, GPV_GPP_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_GPP_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_GPP_IB_FN_MOD_VAL),GPV_GPP_IB_FN_MOD_FN_MOD_POS, GPV_GPP_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: USB_M_IB_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(USB_M_IB_WR_TIDEMARK_OFFSET)
+#define USB_M_IB_WR_TIDEMARK_OFFSET 0x00045040
+#endif
+
+#if !defined(GPV_USB_M_IB_WR_TIDEMARK_OFFSET)
+#define GPV_USB_M_IB_WR_TIDEMARK_OFFSET 0x00045040
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_WR_TIDEMARK_REG)
+#define USB_M_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_M_IB_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_WR_TIDEMARK_VAL)
+#define USB_M_IB_WR_TIDEMARK_VAL  PREFIX_VAL(USB_M_IB_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_USB_M_IB_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_M_IB_WR_TIDEMARK_OFFSET))
+#define GPV_USB_M_IB_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_USB_M_IB_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_R)
+#define USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_USB_M_IB_WR_TIDEMARK_VAL),GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_W)
+#define USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_USB_M_IB_WR_TIDEMARK_VAL),GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_USB_M_IB_WR_TIDEMARK_VAL),GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_USB_M_IB_WR_TIDEMARK_VAL),GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_USB_M_IB_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: USB_M_IB_READ_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(USB_M_IB_READ_QOS_OFFSET)
+#define USB_M_IB_READ_QOS_OFFSET 0x00045100
+#endif
+
+#if !defined(GPV_USB_M_IB_READ_QOS_OFFSET)
+#define GPV_USB_M_IB_READ_QOS_OFFSET 0x00045100
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_READ_QOS_REG)
+#define USB_M_IB_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_M_IB_READ_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_READ_QOS_VAL)
+#define USB_M_IB_READ_QOS_VAL  PREFIX_VAL(USB_M_IB_READ_QOS_REG)
+#endif
+
+#define GPV_USB_M_IB_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_M_IB_READ_QOS_OFFSET))
+#define GPV_USB_M_IB_READ_QOS_VAL  PREFIX_VAL(GPV_USB_M_IB_READ_QOS_REG)
+
+/* FIELDS: */
+
+/* ar_qos ACCESS: RW */
+
+#ifndef GPV_USB_M_IB_READ_QOS_AR_QOS_POS
+#define GPV_USB_M_IB_READ_QOS_AR_QOS_POS      0
+#endif
+
+#ifndef GPV_USB_M_IB_READ_QOS_AR_QOS_LEN
+#define GPV_USB_M_IB_READ_QOS_AR_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_READ_QOS_AR_QOS_R)
+#define USB_M_IB_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_USB_M_IB_READ_QOS_VAL),GPV_USB_M_IB_READ_QOS_AR_QOS_POS, GPV_USB_M_IB_READ_QOS_AR_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_READ_QOS_AR_QOS_W)
+#define USB_M_IB_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_USB_M_IB_READ_QOS_VAL),GPV_USB_M_IB_READ_QOS_AR_QOS_POS, GPV_USB_M_IB_READ_QOS_AR_QOS_LEN,value)
+#endif
+
+#define GPV_USB_M_IB_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_USB_M_IB_READ_QOS_VAL),GPV_USB_M_IB_READ_QOS_AR_QOS_POS, GPV_USB_M_IB_READ_QOS_AR_QOS_LEN)
+
+#define GPV_USB_M_IB_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_USB_M_IB_READ_QOS_VAL),GPV_USB_M_IB_READ_QOS_AR_QOS_POS, GPV_USB_M_IB_READ_QOS_AR_QOS_LEN,value)
+
+
+/* REGISTER: USB_M_IB_WRITE_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(USB_M_IB_WRITE_QOS_OFFSET)
+#define USB_M_IB_WRITE_QOS_OFFSET 0x00045104
+#endif
+
+#if !defined(GPV_USB_M_IB_WRITE_QOS_OFFSET)
+#define GPV_USB_M_IB_WRITE_QOS_OFFSET 0x00045104
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_WRITE_QOS_REG)
+#define USB_M_IB_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_M_IB_WRITE_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_WRITE_QOS_VAL)
+#define USB_M_IB_WRITE_QOS_VAL  PREFIX_VAL(USB_M_IB_WRITE_QOS_REG)
+#endif
+
+#define GPV_USB_M_IB_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_M_IB_WRITE_QOS_OFFSET))
+#define GPV_USB_M_IB_WRITE_QOS_VAL  PREFIX_VAL(GPV_USB_M_IB_WRITE_QOS_REG)
+
+/* FIELDS: */
+
+/* aw_qos ACCESS: RW */
+
+#ifndef GPV_USB_M_IB_WRITE_QOS_AW_QOS_POS
+#define GPV_USB_M_IB_WRITE_QOS_AW_QOS_POS      0
+#endif
+
+#ifndef GPV_USB_M_IB_WRITE_QOS_AW_QOS_LEN
+#define GPV_USB_M_IB_WRITE_QOS_AW_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_WRITE_QOS_AW_QOS_R)
+#define USB_M_IB_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_USB_M_IB_WRITE_QOS_VAL),GPV_USB_M_IB_WRITE_QOS_AW_QOS_POS, GPV_USB_M_IB_WRITE_QOS_AW_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_WRITE_QOS_AW_QOS_W)
+#define USB_M_IB_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_USB_M_IB_WRITE_QOS_VAL),GPV_USB_M_IB_WRITE_QOS_AW_QOS_POS, GPV_USB_M_IB_WRITE_QOS_AW_QOS_LEN,value)
+#endif
+
+#define GPV_USB_M_IB_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_USB_M_IB_WRITE_QOS_VAL),GPV_USB_M_IB_WRITE_QOS_AW_QOS_POS, GPV_USB_M_IB_WRITE_QOS_AW_QOS_LEN)
+
+#define GPV_USB_M_IB_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_USB_M_IB_WRITE_QOS_VAL),GPV_USB_M_IB_WRITE_QOS_AW_QOS_POS, GPV_USB_M_IB_WRITE_QOS_AW_QOS_LEN,value)
+
+
+/* REGISTER: USB_M_IB_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(USB_M_IB_FN_MOD_OFFSET)
+#define USB_M_IB_FN_MOD_OFFSET 0x00045108
+#endif
+
+#if !defined(GPV_USB_M_IB_FN_MOD_OFFSET)
+#define GPV_USB_M_IB_FN_MOD_OFFSET 0x00045108
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_FN_MOD_REG)
+#define USB_M_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_M_IB_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_FN_MOD_VAL)
+#define USB_M_IB_FN_MOD_VAL  PREFIX_VAL(USB_M_IB_FN_MOD_REG)
+#endif
+
+#define GPV_USB_M_IB_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_USB_M_IB_FN_MOD_OFFSET))
+#define GPV_USB_M_IB_FN_MOD_VAL  PREFIX_VAL(GPV_USB_M_IB_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_USB_M_IB_FN_MOD_FN_MOD_POS
+#define GPV_USB_M_IB_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_USB_M_IB_FN_MOD_FN_MOD_LEN
+#define GPV_USB_M_IB_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_FN_MOD_FN_MOD_R)
+#define USB_M_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_USB_M_IB_FN_MOD_VAL),GPV_USB_M_IB_FN_MOD_FN_MOD_POS, GPV_USB_M_IB_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(USB_M_IB_FN_MOD_FN_MOD_W)
+#define USB_M_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_USB_M_IB_FN_MOD_VAL),GPV_USB_M_IB_FN_MOD_FN_MOD_POS, GPV_USB_M_IB_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_USB_M_IB_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_USB_M_IB_FN_MOD_VAL),GPV_USB_M_IB_FN_MOD_FN_MOD_POS, GPV_USB_M_IB_FN_MOD_FN_MOD_LEN)
+
+#define GPV_USB_M_IB_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_USB_M_IB_FN_MOD_VAL),GPV_USB_M_IB_FN_MOD_FN_MOD_POS, GPV_USB_M_IB_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: DMA_0_READ_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_0_READ_QOS_OFFSET)
+#define DMA_0_READ_QOS_OFFSET 0x00046100
+#endif
+
+#if !defined(GPV_DMA_0_READ_QOS_OFFSET)
+#define GPV_DMA_0_READ_QOS_OFFSET 0x00046100
+#endif
+
+#if defined(_V1) && !defined(DMA_0_READ_QOS_REG)
+#define DMA_0_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_0_READ_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_0_READ_QOS_VAL)
+#define DMA_0_READ_QOS_VAL  PREFIX_VAL(DMA_0_READ_QOS_REG)
+#endif
+
+#define GPV_DMA_0_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_0_READ_QOS_OFFSET))
+#define GPV_DMA_0_READ_QOS_VAL  PREFIX_VAL(GPV_DMA_0_READ_QOS_REG)
+
+/* FIELDS: */
+
+/* ar_qos ACCESS: RW */
+
+#ifndef GPV_DMA_0_READ_QOS_AR_QOS_POS
+#define GPV_DMA_0_READ_QOS_AR_QOS_POS      0
+#endif
+
+#ifndef GPV_DMA_0_READ_QOS_AR_QOS_LEN
+#define GPV_DMA_0_READ_QOS_AR_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DMA_0_READ_QOS_AR_QOS_R)
+#define DMA_0_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DMA_0_READ_QOS_VAL),GPV_DMA_0_READ_QOS_AR_QOS_POS, GPV_DMA_0_READ_QOS_AR_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_0_READ_QOS_AR_QOS_W)
+#define DMA_0_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DMA_0_READ_QOS_VAL),GPV_DMA_0_READ_QOS_AR_QOS_POS, GPV_DMA_0_READ_QOS_AR_QOS_LEN,value)
+#endif
+
+#define GPV_DMA_0_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DMA_0_READ_QOS_VAL),GPV_DMA_0_READ_QOS_AR_QOS_POS, GPV_DMA_0_READ_QOS_AR_QOS_LEN)
+
+#define GPV_DMA_0_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DMA_0_READ_QOS_VAL),GPV_DMA_0_READ_QOS_AR_QOS_POS, GPV_DMA_0_READ_QOS_AR_QOS_LEN,value)
+
+
+/* REGISTER: DMA_0_WRITE_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_0_WRITE_QOS_OFFSET)
+#define DMA_0_WRITE_QOS_OFFSET 0x00046104
+#endif
+
+#if !defined(GPV_DMA_0_WRITE_QOS_OFFSET)
+#define GPV_DMA_0_WRITE_QOS_OFFSET 0x00046104
+#endif
+
+#if defined(_V1) && !defined(DMA_0_WRITE_QOS_REG)
+#define DMA_0_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_0_WRITE_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_0_WRITE_QOS_VAL)
+#define DMA_0_WRITE_QOS_VAL  PREFIX_VAL(DMA_0_WRITE_QOS_REG)
+#endif
+
+#define GPV_DMA_0_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_0_WRITE_QOS_OFFSET))
+#define GPV_DMA_0_WRITE_QOS_VAL  PREFIX_VAL(GPV_DMA_0_WRITE_QOS_REG)
+
+/* FIELDS: */
+
+/* aw_qos ACCESS: RW */
+
+#ifndef GPV_DMA_0_WRITE_QOS_AW_QOS_POS
+#define GPV_DMA_0_WRITE_QOS_AW_QOS_POS      0
+#endif
+
+#ifndef GPV_DMA_0_WRITE_QOS_AW_QOS_LEN
+#define GPV_DMA_0_WRITE_QOS_AW_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DMA_0_WRITE_QOS_AW_QOS_R)
+#define DMA_0_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DMA_0_WRITE_QOS_VAL),GPV_DMA_0_WRITE_QOS_AW_QOS_POS, GPV_DMA_0_WRITE_QOS_AW_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_0_WRITE_QOS_AW_QOS_W)
+#define DMA_0_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DMA_0_WRITE_QOS_VAL),GPV_DMA_0_WRITE_QOS_AW_QOS_POS, GPV_DMA_0_WRITE_QOS_AW_QOS_LEN,value)
+#endif
+
+#define GPV_DMA_0_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DMA_0_WRITE_QOS_VAL),GPV_DMA_0_WRITE_QOS_AW_QOS_POS, GPV_DMA_0_WRITE_QOS_AW_QOS_LEN)
+
+#define GPV_DMA_0_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DMA_0_WRITE_QOS_VAL),GPV_DMA_0_WRITE_QOS_AW_QOS_POS, GPV_DMA_0_WRITE_QOS_AW_QOS_LEN,value)
+
+
+/* REGISTER: DMA_0_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_0_FN_MOD_OFFSET)
+#define DMA_0_FN_MOD_OFFSET 0x00046108
+#endif
+
+#if !defined(GPV_DMA_0_FN_MOD_OFFSET)
+#define GPV_DMA_0_FN_MOD_OFFSET 0x00046108
+#endif
+
+#if defined(_V1) && !defined(DMA_0_FN_MOD_REG)
+#define DMA_0_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_0_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_0_FN_MOD_VAL)
+#define DMA_0_FN_MOD_VAL  PREFIX_VAL(DMA_0_FN_MOD_REG)
+#endif
+
+#define GPV_DMA_0_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_0_FN_MOD_OFFSET))
+#define GPV_DMA_0_FN_MOD_VAL  PREFIX_VAL(GPV_DMA_0_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_DMA_0_FN_MOD_FN_MOD_POS
+#define GPV_DMA_0_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_DMA_0_FN_MOD_FN_MOD_LEN
+#define GPV_DMA_0_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DMA_0_FN_MOD_FN_MOD_R)
+#define DMA_0_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DMA_0_FN_MOD_VAL),GPV_DMA_0_FN_MOD_FN_MOD_POS, GPV_DMA_0_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_0_FN_MOD_FN_MOD_W)
+#define DMA_0_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DMA_0_FN_MOD_VAL),GPV_DMA_0_FN_MOD_FN_MOD_POS, GPV_DMA_0_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_DMA_0_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DMA_0_FN_MOD_VAL),GPV_DMA_0_FN_MOD_FN_MOD_POS, GPV_DMA_0_FN_MOD_FN_MOD_LEN)
+
+#define GPV_DMA_0_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DMA_0_FN_MOD_VAL),GPV_DMA_0_FN_MOD_FN_MOD_POS, GPV_DMA_0_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: DMA_1_READ_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_1_READ_QOS_OFFSET)
+#define DMA_1_READ_QOS_OFFSET 0x00047100
+#endif
+
+#if !defined(GPV_DMA_1_READ_QOS_OFFSET)
+#define GPV_DMA_1_READ_QOS_OFFSET 0x00047100
+#endif
+
+#if defined(_V1) && !defined(DMA_1_READ_QOS_REG)
+#define DMA_1_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_1_READ_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_1_READ_QOS_VAL)
+#define DMA_1_READ_QOS_VAL  PREFIX_VAL(DMA_1_READ_QOS_REG)
+#endif
+
+#define GPV_DMA_1_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_1_READ_QOS_OFFSET))
+#define GPV_DMA_1_READ_QOS_VAL  PREFIX_VAL(GPV_DMA_1_READ_QOS_REG)
+
+/* FIELDS: */
+
+/* ar_qos ACCESS: RW */
+
+#ifndef GPV_DMA_1_READ_QOS_AR_QOS_POS
+#define GPV_DMA_1_READ_QOS_AR_QOS_POS      0
+#endif
+
+#ifndef GPV_DMA_1_READ_QOS_AR_QOS_LEN
+#define GPV_DMA_1_READ_QOS_AR_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DMA_1_READ_QOS_AR_QOS_R)
+#define DMA_1_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DMA_1_READ_QOS_VAL),GPV_DMA_1_READ_QOS_AR_QOS_POS, GPV_DMA_1_READ_QOS_AR_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_1_READ_QOS_AR_QOS_W)
+#define DMA_1_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DMA_1_READ_QOS_VAL),GPV_DMA_1_READ_QOS_AR_QOS_POS, GPV_DMA_1_READ_QOS_AR_QOS_LEN,value)
+#endif
+
+#define GPV_DMA_1_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DMA_1_READ_QOS_VAL),GPV_DMA_1_READ_QOS_AR_QOS_POS, GPV_DMA_1_READ_QOS_AR_QOS_LEN)
+
+#define GPV_DMA_1_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DMA_1_READ_QOS_VAL),GPV_DMA_1_READ_QOS_AR_QOS_POS, GPV_DMA_1_READ_QOS_AR_QOS_LEN,value)
+
+
+/* REGISTER: DMA_1_WRITE_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_1_WRITE_QOS_OFFSET)
+#define DMA_1_WRITE_QOS_OFFSET 0x00047104
+#endif
+
+#if !defined(GPV_DMA_1_WRITE_QOS_OFFSET)
+#define GPV_DMA_1_WRITE_QOS_OFFSET 0x00047104
+#endif
+
+#if defined(_V1) && !defined(DMA_1_WRITE_QOS_REG)
+#define DMA_1_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_1_WRITE_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_1_WRITE_QOS_VAL)
+#define DMA_1_WRITE_QOS_VAL  PREFIX_VAL(DMA_1_WRITE_QOS_REG)
+#endif
+
+#define GPV_DMA_1_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_1_WRITE_QOS_OFFSET))
+#define GPV_DMA_1_WRITE_QOS_VAL  PREFIX_VAL(GPV_DMA_1_WRITE_QOS_REG)
+
+/* FIELDS: */
+
+/* aw_qos ACCESS: RW */
+
+#ifndef GPV_DMA_1_WRITE_QOS_AW_QOS_POS
+#define GPV_DMA_1_WRITE_QOS_AW_QOS_POS      0
+#endif
+
+#ifndef GPV_DMA_1_WRITE_QOS_AW_QOS_LEN
+#define GPV_DMA_1_WRITE_QOS_AW_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DMA_1_WRITE_QOS_AW_QOS_R)
+#define DMA_1_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DMA_1_WRITE_QOS_VAL),GPV_DMA_1_WRITE_QOS_AW_QOS_POS, GPV_DMA_1_WRITE_QOS_AW_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_1_WRITE_QOS_AW_QOS_W)
+#define DMA_1_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DMA_1_WRITE_QOS_VAL),GPV_DMA_1_WRITE_QOS_AW_QOS_POS, GPV_DMA_1_WRITE_QOS_AW_QOS_LEN,value)
+#endif
+
+#define GPV_DMA_1_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DMA_1_WRITE_QOS_VAL),GPV_DMA_1_WRITE_QOS_AW_QOS_POS, GPV_DMA_1_WRITE_QOS_AW_QOS_LEN)
+
+#define GPV_DMA_1_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DMA_1_WRITE_QOS_VAL),GPV_DMA_1_WRITE_QOS_AW_QOS_POS, GPV_DMA_1_WRITE_QOS_AW_QOS_LEN,value)
+
+
+/* REGISTER: DMA_1_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_1_FN_MOD_OFFSET)
+#define DMA_1_FN_MOD_OFFSET 0x00047108
+#endif
+
+#if !defined(GPV_DMA_1_FN_MOD_OFFSET)
+#define GPV_DMA_1_FN_MOD_OFFSET 0x00047108
+#endif
+
+#if defined(_V1) && !defined(DMA_1_FN_MOD_REG)
+#define DMA_1_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_1_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_1_FN_MOD_VAL)
+#define DMA_1_FN_MOD_VAL  PREFIX_VAL(DMA_1_FN_MOD_REG)
+#endif
+
+#define GPV_DMA_1_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_1_FN_MOD_OFFSET))
+#define GPV_DMA_1_FN_MOD_VAL  PREFIX_VAL(GPV_DMA_1_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_DMA_1_FN_MOD_FN_MOD_POS
+#define GPV_DMA_1_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_DMA_1_FN_MOD_FN_MOD_LEN
+#define GPV_DMA_1_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DMA_1_FN_MOD_FN_MOD_R)
+#define DMA_1_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DMA_1_FN_MOD_VAL),GPV_DMA_1_FN_MOD_FN_MOD_POS, GPV_DMA_1_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_1_FN_MOD_FN_MOD_W)
+#define DMA_1_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DMA_1_FN_MOD_VAL),GPV_DMA_1_FN_MOD_FN_MOD_POS, GPV_DMA_1_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_DMA_1_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DMA_1_FN_MOD_VAL),GPV_DMA_1_FN_MOD_FN_MOD_POS, GPV_DMA_1_FN_MOD_FN_MOD_LEN)
+
+#define GPV_DMA_1_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DMA_1_FN_MOD_VAL),GPV_DMA_1_FN_MOD_FN_MOD_POS, GPV_DMA_1_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: DMA_2_READ_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_2_READ_QOS_OFFSET)
+#define DMA_2_READ_QOS_OFFSET 0x00048100
+#endif
+
+#if !defined(GPV_DMA_2_READ_QOS_OFFSET)
+#define GPV_DMA_2_READ_QOS_OFFSET 0x00048100
+#endif
+
+#if defined(_V1) && !defined(DMA_2_READ_QOS_REG)
+#define DMA_2_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_2_READ_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_2_READ_QOS_VAL)
+#define DMA_2_READ_QOS_VAL  PREFIX_VAL(DMA_2_READ_QOS_REG)
+#endif
+
+#define GPV_DMA_2_READ_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_2_READ_QOS_OFFSET))
+#define GPV_DMA_2_READ_QOS_VAL  PREFIX_VAL(GPV_DMA_2_READ_QOS_REG)
+
+/* FIELDS: */
+
+/* ar_qos ACCESS: RW */
+
+#ifndef GPV_DMA_2_READ_QOS_AR_QOS_POS
+#define GPV_DMA_2_READ_QOS_AR_QOS_POS      0
+#endif
+
+#ifndef GPV_DMA_2_READ_QOS_AR_QOS_LEN
+#define GPV_DMA_2_READ_QOS_AR_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DMA_2_READ_QOS_AR_QOS_R)
+#define DMA_2_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DMA_2_READ_QOS_VAL),GPV_DMA_2_READ_QOS_AR_QOS_POS, GPV_DMA_2_READ_QOS_AR_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_2_READ_QOS_AR_QOS_W)
+#define DMA_2_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DMA_2_READ_QOS_VAL),GPV_DMA_2_READ_QOS_AR_QOS_POS, GPV_DMA_2_READ_QOS_AR_QOS_LEN,value)
+#endif
+
+#define GPV_DMA_2_READ_QOS_AR_QOS_R        GetGroupBits32( (GPV_DMA_2_READ_QOS_VAL),GPV_DMA_2_READ_QOS_AR_QOS_POS, GPV_DMA_2_READ_QOS_AR_QOS_LEN)
+
+#define GPV_DMA_2_READ_QOS_AR_QOS_W(value) SetGroupBits32( (GPV_DMA_2_READ_QOS_VAL),GPV_DMA_2_READ_QOS_AR_QOS_POS, GPV_DMA_2_READ_QOS_AR_QOS_LEN,value)
+
+
+/* REGISTER: DMA_2_WRITE_QOS ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_2_WRITE_QOS_OFFSET)
+#define DMA_2_WRITE_QOS_OFFSET 0x00048104
+#endif
+
+#if !defined(GPV_DMA_2_WRITE_QOS_OFFSET)
+#define GPV_DMA_2_WRITE_QOS_OFFSET 0x00048104
+#endif
+
+#if defined(_V1) && !defined(DMA_2_WRITE_QOS_REG)
+#define DMA_2_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_2_WRITE_QOS_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_2_WRITE_QOS_VAL)
+#define DMA_2_WRITE_QOS_VAL  PREFIX_VAL(DMA_2_WRITE_QOS_REG)
+#endif
+
+#define GPV_DMA_2_WRITE_QOS_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_2_WRITE_QOS_OFFSET))
+#define GPV_DMA_2_WRITE_QOS_VAL  PREFIX_VAL(GPV_DMA_2_WRITE_QOS_REG)
+
+/* FIELDS: */
+
+/* aw_qos ACCESS: RW */
+
+#ifndef GPV_DMA_2_WRITE_QOS_AW_QOS_POS
+#define GPV_DMA_2_WRITE_QOS_AW_QOS_POS      0
+#endif
+
+#ifndef GPV_DMA_2_WRITE_QOS_AW_QOS_LEN
+#define GPV_DMA_2_WRITE_QOS_AW_QOS_LEN      4
+#endif
+
+#if defined(_V1) && !defined(DMA_2_WRITE_QOS_AW_QOS_R)
+#define DMA_2_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DMA_2_WRITE_QOS_VAL),GPV_DMA_2_WRITE_QOS_AW_QOS_POS, GPV_DMA_2_WRITE_QOS_AW_QOS_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_2_WRITE_QOS_AW_QOS_W)
+#define DMA_2_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DMA_2_WRITE_QOS_VAL),GPV_DMA_2_WRITE_QOS_AW_QOS_POS, GPV_DMA_2_WRITE_QOS_AW_QOS_LEN,value)
+#endif
+
+#define GPV_DMA_2_WRITE_QOS_AW_QOS_R        GetGroupBits32( (GPV_DMA_2_WRITE_QOS_VAL),GPV_DMA_2_WRITE_QOS_AW_QOS_POS, GPV_DMA_2_WRITE_QOS_AW_QOS_LEN)
+
+#define GPV_DMA_2_WRITE_QOS_AW_QOS_W(value) SetGroupBits32( (GPV_DMA_2_WRITE_QOS_VAL),GPV_DMA_2_WRITE_QOS_AW_QOS_POS, GPV_DMA_2_WRITE_QOS_AW_QOS_LEN,value)
+
+
+/* REGISTER: DMA_2_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(DMA_2_FN_MOD_OFFSET)
+#define DMA_2_FN_MOD_OFFSET 0x00048108
+#endif
+
+#if !defined(GPV_DMA_2_FN_MOD_OFFSET)
+#define GPV_DMA_2_FN_MOD_OFFSET 0x00048108
+#endif
+
+#if defined(_V1) && !defined(DMA_2_FN_MOD_REG)
+#define DMA_2_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_2_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(DMA_2_FN_MOD_VAL)
+#define DMA_2_FN_MOD_VAL  PREFIX_VAL(DMA_2_FN_MOD_REG)
+#endif
+
+#define GPV_DMA_2_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_DMA_2_FN_MOD_OFFSET))
+#define GPV_DMA_2_FN_MOD_VAL  PREFIX_VAL(GPV_DMA_2_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_DMA_2_FN_MOD_FN_MOD_POS
+#define GPV_DMA_2_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_DMA_2_FN_MOD_FN_MOD_LEN
+#define GPV_DMA_2_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(DMA_2_FN_MOD_FN_MOD_R)
+#define DMA_2_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DMA_2_FN_MOD_VAL),GPV_DMA_2_FN_MOD_FN_MOD_POS, GPV_DMA_2_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(DMA_2_FN_MOD_FN_MOD_W)
+#define DMA_2_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DMA_2_FN_MOD_VAL),GPV_DMA_2_FN_MOD_FN_MOD_POS, GPV_DMA_2_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_DMA_2_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_DMA_2_FN_MOD_VAL),GPV_DMA_2_FN_MOD_FN_MOD_POS, GPV_DMA_2_FN_MOD_FN_MOD_LEN)
+
+#define GPV_DMA_2_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_DMA_2_FN_MOD_VAL),GPV_DMA_2_FN_MOD_FN_MOD_POS, GPV_DMA_2_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: IB3_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(IB3_FN_MOD_ISS_BM_OFFSET)
+#define IB3_FN_MOD_ISS_BM_OFFSET 0x000C2008
+#endif
+
+#if !defined(GPV_IB3_FN_MOD_ISS_BM_OFFSET)
+#define GPV_IB3_FN_MOD_ISS_BM_OFFSET 0x000C2008
+#endif
+
+#if defined(_V1) && !defined(IB3_FN_MOD_ISS_BM_REG)
+#define IB3_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB3_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB3_FN_MOD_ISS_BM_VAL)
+#define IB3_FN_MOD_ISS_BM_VAL  PREFIX_VAL(IB3_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_IB3_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB3_FN_MOD_ISS_BM_OFFSET))
+#define GPV_IB3_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_IB3_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IB3_FN_MOD_ISS_BM_VAL),GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IB3_FN_MOD_ISS_BM_VAL),GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IB3_FN_MOD_ISS_BM_VAL),GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IB3_FN_MOD_ISS_BM_VAL),GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB3_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: IB3_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(IB3_WR_TIDEMARK_OFFSET)
+#define IB3_WR_TIDEMARK_OFFSET 0x000C2040
+#endif
+
+#if !defined(GPV_IB3_WR_TIDEMARK_OFFSET)
+#define GPV_IB3_WR_TIDEMARK_OFFSET 0x000C2040
+#endif
+
+#if defined(_V1) && !defined(IB3_WR_TIDEMARK_REG)
+#define IB3_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB3_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB3_WR_TIDEMARK_VAL)
+#define IB3_WR_TIDEMARK_VAL  PREFIX_VAL(IB3_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_IB3_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB3_WR_TIDEMARK_OFFSET))
+#define GPV_IB3_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_IB3_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(IB3_WR_TIDEMARK_WR_TIDEMARK_R)
+#define IB3_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IB3_WR_TIDEMARK_VAL),GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB3_WR_TIDEMARK_WR_TIDEMARK_W)
+#define IB3_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IB3_WR_TIDEMARK_VAL),GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IB3_WR_TIDEMARK_VAL),GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IB3_WR_TIDEMARK_VAL),GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB3_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: IB3_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(IB3_FN_MOD_OFFSET)
+#define IB3_FN_MOD_OFFSET 0x000C2108
+#endif
+
+#if !defined(GPV_IB3_FN_MOD_OFFSET)
+#define GPV_IB3_FN_MOD_OFFSET 0x000C2108
+#endif
+
+#if defined(_V1) && !defined(IB3_FN_MOD_REG)
+#define IB3_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB3_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB3_FN_MOD_VAL)
+#define IB3_FN_MOD_VAL  PREFIX_VAL(IB3_FN_MOD_REG)
+#endif
+
+#define GPV_IB3_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB3_FN_MOD_OFFSET))
+#define GPV_IB3_FN_MOD_VAL  PREFIX_VAL(GPV_IB3_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_IB3_FN_MOD_FN_MOD_POS
+#define GPV_IB3_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_IB3_FN_MOD_FN_MOD_LEN
+#define GPV_IB3_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IB3_FN_MOD_FN_MOD_R)
+#define IB3_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IB3_FN_MOD_VAL),GPV_IB3_FN_MOD_FN_MOD_POS, GPV_IB3_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB3_FN_MOD_FN_MOD_W)
+#define IB3_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IB3_FN_MOD_VAL),GPV_IB3_FN_MOD_FN_MOD_POS, GPV_IB3_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_IB3_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IB3_FN_MOD_VAL),GPV_IB3_FN_MOD_FN_MOD_POS, GPV_IB3_FN_MOD_FN_MOD_LEN)
+
+#define GPV_IB3_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IB3_FN_MOD_VAL),GPV_IB3_FN_MOD_FN_MOD_POS, GPV_IB3_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: IB0_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(IB0_FN_MOD_ISS_BM_OFFSET)
+#define IB0_FN_MOD_ISS_BM_OFFSET 0x000C3008
+#endif
+
+#if !defined(GPV_IB0_FN_MOD_ISS_BM_OFFSET)
+#define GPV_IB0_FN_MOD_ISS_BM_OFFSET 0x000C3008
+#endif
+
+#if defined(_V1) && !defined(IB0_FN_MOD_ISS_BM_REG)
+#define IB0_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB0_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB0_FN_MOD_ISS_BM_VAL)
+#define IB0_FN_MOD_ISS_BM_VAL  PREFIX_VAL(IB0_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_IB0_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB0_FN_MOD_ISS_BM_OFFSET))
+#define GPV_IB0_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_IB0_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IB0_FN_MOD_ISS_BM_VAL),GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IB0_FN_MOD_ISS_BM_VAL),GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IB0_FN_MOD_ISS_BM_VAL),GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IB0_FN_MOD_ISS_BM_VAL),GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB0_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: IB0_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(IB0_WR_TIDEMARK_OFFSET)
+#define IB0_WR_TIDEMARK_OFFSET 0x000C3040
+#endif
+
+#if !defined(GPV_IB0_WR_TIDEMARK_OFFSET)
+#define GPV_IB0_WR_TIDEMARK_OFFSET 0x000C3040
+#endif
+
+#if defined(_V1) && !defined(IB0_WR_TIDEMARK_REG)
+#define IB0_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB0_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB0_WR_TIDEMARK_VAL)
+#define IB0_WR_TIDEMARK_VAL  PREFIX_VAL(IB0_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_IB0_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB0_WR_TIDEMARK_OFFSET))
+#define GPV_IB0_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_IB0_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(IB0_WR_TIDEMARK_WR_TIDEMARK_R)
+#define IB0_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IB0_WR_TIDEMARK_VAL),GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB0_WR_TIDEMARK_WR_TIDEMARK_W)
+#define IB0_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IB0_WR_TIDEMARK_VAL),GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IB0_WR_TIDEMARK_VAL),GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IB0_WR_TIDEMARK_VAL),GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB0_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: IB0_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(IB0_FN_MOD_OFFSET)
+#define IB0_FN_MOD_OFFSET 0x000C3108
+#endif
+
+#if !defined(GPV_IB0_FN_MOD_OFFSET)
+#define GPV_IB0_FN_MOD_OFFSET 0x000C3108
+#endif
+
+#if defined(_V1) && !defined(IB0_FN_MOD_REG)
+#define IB0_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB0_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB0_FN_MOD_VAL)
+#define IB0_FN_MOD_VAL  PREFIX_VAL(IB0_FN_MOD_REG)
+#endif
+
+#define GPV_IB0_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB0_FN_MOD_OFFSET))
+#define GPV_IB0_FN_MOD_VAL  PREFIX_VAL(GPV_IB0_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_IB0_FN_MOD_FN_MOD_POS
+#define GPV_IB0_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_IB0_FN_MOD_FN_MOD_LEN
+#define GPV_IB0_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IB0_FN_MOD_FN_MOD_R)
+#define IB0_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IB0_FN_MOD_VAL),GPV_IB0_FN_MOD_FN_MOD_POS, GPV_IB0_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB0_FN_MOD_FN_MOD_W)
+#define IB0_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IB0_FN_MOD_VAL),GPV_IB0_FN_MOD_FN_MOD_POS, GPV_IB0_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_IB0_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IB0_FN_MOD_VAL),GPV_IB0_FN_MOD_FN_MOD_POS, GPV_IB0_FN_MOD_FN_MOD_LEN)
+
+#define GPV_IB0_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IB0_FN_MOD_VAL),GPV_IB0_FN_MOD_FN_MOD_POS, GPV_IB0_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: IB2_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(IB2_FN_MOD_ISS_BM_OFFSET)
+#define IB2_FN_MOD_ISS_BM_OFFSET 0x000C4008
+#endif
+
+#if !defined(GPV_IB2_FN_MOD_ISS_BM_OFFSET)
+#define GPV_IB2_FN_MOD_ISS_BM_OFFSET 0x000C4008
+#endif
+
+#if defined(_V1) && !defined(IB2_FN_MOD_ISS_BM_REG)
+#define IB2_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB2_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB2_FN_MOD_ISS_BM_VAL)
+#define IB2_FN_MOD_ISS_BM_VAL  PREFIX_VAL(IB2_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_IB2_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB2_FN_MOD_ISS_BM_OFFSET))
+#define GPV_IB2_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_IB2_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IB2_FN_MOD_ISS_BM_VAL),GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IB2_FN_MOD_ISS_BM_VAL),GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IB2_FN_MOD_ISS_BM_VAL),GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IB2_FN_MOD_ISS_BM_VAL),GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB2_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: IB2_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(IB2_WR_TIDEMARK_OFFSET)
+#define IB2_WR_TIDEMARK_OFFSET 0x000C4040
+#endif
+
+#if !defined(GPV_IB2_WR_TIDEMARK_OFFSET)
+#define GPV_IB2_WR_TIDEMARK_OFFSET 0x000C4040
+#endif
+
+#if defined(_V1) && !defined(IB2_WR_TIDEMARK_REG)
+#define IB2_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB2_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB2_WR_TIDEMARK_VAL)
+#define IB2_WR_TIDEMARK_VAL  PREFIX_VAL(IB2_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_IB2_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB2_WR_TIDEMARK_OFFSET))
+#define GPV_IB2_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_IB2_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(IB2_WR_TIDEMARK_WR_TIDEMARK_R)
+#define IB2_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IB2_WR_TIDEMARK_VAL),GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB2_WR_TIDEMARK_WR_TIDEMARK_W)
+#define IB2_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IB2_WR_TIDEMARK_VAL),GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IB2_WR_TIDEMARK_VAL),GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IB2_WR_TIDEMARK_VAL),GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB2_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: IB2_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(IB2_FN_MOD_OFFSET)
+#define IB2_FN_MOD_OFFSET 0x000C4108
+#endif
+
+#if !defined(GPV_IB2_FN_MOD_OFFSET)
+#define GPV_IB2_FN_MOD_OFFSET 0x000C4108
+#endif
+
+#if defined(_V1) && !defined(IB2_FN_MOD_REG)
+#define IB2_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB2_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB2_FN_MOD_VAL)
+#define IB2_FN_MOD_VAL  PREFIX_VAL(IB2_FN_MOD_REG)
+#endif
+
+#define GPV_IB2_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB2_FN_MOD_OFFSET))
+#define GPV_IB2_FN_MOD_VAL  PREFIX_VAL(GPV_IB2_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_IB2_FN_MOD_FN_MOD_POS
+#define GPV_IB2_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_IB2_FN_MOD_FN_MOD_LEN
+#define GPV_IB2_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IB2_FN_MOD_FN_MOD_R)
+#define IB2_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IB2_FN_MOD_VAL),GPV_IB2_FN_MOD_FN_MOD_POS, GPV_IB2_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB2_FN_MOD_FN_MOD_W)
+#define IB2_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IB2_FN_MOD_VAL),GPV_IB2_FN_MOD_FN_MOD_POS, GPV_IB2_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_IB2_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IB2_FN_MOD_VAL),GPV_IB2_FN_MOD_FN_MOD_POS, GPV_IB2_FN_MOD_FN_MOD_LEN)
+
+#define GPV_IB2_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IB2_FN_MOD_VAL),GPV_IB2_FN_MOD_FN_MOD_POS, GPV_IB2_FN_MOD_FN_MOD_LEN,value)
+
+
+/* REGISTER: IB1_FN_MOD_ISS_BM ACCESS: RW */
+
+#if defined(_V1) && !defined(IB1_FN_MOD_ISS_BM_OFFSET)
+#define IB1_FN_MOD_ISS_BM_OFFSET 0x000C5008
+#endif
+
+#if !defined(GPV_IB1_FN_MOD_ISS_BM_OFFSET)
+#define GPV_IB1_FN_MOD_ISS_BM_OFFSET 0x000C5008
+#endif
+
+#if defined(_V1) && !defined(IB1_FN_MOD_ISS_BM_REG)
+#define IB1_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB1_FN_MOD_ISS_BM_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB1_FN_MOD_ISS_BM_VAL)
+#define IB1_FN_MOD_ISS_BM_VAL  PREFIX_VAL(IB1_FN_MOD_ISS_BM_REG)
+#endif
+
+#define GPV_IB1_FN_MOD_ISS_BM_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB1_FN_MOD_ISS_BM_OFFSET))
+#define GPV_IB1_FN_MOD_ISS_BM_VAL  PREFIX_VAL(GPV_IB1_FN_MOD_ISS_BM_REG)
+
+/* FIELDS: */
+
+/* fn_mod_iss_bm ACCESS: RW */
+
+#ifndef GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS
+#define GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS      0
+#endif
+
+#ifndef GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN
+#define GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R)
+#define IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IB1_FN_MOD_ISS_BM_VAL),GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W)
+#define IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IB1_FN_MOD_ISS_BM_VAL),GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+#endif
+
+#define GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_R        GetGroupBits32( (GPV_IB1_FN_MOD_ISS_BM_VAL),GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN)
+
+#define GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_W(value) SetGroupBits32( (GPV_IB1_FN_MOD_ISS_BM_VAL),GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_POS, GPV_IB1_FN_MOD_ISS_BM_FN_MOD_ISS_BM_LEN,value)
+
+
+/* REGISTER: IB1_WR_TIDEMARK ACCESS: RW */
+
+#if defined(_V1) && !defined(IB1_WR_TIDEMARK_OFFSET)
+#define IB1_WR_TIDEMARK_OFFSET 0x000C5040
+#endif
+
+#if !defined(GPV_IB1_WR_TIDEMARK_OFFSET)
+#define GPV_IB1_WR_TIDEMARK_OFFSET 0x000C5040
+#endif
+
+#if defined(_V1) && !defined(IB1_WR_TIDEMARK_REG)
+#define IB1_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB1_WR_TIDEMARK_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB1_WR_TIDEMARK_VAL)
+#define IB1_WR_TIDEMARK_VAL  PREFIX_VAL(IB1_WR_TIDEMARK_REG)
+#endif
+
+#define GPV_IB1_WR_TIDEMARK_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB1_WR_TIDEMARK_OFFSET))
+#define GPV_IB1_WR_TIDEMARK_VAL  PREFIX_VAL(GPV_IB1_WR_TIDEMARK_REG)
+
+/* FIELDS: */
+
+/* wr_tidemark ACCESS: RW */
+
+#ifndef GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_POS
+#define GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_POS      0
+#endif
+
+#ifndef GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_LEN
+#define GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_LEN      4
+#endif
+
+#if defined(_V1) && !defined(IB1_WR_TIDEMARK_WR_TIDEMARK_R)
+#define IB1_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IB1_WR_TIDEMARK_VAL),GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB1_WR_TIDEMARK_WR_TIDEMARK_W)
+#define IB1_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IB1_WR_TIDEMARK_VAL),GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+#endif
+
+#define GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_R        GetGroupBits32( (GPV_IB1_WR_TIDEMARK_VAL),GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_LEN)
+
+#define GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_W(value) SetGroupBits32( (GPV_IB1_WR_TIDEMARK_VAL),GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_POS, GPV_IB1_WR_TIDEMARK_WR_TIDEMARK_LEN,value)
+
+
+/* REGISTER: IB1_FN_MOD ACCESS: RW */
+
+#if defined(_V1) && !defined(IB1_FN_MOD_OFFSET)
+#define IB1_FN_MOD_OFFSET 0x000C5108
+#endif
+
+#if !defined(GPV_IB1_FN_MOD_OFFSET)
+#define GPV_IB1_FN_MOD_OFFSET 0x000C5108
+#endif
+
+#if defined(_V1) && !defined(IB1_FN_MOD_REG)
+#define IB1_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB1_FN_MOD_OFFSET))
+#endif
+
+#if defined(_V1) && !defined(IB1_FN_MOD_VAL)
+#define IB1_FN_MOD_VAL  PREFIX_VAL(IB1_FN_MOD_REG)
+#endif
+
+#define GPV_IB1_FN_MOD_REG ((volatile UINT32 *) (GPV_BASE + GPV_IB1_FN_MOD_OFFSET))
+#define GPV_IB1_FN_MOD_VAL  PREFIX_VAL(GPV_IB1_FN_MOD_REG)
+
+/* FIELDS: */
+
+/* fn_mod ACCESS: RW */
+
+#ifndef GPV_IB1_FN_MOD_FN_MOD_POS
+#define GPV_IB1_FN_MOD_FN_MOD_POS      0
+#endif
+
+#ifndef GPV_IB1_FN_MOD_FN_MOD_LEN
+#define GPV_IB1_FN_MOD_FN_MOD_LEN      2
+#endif
+
+#if defined(_V1) && !defined(IB1_FN_MOD_FN_MOD_R)
+#define IB1_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IB1_FN_MOD_VAL),GPV_IB1_FN_MOD_FN_MOD_POS, GPV_IB1_FN_MOD_FN_MOD_LEN)
+#endif
+
+#if defined(_V1) && !defined(IB1_FN_MOD_FN_MOD_W)
+#define IB1_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IB1_FN_MOD_VAL),GPV_IB1_FN_MOD_FN_MOD_POS, GPV_IB1_FN_MOD_FN_MOD_LEN,value)
+#endif
+
+#define GPV_IB1_FN_MOD_FN_MOD_R        GetGroupBits32( (GPV_IB1_FN_MOD_VAL),GPV_IB1_FN_MOD_FN_MOD_POS, GPV_IB1_FN_MOD_FN_MOD_LEN)
+
+#define GPV_IB1_FN_MOD_FN_MOD_W(value) SetGroupBits32( (GPV_IB1_FN_MOD_VAL),GPV_IB1_FN_MOD_FN_MOD_POS, GPV_IB1_FN_MOD_FN_MOD_LEN,value)
+
+
+/* OFFSET TABLE: */
+#define gpv_offset_tbl_values	REMAP_OFFSET, PERIPH_ID_4_OFFSET, PERIPH_ID_5_OFFSET, PERIPH_ID_6_OFFSET, PERIPH_ID_7_OFFSET, PERIPH_ID_0_OFFSET, PERIPH_ID_1_OFFSET, PERIPH_ID_2_OFFSET, PERIPH_ID_3_OFFSET, COMP_ID_0_OFFSET, COMP_ID_1_OFFSET, COMP_ID_2_OFFSET, COMP_ID_3_OFFSET, ROM_IB_FN_MOD_ISS_BM_OFFSET, ROM_IB_FN_MOD2_OFFSET, ROM_IB_FN_MOD_OFFSET, CRAM_FN_MOD_ISS_BM_OFFSET, LRAM_FN_MOD_ISS_BM_OFFSET, DSP_S_FN_MOD_ISS_BM_OFFSET, USB_S_IB_FN_MOD_ISS_BM_OFFSET, USB_S_IB_FN_MOD2_OFFSET, USB_S_IB_WR_TIDEMARK_OFFSET, USB_S_IB_FN_MOD_OFFSET, DDR_0_IB_FN_MOD_ISS_BM_OFFSET, DDR_0_IB_FN_MOD2_OFFSET, DDR_0_IB_WR_TIDEMARK_OFFSET, DDR_0_IB_FN_MOD_OFFSET, DDR_1_FN_MOD_ISS_BM_OFFSET, DDR_2_FN_MOD_ISS_BM_OFFSET, DDR_3_FN_MOD_ISS_BM_OFFSET, DDR_4_FN_MOD_ISS_BM_OFFSET, DDR_5_FN_MOD_ISS_BM_OFFSET, IAE_IB_FN_MOD_ISS_BM_OFFSET, IAE_IB_FN_MOD2_OFFSET, IAE_IB_WR_TIDEMARK_OFFSET, IAE_IB_FN_MOD_OFFSET, PPE_0_IB_FN_MOD_ISS_BM_OFFSET, PPE_0_IB_WR_TIDEMARK_OFFSET, PPE_0_IB_FN_MOD_OFFSET, PPE_1_IB_FN_MOD_ISS_BM_OFFSET, PPE_1_IB_WR_TIDEMARK_OFFSET, PPE_1_IB_FN_MOD_OFFSET, PPE_2_IB_FN_MOD_ISS_BM_OFFSET, PPE_2_IB_WR_TIDEMARK_OFFSET, PPE_2_IB_FN_MOD_OFFSET, SLAVE_APB_1_IB_FN_MOD_ISS_BM_OFFSET, SLAVE_APB_1_IB_FN_MOD2_OFFSET, SLAVE_APB_0_IB_FN_MOD_ISS_BM_OFFSET, SLAVE_APB_0_IB_FN_MOD2_OFFSET, PPE_3_IB_FN_MOD_ISS_BM_OFFSET, PPE_3_IB_FN_MOD2_OFFSET, PPE_3_IB_WR_TIDEMARK_OFFSET, PPE_3_IB_FN_MOD_OFFSET, DSP_I_READ_QOS_OFFSET, DSP_I_WRITE_QOS_OFFSET, DSP_I_FN_MOD_OFFSET, DSP_D_READ_QOS_OFFSET, DSP_D_WRITE_QOS_OFFSET, DSP_D_FN_MOD_OFFSET, GPP_IB_FN_MOD2_OFFSET, GPP_IB_WR_TIDEMARK_OFFSET, GPP_IB_READ_QOS_OFFSET, GPP_IB_WRITE_QOS_OFFSET, GPP_IB_FN_MOD_OFFSET, USB_M_IB_WR_TIDEMARK_OFFSET, USB_M_IB_READ_QOS_OFFSET, USB_M_IB_WRITE_QOS_OFFSET, USB_M_IB_FN_MOD_OFFSET, DMA_0_READ_QOS_OFFSET, DMA_0_WRITE_QOS_OFFSET, DMA_0_FN_MOD_OFFSET, DMA_1_READ_QOS_OFFSET, DMA_1_WRITE_QOS_OFFSET, DMA_1_FN_MOD_OFFSET, DMA_2_READ_QOS_OFFSET, DMA_2_WRITE_QOS_OFFSET, DMA_2_FN_MOD_OFFSET, IB3_FN_MOD_ISS_BM_OFFSET, IB3_WR_TIDEMARK_OFFSET, IB3_FN_MOD_OFFSET, IB0_FN_MOD_ISS_BM_OFFSET, IB0_WR_TIDEMARK_OFFSET, IB0_FN_MOD_OFFSET, IB2_FN_MOD_ISS_BM_OFFSET, IB2_WR_TIDEMARK_OFFSET, IB2_FN_MOD_OFFSET, IB1_FN_MOD_ISS_BM_OFFSET, IB1_WR_TIDEMARK_OFFSET, IB1_FN_MOD_OFFSET
+
+
+/* REGISTERS RESET VAL: */
+#define gpv_regs_reset_val	0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0xB4, 0x3B, 0x00, 0x0D, 0xF0, 0x05, 0xB1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x8, 0x0, 0x0, 0x8, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0xD, 0xD, 0x0, 0xB, 0xB, 0x0, 0x0, 0x4, 0xF, 0xF, 0x0, 0x3, 0x9, 0x9, 0x0, 0x8, 0x8, 0x0, 0x8, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4, 0x0, 0x0, 0x4, 0x0, 0x0, 0x4, 0x0, 0x0, 0x4, 0x0
+
+#endif
+
+/* End of GPV */
+/* ///////////////////////////////////////////////////////////////////////*/

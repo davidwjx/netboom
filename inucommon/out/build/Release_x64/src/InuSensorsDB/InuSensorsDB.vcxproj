@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7B391D91-97F5-3223-95ED-B25E052A3012}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>InuSensorsDB</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\works\inucommon\bin\x64\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">InuSensorsDB.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">InuSensorsDBd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\works\inucommon\bin\x64\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">InuSensorsDB.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">InuSensorsDB</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\works\inucommon\bin\x64\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">InuSensorsDB.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">InuSensorsDB</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\works\inucommon\bin\x64\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">InuSensorsDB.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">InuSensorsDB</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "D:/works/opencv-4.5.1/build/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_IG_6231;_DEBUG;_USRDLL;UNICODE;_UNICODE;INUSENSORSDB_EXPORTS;BOOST_BIND_GLOBAL_PLACEHOLDERS;CMAKE_INTDIR="Debug";InuSensorsDB_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_IG_6231;_USRDLL;UNICODE;_UNICODE;INUSENSORSDB_EXPORTS;BOOST_BIND_GLOBAL_PLACEHOLDERS;CMAKE_INTDIR=\"Debug\";InuSensorsDB_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;D:\works\opencv-4.5.1\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;D:\works\opencv-4.5.1\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\works\opencv-4.5.1\build\lib\opencv_calib3d451d.lib;D:\works\opencv-4.5.1\build\lib\opencv_imgcodecs451d.lib;version.lib;InuCommonUtilitiesd.lib;D:\works\opencv-4.5.1\build\lib\opencv_features2d451d.lib;D:\works\opencv-4.5.1\build\lib\opencv_flann451d.lib;D:\works\opencv-4.5.1\build\lib\opencv_imgproc451d.lib;D:\works\opencv-4.5.1\build\lib\opencv_core451d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/works/boost_1_75_0/x64/lib;D:/works/boost_1_75_0/x64/lib/$(Configuration);D:/works/opencv-4.5.1/build/lib;D:/works/opencv-4.5.1/build/lib/$(Configuration);D:/works/opencv-4.5.1/build/3rdparty/lib;D:/works/opencv-4.5.1/build/3rdparty/lib/$(Configuration);D:/works/inucommon/lib/x64/Debug;D:/works/inucommon/lib/x64/Debug/$(Configuration);D:/works/inucommon/src/InuSensorsDB;D:/works/inucommon/src/InuSensorsDB/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/works/inucommon/lib/x64/Debug/InuSensorsDBd.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/works/inucommon/bin/x64/Debug/InuSensorsDBd.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "D:/works/opencv-4.5.1/build/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_IG_6231;_USRDLL;UNICODE;_UNICODE;INUSENSORSDB_EXPORTS;BOOST_BIND_GLOBAL_PLACEHOLDERS;CMAKE_INTDIR="Release";InuSensorsDB_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_IG_6231;_USRDLL;UNICODE;_UNICODE;INUSENSORSDB_EXPORTS;BOOST_BIND_GLOBAL_PLACEHOLDERS;CMAKE_INTDIR=\"Release\";InuSensorsDB_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;D:\works\opencv-4.5.1\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;D:\works\opencv-4.5.1\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\works\opencv-4.5.1\build\lib\opencv_calib3d451.lib;D:\works\opencv-4.5.1\build\lib\opencv_imgcodecs451.lib;version.lib;InuCommonUtilities.lib;D:\works\opencv-4.5.1\build\lib\opencv_features2d451.lib;D:\works\opencv-4.5.1\build\lib\opencv_flann451.lib;D:\works\opencv-4.5.1\build\lib\opencv_imgproc451.lib;D:\works\opencv-4.5.1\build\lib\opencv_core451.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/works/boost_1_75_0/x64/lib;D:/works/boost_1_75_0/x64/lib/$(Configuration);D:/works/opencv-4.5.1/build/lib;D:/works/opencv-4.5.1/build/lib/$(Configuration);D:/works/opencv-4.5.1/build/3rdparty/lib;D:/works/opencv-4.5.1/build/3rdparty/lib/$(Configuration);D:/works/inucommon/lib/x64/Release;D:/works/inucommon/lib/x64/Release/$(Configuration);D:/works/inucommon/src/InuSensorsDB;D:/works/inucommon/src/InuSensorsDB/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/works/inucommon/lib/x64/Release/InuSensorsDB.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/works/inucommon/bin/x64/Release/InuSensorsDB.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "D:/works/opencv-4.5.1/build/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_IG_6231;_USRDLL;UNICODE;_UNICODE;INUSENSORSDB_EXPORTS;BOOST_BIND_GLOBAL_PLACEHOLDERS;CMAKE_INTDIR="MinSizeRel";InuSensorsDB_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_IG_6231;_USRDLL;UNICODE;_UNICODE;INUSENSORSDB_EXPORTS;BOOST_BIND_GLOBAL_PLACEHOLDERS;CMAKE_INTDIR=\"MinSizeRel\";InuSensorsDB_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;D:\works\opencv-4.5.1\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;D:\works\opencv-4.5.1\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\works\opencv-4.5.1\build\lib\opencv_calib3d451.lib;D:\works\opencv-4.5.1\build\lib\opencv_imgcodecs451.lib;version.lib;D:\works\opencv-4.5.1\build\lib\opencv_features2d451d.lib;D:\works\opencv-4.5.1\build\lib\opencv_flann451d.lib;D:\works\opencv-4.5.1\build\lib\opencv_imgproc451.lib;D:\works\opencv-4.5.1\build\lib\opencv_core451.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/works/boost_1_75_0/x64/lib;D:/works/boost_1_75_0/x64/lib/$(Configuration);D:/works/opencv-4.5.1/build/lib;D:/works/opencv-4.5.1/build/lib/$(Configuration);D:/works/opencv-4.5.1/build/3rdparty/lib;D:/works/opencv-4.5.1/build/3rdparty/lib/$(Configuration);D:/works/inucommon/lib/x64/MinSizeRel;D:/works/inucommon/lib/x64/MinSizeRel/$(Configuration);D:/works/inucommon/src/InuSensorsDB;D:/works/inucommon/src/InuSensorsDB/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/works/inucommon/lib/x64/MinSizeRel/InuSensorsDB.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/works/inucommon/bin/x64/MinSizeRel/InuSensorsDB.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "D:/works/opencv-4.5.1/build/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_IG_6231;_USRDLL;UNICODE;_UNICODE;INUSENSORSDB_EXPORTS;BOOST_BIND_GLOBAL_PLACEHOLDERS;CMAKE_INTDIR="RelWithDebInfo";InuSensorsDB_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_IG_6231;_USRDLL;UNICODE;_UNICODE;INUSENSORSDB_EXPORTS;BOOST_BIND_GLOBAL_PLACEHOLDERS;CMAKE_INTDIR=\"RelWithDebInfo\";InuSensorsDB_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;D:\works\opencv-4.5.1\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\works\boost_1_75_0;D:\works\inucommon\src\InuSensorsDB\.;D:\works\inucommon\include;D:\works\opencv-4.5.1\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\works\opencv-4.5.1\build\lib\opencv_calib3d451.lib;D:\works\opencv-4.5.1\build\lib\opencv_imgcodecs451.lib;version.lib;D:\works\opencv-4.5.1\build\lib\opencv_features2d451d.lib;D:\works\opencv-4.5.1\build\lib\opencv_flann451d.lib;D:\works\opencv-4.5.1\build\lib\opencv_imgproc451.lib;D:\works\opencv-4.5.1\build\lib\opencv_core451.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/works/boost_1_75_0/x64/lib;D:/works/boost_1_75_0/x64/lib/$(Configuration);D:/works/opencv-4.5.1/build/lib;D:/works/opencv-4.5.1/build/lib/$(Configuration);D:/works/opencv-4.5.1/build/3rdparty/lib;D:/works/opencv-4.5.1/build/3rdparty/lib/$(Configuration);D:/works/inucommon/lib/x64/RelWithDebInfo;D:/works/inucommon/lib/x64/RelWithDebInfo/$(Configuration);D:/works/inucommon/src/InuSensorsDB;D:/works/inucommon/src/InuSensorsDB/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/works/inucommon/lib/x64/RelWithDebInfo/InuSensorsDB.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/works/inucommon/bin/x64/RelWithDebInfo/InuSensorsDB.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\works\inucommon\include\CalibrationDataAll.h" />
+    <ClInclude Include="D:\works\inucommon\include\InuDevice.h" />
+    <ClInclude Include="D:\works\inucommon\include\InuModel.h" />
+    <ClInclude Include="D:\works\inucommon\include\InuModelDB.h" />
+    <ClInclude Include="D:\works\inucommon\include\InuSensorDBDefs.h" />
+    <ClInclude Include="D:\works\inucommon\include\LutsDataSet.h" />
+    <ClInclude Include="D:\works\inucommon\include\RegistersSet.h" />
+    <ClInclude Include="D:\works\inucommon\include\ResolutionDataSet.h" />
+    <ClInclude Include="D:\works\inucommon\include\TemperatureDataSet.h" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\CalibrationDataAll.cpp" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\InuDevice.cpp" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\InuModel.cpp" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\InuModelDB.cpp" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\LutsDataSet.cpp" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\MissingCalibrationsAlg.cpp" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\RegistersSet.cpp" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\ResolutionDataSet.cpp" />
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\TemperatureDataSet.cpp" />
+    <ResourceCompile Include="D:\works\inucommon\src\InuSensorsDB\InuSensorsDB.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\works\inucommon\out\build\Release_x64\src\InuCommonUtilities\InuCommonUtilities.vcxproj">
+      <Project>{C2DD4AEC-FFA1-39FC-A80C-522CF21FC6EB}</Project>
+      <Name>InuCommonUtilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

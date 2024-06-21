@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\CalibrationDataAll.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\InuDevice.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\InuModel.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\InuModelDB.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\LutsDataSet.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\MissingCalibrationsAlg.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\RegistersSet.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\ResolutionDataSet.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuSensorsDB\TemperatureDataSet.cpp">
+      <Filter>SourceFiles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\works\inucommon\include\CalibrationDataAll.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\InuDevice.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\InuModel.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\InuModelDB.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\InuSensorDBDefs.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\LutsDataSet.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\RegistersSet.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\ResolutionDataSet.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\TemperatureDataSet.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\works\inucommon\src\InuSensorsDB\InuSensorsDB.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="HeaderFiles">
+      <UniqueIdentifier>{51D2748D-7AED-3EB0-80E5-2093E0B7BD79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{D5C4E662-DF6B-3775-8520-274E6454DA31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceFiles">
+      <UniqueIdentifier>{8FE1442B-B07A-36C1-9B55-216C20046431}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

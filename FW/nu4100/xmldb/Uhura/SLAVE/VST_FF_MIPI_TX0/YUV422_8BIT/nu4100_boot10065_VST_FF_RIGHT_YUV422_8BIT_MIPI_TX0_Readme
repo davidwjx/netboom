@@ -1,0 +1,43 @@
+Introduction:
+-------------
+The output stream from VST FF Right sensor can be received on MIPI Tx0 interface. It is then possible to connect a receiver NU4000 base board and verify the output stream.
+
+XMLs:
+-----
+The required XML files are located at the location FW/NU4100/xmldb/SLAVE/VST_FF_MIPI_Tx0. The following XML files are required:
+1. nu4100_boot10065_VST_FF_RIGHT_YUV422_8BIT_MIPI_TX0.xml
+2. nu4100_boot10065_VST_FF_RIGHT_YUV422_8BIT_MIPI_TX0_b.xml
+3. sw_graph_boot10065_VST_FF_RIGHT_YUV422_8BIT_MIPI_TX0.xml
+4. sw_graph_boot10065_VST_FF_RIGHT_YUV422_8BIT_MIPI_TX0_b.xml
+
+Copy the files to the location where the NU4100 SDK has been installed and rename them as default boot10065 xml files.
+for ex: Linux - 
+$ sudo cp <PATH_TO_>/nu4100_boot10065_VST_FF_RIGHT_YUV422_8BIT_MIPI_TX0.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/nu4100_boot10065.xml
+$ sudo cp <PATH_TO_>/nu4100_boot10065_VST_FF_RIGHT_YUV422_8BIT_MIPI_TX0_b.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/nu4100_boot10065_b.xml
+$ sudo cp <PATH_TO_>/sw_graph_boot10065_VST_FF_RIGHT_YUV422_8BIT_MIPI_TX0.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/sw_graph_boot10065.xml
+$ sudo cp <PATH_TO_>/sw_graph_boot10065_VST_FF_RIGHT_YUV422_8BIT_MIPI_TX0_b.xml /opt/Inuitive/InuDev/bin/NU4100/boot0/sw_graph_boot10065_b.xml
+
+Description:
+-----------
+The following path has been chosen for the output of bottom tracking stereo stream through MIPI Tx2 interface.
+sensor_3 -> CSI_Rx_5 -> slu_5 -> IAU0 -> PPU9 -> Reader_9 --|
+The reader_9 is taken as input to a second channel which provides the bottom tracking stereo stream output through MIPI Tx0 interface.
+Writer_0 -> VSC_CSI_2 - > CSI_Video_Interleaver_0 -> VSC_CSI_Tx_0 -> MIPI_Channel_0
+
+Procedure:
+-----------
+Use the following command to activate the bottom right tracking sensor through MIPI channel 0:
+Linux PC:
+sudo ./inu_sandbox -a 0 -T Stream_VST_FF_Right,s -d 200000 -k 10065 -N "boot10065_b" "nu4100_boot10065_b.xml" "sw_graph_boot10065_b.xml" -J 21 1280 961 -B "main" "IMAGE_9" "boot10065_b" "WRITER_0"  -H "INU_MIPI_CHANNEL_0"
+
+Uhura S1 system:
+sudo ./inu_sandbox -a 0 -T Stream_VST_FF_Right,y -d 200000 -k 10065 -N "boot10065_b" "nu4100_boot10065_b.xml" "sw_graph_boot10065_b.xml" -J 21 1280 961 -B "main" "IMAGE_9" "boot10065_b" "WRITER_0"  -H "INU_MIPI_CHANNEL_0"
+
+
+MIPI TX0 Output Parameters:
+---------------------------
+1. Resolution: In mono mode (VST FF Right sensor) hRes is 1280, vRes is 961 (Includes a line of metadata).  In Stereo mode, hres will be 2560, vRes will be 961. Stereo mode work is InProgress.
+2. Video Format: YUV422 8BIT, requires 4 bytes for 2 pixels.
+3. Packet Length or Line Length: 2560 Bytes.
+4. dphy_tx0 clock is 800 MHz.
+5. Number of Lanes: 2

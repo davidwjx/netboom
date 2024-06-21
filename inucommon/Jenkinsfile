@@ -1,0 +1,307 @@
+pipeline{
+    agent none
+    parameters {
+        string(name: 'BRANCH_NAME', defaultValue: 'dev', description: 'Pick something')
+    }
+    environment {
+        CONAN_CRED = credentials("ConanCred")
+        WIN_CONAN_PATH="C:/Program Files/Conan/conan/conan.exe"
+        CONAN_PATH="/home/cmadmin/anaconda3/bin/conan"
+    }
+    options { timestamps () }
+    stages{
+        stage("updateVersion") {
+            when {
+                branch BRANCH_NAME
+            }
+            parallel {
+                stage("linux_7.4_x86_64-UB11") {
+                    agent {
+                        label "UB11"
+                    }
+                    steps {
+                        sh '''
+                            rm -rf /home/cmadmin/.gradle/caches
+                            ./updateVersion.sh
+                        '''
+                    }
+                }
+                stage("linux_5.4_x86_64-UB03") {
+                    agent {
+                        label "UB03-1"
+                    }
+                    steps {
+                        sh "./updateVersion.sh"
+                    }
+                }
+                stage("linux_7.3_armv8-UB10") {
+                    agent {
+                        node {
+                            label "UB10"
+                            customWorkspace '/local/home/jenkins01/workspace/inucommon-' + env.BRANCH_NAME + '-7.3_armv8'
+                        }
+                    }
+                    steps {
+                        sh "./updateVersion.sh"
+                    }
+                }
+                stage("linux_5.4_armv8-UB20") {
+                    agent {
+                        node {
+                            label "UB20"
+                            customWorkspace '/local/home/jenkins01/workspace/inucommon-' + env.BRANCH_NAME + '-5.4_armv8'
+                        }
+                    }
+                    steps {
+                        sh "./updateVersion.sh"
+                    }
+                }
+                stage("android_ndk23b-UB06") {
+                    agent {
+                        label "UB06-1"
+                    }
+                    steps {
+                        sh "./updateVersion.sh"
+                    }
+                }
+                stage("windows-LAB2-DSK") {
+                    agent {
+                        label "LAB2-DSK"
+                    }
+                    steps {
+                        sh '''
+                        sed -i $'s/\r$//' updateVersion.sh
+                        ./updateVersion.sh
+                        '''
+                    }
+                }
+            }
+        }
+        stage("build") {
+            when {
+                branch BRANCH_NAME
+            }
+            parallel {
+                stage("linux_x86_64-UB11") {
+                    agent {
+                        label "UB11"
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh '''
+                        ./build.sh linux_gcc-7.4_x86_64
+                        cd src/InuCommonUtilsJava
+                        echo "\nartifactory_user=${CONAN_CRED_USR}" >> gradle.properties
+                        echo "artifactory_password=AP213Sa7ueDytHi4i7cdFFfypWN" >> gradle.properties
+                        GRADLE_VERSION=6.7.1
+                        /opt/gradle/latest/bin/gradle wrapper --gradle-version ${GRADLE_VERSION}
+                        chmod +x gradlew
+                        ./gradlew jar
+                        '''
+                    }
+                }
+                stage("linux_5.4_x86_64-UB03") {
+                    agent {
+                        label "UB03-1"
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh "./build.sh linux_gcc-5.4_x86_64"
+                    }
+                }
+                stage("linux_7.3_armv8-UB10") {
+                    agent {
+                        node {
+                            label "UB10"
+                            customWorkspace '/local/home/jenkins01/workspace/inucommon-' + env.BRANCH_NAME + '-7.3_armv8'
+                        }
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh "./build.sh linux_gcc-7.3_armv8"
+                    }
+                }
+                stage("linux_5.4_armv8-UB20") {
+                    agent {
+                        node {
+                            label "UB20"
+                            customWorkspace '/local/home/jenkins01/workspace/inucommon-' + env.BRANCH_NAME + '-5.4_armv8'
+                        }
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh "./build.sh linux_gcc-5.4_armv8"
+                    }
+                }
+                stage("android_ndk23b-UB06") {
+                    agent {
+                        label "UB06-1"
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh "./build.sh android_ndk23b_android-27-arm64-v8a"
+                    }
+                }
+                stage("windows-LAB2-DSK") {
+                    agent {
+                        label "LAB2-DSK"
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh '''
+                        export CONAN_LOGIN_USERNAME_ARTIFACT_REMOTE=${CONAN_CRED_USR}
+                        export CONAN_PASSWORD_ARTIFACT_REMOTE=${CONAN_CRED_PSW}
+                        # "${WIN_CONAN_PATH}" remove -f "*"
+                        "C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake" . -G "Visual Studio 16 2019" -DUSE_CONAN=True -DCMAKE_BUILD_TYPE=Release -DCONAN_COMMAND="${WIN_CONAN_PATH}" -Bout/build/Release_x64
+                        "C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake" . -G "Visual Studio 16 2019" -DUSE_CONAN=True -DCMAKE_BUILD_TYPE=Debug -DCONAN_COMMAND="${WIN_CONAN_PATH}" -Bout/build/Debug_x64
+						'''
+                        bat '''
+                        "C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/Common7/IDE/devenv.com" "./out/build/Release_x64/InuCommon.sln" /build "Release|x64"
+                        if not %errorlevel% == 0 set EXIT_FLAG=1
+
+						"C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/Common7/IDE/devenv.com" "./out/build/Debug_x64/InuCommon.sln" /build "Debug|x64"
+                        if not %errorlevel% == 0 set EXIT_FLAG=1
+
+                        exit %EXIT_FLAG%
+                        '''
+                    }
+                }
+            }
+        }
+        stage("deploy") {
+            when {
+                branch BRANCH_NAME
+            }
+            parallel {
+                stage("linux_x86_64-UB11") {
+                    agent {
+                        label "UB11"
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh '''
+                        ./deploy.sh linux_gcc-7.4_x86_64
+                        PKG_VER=$(echo $(cat include/Version.h | grep "define INUCOMMON_VERSION_STR" | awk -F '\"' '{print $2}') | sed -e 's/[[:space:]]*$//')
+                        ${CONAN_PATH} remove InuCommonJava/${PKG_VER} -f
+                        cp conan/java/conanfile.py .
+                        ${CONAN_PATH} create . inuitive/prod
+                        ${CONAN_PATH} upload InuCommonJava/${PKG_VER}@inuitive/prod -r artifact-remote --all
+                        '''
+                        // =============================== - script to use gradle for deploying java library - ==============================
+                        // cd src/InuCommonUtilsJava
+                        // . /etc/profile.d/gradle.sh
+                        // gradle wrapper
+                        // chmod +x gradlew
+                        // ./gradlew -Pversion=${PKG_VER} artifactoryPublish
+                        // ==================================================================================================================
+                    }
+                }
+                stage("linux_5.4_x86_64-UB03") {
+                    agent {
+                        label "UB03-1"
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh "./deploy.sh linux_gcc-5.4_x86_64"
+                    }
+                }
+                stage("linux_7.3_armv8-UB10") {
+                    agent {
+                        node {
+                            label "UB10"
+                            customWorkspace '/local/home/jenkins01/workspace/inucommon-' + env.BRANCH_NAME + '-7.3_armv8'
+                        }
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh "./deploy.sh linux_gcc-7.3_armv8"
+                    }
+                }
+                stage("linux_5.4_armv8-UB20") {
+                    agent {
+                        node {
+                            label "UB20"
+                            customWorkspace '/local/home/jenkins01/workspace/inucommon-' + env.BRANCH_NAME + '-5.4_armv8'
+                        }
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh "./deploy.sh linux_gcc-5.4_armv8"
+                    }
+                }
+                stage("android_ndk23b-UB06") {
+                    agent {
+                        label "UB06-1"
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh "./deploy.sh android_ndk23b_android-27-arm64-v8a"
+                    }
+                }
+                stage("windows-LAB2-DSK") {
+                    agent {
+                        label "LAB2-DSK"
+                    }
+                    options { skipDefaultCheckout() }
+                    steps {
+                        sh '''
+                        cp conan/x64/conanfile.py .
+                        export CONAN_LOGIN_USERNAME_ARTIFACT_REMOTE=${CONAN_CRED_USR}
+                        export CONAN_PASSWORD_ARTIFACT_REMOTE=${CONAN_CRED_PSW}
+                        "${WIN_CONAN_PATH}" remove inucommon_x64/${PKG_VER} -f
+
+                        "${WIN_CONAN_PATH}" create . inuitive/prod
+                        rm conanfile.py
+                        PKG_VER=$(echo $(cat include/Version.h | grep "define INUCOMMON_VERSION_STR" | awk -F '\"' '{print $2}') | sed -e 's/[[:space:]]*$//')
+                        "${WIN_CONAN_PATH}" upload inucommon_x64/${PKG_VER}@inuitive/prod -r artifact-remote --all
+                        '''
+                    }
+                }
+            }
+        }
+        stage("tagging") {
+            agent { label "UB11" }
+            when {
+                beforeAgent true
+                branch BRANCH_NAME
+            }
+            options { skipDefaultCheckout() }
+            steps {
+                sh '''
+                    BUILD_VERSION=$(echo $(cat include/Version.h | grep "define INUCOMMON_VERSION_STR" | awk -F '\"' '{print $2}') | sed -e 's/[[:space:]]*$//')
+
+                    git add include/Version.h
+                    git commit -m "JID:NON-1 Update version in ${BRANCH_NAME} to ${BUILD_VERSION}"
+                    git push -u origin ${BRANCH_NAME}
+
+                    if [ $(git tag -l "${BUILD_VERSION}") ]; then
+                        git tag -d ${BUILD_VERSION}
+                    fi
+                    if [ "$(git ls-remote --tags origin "${BUILD_VERSION}")" ]; then
+                        git push --delete origin ${BUILD_VERSION}
+                    fi
+
+                    git tag -a ${BUILD_VERSION} -m "adding tag for version: ${BUILD_VERSION}"
+                    git push origin "${BUILD_VERSION}"
+                '''
+            }
+        }
+    }
+    post{
+        always{
+            echo "=========== Pipeline finished. Check next messages. ==============="
+        }
+        success{
+            echo "================= Pipeline executed successfully =================="
+        }
+        failure{
+            echo "========= Pipeline execution failed. Generating emails. ==========="
+            emailext body: 'Check console output at $BUILD_URL to view the results. /n/n ${CHANGES} /n/n -------------------------------------------------- /n${BUILD_LOG, maxLines=100, escapeHtml=false}',
+                    to: "oferr@inuitive-tech.com",
+                    subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
+            emailext body: 'Check console output at $BUILD_URL to view the results. /n/n ${CHANGES} /n/n -------------------------------------------------- /n${BUILD_LOG, maxLines=100, escapeHtml=false}',
+                    to: "devops@inuitive-tech.com",
+                    subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
+        }
+    }
+}

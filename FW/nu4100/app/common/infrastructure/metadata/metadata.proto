@@ -1,0 +1,304 @@
+syntax = "proto3";
+package INU.metadata;
+enum HardwareType
+{
+    MASTER=0;   
+    SLAVE=1;    
+    HOST=2;     
+}
+enum Channel_Side
+{
+    Left = 0;
+    Right = 1;
+}
+enum Channel_Scale
+{
+    Normal = 0;
+    Cropped = 1;
+    Downscaled = 2;
+}
+enum SensorType
+{
+    AF_VST = 0;
+    Gaze = 1;
+    Tracking = 2; 
+    FF_VST = 3;
+    TOF = 4;
+    Gaze_ROI = 5;   /*We need a different name for the Gaze_ROI metadata channel so that ROI updates can be triggered by the frame done callback from the Gaze_ROI DMA channel */
+    CVA = 6;        /*CVA sensorType */
+}
+enum SLU
+{
+    SLU_0 = 0;
+    SLU_1 = 1;
+    SLU_2 = 2;
+    SLU_3 = 3;
+    SLU_4 = 4;
+    SLU_5 = 5;
+};
+message Sensor_ID
+{
+    uint32 sensorID = 1;        /*Only messages from the target will send this */
+}
+message Sensor
+{
+    Channel_Side side = 1;
+    SensorType sensorType = 2;
+    Sensor_ID   sensorID = 3;
+    Channel_Scale   channelScale = 4;
+}
+message FrameCounter
+{
+    uint64 counter =1;
+}
+message ISO
+{
+    uint32 ISO =1;
+}
+message Exposure
+{
+    uint32 exposure =1;
+}
+message Gain
+{
+    float analogue_gain = 1;
+    float digital_gain =   2;
+}
+message WhiteBalance_Temperature
+{
+    uint32 whitebalance_temperature =1;
+}
+message EVCompensation
+{
+    uint32 EVCompensation = 1;
+}
+message FlickerCompensation
+{
+    uint32 FlickerCompensation = 1;
+}
+message Sharpness
+{
+    uint32 Sharpness = 1;
+}
+message NoiseReduction
+{
+    uint32 NoiseReduction = 1;
+}
+message FrameRate
+{
+    uint32 FrameRate = 1;
+}
+message CCM_In_use
+{
+    uint32 CCM_In_use = 1;
+}
+
+message AFCropPositon
+{
+    uint32 StartX = 1;
+    uint32 StartY = 2;
+}
+message AFFocusPosition
+{
+    int32 AFFocusPosition = 1;
+}
+message RGBHistogram
+{
+    uint32 RGBHistogram = 1;
+}
+message ContrastValue
+{
+    uint32 ContrastValue = 1;
+}
+message EdgeEnhancement
+{
+    uint32 EdgeEnhancement=1;
+}
+message ROI
+{
+    uint32 x_start = 1;     /*X start location coordinate */
+    uint32 y_start = 2;     /*Y start location coordinate */
+}
+message ISP_WBGain /*ISP WB gains */
+{
+    float gainR     = 1;    /*Red gain */
+    float gainGr    = 2;    /* Green-Red gain */
+    float gainGb    = 3;    /*Green-Blue gain */
+    float gainB     = 4;    /*Blue gain */
+} 
+message ISP_ColourCorrectionOffset
+{
+    int32 red     = 1;
+    int32 green   = 2; 
+    int32 blue    = 3;
+};
+message ISP_AWB_closedLoop
+{
+    bool awb_closedLoop=1; /*True = Closed loop, false = Open Loop*/
+};
+message ISP_AE_closedLoop
+{
+    bool ae_closedLoop=1; /*True = Closed loop, false = Open Loop*/
+};
+message ISP_ColourCorrectionCoefficient
+{
+    repeated float coeff = 1;   /* Colour correction coefficients */
+};
+message ISP_AWB
+{
+    bool metadataEnableAWB = 4;          /*False = AWB enabled, True = AWB disabled - This variable is the same as the one in the 3A file*/
+}
+message ISP_WBPameters  /*All three sets of fields must be set */
+{
+    ISP_WBGain wbGains = 1;
+    ISP_ColourCorrectionOffset colourcorrection = 2;
+    ISP_ColourCorrectionCoefficient colourcorrectinCoefficients = 3;
+    ISP_AWB                          ispAWB=4;  
+    ISP_AWB_closedLoop ispAWBclosedLoop = 5;
+}
+message ISP_AE
+{
+    bool metadataEnableAE=1;              /*False = AE enabled, True = AE disabled - This variable is the same as the one in the 3A file*/
+};
+message ISP_ExpoParams
+{
+    float integrationTime   = 1;                    /*Integration time (seconds)*/
+    float analogGain        = 2;                    /*Analgoue gain of the sensor*/
+    float ispGain           = 3;                    /*Digital gain of the ISP*/
+    ISP_AE ispAE = 4;                               /*Enable or disable auto exposure*/
+    ISP_AE_closedLoop ispAEclosedLoop = 5;          /*Enable or disabled cloosed loop AE*/
+    Command_Sync  uart_sync= 6;                     /*Used for delaying the message until the next SOF interrupt.*/
+};
+/*This messages allows you to wait until a SLU SOF interrupt has happened before processing the message
+This allows you do the following:
+Wait until the next start of frame interrupt for an SLU
+Repeat the message over UART when that happens
+Now both Nu4Ks will process the command at the same time (assuming that the triggers are synchronized)
+*/
+message Command_Sync
+{
+    SLU slu_number = 1;                     /*SLU Number to wait for the SOF interrupt to happen*/
+    bool wait_for_slu_SOF_Interrupt = 2;    /*True to wait for the SOF interrupt before processing the command*/
+    uint32 cmd_id = 3;                      /*Here you can place a unique command ID so that you can track when the metadata update was applied*/
+    uint32 frameID = 4;
+}
+message Sensor_MetaData /* TODO: Workout size of registers and data types*/
+{
+    FrameCounter frameCounter = 1;          /*Frame counter*/
+    ISO ISO = 2;                            /*Sensor ISO*/
+    Exposure exposure = 3;                  /*Sensor exposure*/
+    Gain gain = 4;                          /*Sensor gain*/
+    Timestamp Timestamp = 5;                /*Timestamp when the command was processed*/
+    AFCropPositon AFCropPositon = 6;        /*AF Crop position*/
+    AFFocusPosition AFFocusPosition = 7;    /*AF focus position*/
+    ROI           roi = 8;                  /*Region of interest commands are only relevant for the Gaze sensors */
+    ISP_WBPameters wb =9;                   /*ISP white balance parameters */
+    ISP_ExpoParams isp_expo=10;             /*ISP exposure parameters */
+
+}
+
+enum command_type
+{
+    read = 0;
+    write = 1;
+}
+enum Context
+{
+    Context_A = 0;
+    Context_B = 1;
+}
+message Manual_Sensor_Command
+{
+    command_type cmd_type = 1;                              /*Command type */
+    uint32 register_address = 2;                            /*Register address */
+    bytes register_data = 3;                                /*Register data to write or read */
+    uint32 frame_delays = 4;                                /*Number of frames this command will take effect in */
+}
+message Timestamp
+{
+    uint64 nanoseconds=1;                                   /* (Software measured from  Kernel Get Time call, suffers from Jitter,
+                                                             NOTE THIS IS NOT IN SYNC WITH THE RTC */
+}   
+message FrameID
+{
+    uint32 frameID=1;
+}
+/*Debugging information for working out if metadata/frames are in sync */
+message Debug_Timing_Information
+{
+    Timestamp timestamp = 1;
+    FrameID   frameID   = 2;
+}
+message Debug
+{
+    Debug_Timing_Information sensor_update_rx_timing=1;         /*Timestamp+FrameID of when the sensor update  was received from the Host */
+    Debug_Timing_Information sensor_updateSOFInterrupt=2;       /*Timestamp of when the SOF happened */
+    Debug_Timing_Information sensor_update_dequed_timing=3;     /*Timestamp+FrameID of when the sensor update was dequed (AT the SOF interrupt ) */
+    Debug_Timing_Information sensor_update_i2cWritesComplete=4; /*Timestmap+FrameID of when the i2c writes were complete (sensor_update_dequed_timing + i2c write time) */
+}
+
+message State
+{
+    Timestamp timestamp_ns = 1;                              /*Timestamp of this packet [so that we can directly place this in metadata memory] */
+    HardwareType sender = 2;                                 /*Sender of this packet */
+    HardwareType target = 3;                                 /*Target of this packet */
+    Sensor       sensor = 4;                                 /*Sensor that we're reporting on or updating */
+    Sensor_MetaData sensor_metadata = 5;                     /*Metadata for this sensor that we're reporting on or updating */
+    repeated Manual_Sensor_Command man_command = 6;          /*Manual sensor command */
+    Context      context = 7;                                /*Context to update for */
+    Debug        snsr_update_timing = 8;                     /*Debug information */
+}
+/*This message is sent both by the target and the host, when it's sent from the host it's a sensor update request, when it's from the target it's metadata information*/
+message TopLevel
+{
+    uint64          metadatacounter = 1;                    /*Incremented everytime a new protobuf packet is encoded */ 
+    Timestamp       timestamp_ns = 2;                       /*Timestamp of the packet (ns)*/
+    uint32          protocol_version= 3;                    /*Protocol version */
+    repeated State  state= 4;                               /*Array of State records */
+    HardwareType    sender=5;                               /*Who serialized this complete message*/
+    repeated Sensor sensors=6;                              /*Which sensors this metadata originates from */
+    UART_Debug      uartDebug=7;                            /*Debug information for the Master<->Slave UART interconnect */
+    IMU_Timestamp   imuTimestamp = 8;                       /*IMU timestamp information  */
+    IMU_Batching    imuBatchInfo=9;                         /*Contains information about a batch */
+}
+
+message UART_Debug
+{
+    uint64 rxCounter=1; /* Number of messages received over UART */
+    uint64 txCounter=2; /* Number of messages transmitted over UART */
+    uint64 txTransmitTime_ns=3; /* Time it took to transmit the last sensor update over UART (nanoseconds) */
+    uint64 crcErrors=4; /* Number of CRC errors received */
+    uint64 lastSyncPacketTimestamp_us=5; /* Timestamp in microseconds when the last sync packet was received */
+}
+enum IMU_Batching_Method
+{
+    Individual_Channel_Batching = 0;                       /*This is the original batching method where Gyro/Accelerometer/Magnetometer samples are sent seperately */
+    Paired_Gyro_Accelerometer_Channel_Batching = 1;        /*This is the improved batching method where Gyro/Accelerometer samples are paired together using timestamps and then sent together */
+}
+message IMU_Batching
+{
+    IMU_Batching_Method batchingMethod = 1;
+}
+
+/*INFORMATION FOR THE FUTURE PLEASE IGNORE AT THE MOMENT DUE TO IMU TIMESTAMP ISSUES FOUND */
+/*For the sake of consistency with other streams, we have a pipeline to process IMU timestamps and convert them into RTC timestamps
+The calculation is as follows:
+1. [TARGET]When the IMU is started, the RTC time is recorded into ts_ns in nanoseconds and sent to the host as usual 
+2. [TARGET] For every new IMU sample, the userspace RTC timestamp is recorded into userspace_timestamp_ns and userspace_timestamp
+3. [HOST] For every new timestamp from the IMU,resultant_imu_timestamp_ns is calculated based off ts_ns+start_imu_timestamp_ns
+
+
+For debug I have added in userspace_timestamp which is the timestamp of when the userspace thread runs to read the IMU data
+If all is well, userspace_timestamp should be very close to converted_imu_timestamp 
+*/
+message IMU_Timestamp
+{
+    uint64        userspace_timestamp_ns=1;     /* Timestamp measured in userspace(nanoseconds) when IMU data has been read */
+    RTC_Timestamp userspace_timestamp = 2;      /* Timestamp measured in userspace when IMU data has been read */
+    uint64        start_imu_timestamp_ns=3;     /*Starting IMU timestamp (nanoseconds) measured from the RTC */
+}
+message RTC_Timestamp           /* (Software measured from  RTC Get Time call, suffers from Software caused jitter */
+{
+    uint32      seconds=1;    /*RTC based timestamp (seconds part) */
+    uint32      fracSeconds=2;/*RTC based timestamp (fractional seconds part) */
+}

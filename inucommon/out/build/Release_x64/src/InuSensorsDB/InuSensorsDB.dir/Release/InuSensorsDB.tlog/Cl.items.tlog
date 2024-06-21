@@ -1,0 +1,9 @@
+D:\works\inucommon\src\InuSensorsDB\CalibrationDataAll.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\CalibrationDataAll.obj
+D:\works\inucommon\src\InuSensorsDB\InuDevice.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\InuDevice.obj
+D:\works\inucommon\src\InuSensorsDB\InuModel.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\InuModel.obj
+D:\works\inucommon\src\InuSensorsDB\InuModelDB.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\InuModelDB.obj
+D:\works\inucommon\src\InuSensorsDB\LutsDataSet.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\LutsDataSet.obj
+D:\works\inucommon\src\InuSensorsDB\MissingCalibrationsAlg.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\MissingCalibrationsAlg.obj
+D:\works\inucommon\src\InuSensorsDB\RegistersSet.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\RegistersSet.obj
+D:\works\inucommon\src\InuSensorsDB\ResolutionDataSet.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\ResolutionDataSet.obj
+D:\works\inucommon\src\InuSensorsDB\TemperatureDataSet.cpp;D:\works\inucommon\out\build\Release_x64\src\InuSensorsDB\InuSensorsDB.dir\Release\TemperatureDataSet.obj

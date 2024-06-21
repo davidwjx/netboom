@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Calibration\CalibrationTablesUtilities.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Calibration\TemperatureMetaData.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Calibration\CalibrationData2Yaml.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Calibration\CalibrationDataImp.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\CiifFile.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\CsvFile.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\IniFile.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\IregFile.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\JpegFile.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\jpgd.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\jpge.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\lodepng.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\PngFile.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\TiffFile.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\FeaturesTrackingCiif.cpp">
+      <Filter>FileFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\LocalSocketConnection.cpp">
+      <Filter>General</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\RecordingMetaData.cpp">
+      <Filter>General</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\TCPConnection.cpp">
+      <Filter>General</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\HexHelper.cpp">
+      <Filter>General</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\dllmain.cpp">
+      <Filter>General</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Logger\ConsoleLogger.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Logger\DebugViewLogger.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Logger\Logger.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Logger\TextFileLogger.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\OS\OSUtilitiesCommon.cpp">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\OS\OSUtilitiesGCC.cpp">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\OS\OSUtilitiesVS.cpp">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Persistent\FileSystemStorage.cpp">
+      <Filter>Persistent</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Persistent\Storage.cpp">
+      <Filter>Persistent</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Persistent\XmlParser.cpp">
+      <Filter>Persistent</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Persistent\XmlStorage.cpp">
+      <Filter>Persistent</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonUtilities\Process\ProcessWrapper.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\works\inucommon\include\BoostFix\condition_algorithm_8a_fix.hpp">
+      <Filter>BoostFix</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\BoostFix\condition_fix.hpp">
+      <Filter>BoostFix</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\BoostFix\interprocess_condition_fix.hpp">
+      <Filter>BoostFix</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\BoostFix\message_queue_fix.hpp">
+      <Filter>BoostFix</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\BoostFix\os_file_functions_fix.hpp">
+      <Filter>BoostFix</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\BoostFix\wait_fix.hpp">
+      <Filter>BoostFix</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\BoostFix\win32_api.hpp">
+      <Filter>BoostFix</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\BoostFix\windows_intermodule_singleton_fix.hpp">
+      <Filter>BoostFix</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\CalibrationTablesUtilities.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\TemperatureMetaData.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\CalibrationData2Yaml.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\CalibrationDataImp.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\CiifFile.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\CsvFile.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\ImageFile.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\IniFile.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\IregFile.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\JpegFile.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\PngFile.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\TiffFile.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\FeaturesTrackingCiif.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\jpgd.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\jpge.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonUtilities\FileFormats\lodepng.h">
+      <Filter>FileFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\CalibrationData.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\CommonUtilitiesDefs.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\FeaturesTrackingDataCommon.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\HexHelper.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\LocalSocketConnection.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\Locks.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\RecordingMetaData.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\TCPConnection.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\Version.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonUtilities\resource.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\BaseLogger.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\Logger.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\TextFileLogger.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonUtilities\Logger\ConsoleLogger.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonUtilities\Logger\DebugViewLogger.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\OSUtilities.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\OSUtilitiesGCC.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\OSUtilitiesVS.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\FileSystemStorage.h">
+      <Filter>Persistent</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\PersistentData.h">
+      <Filter>Persistent</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\Storage.h">
+      <Filter>Persistent</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\XmlStorage.h">
+      <Filter>Persistent</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\ProcessWrapper.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\works\inucommon\src\InuCommonUtilities\CommonUtilities.rc">
+      <Filter>General</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="BoostFix">
+      <UniqueIdentifier>{C049BB55-87BF-3754-83A6-69BCD095E19D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Calibration">
+      <UniqueIdentifier>{C3FB81A9-96BF-30B5-8E39-45C3AFD6D40D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileFormats">
+      <UniqueIdentifier>{688DA1B6-3BB4-3397-B080-EB5E111387E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="General">
+      <UniqueIdentifier>{F3809517-9374-317C-A33D-564C84AD11E8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logger">
+      <UniqueIdentifier>{681B2854-3F6D-313C-B771-54C714EAE8E4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OS">
+      <UniqueIdentifier>{F8FA5439-DEB2-3CA3-958D-C56999C72739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistent">
+      <UniqueIdentifier>{F2711E29-3314-3913-A16D-7FEB1DC51EA6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process">
+      <UniqueIdentifier>{20D38631-8379-3C56-A384-A2BBD67DA765}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

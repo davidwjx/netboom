@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uhura MASTER configuration -->
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+    <function>
+        <!-- Gaze stereo [12.5 FPS] -->
+      <name>Stream_GAZE_Stereo</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_8</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+    <!-- Gaze stereo ROI [187.5 FPS] -->
+      <name>Stream_GAZE_ROI</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_4</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Track_Stereo</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_0</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_VST_AF_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_2</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+   <function>
+      <name>Stream_VST_AF_1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_3</input>
+      </inputs>
+      <params>
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>IMU_0</name>
+      <type>IMU</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <accel_odr>100</accel_odr>
+        <accel_scale>2</accel_scale>
+        <accel_bw_accel>0</accel_bw_accel>
+        <accel_bw_gyro>0</accel_bw_gyro>
+        <!-- Time shift In usec-->
+        <!-- 100Hz-6510 200Hz-11460 400Hz-13770 800Mhz-15020 1600Mhz-15640-->
+        <accel_timeshift>6510</accel_timeshift>
+        <gyro_odr>100</gyro_odr>
+        <gyro_scale>2000</gyro_scale>
+       <!-- keep bw the same as accel to support legacy -->
+        <gyro_bw_accel>0</gyro_bw_accel>
+        <gyro_bw_gyro>0</gyro_bw_gyro>
+        <!-- Time shift In usec-->
+        <!-- 100Hz-6510 200Hz-11460 400Hz-13770 800Mhz-15020 1600Mhz-15640-->
+        <gyro_timeshift>6510</gyro_timeshift>
+      </params>
+    </function>
+    <data>
+      <name>IMU_DATA_0</name>
+      <type>IMU_DATA</type>
+      <input>IMU_0</input>
+      <source>IMU_0</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Stream_Imu_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMU_DATA_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>	  
+        <numBuffers>100</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF1</connIdE>
+      </params>
+    </function>
+
+  </LIST>
+</InuSWGraph>

@@ -1,0 +1,67 @@
+apply plugin: 'java'
+
+buildscript {
+    repositories {
+        //jcenter()
+		mavenCentral()
+        
+    }
+    dependencies {
+        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
+        //classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+    }
+}
+//apply plugin: 'com.jfrog.artifactory'
+apply plugin: 'maven-publish'
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['CommonUtilsJava/src']
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId 'InuCommon'
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes("Main-Class": "oata.HelloWorld")
+    }
+    
+    archiveFileName = 'InuCommonUtilsJava.jar'
+    destinationDir = file("$projectDir/../../bin/java")
+}
+
+clean.doLast {
+    file("$projectDir/../../bin/java/InuCommonUtilsJava.jar").delete()
+}
+
+//artifactory {
+//    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
+//    publish {
+//        repository {
+//            repoKey = 'inuitive-gradle-release-local'
+//            username = "${artifactory_user}"
+//            password = "${artifactory_password}"
+//            maven = true
+//            
+//        }
+//        defaults {
+//            publications ('mavenJava')
+//        }
+//    }
+//}
+//artifactoryPublish { 
+//    dependsOn jar
+//}
+

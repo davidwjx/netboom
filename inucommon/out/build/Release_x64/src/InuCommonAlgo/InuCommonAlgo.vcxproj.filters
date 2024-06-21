@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\dllmain.cpp">
+      <Filter>General</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\AlgoBase\AlgoAvx.cpp">
+      <Filter>AlgoBase</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\AlgoBase\AlgoBase.cpp">
+      <Filter>AlgoBase</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\AlgoBase\AlgoD2D.cpp">
+      <Filter>AlgoBase</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\AlgoBase\AlgoDepth2XYZ.cpp">
+      <Filter>AlgoBase</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\AlgoBase\YUV2RGB.cpp">
+      <Filter>AlgoBase</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\AlgoBase\YUV422ToRGB.cpp">
+      <Filter>AlgoBase</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\AlgStaticTemporalFilter\StaticTemporalFilter.cpp">
+      <Filter>AlgStaticTemporalFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\works\inucommon\src\InuCommonAlgo\AlgStaticTemporalFilter\StaticTemporalFilterBase.cpp">
+      <Filter>AlgStaticTemporalFilter</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\works\inucommon\include\FpException.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\SSE2NEON.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\CommonAlgo.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonAlgo\resource.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\AlgoAvx.h">
+      <Filter>AlgoBase</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\AlgoBase.h">
+      <Filter>AlgoBase</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\AlgoD2D.h">
+      <Filter>AlgoBase</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\AlgoDepthOpticalData.h">
+      <Filter>AlgoBase</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\RgbShufflers.h">
+      <Filter>AlgoBase</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\YUV2RGB.h">
+      <Filter>AlgoBase</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\YUV422ToRGB.h">
+      <Filter>AlgoBase</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\include\StaticTemporalFilterBaseDLL.h">
+      <Filter>AlgStaticTemporalFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonAlgo\AlgStaticTemporalFilter\config.h">
+      <Filter>AlgStaticTemporalFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\works\inucommon\src\InuCommonAlgo\AlgStaticTemporalFilter\StaticTemporalFilter.h">
+      <Filter>AlgStaticTemporalFilter</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\works\inucommon\src\InuCommonAlgo\CommonAlgo.rc">
+      <Filter>General</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="AlgStaticTemporalFilter">
+      <UniqueIdentifier>{C19D3403-A4DF-3A93-BD62-C6041AA3C833}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AlgoBase">
+      <UniqueIdentifier>{9FC95F0F-638D-38E9-A6D1-C5329821EEED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="General">
+      <UniqueIdentifier>{F3809517-9374-317C-A33D-564C84AD11E8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

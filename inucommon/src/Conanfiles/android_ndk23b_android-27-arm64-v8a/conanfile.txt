@@ -1,0 +1,9 @@
+[requires]
+opencv_android_ndk23b_android-27-arm64-v8a/4.5.1@3rdParty/dev
+boost_android_ndk23b_android-27-arm64-v8a/1.67.0@3rdParty/dev
+libarchive/3.3.2@3rdParty/dev
+tiff_android/4.0.3@3rdParty/dev
+yaml-cpp/0.6.2@3rdParty/dev
+
+[generators]
+cmake

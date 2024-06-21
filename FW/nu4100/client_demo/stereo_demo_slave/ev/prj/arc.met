@@ -1,0 +1,82 @@
+_STACKSIZE = 0x0020_0000;
+
+__INTV_BASE               = 0x0200_0000;
+__HOSTCOM_OFFSET          = 0x4800_0000;
+
+# __AUX_VOL_START and __AUX_VOL_SIZE need to be multiple of 256 MiB
+__AUX_VOL_START           = 0x0000_0000; __AUX_VOL_SIZE           = 0x4000_0000;
+
+# Coherent aperture size needs to be power of 2, >= 4096
+# Coherent aperture start address needs to be a multiple of its size
+__STU_COH0_START          = 0x4800_0000; __STU_COH0_SIZE          = 0x0200_0000;  #32MB
+__STU_COH1_START          = 0x4A00_0000; __STU_COH1_SIZE          = 0x0200_0000;  #32MB
+__HEAP_AREA_START         = 0x4A00_0000; _HEAPSIZE                = 0x0200_0000;
+__CNDC_AREA_START         = 0x4C00_0000; __CNDC_AREA_SIZE         = 0x1800_0000;  #384MB
+__AUX_APP_DATA_AREA_START = 0x6400_0000; __AUX_APP_DATA_AREA_SIZE = 0x1C00_0000;  #UMRIO 448MB
+
+__UNCACHED_AREA_START     = 0x0000_0000; __UNCACHED_AREA_SIZE     = 0x0000_0000;
+__CSM_HEAP_START          = 0x0000_0000; __CSM_HEAP_SIZE          = 0x0000_0000;
+
+
+MEMORY {
+    # Set DRAM to the part of the DRAM that is dedicated to EV, so including
+    # all heaps, and AUX_APP_DATA_AREA
+    DRAM    : ORIGIN = 0x4800_0000, LENGTH = 0x3800_0000  #896MB (32 + 32  + 384 + 448)
+    CSM     : ORIGIN = 0x0100_0000, LENGTH = 0x0018_0000  #1.5MB  
+    LRAM    : ORIGIN = 0x0200_0000, LENGTH = 0x0000_1000 #for vectors
+    VCCM    : ORIGIN = 0x3000_0000, LENGTH = 0x0004_0000
+}
+
+SECTIONS {
+    .ivt __INTV_BASE SIZE(1024) (TEXT):{} > LRAM  # Interrupt table
+    .ivh                        (TEXT):{} > LRAM  # Interrupt handlers
+    shr_mem __HOSTCOM_OFFSET    (TEXT):{} > DRAM  # Host/device shared ctl data
+
+    # Loadable sections
+    GROUP: {
+        .text?   ALIGN(64): { *('.text$crt*') }
+        * (TEXT) ALIGN(64): {}
+        * (LIT)  ALIGN(64): {}
+        .rodata  ALIGN(64): {}
+        .sdata?  ALIGN(64): {}
+        .sbss?   ALIGN(64): {}
+        * (DATA) ALIGN(64): {}
+    } > DRAM
+
+    # Not loaded sections (initialized by program)
+    GROUP: {
+        .hostlink (NOLOAD) ALIGN(256) SIZE(     16384): {}
+        .stack (NOLOAD)    ALIGN( 64) SIZE(_STACKSIZE): {}
+        * (BSS) (NOLOAD)   ALIGN( 64)                 : {}
+    } > DRAM
+
+	.stereo_demo (NOLOAD) ALIGN(64) SIZE(512): {} > DRAM
+    .vecmem_data (NOLOAD) ALIGN(64): {} > VCCM
+    .csm?                 ALIGN(64): {} > CSM
+
+    # Heaps (initialized by program)
+    .heap __HEAP_AREA_START (NOLOAD) SIZE(_HEAPSIZE): {} > DRAM
+    .uncached_heap? __UNCACHED_AREA_START (NOLOAD) SIZE(__UNCACHED_AREA_SIZE): {} > DRAM
+    .cndc_heap? __CNDC_AREA_START (NOLOAD) SIZE(__CNDC_AREA_SIZE): {} > DRAM
+    .aux_app? __AUX_APP_DATA_AREA_START (NOLOAD) SIZE(__AUX_APP_DATA_AREA_SIZE): {} > DRAM
+    .csm_heap? __CSM_HEAP_START (NOLOAD) SIZE(__CSM_HEAP_SIZE): {} > CSM
+}
+
+# These are required for backward compatibility
+__AUX_VOL_END       = (__AUX_VOL_START   + __AUX_VOL_SIZE) -
+                      (__AUX_VOL_SIZE ? 1 : 0);
+__STU_COH0_END      = (__STU_COH0_START  + __STU_COH0_SIZE) -
+                      (__STU_COH0_SIZE ? 1 : 0);
+__STU_COH1_END      = (__STU_COH1_START  + __STU_COH1_SIZE) -
+                      (__STU_COH1_SIZE ? 1 : 0);
+__HEAP_AREA_END     = (__HEAP_AREA_START + _HEAPSIZE) - (_HEAPSIZE ? 1 : 0);
+__AUX_APP_DATA_AREA_END =
+                      (__AUX_APP_DATA_AREA_START + __AUX_APP_DATA_AREA_SIZE) -
+                      (__AUX_APP_DATA_AREA_SIZE ? 1 : 0);
+__UNCACHED_AREA_END = (__UNCACHED_AREA_START + __UNCACHED_AREA_SIZE) -
+                      (__UNCACHED_AREA_SIZE ? 1 : 0);
+__CNDC_AREA_END     = (__CNDC_AREA_START + __CNDC_AREA_SIZE) -
+                      (__CNDC_AREA_SIZE ? 1 : 0);
+__CSM_HEAP_END      = (__CSM_HEAP_START + __CSM_HEAP_SIZE) -
+                      (__CSM_HEAP_SIZE ? 1 : 0);
+#__CNN_DMA_COH_END = __STU_COH0_END;   #amir

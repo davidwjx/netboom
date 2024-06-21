@@ -1,0 +1,26 @@
+﻿{
+  "configurations": [
+    {
+      "name": "x64-Debug",
+      "generator": "Visual Studio 16 2019 Win64",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "-DCMAKE_VERBOSE_MAKEFILE=TRUE  -DCMAKE_BUILD_TYPE=Debug -DUSE_CONAN=TRUE  -DCLEAN_CONAN=TRUE -DBOOST_ROOT= -DOPENCV_ROOT= -DOPENCV_VER= -DTHIRD_PARTY_ROOT=  -DREBUILD_SENSORSDB=TRUE",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": ""
+    },
+    {
+      "name": "x64-Release",
+      "generator": "Visual Studio 16 2019 Win64",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "-DCMAKE_VERBOSE_MAKEFILE=TRUE  -DCMAKE_BUILD_TYPE=Release -DUSE_CONAN=TRUE  -DCLEAN_CONAN=TRUE -DBOOST_ROOT= -DOPENCV_ROOT= -DOPENCV_VER= -DTHIRD_PARTY_ROOT=  -DREBUILD_SENSORSDB=TRUE",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ]
+    }
+  ]
+}

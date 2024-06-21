@@ -1,0 +1,76 @@
+﻿  CalibrationTablesUtilities.cpp
+  TemperatureMetaData.cpp
+  CalibrationData2Yaml.cpp
+  CalibrationDataImp.cpp
+  CiifFile.cpp
+  CsvFile.cpp
+  IniFile.cpp
+  IregFile.cpp
+  JpegFile.cpp
+  jpgd.cpp
+  jpge.cpp
+  lodepng.cpp
+  PngFile.cpp
+  TiffFile.cpp
+  FeaturesTrackingCiif.cpp
+  LocalSocketConnection.cpp
+  RecordingMetaData.cpp
+  TCPConnection.cpp
+  HexHelper.cpp
+  dllmain.cpp
+  ConsoleLogger.cpp
+  DebugViewLogger.cpp
+  Logger.cpp
+  TextFileLogger.cpp
+  OSUtilitiesCommon.cpp
+  OSUtilitiesGCC.cpp
+  OSUtilitiesVS.cpp
+  FileSystemStorage.cpp
+  Storage.cpp
+  XmlParser.cpp
+  XmlStorage.cpp
+  ProcessWrapper.cpp
+Logger\ConsoleLogger.cpp(2,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+FileFormats\JpegFile.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+FileFormats\IniFile.cpp(1,10): fatal error C1083: 无法打开包括文件: “IniFile.h”: No such file or directory
+FileFormats\FeaturesTrackingCiif.cpp(1,10): fatal error C1083: 无法打开包括文件: “FeaturesTrackingCiif.h”: No such file or directory
+Calibration\CalibrationData2Yaml.cpp(2,10): fatal error C1083: 无法打开包括文件: “CalibrationData2Yaml.h”: No such file or directory
+FileFormats\jpgd.cpp(568,51): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(569,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(570,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(571,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(572,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(573,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(574,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(575,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(576,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(577,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(578,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(579,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(580,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+FileFormats\jpgd.cpp(581,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+RecordingMetaData.cpp(2,11): fatal error C1083: 无法打开包括文件: “OSUtilitiesGCC.h”: No such file or directory
+FileFormats\jpgd.cpp(582,18): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+OS\OSUtilitiesCommon.cpp(5,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+FileFormats\TiffFile.cpp(2,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+Process\ProcessWrapper.cpp(1,10): fatal error C1083: 无法打开包括文件: “ProcessWrapper.h”: No such file or directory
+Calibration\CalibrationDataImp.cpp(1,10): fatal error C1083: 无法打开包括文件: “CalibrationDataImp.h”: No such file or directory
+TCPConnection.cpp(3,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+Calibration\CalibrationTablesUtilities.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+LocalSocketConnection.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+Persistent\XmlStorage.cpp(1,10): fatal error C1083: 无法打开包括文件: “XmlStorage.h”: No such file or directory
+FileFormats\CiifFile.cpp(1,10): fatal error C1083: 无法打开包括文件: “CiifFile.h”: No such file or directory
+Persistent\XmlParser.cpp(4,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+FileFormats\IregFile.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+D:\works\inucommon\src\InuCommonUtilities\Logger\DebugViewLogger.h(5,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory (编译源文件 Logger\DebugViewLogger.cpp)
+FileFormats\CsvFile.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+Logger\TextFileLogger.cpp(2,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+dllmain.cpp(2,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+Persistent\Storage.cpp(1,10): fatal error C1083: 无法打开包括文件: “Storage.h”: No such file or directory
+FileFormats\PngFile.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+Logger\Logger.cpp(2,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+Calibration\TemperatureMetaData.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+FileFormats\lodepng.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+Persistent\FileSystemStorage.cpp(1,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+OS\OSUtilitiesVS.cpp(5,10): fatal error C1083: 无法打开包括文件: “OSUtilities.h”: No such file or directory
+HexHelper.cpp(4,10): fatal error C1083: 无法打开包括文件: “HexHelper.h”: No such file or directory

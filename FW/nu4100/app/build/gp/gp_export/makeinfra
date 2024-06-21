@@ -1,0 +1,258 @@
+# Copyright (C) Inuitive, 2013. All rights reserved.
+# 
+# Author: Konstantin Sinyuk
+# This makefile is intended for use with GNU make
+
+###############################################################################
+#	Common build defines
+###############################################################################
+
+SW_VERSION=0x00000000
+TOPDIR=$(shell pwd)
+TARGET_NAME=inu_target
+TARGET_LIB_LOGIC=libinu_target_logic
+TARGET_BIN=$(TARGET_NAME).out
+TARGET_LIB=lib$(TARGET_NAME).a
+BIN=$(TARGET_NAME).bin
+
+###############################################################################
+#	ARM cross-compiler selection
+###############################################################################
+TARGET_GP_COMPILER_PATH ?= /opt/inuitive/toolchain/linaro/gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux
+TARGET_GP_COMPILER_BIN_PATH ?= $(TARGET_GP_COMPILER_PATH)/bin
+TARGET_GP_COMPILER_LIB_PATH ?= $(TARGET_GP_COMPILER_PATH)/arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf
+TARGET_GP_COMPILER_INCLUDE_PATH ?= $(TARGET_GP_COMPILER_PATH)/lib/gcc/arm-linux-gnueabihf/4.7.3/include/
+TARGET_GP_COMPILER_PREFIX ?= arm-linux-gnueabihf-
+
+PROJECT_LOC :=../../../../
+###############################################################################
+#	Cross-compiler common defines
+###############################################################################
+CROSS_COMPILE=$(TARGET_GP_COMPILER_BIN_PATH)/$(TARGET_GP_COMPILER_PREFIX)
+CC=$(CROSS_COMPILE)gcc
+AS=$(CROSS_COMPILE)as
+AR=$(CROSS_COMPILE)ar
+LD=$(CROSS_COMPILE)ld
+ELD=$(CROSS_COMPILE)objdump
+EL2H=$(CROSS_COMPILE)objcopy
+SZ=$(CROSS_COMPILE)size
+NM=$(CROSS_COMPILE)nm
+STRIP=$(CROSS_COMPILE)strip
+
+###############################################################################
+#	Build Environment defines
+###############################################################################
+
+
+###############################################################################
+#	Compialtion Flags
+###############################################################################
+IDE_LIBRARIES = -static $(TARGET_LIB_LOGIC).a -lrt -lpthread -lm -ldl -lstdc++
+PATH_LIBRARIES = -L $(TARGET_GP_COMPILER_LIB_PATH) -L .
+
+# common gcc flags for s file builds
+ASFLAGS=-g -O0 -Wall -mcpu=cortex-a5
+
+# common gcc flags for c file builds
+CPPFLAGS=-g -O3 -Wall -Wextra -std=gnu11 -mcpu=cortex-a5 -mfpu=neon 
+          
+# common include directories
+CINCLUDE=-I$(TARGET_GP_COMPILER_INCLUDE_PATH)\
+-I${PROJECT_LOC}/api\
+-I${PROJECT_LOC}/api/common\
+-I${PROJECT_LOC}/api/client\
+-I${PROJECT_LOC}/api/host\
+-I${PROJECT_LOC}/common/application/version\
+-I${PROJECT_LOC}/common/application/nucfg\
+-I${PROJECT_LOC}/common/application/service/svc_mngr\
+-I${PROJECT_LOC}/common/application/service/system\
+-I${PROJECT_LOC}/common/application/service/auxilary\
+-I${PROJECT_LOC}/common/application/service/logger\
+-I${PROJECT_LOC}/common/application/service/inject\
+-I${PROJECT_LOC}/common/application/service/video\
+-I${PROJECT_LOC}/common/application/service/depth\
+-I${PROJECT_LOC}/common/application/service/webcam\
+-I${PROJECT_LOC}/common/application/service/alg\
+-I${PROJECT_LOC}/common/application/service/client\
+-I${PROJECT_LOC}/common/application/service/pos_sensors\
+-I${PROJECT_LOC}/common/application/service/audio\
+-I${PROJECT_LOC}/common/infrastructure/service/inc\
+-I${PROJECT_LOC}/common/infrastructure/stream\
+-I${PROJECT_LOC}/common/infrastructure/utils/inc\
+-I${PROJECT_LOC}/common/infrastructure/inc\
+-I${PROJECT_LOC}/common/infrastructure/os/inc\
+-I${PROJECT_LOC}/common/infrastructure/marshal/inc\
+-I${PROJECT_LOC}/common/infrastructure/time/inc\
+-I${PROJECT_LOC}/common/infrastructure/cls/inc\
+-I${PROJECT_LOC}/common/infrastructure/cls/src/infrastructure\
+-I${PROJECT_LOC}/common/infrastructure/cls/src/interface\
+-I${PROJECT_LOC}/common/infrastructure/cls/src/network\
+-I${PROJECT_LOC}/common/infrastructure/xmldb\
+-I${PROJECT_LOC}/common/infrastructure/xmldb/sxmlc/src\
+-I${PROJECT_LOC}/target/api\
+-I${PROJECT_LOC}/target/common/alg/gaze_tracking/inc\
+-I${PROJECT_LOC}/target/common/alg/head_tracking/inc\
+-I${PROJECT_LOC}/target/common/alg/sensor_control/inc\
+-I${PROJECT_LOC}/target/common/alg/disparity_control/inc\
+-I${PROJECT_LOC}/target/common/alg/depth_improvement/inc\
+-I${PROJECT_LOC}/target/common/alg/disparity_2_depth/inc\
+-I${PROJECT_LOC}/target/common/alg/infra/alg_base/inc\
+-I${PROJECT_LOC}/target/common/alg/infra/iae2yuv/inc\
+-I${PROJECT_LOC}/target/common/alg/infra/inc\
+-I${PROJECT_LOC}/target/common/data_base/inc\
+-I${PROJECT_LOC}/target/common/client_api\
+-I${PROJECT_LOC}/target/common/ceva_boot_params\
+-I${PROJECT_LOC}/target/common/mem/inc\
+-I${PROJECT_LOC}/target/common/meta\
+-I${PROJECT_LOC}/target/common/pal/inc\
+-I${PROJECT_LOC}/target/common/icc/inc\
+-I${PROJECT_LOC}/target/common/utils/stack/inc\
+-I${PROJECT_LOC}/target/gp/src/hw/hw_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/hw_regs\
+-I${PROJECT_LOC}/target/gp/src/hw/int_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/sequence_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/gme_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/iae_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/ppe_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/cva_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/dpe_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/cde_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/sensors_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/trigger_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/mipi_mngr\
+-I${PROJECT_LOC}/target/gp/src/hw/xml_dev\
+-I${PROJECT_LOC}/target/gp/src/alg_ctrl\
+-I${PROJECT_LOC}/target/gp/src/icc/inc\
+-I${PROJECT_LOC}/target/gp/src/ceva_boot/inc\
+-I${PROJECT_LOC}/target/gp/src/cmem/inc\
+-I${PROJECT_LOC}/target/gp/src/main\
+-I${PROJECT_LOC}/target/gp/src/model\
+-I${PROJECT_LOC}/target/gp/src/ccf\
+-I${PROJECT_LOC}/target/gp/src/wd\
+-I${PROJECT_LOC}/target/gp/src/alt\
+-I${PROJECT_LOC}/target/common/bsp/inc\
+-I${PROJECT_LOC}/target/common/alg/infra/format_convert/inc\
+-I${PROJECT_LOC}/target/common/bsp/inc/regs\
+-I${PROJECT_LOC}/target/common/bsp/cde/inc\
+-I${PROJECT_LOC}/target/common/bsp/cde/src\
+-I${PROJECT_LOC}/target/common/bsp/i2c/inc\
+-I${PROJECT_LOC}/target/common/bsp/i2s/inc\
+-I${PROJECT_LOC}/target/common/bsp/dpe/inc\
+-I${PROJECT_LOC}/target/common/bsp/iae/inc\
+-I${PROJECT_LOC}/target/common/bsp/ppe/inc\
+-I${PROJECT_LOC}/target/common/bsp/pss/inc\
+-I${PROJECT_LOC}/target/common/bsp/dse\
+-I${PROJECT_LOC}/target/common/bsp/mipi/inc\
+-I${PROJECT_LOC}/target/common/bsp/peripheral/inc\
+-I${PROJECT_LOC}/target/common/bsp/peripheral/common\
+-I${PROJECT_LOC}/target/common/bsp/peripheral/idma\
+-I${PROJECT_LOC}/target/common/bsp/peripheral/pl330dma\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/general/inc\
+-I${PROJECT_LOC}/target/common/bsp/gme/inc\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/aptina/inc\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/ar130/inc\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/ar135/inc\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/ar135X/inc\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/ov7251/inc\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/ov2685/inc\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/ov9282/inc\
+-I${PROJECT_LOC}/target/common/bsp/img_sensors/gc2145/inc\
+-I${PROJECT_LOC}/target/common/bsp/gpio/inc\
+-I${PROJECT_LOC}/target/common/bsp/peripheral/gpio\
+-I${PROJECT_LOC}/target/common/bsp/spi/inc\
+-I${PROJECT_LOC}/target/common/bsp/pos_sensors/accelerometer/lsm330dlc/inc\
+-I${PROJECT_LOC}/target/common/bsp/pos_sensors/gyroscope/lsm330dlc/inc\
+-I${PROJECT_LOC}/target/common/bsp/projector//inc\
+-I${PROJECT_LOC}/../../common/include\
+-I${PROJECT_LOC}/../../common/version\
+
+# defines for u-boot originated code
+CDEFINES=-D__ARM__ -D__KERNEL__  -D__linux__ -D_GNU_SOURCE -D__KERNEL_I2C__ -D__KERNEL_SPI__ -D__KERNEL_GPIO__ -DLINUX_TARGET -D__PL330_DMA__ -D__NU4000__ -D__HWLESS__
+
+# linker flags
+LDFLAGS+=-Wl,--gc-sections
+
+# Usefull macros
+RM=rm -f $(1)
+CP=cp -f $(1) $(2)
+
+###############################################################################
+#	Source tree selection (by find all .c,.S files)
+###############################################################################
+SRC-PROJ-C := $(shell find ../../../../common -name '*.c')
+SRC-PROJ_1-C := $(shell find ../../../common -name '*.c')
+SRC-PROJ_2-C := $(shell find ../../../gp/src -name '*.c')
+SRC-PROJ_4-S := $(shell find ../../../../common/infrastructure/os/src -name '*.s')
+
+# Ensure to remove /test folder in the release build
+SRC-C := $(SRC-PROJ-C) $(SRC-PROJ_1-C) $(SRC-PROJ_2-C) $(SRC-PROJ_3-C)
+SRC-S := $(SRC-PROJ_4-S)
+
+OBJ-MAIN := $(SRC-MAIN:.c=.o)
+OBJ-C := $(SRC-C:.c=.obj)
+OBJ-S := $(SRC-S:.s=.obj)
+
+DEPS-MAIN := $(OBJ-MAIN:.o=.d)
+DEPS-C := $(OBJ-C:.obj=.d)
+DEPS-S := $(OBJ-S:.obj=.d)
+
+###############################################################################
+#	Common make rules
+###############################################################################
+.PHONY : all clean
+all: $(TARGET_BIN)
+
+-include $(DEPS-C)
+-include $(DEPS-S)
+###############################################################################
+#	Object compilation
+###############################################################################
+$(OBJ-S) : %.obj : %.s
+	@echo "  CC        "$<0
+	$(V)$(CC) $(ASFLAGS) -c -o $@  $<
+	
+$(OBJ-C) $(OBJ-MAIN) : %.obj : %.c
+	@echo "  CC  $(CROSS_COMPILE) "$<
+	$(V)$(CC) $(CPPFLAGS) $(CINCLUDE) $(CDEFINES) -c -MD -o $@  $<
+
+###############################################################################
+#	Target linkage
+###############################################################################
+$(TARGET_BIN): $(OBJ-S) $(OBJ-C)
+	@echo linking....
+	$(V)$(CC) $(OBJ-C) $(OBJ-S) $(PATH_LIBRARIES) $(LDFLAGS) $(IDE_LIBRARIES) -o $(TARGET_BIN)
+	$(V)$(ELD) -dsx $(TARGET_BIN) > $(TARGET_NAME).dis
+	$(V)$(call CP, $(TARGET_BIN) $(TARGET_BIN).nonstripped)
+	$(V)$(STRIP) $(TARGET_BIN)	
+
+ifdef RELEASE	
+	$(V)$(STRIP) $(TARGET_BIN)
+endif
+
+$(TARGET_LIB): $(OBJ-S) $(OBJ-C) 
+	@echo building $(TARGET_LIB)....
+	$(V)$(AR) -r $(TARGET_LIB) $(OBJ-C) $(OBJ-S) 	
+
+ifneq ($(wildcard ${PROJECT_LOC}../client_demo/libs/gp/.*),)
+	$(V)$(call CP, $(TARGET_LIB) ${PROJECT_LOC}../client_demo/libs/gp/$(TARGET_LIB))
+else
+	@echo "Did not find ${PROJECT_LOC}../client_demo/libs/gp/."
+endif
+
+rebuild: clean all
+	
+clean:
+	@echo cleaning objects...	
+	$(V)$(call RM, $(OBJ-C) $(OBJ-S) $(OBJ-MAIN))
+	$(V)$(call RM, $(DEPS-C) $(DEPS-S) $(DEPS-MAIN))
+	$(V)$(call RM, *.a)
+	$(V)$(call RM, *.out)
+	$(V)$(call RM, *.out.nonstripped)
+	$(V)$(call RM, *.dis)
+
+
+ifndef VERBOSE
+    V := @
+else
+    V :=
+endif

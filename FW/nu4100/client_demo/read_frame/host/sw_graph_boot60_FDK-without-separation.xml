@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+    <function>
+      <name>Stream_RGB</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_9</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>FDK_1</name>
+      <type>FDK</type>
+      <inputs>
+        <input>IMAGE_9</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <node_id>1</node_id>
+        <numBuffers>4</numBuffers>
+        <sizeBuffer>100</sizeBuffer>
+      </params>
+    </function>
+    <data>
+      <name>FDK_RAW_data</name>
+      <type>RAW_DATA</type>
+      <input>FDK_1</input>
+      <source>FDK_1</source>
+      <params></params>
+    </data>
+    <data>
+      <name>FDK_image_data</name>
+      <type>IMAGE_DATA</type>
+      <input>FDK_1</input>
+      <source>INU_SOC_CHANNEL_9</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Stream_out_FDK_RAW</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>FDK_RAW_data</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>  	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_out_FDK_image</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>FDK_image_data</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>0</thread_priority>  	  
+        <numBuffers>5</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

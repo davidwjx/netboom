@@ -1,0 +1,31 @@
+# ============================================================================= 
+# Copyright 2020  Synopsys, Inc.
+# This file and the associated documentation are proprietary to Synopsys, 
+# Inc., and may only be used in accordance with the terms and conditions of 
+# a written license agreement with Synopsys, Inc.
+# Notwithstanding contrary terms in the DFPUC, Licensee may provide the
+# binaries of the EV Runtime and Utilities Option to its end-customer that
+# purchase Licensee ICs that incorporate the Synopsys EV processor core,
+# subject to confidentiality terms no less restrictive than those contained in
+# the DFPUC.  All other use, reproduction, or distribution of this file
+# is strictly prohibited.
+# =============================================================================
+
+# Setup argument for run
+
+NUMTESTS1 ?= @NUMTESTS1@
+
+
+GRAPH1_NAME  = @GRAPH1_NAME@
+
+
+ARGS ?=  -image_test @NUM_DATA_SETS1@ $(NUMTESTS1) \
+            -binaddr $(BIN1ADDR) -binpath $(CNN_BIN_GRAPH1) $(XARGS) @ITEST1@ \
+
+
+CNN_OBJ_MULTI_PATH = $(CNN_OBJ_PATH)/$(GRAPH1_NAME)
+
+
+
+
+

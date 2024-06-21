@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Sandbox|Win32">
+      <Configuration>Sandbox</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Sandbox|x64">
+      <Configuration>Sandbox</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\common\include\inu_storage_layout.h" />
+    <ClInclude Include="..\..\..\..\..\..\common\version\version.h" />
+    <ClInclude Include="..\..\..\..\..\common\inu_common_cp.h" />
+    <ClInclude Include="..\..\..\..\api\common\calibration.h" />
+    <ClInclude Include="..\..\..\..\api\common\err_defs.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_cdnn_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_cdnn_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_cva_channel_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_cva_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_device_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_dpe_pp_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_fast_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_fast_orb_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_fdk_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_function_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_graph_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_histogram_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_histogram_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_image_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_imu_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_imu_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_load_background_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_mipi_channel_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_point_cloud_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_pp_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_projector_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_temperature_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_temperature_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_load_network_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_logger_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_node_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_ref_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_sensors_group_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_sensor_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_sensor_control_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_slam_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_slam_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_soc_channel_api.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_isp_channel.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_soc_writer_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_streamer_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_tsnr_calc_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_tsnr_data_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\graph\inu_vision_proc_api.h" />
+    <ClInclude Include="..\..\..\..\api\common\inu2.h" />
+    <ClInclude Include="..\..\..\..\api\common\inu2_types.h" />
+    <ClInclude Include="..\..\..\..\api\common\inu_cmd.h" />
+    <ClInclude Include="..\..\..\..\api\common\inu_defs.h" />
+    <ClInclude Include="..\..\..\..\api\common\inu_types.h" />
+    <ClInclude Include="..\..\..\..\api\common\nucfg.h" />
+    <ClInclude Include="..\..\..\..\api\common\xml_db_modes.h" />
+    <ClInclude Include="..\..\..\..\api\host\inu_profiler.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu2_internal.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_cdnn.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_cdnn_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_compress.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_cva_channel.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_cva_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_dpe_pp.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_factory.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_fast_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_fast_orb.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_fdk.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_comm.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_device.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_function.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_graph.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_histogram.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_histogram_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_image.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_imu_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_load_background.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_mipi_channel.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_point_cloud_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_pp.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_temperature_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_load_network.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_logger.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_node.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_ref.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_sensor.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_sensors_group.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_slam.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_slam_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_soc_channel.h" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\helsinki.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_isp_channel.c" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_soc_writer.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_streamer.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_tsnr_calc.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_tsnr_data.h" />
+    <ClInclude Include="..\..\..\..\common\application\manager\inc\inu_vision_proc.h" />
+    <ClInclude Include="..\..\..\..\common\application\nucfg\ini.h" />
+    <ClInclude Include="..\..\..\..\common\application\nucfg\inu_graph_creator.h" />
+    <ClInclude Include="..\..\..\..\common\application\nucfg\nu4k.h" />
+    <ClInclude Include="..\..\..\..\common\application\nucfg\nu4k_defs.h" />
+    <ClInclude Include="..\..\..\..\common\application\nucfg\nucfg_priv.h" />
+    <ClInclude Include="..\..\..\..\common\application\nucfg\nufld.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\conn_lyr.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\socket.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\stub_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\tcp_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\uart_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\cdc_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\inc\usb_ctrl_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\src\infrastructure\cls_com.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\cls\src\network\queue_lyr.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\inc\internal_cmd.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\inc\inu_common.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\inc\stdops.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\inc\sys_defs.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\lm\inc\inu_lm.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\lz4\lz4.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\lz4\lz4frame.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\lz4\lz4frame_static.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\lz4\lz4hc.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\lz4\xxhash.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\marshal\inc\marshal.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\marshal\src\m_priv.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\marshal\src\m_tbl.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\metadata\nanopb\pb.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\metadata\nanopb\pb_common.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\metadata\nanopb\pb_decode.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\metadata\nanopb\pb_encode.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\os\inc\mem_pool.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\os\inc\os_lyr.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\time\inc\inu_time.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\config.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\graph.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\inu_str.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\log.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\que.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\utils\inc\utils.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\xmldb\sxmlc\src\sxmlc.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\xmldb\sxmlc\src\sxmlsearch.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\xmldb\xml_db.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\xmldb\xml_path.h" />
+    <ClInclude Include="..\..\..\..\common\infrastructure\xmldb\xml_path_extended.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu2.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_cdnn.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_cdnn_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_compress.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_cva_channel.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_cva_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_dpe_pp.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_factory.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_fast_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_fast_orb.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_fdk.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_comm.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_device.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_function.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_graph.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_histogram.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_histogram_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_image.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_imu.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_imu_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_load_background.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_load_network.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_logger.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_mipi_channel.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_node.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_point_cloud_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_pp.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_metadata_injector.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_ref.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_sensor.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_sensors_group.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_sensor_control.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_slam.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_slam_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_soc_channel.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_soc_writer.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_streamer.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_temperature.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_temperature_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_tsnr_calc.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_tsnr_data.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\inu_vision_proc.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\svc_cfg.c" />
+    <ClCompile Include="..\..\..\..\common\application\manager\src\svc_com.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\calibration.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\libini.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\nu4k.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\nucfg.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\nufld.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\nu_graph.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\inu_graph_creator.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\nu_soc.c" />
+    <ClCompile Include="..\..\..\..\common\application\nucfg\xml_db_modes.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\infrastructure\socket.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\interface\cdc_com.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\interface\stub_com.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\interface\tcp_com.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\interface\uart_com.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\lm\src\lm.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\lz4\lz4.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\lz4\lz4frame.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\lz4\lz4hc.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\lz4\xxhash.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\marshal\src\m_ioctl.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\marshal\src\m_tbl.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\metadata\nanopb\pb_common.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\metadata\nanopb\pb_decode.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\metadata\nanopb\pb_encode.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\metadata\src\inu_metadata_serializer.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\metadata\src\metadata.pb.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\sensorsync\src\inu_sensorsync_serializer.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\sensorsync\src\sensor_sync.pb.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\time\src\inu_time.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\config.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\graph.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\hash.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\inu_str.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\xmldb\sxmlc\src\sxmlc.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\xmldb\sxmlc\src\sxmlsearch.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\xmldb\xml_db.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\infrastructure\serial.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\interface\usb_ctrl_com_host.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\network\conn_lyr.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\cls\src\network\queue_lyr.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\marshal\src\marshal.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\os\src\mem_pool.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\os\src\os_lyr_win.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\log.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\que.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\utils.c" />
+    <ClCompile Include="..\..\..\..\common\infrastructure\utils\src\inu_profiler.c" />
+    <ClCompile Include="..\..\nucfg\nucfg_test.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="inu_host_lib.def" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8160DBFD-D66E-4F41-BF96-AE23CA37D6D6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>inu_host_lib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|x64'">
+    <OutDir>..\..\..\bin\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OPENCV_DIR)\build\$(Platform)\$(PlatformToolset)\lib;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)_4000c0</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|Win32'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OPENCV_DIR)\build\$(Platform)\$(PlatformToolset)\lib;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)_4000c0</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OPENCV_DIR)\build\$(Platform)\$(PlatformToolset)\lib;$(LibraryPath)</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)_4100</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|x64'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OPENCV_DIR)\build\$(Platform)\$(PlatformToolset)\lib;$(LibraryPath)</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)_4100</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OPENCV_DIR)\build\$(Platform)\$(PlatformToolset)\lib;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)_4000c0</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(OPENCV_DIR)\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OPENCV_DIR)\build\$(Platform)\$(PlatformToolset)\lib;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)_4100</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\..\..\..\inu_usb_lib\include;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\..\common;..\..\..\..\..\..\common\version;..\..\..\..\common\application\manager\inc;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\audio;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\time\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\infrastructure\lz4;..\..\..\..\common\export;..\..\..\..\common\infrastructure\lm\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\xmldb\sxmlc\src;..\..\..\..\common\application\nucfg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>inu_host_lib.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\..\..\..\inu_usb_lib\include;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\..\common;..\..\..\..\..\..\common\version;..\..\..\..\common\application\manager\inc;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\audio;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\time\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\infrastructure\lz4;..\..\..\..\common\export;..\..\..\..\common\infrastructure\lm\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\xmldb\sxmlc\src;..\..\..\..\common\application\nucfg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>inu_host_lib.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\..\..\..\inu_usb_lib\include;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\..\common;..\..\..\..\..\..\common\include;..\..\..\..\..\..\common\version;..\..\..\..\common\application\manager\inc;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\audio;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\time\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\infrastructure\lz4;..\..\..\..\common\export;..\..\..\..\common\infrastructure\lm\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\xmldb\sxmlc\src;..\..\..\..\common\infrastructure\metadata\nanopb;..\..\..\..\common\infrastructure\sensorsync\inc;..\..\..\..\common\infrastructure\metadata\inc;..\..\..\..\common\application\nucfg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>inu_host_lib.def</ModuleDefinitionFile>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Sandbox|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\..\..\..\inu_usb_lib\include;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\..\common;..\..\..\..\..\..\common\include;..\..\..\..\..\..\common\version;..\..\..\..\common\application\manager\inc;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\audio;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\time\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\infrastructure\lz4;..\..\..\..\common\export;..\..\..\..\common\infrastructure\lm\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\xmldb\sxmlc\src;..\..\..\..\common\infrastructure\metadata\nanopb;..\..\..\..\common\infrastructure\sensorsync\inc;..\..\..\..\common\infrastructure\metadata\inc;..\..\..\..\common\application\nucfg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>inu_host_lib.def</ModuleDefinitionFile>
+      <AdditionalDependencies>inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_lib|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>libusbk\includes;..\..\..\..\api;..\..\..\..\api\inu_defs;..\..\..\..\application\src\common\service\head;..\..\..\..\application\src\common\service\depth;..\..\..\..\..\common;..\..\..\..\application\src\common\service\video;..\..\..\..\application\src\common\service\logger;..\..\..\..\application\src\common\service\camera;..\..\..\..\application\src\common\service\auxilary;..\..\..\..\application\src\common\service\svc_mngr;..\..\..\..\application\src\common\alg\infra\inc;..\..\..\..\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\infrastructure\err\inc;..\..\..\..\infrastructure\utils\inc;..\..\..\..\infrastructure\service\inc;..\..\..\..\infrastructure\bsp\cde\inc;..\..\..\..\infrastructure\pal\inc;..\..\..\..\infrastructure\os\inc;..\..\..\..\infrastructure\cls\src\network;..\..\..\..\infrastructure\cls\src\interface;..\..\..\..\infrastructure\cls\src\infrastructure;..\..\..\..\infrastructure\cls\inc;..\..\..\..\infrastructure\inc;..\..\..\..\infrastructure\marshal\inc;..\..\..\..\infrastructure\bsp\peripheral\idma;..\..\..\..\export;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>inu_host_lib.def</ModuleDefinitionFile>
+      <AdditionalDependencies>libusbK.lib;setupapi.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>libusbk\bin\lib\amd64</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\..\..\..\inu_usb_lib\include;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\..\common;..\..\..\..\..\..\common\version;..\..\..\..\common\application\manager\inc;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\audio;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\time\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\infrastructure\lz4;..\..\..\..\common\export;..\..\..\..\common\infrastructure\lm\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\xmldb\sxmlc\src;..\..\..\..\common\application\nucfg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>inu_host_lib.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;GEN_SENSOR_DRVG_NO_DEVWARE;INUPROFILER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\common\application\service\alg;..\..\..\..\..\..\inu_usb_lib\include;..\..\..\..\api\host;..\..\..\..\api\common;..\..\..\..\api\common\graph;..\..\..\..\..\common;..\..\..\..\..\..\common\include;..\..\..\..\..\..\common\version;..\..\..\..\common\application\manager\inc;..\..\..\..\common\application\service\system;..\..\..\..\common\application\service\video;..\..\..\..\common\application\service\client;..\..\..\..\common\application\service\pos_sensors;..\..\..\..\common\application\service\svc_mngr;..\..\..\..\common\application\service\logger;..\..\..\..\common\application\service\depth;..\..\..\..\common\application\service\webcam;..\..\..\..\common\application\service\inject;..\..\..\..\common\application\service\audio;..\..\..\..\common\application\service\auxilary;..\..\..\..\common\application\alg\infra\inc;..\..\..\..\common\application\src\host\windows\cpp_wrapper\inc;..\..\..\..\common\infrastructure\err\inc;..\..\..\..\common\infrastructure\stream;..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\common\infrastructure\service\inc;..\..\..\..\common\infrastructure\bsp\cde\inc;..\..\..\..\common\infrastructure\pal\inc;..\..\..\..\common\infrastructure\os\inc;..\..\..\..\common\infrastructure\cls\src\network;..\..\..\..\common\infrastructure\cls\src\interface;..\..\..\..\common\infrastructure\time\inc;..\..\..\..\common\infrastructure\cls\src\infrastructure;..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\common\infrastructure\inc;..\..\..\..\common\infrastructure\marshal\inc;..\..\..\..\common\infrastructure\bsp\peripheral\idma;..\..\..\..\common\infrastructure\lz4;..\..\..\..\common\infrastructure\metadata\nanopb;..\..\..\..\common\infrastructure\metadata\inc;..\..\..\..\common\infrastructure\sensorsync\inc;..\..\..\..\common\export;..\..\..\..\common\infrastructure\lm\inc;..\..\..\..\common\infrastructure\xmldb;..\..\..\..\common\infrastructure\xmldb\sxmlc\src;..\..\..\..\common\application\nucfg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>inu_host_lib.def</ModuleDefinitionFile>
+      <AdditionalDependencies>..\..\..\..\..\..\inu_usb_lib\prj\windows\$(Platform)\$(Configuration)\inu_usb_lib.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy $(OutDir)$(TargetName).dll ..\..\..\..\..\..\..\bin\windows\$(Platform)\$(Configuration) /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

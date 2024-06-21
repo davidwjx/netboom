@@ -1,0 +1,13 @@
+D:/works/inucommon/out/build/Release_x64/CMakeFiles/ALL_BUILD.dir
+D:/works/inucommon/out/build/Release_x64/src/InuCommonUtilities/CMakeFiles/InuCommonUtilities.dir
+D:/works/inucommon/out/build/Release_x64/src/InuCommonUtilities/CMakeFiles/ALL_BUILD.dir
+D:/works/inucommon/out/build/Release_x64/src/InuCommonAlgo/CMakeFiles/InuCommonAlgo.dir
+D:/works/inucommon/out/build/Release_x64/src/InuCommonAlgo/CMakeFiles/ALL_BUILD.dir
+D:/works/inucommon/out/build/Release_x64/src/InuSensorsDB/CMakeFiles/InuSensorsDB.dir
+D:/works/inucommon/out/build/Release_x64/src/InuSensorsDB/CMakeFiles/ALL_BUILD.dir
+D:/works/inucommon/out/build/Release_x64/src/InuPluginFramework/CMakeFiles/InuPluginFramework.dir
+D:/works/inucommon/out/build/Release_x64/src/InuPluginFramework/CMakeFiles/ALL_BUILD.dir
+D:/works/inucommon/out/build/Release_x64/src/AlgWebcamIntegration/CMakeFiles/InuAlgWebcamIntegration.dir
+D:/works/inucommon/out/build/Release_x64/src/AlgWebcamIntegration/CMakeFiles/ALL_BUILD.dir
+D:/works/inucommon/out/build/Release_x64/src/InuCommonCSharpWrapper/CMakeFiles/InuCommonCSharpWrapper.dir
+D:/works/inucommon/out/build/Release_x64/src/InuCommonCSharpWrapper/CMakeFiles/ALL_BUILD.dir

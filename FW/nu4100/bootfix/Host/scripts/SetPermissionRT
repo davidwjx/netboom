@@ -1,0 +1,5 @@
+#!/bin/bash
+echo $1 | sudo -S -E chown root:root InuService
+echo $1 | sudo -S -E chmod 555 InuService
+echo $1 | sudo -S -E chmod u+s InuService
+

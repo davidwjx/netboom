@@ -1,0 +1,9 @@
+﻿  CalibrationDataImp.cpp
+  IregFile.cpp
+  TiffFile.cpp
+  ConsoleLogger.cpp
+  Logger.cpp
+  RecordingMetaData.cpp
+    正在创建库 D:/works/inucommon/lib/x64/Release/InuCommonUtilities.lib 和对象 D:/works/inucommon/lib/x64/Release/InuCommonUtilities.exp
+  InuCommonUtilities.vcxproj -> D:\works\inucommon\bin\x64\Release\InuCommonUtilities.dll
+  platform dir = Windows

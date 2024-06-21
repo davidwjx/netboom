@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Inuitive-Eclipse-Root
+Exec=/bin/bash -c 'export UBUNTU_MENUPROXY=0 && echo Inu100pwd | sudo -S -E /usr/lib/eclipse/eclipse'
+Type=Application

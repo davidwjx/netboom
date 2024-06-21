@@ -1,0 +1,209 @@
+[DEBREATE-0.7.10]
+<<CTRL>>
+Package: inudev
+Version: 9.99.99
+Section: electronics
+Maintainer: Configuration Manager <cmadmin@inuitive-tech.com>
+Priority: standard
+Architecture: all
+Description: Inuitive SDK
+ Inuitive SDK
+
+<</CTRL>>
+<<FILES>>
+1
+/tmp/for_debian/Inuitive/InuDev/config/icons/LOGO.bmp -> LOGO.bmp -> /opt/Inuitive/InuDev/config/icons
+/tmp/for_debian/Inuitive/InuDev/config/icons/Inuitive-Service.desktop* -> Inuitive-Service.desktop -> /opt/Inuitive/InuDev/config/icons
+/tmp/for_debian/Inuitive/InuDev/config/di_Cfg-M31L.dat -> di_Cfg-M31L.dat -> /opt/Inuitive/InuDev/config
+/tmp/for_debian/Inuitive/InuDev/config/InuModelDB.csv* -> InuModelDB.csv -> /opt/Inuitive/InuDev/config
+/tmp/for_debian/Inuitive/InuDev/config/di_Cfg-M3.dat -> di_Cfg-M3.dat -> /opt/Inuitive/InuDev/config
+/tmp/for_debian/Inuitive/InuDev/config/di_Cfg.dat -> di_Cfg.dat -> /opt/Inuitive/InuDev/config
+/tmp/for_debian/Inuitive/InuDev/config/di_Cfg-M31M.dat -> di_Cfg-M31M.dat -> /opt/Inuitive/InuDev/config
+/tmp/for_debian/Inuitive/InuDev/config/InuServiceParams.xml -> InuServiceParams.xml -> /opt/Inuitive/InuDev/config
+/tmp/for_debian/Inuitive/InuDev/config/sensor_ctrl_config_file.txt -> sensor_ctrl_config_file.txt -> /opt/Inuitive/InuDev/config
+/tmp/for_debian/Inuitive/InuDev/config/configInit.ireg -> configInit.ireg -> /opt/Inuitive/InuDev/config
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat3x4.inl* -> type_mat3x4.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/vec3.hpp* -> vec3.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat4x4.inl* -> type_mat4x4.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/vec4.hpp* -> vec4.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/trigonometric.hpp* -> trigonometric.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_common.inl* -> func_common.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat2x3.hpp* -> mat2x3.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat4x3.inl* -> type_mat4x3.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/fwd.hpp* -> fwd.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec2.hpp* -> type_vec2.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat3x4.hpp* -> type_mat3x4.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat2x3.hpp* -> type_mat2x3.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec3.inl* -> type_vec3.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/matrix.hpp* -> matrix.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat4x3.hpp* -> type_mat4x3.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/common.hpp* -> common.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec3.hpp* -> type_vec3.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/_fixes.hpp* -> _fixes.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat4x3.hpp* -> mat4x3.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_matrix.hpp* -> func_matrix.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_int.hpp* -> type_int.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec4.inl* -> type_vec4.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat2x4.hpp* -> mat2x4.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec.hpp* -> type_vec.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_matrix.inl* -> func_matrix.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat.hpp* -> type_mat.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat4x2.hpp* -> type_mat4x2.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat2x3.inl* -> type_mat2x3.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/setup.hpp* -> setup.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/exponential.hpp* -> exponential.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/precision.hpp* -> precision.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat3x3.hpp* -> mat3x3.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat2x2.hpp* -> mat2x2.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat3x2.inl* -> type_mat3x2.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_vector_relational.inl* -> func_vector_relational.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/glm.hpp* -> glm.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat3x2.hpp* -> mat3x2.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_vector_relational.hpp* -> func_vector_relational.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat3x4.hpp* -> mat3x4.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec1.inl* -> type_vec1.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat3x3.hpp* -> type_mat3x3.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat3x2.hpp* -> type_mat3x2.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec1.hpp* -> type_vec1.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat2x4.hpp* -> type_mat2x4.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat2x4.inl* -> type_mat2x4.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec4.hpp* -> type_vec4.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_float.hpp* -> type_float.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/transform.hpp* -> transform.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat3x3.inl* -> type_mat3x3.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat4x2.inl* -> type_mat4x2.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat2x2.inl* -> type_mat2x2.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_common.hpp* -> func_common.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/_vectorize.hpp* -> _vectorize.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_trigonometric.inl* -> func_trigonometric.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat4x2.hpp* -> mat4x2.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/vec2.hpp* -> vec2.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat2x2.hpp* -> type_mat2x2.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_trigonometric.hpp* -> func_trigonometric.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_exponential.inl* -> func_exponential.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/func_exponential.hpp* -> func_exponential.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/mat4x4.hpp* -> mat4x4.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_mat4x4.hpp* -> type_mat4x4.hpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm/type_vec2.inl* -> type_vec2.inl -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/glm
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/bin/Win32/freeglut.dll* -> freeglut.dll -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/bin/Win32
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/bin/x64/freeglut.dll* -> freeglut.dll -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/bin/x64
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/include/freeglut_std.h* -> freeglut_std.h -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/include
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/include/freeglut_ext.h* -> freeglut_ext.h -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/include
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/include/glut.h* -> glut.h -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/include
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/include/freeglut.h* -> freeglut.h -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/include
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/Win32/freeglut.lib* -> freeglut.lib -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/Win32
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/Win32/glfw3.lib* -> glfw3.lib -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/Win32
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/Win32/glew32s.lib* -> glew32s.lib -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/Win32
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/x64/freeglut.lib* -> freeglut.lib -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/x64
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/x64/glfw3.lib* -> glfw3.lib -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/x64
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/x64/glew32s.lib* -> glew32s.lib -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo/GL/lib/x64
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/HeadTrackingDemo.cpp* -> HeadTrackingDemo.cpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/HeadTrackingDemoExt.cpp* -> HeadTrackingDemoExt.cpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/HeadTrackingDemo.sln* -> HeadTrackingDemo.sln -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/HeadTrackingDemo.h* -> HeadTrackingDemo.h -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/HeadTrackingDemo.vcxproj* -> HeadTrackingDemo.vcxproj -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/HeadTrackingDemoExt.h* -> HeadTrackingDemoExt.h -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo
+/tmp/for_debian/Inuitive/InuDev/docs/HeadTrackingDemo/Main.cpp* -> Main.cpp -> /opt/Inuitive/InuDev/docs/HeadTrackingDemo
+/tmp/for_debian/Inuitive/InuDev/docs/Depth2File/Makefile* -> Makefile -> /opt/Inuitive/InuDev/docs/Depth2File
+/tmp/for_debian/Inuitive/InuDev/docs/Depth2File/Depth2File.cpp* -> Depth2File.cpp -> /opt/Inuitive/InuDev/docs/Depth2File
+/tmp/for_debian/Inuitive/InuDev/docs/Depth2File/Depth2File.vcxproj* -> Depth2File.vcxproj -> /opt/Inuitive/InuDev/docs/Depth2File
+/tmp/for_debian/Inuitive/InuDev/docs/Depth2File/Depth2File.vcxproj.filters* -> Depth2File.vcxproj.filters -> /opt/Inuitive/InuDev/docs/Depth2File
+/tmp/for_debian/Inuitive/InuDev/docs/Depth2File/Depth2File.sln* -> Depth2File.sln -> /opt/Inuitive/InuDev/docs/Depth2File
+/tmp/for_debian/Inuitive/InuDev/docs/InuDev.chm* -> InuDev.chm -> /opt/Inuitive/InuDev/docs
+/tmp/for_debian/Inuitive/InuDev/bin/boot/inu_app_A.cva* -> inu_app_A.cva -> /opt/Inuitive/InuDev/bin/boot
+/tmp/for_debian/Inuitive/InuDev/bin/libInuSensorsDB.so* -> libInuSensorsDB.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libopencv_features2d.so.2.4* -> libopencv_features2d.so.2.4 -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/SetPermissionRT* -> SetPermissionRT -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libinu_host_lib.so* -> libinu_host_lib.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libopencv_imgproc.so.2.4* -> libopencv_imgproc.so.2.4 -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libtbb.so.2* -> libtbb.so.2 -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libNU3000CVESim.so* -> libNU3000CVESim.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libopencv_flann.so.2.4* -> libopencv_flann.so.2.4 -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libCommonAlgo.so* -> libCommonAlgo.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libopencv_core.so.2.4* -> libopencv_core.so.2.4 -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libDepthImprovements.so* -> libDepthImprovements.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libInuStreams.so* -> libInuStreams.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/InuService* -> InuService -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libusb-1.0.so* -> libusb-1.0.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libopencv_calib3d.so.2.4* -> libopencv_calib3d.so.2.4 -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libinu_usb_lib.so* -> libinu_usb_lib.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/bin/libWebcamIntegration.so* -> libWebcamIntegration.so -> /opt/Inuitive/InuDev/bin
+/tmp/for_debian/Inuitive/InuDev/include/DepthStream.h* -> DepthStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/VideoStream.h* -> VideoStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/GeneralPurposeStream.h* -> GeneralPurposeStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/BaseStream.h* -> BaseStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/FaceExpressionsStream.h* -> FaceExpressionsStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/SpeechRecognitionStream.h* -> SpeechRecognitionStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/Version.h* -> Version.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/WebCamStream.h* -> WebCamStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/InuDefs.h* -> InuDefs.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/GeneralFrame.h* -> GeneralFrame.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/ImageFrame.h* -> ImageFrame.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/HeadStream.h* -> HeadStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/GazeStream.h* -> GazeStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/AuxStream.h* -> AuxStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/BaseFrame.h* -> BaseFrame.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/HandsStream.h* -> HandsStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/FaceEnrollmentStream.h* -> FaceEnrollmentStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/InuStreams.h* -> InuStreams.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/StreamsExport.h* -> StreamsExport.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/InuSensor.h* -> InuSensor.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/FaceRecognitionStream.h* -> FaceRecognitionStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/InuError.h* -> InuError.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/include/GazeCalibrationStream.h* -> GazeCalibrationStream.h -> /opt/Inuitive/InuDev/include
+/tmp/for_debian/Inuitive/InuDev/lib/libInuStreams.so* -> libInuStreams.so -> /opt/Inuitive/InuDev/lib
+<</FILES>>
+<<SCRIPTS>>
+<<PREINST>>
+0
+<</PREINST>>
+<<POSTINST>>
+1
+#! /bin/bash -e
+
+ln -fs /opt/Inuitive/InuDev/config/icons/Inuitive-Service.desktop /usr/share/applications/Inuitive-Service.desktop
+
+mkdir -p /opt/Inuitive/InuDev/config/InuSensors
+
+cd /opt/Inuitive/InuDev/bin
+./SetPermissionRT
+
+<</POSTINST>>
+<<PRERM>>
+0
+<</PRERM>>
+<<POSTRM>>
+0
+<</POSTRM>>
+<</SCRIPTS>>
+<<CHANGELOG>>
+<<DEST>>DEFAULT<</DEST>>
+inudev (9.99.99) General; urgency=medium
+
+ -- Configuration Manager <cmadmin@inuitive-tech.com>  DATEDATE
+
+
+
+
+<</CHANGELOG>>
+<<COPYRIGHT>>
+Copyright by Inuitive Tech. 2015
+<</COPYRIGHT>>
+<<MENU>>
+1
+Name=inudev
+Version=9.99.99
+Exec=/opt/Inuitive/InuDev/bin/InuService
+Comment=.
+Icon=/opt/Inuitive/InuDev/config/icons/Inuitive-Service.desktop
+Type=Application
+Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Categories=Application;
+<</MENU>>
+<<BUILD>>
+1
+1
+1
+<</BUILD>>

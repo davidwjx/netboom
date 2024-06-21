@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- LUXOR MASTER configuration -->
+<InuSWGraph xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:schemaLocation="http://www.w3schools.com sw_graph.xsd">
+  <Version>1</Version>
+  <LIST>
+    <function>
+        <!-- Gaze stereo [12.5 FPS] -->
+      <name>Stream_GAZE_Stereo</name>
+      <type>STREAM_OUT_EXT_DMA</type>
+      <inputs>
+        <input>IMAGE_8</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>40</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF3</connIdE>
+      </params>
+    </function>
+    <function>
+    <!-- Gaze stereo ROI [187.5 FPS] -->
+      <name>Stream_GAZE_ROI_Left</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_4</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>40</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF3</connIdE>
+      </params>
+    </function>
+        <function>
+    <!-- Gaze stereo ROI [187.5 FPS] -->
+      <name>Stream_GAZE_ROI_Right</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMAGE_5</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>40</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / MIPI-->
+        <connIdE>USB_IF3</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_Track_Stereo</name>
+      <type>STREAM_OUT_EXT_DMA</type>
+      <inputs>
+        <input>IMAGE_0</input>
+      </inputs>
+      <params>
+        <thread_priority>0</thread_priority>
+        <numBuffers>40</numBuffers>
+        <connIdE>USB_IF0</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>IMU_0</name>
+      <type>IMU</type>
+      <inputs>
+        <input>NULL</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <accel_odr>833</accel_odr>
+        <accel_scale>2</accel_scale>
+        <accel_bw_accel>0</accel_bw_accel>
+        <accel_bw_gyro>0</accel_bw_gyro>
+        <!-- Time shift In usec-->
+        <!-- 100Hz-6510 200Hz-11460 400Hz-13770 800Mhz-15020 1600Mhz-15640-->
+        <accel_timeshift>6510</accel_timeshift>
+        <accel_batchsize>1</accel_batchsize>
+        <gyro_odr>833</gyro_odr>
+        <gyro_scale>2000</gyro_scale>
+       <!-- keep bw the same as accel to support legacy -->
+        <gyro_bw_accel>0</gyro_bw_accel>
+        <gyro_bw_gyro>0</gyro_bw_gyro>
+        <!-- Time shift In usec-->
+        <!-- 100Hz-6510 200Hz-11460 400Hz-13770 800Mhz-15020 1600Mhz-15640-->
+        <gyro_timeshift>6510</gyro_timeshift>
+        <gyro_batchsize>1</gyro_batchsize>
+        <magn_odr>100</magn_odr>
+        <magn_scale>0</magn_scale>
+       <!-- keep bw the same as accel to support legacy -->
+        <magn_bw_accel>0</magn_bw_accel>
+        <magn_bw_gyro>0</magn_bw_gyro>
+        <!-- Time shift In usec-->
+        <!-- 100Hz-6510 200Hz-11460 400Hz-13770 800Mhz-15020 1600Mhz-15640-->
+        <magn_timeshift>6510</magn_timeshift>
+        <magn_batchsize>2</magn_batchsize>     
+        <!-- 0 = Paired batching disabled  1 = 1 Gyro and Accelerometer set of samples batched together, 2 = 2 Gyro and Accelerometer samples batched together , N= N Gyro and Accelerometer batched together. I recommend using a value of 4  -->
+        <IMU_paired_batch_size>4</IMU_paired_batch_size>      
+      </params>
+    </function>
+    <data>
+      <name>IMU_DATA_0</name>
+      <type>IMU_DATA</type>
+      <input>IMU_0</input>
+      <source>IMU_0</source>
+      <params></params>
+    </data>
+    <function>
+      <name>Stream_Imu_0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>IMU_DATA_0</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>1000</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF1</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_mp_isp0</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>DOWNSCALED</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>40</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF2</connIdE>
+      </params>
+    </function>
+    <function>
+      <name>Stream_mp_isp1</name>
+      <type>STREAM_OUT</type>
+      <inputs>
+        <input>CROPPED</input>
+      </inputs>
+      <params>
+        <!-- options: 0 low, 1 medium, 2 high, 3 graph runtime context -->
+        <thread_priority>3</thread_priority>
+        <numBuffers>40</numBuffers>
+        <!-- options: USB_IF0 / USB_IF1 / UART / TCP / UDP / CDC / STUB-->
+        <connIdE>USB_IF4</connIdE>
+      </params>
+    </function>
+  </LIST>
+</InuSWGraph>

@@ -1,0 +1,47 @@
+#!/bin/sh
+
+start () {
+    # Put here the command to start your application
+    INU_BIN_RDIR=/opt/Inuitive/InuDev/bin
+    cd $INU_BIN_RDIR
+#    ./InuService | tee /tmp/$$.inuservice.log.txt &
+    ./InuService 1>/tmp/$$.inuservice.log.txt 2>&1 &
+   IS_INUSERVICE_RUN=`ps -e | grep InuService | wc -l | awk '{print $0}'`
+   if [ "$IS_INUSERVICE_RUN" = "0" ]
+   then
+	 echo "InuService Starting failed"
+   else
+   	 INUSERVICE_PID=`ps -e | grep InuService | awk '{print $1}'`
+   	 echo "InuService Started: "$INUSERVICE_PID
+   fi
+}
+
+stop () {
+    # Put here the command to stop your application
+    INUSERVICE_PID=`ps -e | grep InuService | awk '{print $1}'`
+    if [ "$INUSERVICE_PID" != "" ]
+    then
+        kill -9 $INUSERVICE_PID
+	echo "InuService stopped"
+    fi
+}
+
+case "$1" in
+start)
+        start
+        ;;
+stop)
+        stop
+        ;;
+restart)
+        stop
+        sleep 1
+        start
+        ;;
+*)
+        echo "Usage: $0 { start | stop | restart }"
+        exit 1
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,7 @@
+include(CMakeFindDependencyMacro)
+
+find_dependency(cnnappcommon     1.0)
+find_dependency(evinulayers     1.0)
+
+# Import externalmultilibTargets
+include("${CMAKE_CURRENT_LIST_DIR}/inu_multi_lib@BUILD__PREFIX@Targets.cmake")

@@ -1,0 +1,8 @@
+[requires]
+opencv_linux_gcc-7.3_armv8/4.5.1@3rdParty/dev
+boost_linux_gcc-7.3_armv8/1.67.0@3rdParty/dev
+tiff_linux/4.0.3@3rdParty/dev
+yaml-cpp/0.6.2@3rdParty/dev
+
+[generators]
+cmake
