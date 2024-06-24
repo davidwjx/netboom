@@ -22,8 +22,8 @@
 
 
 #define GROUPCAST_IP "224.0.1.0"
-//#define GROUP_IP "239.0.1.10"
 #define BROADCAST_IP "255.255.255.255"
+
 typedef struct
 {
     int     type;
@@ -94,7 +94,6 @@ void process_options(int argc, char* argv[], NetBoomConfigParams* configP)
 
     argc -= optind;
     argv += optind;
-
 }
 
 
@@ -116,7 +115,12 @@ int main(int argc, char* argv[])
     process_options(argc, argv, &g_nbcfgs);
 
     // 1. 创建通信的套接字
-    SOCKET fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    SOCKET fd, new_socket;
+    if (g_nbcfgs.type == 1)
+        fd = socket(AF_INET, SOCK_STREAM, 0);
+    else
+        fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+
     if (fd == -1)
     {
         perror("socket");
@@ -124,12 +128,39 @@ int main(int argc, char* argv[])
     }
 
     // 2. 设置组播属性 (经测试可以不设置发送端组播属性也能正常发送)
-    struct in_addr opt;
     // 将组播地址初始化到这个结构体成员中即可
+    int num = 0;
+    struct in_addr opt;
+    int opt_tcp = 1;
+    char buf[1024] = { 0 };
+    char sendaddrbuf[64] = { 0 };
+
+    socklen_t len = sizeof(struct sockaddr_in);
+    struct sockaddr_in cliaddr;
+    struct sockaddr_in address;
     switch (g_nbcfgs.type)
     {
     case 1:
-        inet_pton(AF_INET, GROUPCAST_IP, &opt.s_addr);
+        setsockopt(fd, SOL_SOCKET, SO_REUSEADDR /* | SO_REUSEPORT*/, (const char*)&opt_tcp, sizeof(opt_tcp));
+        address.sin_family = AF_INET;
+        address.sin_addr.s_addr = INADDR_ANY;
+        address.sin_port = htons(g_nbcfgs.port);
+        // Binding the socket to the network address and port
+        if (bind(fd, (struct sockaddr*)&address, sizeof(address)) < 0) {
+            perror("bind failed");
+            goto ROUTINE_END;
+        }
+        if (listen(fd, 3) < 0) {
+            perror("listen");
+            goto ROUTINE_END;
+        }
+
+        if ((new_socket = accept(fd, (struct sockaddr*)&address, (socklen_t*)&len)) < 0) {
+            perror("accept");
+            goto ROUTINE_END;
+        }
+
+        printf("sendaddr: %s, port:%d\n", inet_ntop(AF_INET, &address.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), address.sin_port);
         break;
 
     case 2:
@@ -147,35 +178,48 @@ int main(int argc, char* argv[])
         setsockopt(fd, SOL_SOCKET, SO_BROADCAST, (const char*)&opt, sizeof(opt));
     }
 
-    
-
-    char buf[1024];
-    char sendaddrbuf[64];
-
-    socklen_t len = sizeof(struct sockaddr_in);
-    struct sockaddr_in sendaddr;
-
-    struct sockaddr_in cliaddr;
-    cliaddr.sin_family = AF_INET;
-    cliaddr.sin_port = htons(g_nbcfgs.port); // 接收端需要绑定9999端口
-    // 发送组播消息, 需要使用组播地址, 和设置组播属性使用的组播地址一致就可以
-    //inet_pton(AF_INET, GROUPCAST_IP, &cliaddr.sin_addr.s_addr);
-    memcpy(&cliaddr.sin_addr.s_addr, &opt.s_addr, sizeof(opt));
-
-    // 3. 通信
-    int num = 0;
-    while (1)
+    if (g_nbcfgs.type == 1)
     {
-        memset(buf, 0, sizeof(buf));
-        sprintf_s(buf, "hello, client...%d\n", num++);
-        // 数据广播
-        sendto(fd, buf, strlen(buf) + 1, 0, (struct sockaddr*)&cliaddr, len);
-        printf("发送的组播的数据: %s\n", buf);
-        memset(buf, 0, sizeof(buf));
-        recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr*)&sendaddr, &len);
-        printf("sendaddr: %s, port:%d\n", inet_ntop(AF_INET, &sendaddr.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), sendaddr.sin_port);
-        printf("接收到的组播消息: %s\n", buf);
+        // Reading data from the client
+        int valread = _read(new_socket, buf, sizeof(buf));
+        printf("Received from client: %s %d\n", buf, valread);
+        while (1)
+        {
+            memset(buf, 0, sizeof(buf));
+            sprintf_s(buf, "hello, client...%d\n", num++);
+            // 数据广播
+            _write(new_socket, buf, strlen(buf));
+        }
     }
+    else
+    {
+        cliaddr.sin_family = AF_INET;
+        cliaddr.sin_port = htons(g_nbcfgs.port); // 接收端需要绑定9999端口
+        printf("sin_port: %d", cliaddr.sin_port);
+        // 发送组播消息, 需要使用组播地址, 和设置组播属性使用的组播地址一致就可以
+        memcpy(&cliaddr.sin_addr.s_addr, &opt.s_addr, sizeof(opt));
+
+        // 3. 通信
+        while (1)
+        {
+            
+            memset(buf, 0, sizeof(buf));
+            sprintf_s(buf, "hello, client...%d\n", num++);
+            // 数据广播
+            sendto(fd, buf, strlen(buf) + 1, 0, (struct sockaddr*)&cliaddr, len);
+            printf("发送的组播的数据: %s to %x %d\n", buf, 9999, cliaddr.sin_port);
+            if (g_nbcfgs.type == 2)
+            {
+                memset(buf, 0, sizeof(buf));
+                recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr*)&address, &len);
+                printf("sendaddr: %s, port: %d\n", inet_ntop(AF_INET, &address.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), address.sin_port);
+                printf("接收到的组播消息: %s\n", buf);
+            }
+        }
+    }
+
+
+ROUTINE_END:
     closesocket(fd);
 
 #if defined(WIN32)

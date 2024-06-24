@@ -79,7 +79,7 @@ int main()
         memset(buf, 0, sizeof(buf));
         // 阻塞等待数据达到
         recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr*)&sendaddr, &len);
-        printf("sendaddr:%s, port:%d\n", inet_ntop(AF_INET, &sendaddr.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), sendaddr.sin_port);
+        printf("sendaddr:%s, port:%d %x\n", inet_ntop(AF_INET, &sendaddr.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), sendaddr.sin_port, 9999);
         printf("接收到的组播消息: %s\n", buf);
         sendto(fd, buf, strlen(buf) + 1, 0, (struct sockaddr*)&sendaddr, len);
     }
