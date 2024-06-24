@@ -1,4 +1,0 @@
-﻿  netboom_rcvr.cpp
-D:\works\netboomer\FW\nu4100\app\host\inu_host_lib\prj\windows\netboom_rcvr\netboom_rcvr.cpp(84,37): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  LINK : D:\works\netboomer\FW\nu4100\app\host\inu_host_lib\prj\windows\netboom_rcvr\x64\Debug\netboom_rcvr.exe not found or not built by the last incremental link; performing full link
-  netboom_rcvr.vcxproj -> D:\works\netboomer\FW\nu4100\app\host\inu_host_lib\prj\windows\netboom_rcvr\x64\Debug\netboom_rcvr.exe

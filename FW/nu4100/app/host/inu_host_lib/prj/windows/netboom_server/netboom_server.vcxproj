@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\..\..\..\common\infrastructure\os\inc;..\..\..\..\..\common\infrastructure\inc;..\..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\..\api\host;..\..\..\..\..\api\common;..\..\..\..\..\api\common\graph</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\..\..\..\common\include;..\..\..\..\..\common\infrastructure\os\inc;..\..\..\..\..\common\infrastructure\inc;..\..\..\..\..\common\infrastructure\cls\inc;..\..\..\..\..\common\infrastructure\utils\inc;..\..\..\..\..\api\host;..\..\..\..\..\api\common;..\..\..\..\..\api\common\graph</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,7 +130,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="netboom_sndr.cpp" />
+    <ClCompile Include="getopt.cpp" />
+    <ClCompile Include="netboom_server.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

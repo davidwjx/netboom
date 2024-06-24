@@ -16,7 +16,7 @@
 #pragma comment(lib, "ws2_32.lib")
 #endif 
 
-#define GROUP_IP "224.0.1.0"
+#define GROUPCAST_IP "224.0.1.0"
 
 int main()
 {
@@ -56,13 +56,13 @@ int main()
 #if 0 //使用struct ip_mreqn或者 struct ip_mreq 设置接收端组播属性都可以正常接收
     struct ip_mreqn opt;
     // 要加入到哪个多播组, 通过组播地址来区分
-    inet_pton(AF_INET, GROUP_IP, &opt.imr_multiaddr.s_addr);
+    inet_pton(AF_INET, GROUPCAST_IP, &opt.imr_multiaddr.s_addr);
     opt.imr_address.s_addr = htonl(INADDR_ANY);
     opt.imr_ifindex = if_nametoindex("ens33");
     setsockopt(fd, IPPROTO_IP, IP_ADD_MEMBERSHIP, &opt, sizeof(opt));
 #else
     struct ip_mreq mreq; // 多播地址结构体
-    inet_pton(AF_INET, GROUP_IP, &mreq.imr_multiaddr.s_addr);
+    inet_pton(AF_INET, GROUPCAST_IP, &mreq.imr_multiaddr.s_addr);
     mreq.imr_interface.s_addr = htonl(INADDR_ANY);
     ret = setsockopt(fd, IPPROTO_IP, IP_ADD_MEMBERSHIP, (const char*) & mreq, sizeof(mreq));
 #endif
