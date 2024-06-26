@@ -39,7 +39,7 @@ static void display_help(void)
     char helpStringBuffer[1024];
 
     sprintf_s(helpStringBuffer,
-        "Usage: netboom_sndr [OPTION]\n"
+        "Usage: netboom_server [OPTION]\n"
         "\n"
         " Parameters  in a configuration:\n"
         "  -T       1: unicast  2: multicast   4: broadcast\n"
@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
     process_options(argc, argv, &g_nbcfgs);
 
     // 1. 创建通信的套接字
-    SOCKET fd, new_socket;
+    SOCKET fd, client;
     if (g_nbcfgs.type == 1)
         fd = socket(AF_INET, SOCK_STREAM, 0);
     else
@@ -155,12 +155,12 @@ int main(int argc, char* argv[])
             goto ROUTINE_END;
         }
 
-        if ((new_socket = accept(fd, (struct sockaddr*)&address, (socklen_t*)&len)) < 0) {
+        if ((client = accept(fd, (struct sockaddr*)&address, (socklen_t*)&len)) < 0) {
             perror("accept");
             goto ROUTINE_END;
         }
 
-        printf("sendaddr: %s, port:%d\n", inet_ntop(AF_INET, &address.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), address.sin_port);
+        printf("sendaddr: %s, port:%d %d\n", inet_ntop(AF_INET, &address.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), address.sin_port, ntohs(address.sin_port));
         break;
 
     case 2:
@@ -180,39 +180,38 @@ int main(int argc, char* argv[])
 
     if (g_nbcfgs.type == 1)
     {
-        // Reading data from the client
-        int valread = _read(new_socket, buf, sizeof(buf));
-        printf("Received from client: %s %d\n", buf, valread);
+        // Reading data from the client 
+
         while (1)
         {
             memset(buf, 0, sizeof(buf));
+            int valread = recv(client, buf, sizeof(buf), 0);
+            printf("Received from client: %s\n", buf);
+
             sprintf_s(buf, "hello, client...%d\n", num++);
-            // 数据广播
-            _write(new_socket, buf, strlen(buf));
+            send(client, buf, strlen(buf)+1, 0);
         }
     }
     else
     {
         cliaddr.sin_family = AF_INET;
         cliaddr.sin_port = htons(g_nbcfgs.port); // 接收端需要绑定9999端口
-        printf("sin_port: %d", cliaddr.sin_port);
         // 发送组播消息, 需要使用组播地址, 和设置组播属性使用的组播地址一致就可以
         memcpy(&cliaddr.sin_addr.s_addr, &opt.s_addr, sizeof(opt));
 
         // 3. 通信
         while (1)
         {
-            
             memset(buf, 0, sizeof(buf));
             sprintf_s(buf, "hello, client...%d\n", num++);
             // 数据广播
             sendto(fd, buf, strlen(buf) + 1, 0, (struct sockaddr*)&cliaddr, len);
-            printf("发送的组播的数据: %s to %x %d\n", buf, 9999, cliaddr.sin_port);
+            printf("发送的组播的数据: %s to %d %d\n", buf, 9999, cliaddr.sin_port);
             if (g_nbcfgs.type == 2)
             {
                 memset(buf, 0, sizeof(buf));
                 recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr*)&address, &len);
-                printf("sendaddr: %s, port: %d\n", inet_ntop(AF_INET, &address.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), address.sin_port);
+                printf("sendaddr: %s, port: %d %d\n", inet_ntop(AF_INET, &address.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), address.sin_port, ntohs(address.sin_port));
                 printf("接收到的组播消息: %s\n", buf);
             }
         }

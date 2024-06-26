@@ -32,6 +32,8 @@ x64
 *.la
 *.sh
 *.log
+*.vcxproj.user
+*.vcxproj.filters
 FW/nu4100/app/build/gp/bin/boot10065/inu_target.out.nonstripped
 FW/nu4100/app/build/gp/bin/boot0/inu_target.out.nonstripped
 FW/nu4100/app/target/gp/prj/make/inu_target.out.nonstripped
