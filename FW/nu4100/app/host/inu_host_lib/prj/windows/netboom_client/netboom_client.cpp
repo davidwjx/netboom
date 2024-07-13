@@ -17,6 +17,7 @@
 #endif 
 #include "getopt.h"
 
+#define UNICAST_IP "127.0.0.1"
 #define GROUPCAST_IP "224.0.1.0"
 #define BROADCAST_IP "255.255.255.255"
 
@@ -102,8 +103,8 @@ int main(int argc, char* argv[])
     process_options(argc, argv, &g_nbcfgs);
 
     // 1. 创建通信的套接字
-    SOCKET fd, new_socket;
-    if (g_nbcfgs.type == 1)
+    SOCKET fd;
+    if (g_nbcfgs.type == 8)
         fd = socket(AF_INET, SOCK_STREAM, 0);
     else
         fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -119,7 +120,7 @@ int main(int argc, char* argv[])
     addr.sin_family = AF_INET;
     addr.sin_port = htons(g_nbcfgs.port);    // 大端
 
-    if (g_nbcfgs.type == 1)
+    if (g_nbcfgs.type == 8)
     {
         // Convert IPv4 and IPv6 addresses from text to binary form
         if (inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr) <= 0) {
@@ -134,8 +135,10 @@ int main(int argc, char* argv[])
     }
     else
     {
+
         addr.sin_addr.s_addr = htonl(INADDR_ANY);  // 0.0.0.0
         ret = bind(fd, (struct sockaddr*)&addr, sizeof(addr));
+
         if (ret == -1)
         {
             perror("bind");
@@ -168,10 +171,11 @@ int main(int argc, char* argv[])
     struct sockaddr_in sendaddr;
 
     // 3. 通信
+    int num = 0;
     while (1)
     {
         memset(buf, 0, sizeof(buf));
-        if (g_nbcfgs.type == 1)
+        if (g_nbcfgs.type == 8)
         {
             // Sending data to the server
             const char* hello = "Hello from client..\n";
@@ -183,15 +187,15 @@ int main(int argc, char* argv[])
             printf("Server response: %s\n", buf);
         }
         // 接收广播消息
-        else if (g_nbcfgs.type == 2)
+        else if (g_nbcfgs.type & 0x3)  // group cast
         {
             // 阻塞等待数据达到
             recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr*)&sendaddr, &len);
             printf("sendaddr:%s, port:%d %d %s\n", inet_ntop(AF_INET, &sendaddr.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), sendaddr.sin_port, ntohs(sendaddr.sin_port), buf);
-            strcpy_s(buf, " from client..\n");
+            sprintf_s(buf, "from client...%d\n", num++);
             sendto(fd, buf, strlen(buf) + 1, 0, (struct sockaddr*)&sendaddr, len);
         }
-        else if (g_nbcfgs.type == 4)
+        else if (g_nbcfgs.type == 4)  // broad cast
         {
             recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr*)&sendaddr, &len);
             printf("sendaddr:%s, port:%d %d %s\n", inet_ntop(AF_INET, &sendaddr.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), sendaddr.sin_port, ntohs(sendaddr.sin_port), buf);

@@ -20,7 +20,7 @@
 #pragma comment(lib, "ws2_32.lib")
 #endif 
 
-
+#define UNICAST_IP "127.0.0.1"
 #define GROUPCAST_IP "224.0.1.0"
 #define BROADCAST_IP "255.255.255.255"
 
@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
 
     // 1. 创建通信的套接字
     SOCKET fd, client;
-    if (g_nbcfgs.type == 1)
+    if (g_nbcfgs.type == 8)
         fd = socket(AF_INET, SOCK_STREAM, 0);
     else
         fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -140,7 +140,22 @@ int main(int argc, char* argv[])
     struct sockaddr_in address;
     switch (g_nbcfgs.type)
     {
-    case 1:
+    case 1:   // udb p2p cast
+        inet_pton(AF_INET, UNICAST_IP, &opt.s_addr);
+        setsockopt(fd, IPPROTO_IP, IP_UNICAST_IF, (const char*)&opt, sizeof(opt));
+        break;
+
+    case 2:
+        inet_pton(AF_INET, GROUPCAST_IP, &opt.s_addr);
+        setsockopt(fd, IPPROTO_IP, IP_MULTICAST_IF, (const char*)&opt, sizeof(opt));
+        break;
+
+    case 4:
+        inet_pton(AF_INET, BROADCAST_IP, &opt.s_addr);
+        setsockopt(fd, SOL_SOCKET, SO_BROADCAST, (const char*)&opt, sizeof(opt));
+        break;
+
+    case 8:
         setsockopt(fd, SOL_SOCKET, SO_REUSEADDR /* | SO_REUSEPORT*/, (const char*)&opt_tcp, sizeof(opt_tcp));
         address.sin_family = AF_INET;
         address.sin_addr.s_addr = INADDR_ANY;
@@ -163,22 +178,14 @@ int main(int argc, char* argv[])
         printf("sendaddr: %s, port:%d %d\n", inet_ntop(AF_INET, &address.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), address.sin_port, ntohs(address.sin_port));
         break;
 
-    case 2:
-        inet_pton(AF_INET, GROUPCAST_IP, &opt.s_addr);
-        setsockopt(fd, IPPROTO_IP, IP_MULTICAST_IF, (const char*)&opt, sizeof(opt));
-        break;
-
-    case 4:
-        inet_pton(AF_INET, BROADCAST_IP, &opt.s_addr);
-        setsockopt(fd, SOL_SOCKET, SO_BROADCAST, (const char*)&opt, sizeof(opt));
-        break;
-
     default:
         inet_pton(AF_INET, BROADCAST_IP, &opt.s_addr);
         setsockopt(fd, SOL_SOCKET, SO_BROADCAST, (const char*)&opt, sizeof(opt));
     }
 
-    if (g_nbcfgs.type == 1)
+
+    // tcp case
+    if (g_nbcfgs.type == 8)
     {
         // Reading data from the client 
 
@@ -194,6 +201,7 @@ int main(int argc, char* argv[])
     }
     else
     {
+
         cliaddr.sin_family = AF_INET;
         cliaddr.sin_port = htons(g_nbcfgs.port); // 接收端需要绑定9999端口
         // 发送组播消息, 需要使用组播地址, 和设置组播属性使用的组播地址一致就可以
@@ -206,13 +214,21 @@ int main(int argc, char* argv[])
             sprintf_s(buf, "hello, client...%d\n", num++);
             // 数据广播
             sendto(fd, buf, strlen(buf) + 1, 0, (struct sockaddr*)&cliaddr, len);
-            printf("发送的组播的数据: %s to %d %d\n", buf, 9999, cliaddr.sin_port);
-            if (g_nbcfgs.type == 2)
+
+            if (1 == g_nbcfgs.type)
+                printf("sending unicast data: %s to %d %d\n", buf, g_nbcfgs.port, cliaddr.sin_port);
+            else if (2 == g_nbcfgs.type)
+                printf("sending groupcast data: %s to %d %d\n", buf, g_nbcfgs.port, cliaddr.sin_port);
+
+            if (g_nbcfgs.type & 3)
             {
                 memset(buf, 0, sizeof(buf));
                 recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr*)&address, &len);
                 printf("sendaddr: %s, port: %d %d\n", inet_ntop(AF_INET, &address.sin_addr.s_addr, sendaddrbuf, sizeof(sendaddrbuf)), address.sin_port, ntohs(address.sin_port));
-                printf("接收到的组播消息: %s\n", buf);
+                if (1 == g_nbcfgs.type)
+                    printf("received unicast msg:: %s\n", buf);
+                else 
+                    printf("received multicast msg: %s\n", buf);
             }
         }
     }
